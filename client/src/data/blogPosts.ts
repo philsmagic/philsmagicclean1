@@ -77,7 +77,7 @@ export const posts: Post[] = [
       { type: "h2", text: "One more thing: janitorial services" },
       {
         type: "p",
-        text: "Alongside the system change, we're expanding the commercial and janitorial side of our business \u2014 offices, restrooms, floors, restaurants, and post-construction cleanup. It's work we've done for Peninsula businesses for years, and we have room for more of it. As a thank-you, existing clients get $150 off their first month of recurring janitorial service.",
+        text: "Alongside the system change, we're growing the commercial and janitorial side of our business \u2014 offices, restrooms, floors, restaurants, and post-construction cleanup. Same crew, same standard, your whole space. As a thank-you, existing clients get $150 off their first month of recurring janitorial service.",
       },
       {
         type: "button",
@@ -97,21 +97,21 @@ export const posts: Post[] = [
     date: "August 25, 2026",
     title: "We're Expanding Our Janitorial & Commercial Cleaning",
     excerpt:
-      "We've been handling commercial and janitorial cleaning for Peninsula businesses for years — floors, restrooms, break rooms, the whole interior. We're expanding that side of the business, and existing window cleaning clients get $150 off their first month of recurring service.",
+      "The same care we bring to your windows, applied to your whole space \u2014 floors, restrooms, break rooms, the lot. We're growing the janitorial side of the business, and existing window cleaning clients get $150 off their first month of recurring service.",
     metaDescription:
       "Experienced janitorial and commercial cleaning across the Peninsula from Phil's Magic Cleaning \u2014 offices, restaurants, retail, and post-construction. 5.0-star rated, licensed and insured. Call 650-660-0430.",
     body: [
       {
         type: "p",
-        text: "If you've had Phil out to clean your storefront, you already know how he works: on time, often early, and he doesn't consider a job done until he's inspected it himself. What you might not know is that plenty of Peninsula businesses already have us doing far more than their windows \u2014 floors, restrooms, break rooms, the whole interior.",
+        text: "If you've had Phil out to clean your storefront, you already know how he works: on time, often early, and he doesn't consider a job done until he's inspected it himself. That's the standard behind 42 five-star reviews and four years of Peninsula businesses calling him back.",
       },
       {
         type: "p",
-        text: "That side of the business has grown quietly, mostly by clients asking whether we'd take on more while we were already there. The answer was always yes. We're now expanding it deliberately \u2014 same crew, same standard we've held on glass for years, and room on the schedule for more commercial work.",
+        text: "What you might not know is that we don't stop at glass. We take on full commercial cleaning too \u2014 floors, restrooms, break rooms, the whole interior \u2014 and we're actively growing that side of the business.",
       },
       {
         type: "p",
-        text: "So if you've only ever thought of us as the window people: we do the whole space, and we've been doing it for a long time.",
+        text: "It's the same crew and the same standard. If you've only ever thought of us as the window people, we'd like to be the ones who keep your whole space looking right.",
       },
       { type: "h2", text: "What janitorial service covers" },
       {
