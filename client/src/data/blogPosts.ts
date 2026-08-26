@@ -77,7 +77,7 @@ export const posts: Post[] = [
       { type: "h2", text: "One more thing: janitorial services" },
       {
         type: "p",
-        text: "Alongside the system change, we've made our commercial and janitorial cleaning an official service line \u2014 offices, restrooms, floors, restaurants, and post-construction cleanup. As a thank-you, existing clients get $100 off their first month of janitorial service.",
+        text: "Alongside the system change, we've made our commercial and janitorial cleaning an official service line \u2014 offices, restrooms, floors, restaurants, and post-construction cleanup. As a thank-you, existing clients get $150 off their first month of janitorial service.",
       },
       {
         type: "button",
@@ -97,7 +97,7 @@ export const posts: Post[] = [
     date: "August 25, 2026",
     title: "Now Offering Janitorial & Commercial Cleaning",
     excerpt:
-      "Phil's Magic Cleaning has been quietly handling commercial cleaning for our business clients for a while now. We're making it official — and existing window cleaning clients get $100 off their first month of service.",
+      "Phil's Magic Cleaning has been quietly handling commercial cleaning for our business clients for a while now. We're making it official — and existing window cleaning clients get $150 off their first month of service.",
     metaDescription:
       "Janitorial and commercial cleaning across the Peninsula from Phil's Magic Cleaning \u2014 offices, restaurants, retail, and post-construction. 5.0-star rated, licensed and insured. Call 650-660-0430.",
     body: [
@@ -131,7 +131,7 @@ export const posts: Post[] = [
       {
         type: "callout",
         title: "A thank-you to our window cleaning clients",
-        text: "If you're already a Phil's Magic Cleaning client, you get $100 off your first month of janitorial service. No code, no signup \u2014 just mention it when you call. This one is a gift from Phil, for the years of support and referrals that built this business.",
+        text: "If you're already a Phil's Magic Cleaning client, you get $150 off your first month of janitorial service. No code, no signup \u2014 just mention it when you call. This one is a gift from Phil, for the years of support and referrals that built this business.",
       },
       { type: "h2", text: "Getting an estimate" },
       {
