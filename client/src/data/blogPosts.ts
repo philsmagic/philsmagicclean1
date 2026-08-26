@@ -74,6 +74,20 @@ export const posts: Post[] = [
         type: "p",
         text: "We're also rolling out a referral program. Refer a friend, neighbor, or business, and you'll earn a reduction on your own service for every referral that becomes a client. We'll share the details shortly — but if you've already been sending people our way, thank you. Word of mouth is how this business was built.",
       },
+      { type: "h2", text: "Common questions" },
+      {
+        type: "list",
+        variant: "bullet",
+        items: [
+          "Do I need to do anything right now? No. Your appointments carry over on their own.",
+          "Will my appointment times change? No. Same dates, same times, same crew.",
+          "Do I have to create an account? No signup needed. Use the email address we already have for you and choose \"Forgot Password\" to set your credentials.",
+          "Why re-enter my card? We never see your saved payment details and we don't move them between systems. Re-entering is the safe way to do it, and it takes a minute.",
+          "Can I still pay the way I always have? Yes. Your invoice will come with payment instructions.",
+          "What about my old invoices? Past Square invoices stay in Square. Ask us any time and we'll send you a copy.",
+          "Are your prices changing? No. This is a scheduling and invoicing change only.",
+        ],
+      },
       { type: "h2", text: "One more thing: janitorial services" },
       {
         type: "p",
@@ -83,11 +97,6 @@ export const posts: Post[] = [
         type: "button",
         label: "Read about janitorial services",
         href: "/blog/janitorial-services",
-      },
-      { type: "h2", text: "Questions?" },
-      {
-        type: "p",
-        text: "If anything here is unclear, just call or text us at 650-660-0430. You'll reach Phil directly — happy to walk you through it.",
       },
       { type: "cta", text: "Thanks for trusting us with your space. — Phil" },
     ],
