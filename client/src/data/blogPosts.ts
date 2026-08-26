@@ -77,7 +77,7 @@ export const posts: Post[] = [
       { type: "h2", text: "One more thing: janitorial services" },
       {
         type: "p",
-        text: "Alongside the system change, we've made our commercial and janitorial cleaning an official service line \u2014 offices, restrooms, floors, restaurants, and post-construction cleanup. As a thank-you, existing clients get $150 off their first month of recurring janitorial service.",
+        text: "Alongside the system change, we're expanding the commercial and janitorial side of our business \u2014 offices, restrooms, floors, restaurants, and post-construction cleanup. It's work we've done for Peninsula businesses for years, and we have room for more of it. As a thank-you, existing clients get $150 off their first month of recurring janitorial service.",
       },
       {
         type: "button",
@@ -95,19 +95,23 @@ export const posts: Post[] = [
   {
     slug: "janitorial-services",
     date: "August 25, 2026",
-    title: "Now Offering Janitorial & Commercial Cleaning",
+    title: "We're Expanding Our Janitorial & Commercial Cleaning",
     excerpt:
-      "Phil's Magic Cleaning has been quietly handling commercial cleaning for our business clients for a while now. We're making it official — and existing window cleaning clients get $150 off their first month of recurring service.",
+      "We've been handling commercial and janitorial cleaning for Peninsula businesses for years — floors, restrooms, break rooms, the whole interior. We're expanding that side of the business, and existing window cleaning clients get $150 off their first month of recurring service.",
     metaDescription:
-      "Janitorial and commercial cleaning across the Peninsula from Phil's Magic Cleaning \u2014 offices, restaurants, retail, and post-construction. 5.0-star rated, licensed and insured. Call 650-660-0430.",
+      "Experienced janitorial and commercial cleaning across the Peninsula from Phil's Magic Cleaning \u2014 offices, restaurants, retail, and post-construction. 5.0-star rated, licensed and insured. Call 650-660-0430.",
     body: [
       {
         type: "p",
-        text: "If you've had Phil out to clean your storefront, you already know how he works: on time, often early, and he doesn't consider a job done until he's inspected it himself. What you might not know is that for a while now we've been doing more than windows for a number of our commercial clients \u2014 floors, restrooms, break rooms, the whole interior.",
+        text: "If you've had Phil out to clean your storefront, you already know how he works: on time, often early, and he doesn't consider a job done until he's inspected it himself. What you might not know is that plenty of Peninsula businesses already have us doing far more than their windows \u2014 floors, restrooms, break rooms, the whole interior.",
       },
       {
         type: "p",
-        text: "We're making it official. Janitorial and commercial cleaning is now a full service line at Phil's Magic Cleaning, with the same standard we've always held on glass.",
+        text: "That side of the business has grown quietly, mostly by clients asking whether we'd take on more while we were already there. The answer was always yes. We're now expanding it deliberately \u2014 same crew, same standard we've held on glass for years, and room on the schedule for more commercial work.",
+      },
+      {
+        type: "p",
+        text: "So if you've only ever thought of us as the window people: we do the whole space, and we've been doing it for a long time.",
       },
       { type: "h2", text: "What janitorial service covers" },
       {
@@ -144,7 +148,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "Same team. Same standard. More of your space covered.",
+        text: "Same team. Same standard. Work we already know how to do \u2014 we'd just like to do more of it.",
       },
       { type: "cta", text: "\u2014 Phil" },
     ],
