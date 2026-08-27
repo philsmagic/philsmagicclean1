@@ -94,15 +94,21 @@ export default function BlogPost() {
   const slug = isShortUrl ? "new-system" : params?.slug;
   const post = slug ? getPost(slug) : undefined;
 
+  // A post without a body is a teaser on the index with no article behind it,
+  // so it must read as missing here too - otherwise the 404 page inherits the
+  // article's title and description, and can be indexed under them.
+  const published = post?.body ? post : undefined;
+
   useSeo({
-    title: post
-      ? `${post.title} | Phil's Magic Cleaning`
+    title: published
+      ? `${published.title} | Phil's Magic Cleaning`
       : "Article Not Found | Phil's Magic Cleaning",
-    description: post?.metaDescription ?? post?.excerpt,
-    canonical: post ? `/blog/${post.slug}` : undefined,
+    description: published?.metaDescription ?? published?.excerpt,
+    canonical: published ? `/blog/${published.slug}` : undefined,
+    noindex: !published,
   });
 
-  if (!post || !post.body) return <NotFound />;
+  if (!published) return <NotFound />;
 
   return (
     <Layout>
@@ -117,13 +123,13 @@ export default function BlogPost() {
           </Link>
 
           <div className="text-sm text-gray-500 mt-6 mb-2" style={SANS}>
-            {post.date}
+            {published.date}
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-[#1a3a4a] mb-8 leading-tight" style={SERIF}>
-            {post.title}
+            {published.title}
           </h1>
 
-          {post.body.map(renderBlock)}
+          {published.body!.map(renderBlock)}
 
           <div className="mt-14 bg-[#f0f5f8] rounded-xl p-8 md:p-10 text-center">
             <h2 className="text-2xl font-bold text-[#1a3a4a] mb-3" style={SERIF}>
