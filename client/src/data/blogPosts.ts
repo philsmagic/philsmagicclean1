@@ -1,9 +1,31 @@
+/**
+ * Jobber request forms, from Settings > Requests and Bookings > ... > Share links.
+ *
+ * Two separate forms on purpose: every submission through the janitorial form is
+ * definitionally a janitorial lead, so attribution needs no UTM tracking, and the
+ * form itself can ask janitorial-specific questions (square footage, frequency,
+ * after-hours access) that a general form cannot.
+ *
+ * An empty value renders no button at all - an unset link must never ship as a
+ * dead end. Phone stays the primary route in every case.
+ */
+export const REQUEST_FORM_URL =
+  "https://clienthub.getjobber.com/hubs/c080b44c-658d-4e03-aad4-23bd241272cb/public/requests/5008849/new";
+
+/** Janitorial-specific form. Falls back to the general form until it exists. */
+export const JANITORIAL_FORM_URL =
+  "https://clienthub.getjobber.com/hubs/c080b44c-658d-4e03-aad4-23bd241272cb/public/requests/5126135/new";
+
+/** Resolves which form a janitorial CTA should point at. */
+export const janitorialFormUrl = () => JANITORIAL_FORM_URL || REQUEST_FORM_URL;
+
 export type Block =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
   | { type: "list"; items: string[]; variant?: "check" | "bullet" }
   | { type: "callout"; title: string; text: string }
   | { type: "button"; label: string; href: string }
+  | { type: "request"; label: string; note?: string }
   | { type: "cta"; text: string };
 
 export type Post = {
@@ -99,6 +121,11 @@ export const posts: Post[] = [
         label: "Read about janitorial services",
         href: "/blog/janitorial-services",
       },
+      {
+        type: "request",
+        label: "Request a janitorial quote",
+        note: "Or call Phil directly at 650-660-0430 \u2014 whichever you prefer.",
+      },
       { type: "cta", text: "Thanks for trusting us with your space. — Phil's Magic Cleaning" },
     ],
   },
@@ -155,6 +182,11 @@ export const posts: Post[] = [
       {
         type: "p",
         text: "Every commercial space is different, so there's no flat price list \u2014 a two-room salon and a restaurant with a full kitchen need very different things. Call or text 650-660-0430 and we'll set up a walkthrough. Phil will look at the space, ask what matters most to you, and give you a straight number with no surprises.",
+      },
+      {
+        type: "request",
+        label: "Request a janitorial quote",
+        note: "Prefer not to call? Send us the details and we'll get back to you.",
       },
       {
         type: "p",
