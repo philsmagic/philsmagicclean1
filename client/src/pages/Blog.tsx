@@ -1,72 +1,94 @@
 import Layout from "@/components/Layout";
+import { Link } from "wouter";
+import { posts } from "@/data/blogPosts";
+import { useSeo } from "@/hooks/useSeo";
 
-const posts = [
-  {
-    date: "May 14, 2025",
-    title: "How Often Should You Clean Your Windows? A Bay Area Homeowner's Guide",
-    excerpt: "Bay Area homeowners face unique challenges: marine layer, salt air, pollen, and urban dust all conspire to dirty your windows faster than you'd expect. Here's a practical guide to cleaning frequency.",
-  },
-  {
-    date: "April 28, 2025",
-    title: "Why Storefront Window Cleaning Is Your Best Marketing Investment",
-    excerpt: "Before a customer ever reads your menu, sees your products, or talks to your staff, they've already formed an opinion — based on your windows. Here's why storefront window cleaning delivers a real marketing ROI.",
-  },
-  {
-    date: "March 19, 2025",
-    title: "Post-Construction Window Cleaning: What to Expect",
-    excerpt: "Finishing a home renovation or new construction project in California? Post-construction window cleaning is a specialized job that requires more than soap and a squeegee. Here's what the process involves.",
-  },
-];
+const SERIF = { fontFamily: "'Playfair Display', serif" };
+const SANS = { fontFamily: "'Source Sans 3', sans-serif" };
 
 export default function Blog() {
+  useSeo({
+    title: "Window Cleaning Tips & Guides | Phil's Magic Cleaning Blog",
+    description:
+      "Expert advice on window and commercial cleaning for Bay Area homes and businesses, from Burlingame's 5.0-star rated cleaning service.",
+    canonical: "/blog",
+  });
+
+  // Client notices are time-sensitive, so they lead regardless of date order.
+  const ordered = [...posts].sort((a, b) => Number(!!b.notice) - Number(!!a.notice));
+
   return (
     <Layout>
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <span className="text-xs font-bold text-[#0d7a8a] uppercase tracking-widest" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+          <span className="text-xs font-bold text-[#0d7a8a] uppercase tracking-widest" style={SANS}>
             Tips &amp; Guides
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1a3a4a] mt-2 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            The Phil's Magic Window Cleaning Blog
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1a3a4a] mt-2 mb-4" style={SERIF}>
+            The Phil's Magic Cleaning Blog
           </h1>
-          <p className="text-lg text-gray-600 mb-12" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+          <p className="text-lg text-gray-600 mb-12" style={SANS}>
             Expert advice on keeping Bay Area homes and businesses looking their best — straight from the professionals.
           </p>
 
           <div className="space-y-10">
-            {posts.map((post) => (
-              <article key={post.title} className="border-b border-gray-100 pb-10 last:border-0">
-                <div className="text-sm text-gray-500 mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                  {post.date}
+            {ordered.map((post) => (
+              <article key={post.slug} className="border-b border-gray-100 pb-10 last:border-0">
+                <div className="flex items-center gap-3 mb-2">
+                  {post.notice && (
+                    <span
+                      className="text-xs font-bold uppercase tracking-wider bg-[#0d7a8a] text-white px-2.5 py-1 rounded"
+                      style={SANS}
+                    >
+                      Client Notice
+                    </span>
+                  )}
+                  <span className="text-sm text-gray-500" style={SANS}>
+                    {post.date}
+                  </span>
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-[#1a3a4a] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  {post.title}
+
+                <h2 className="text-xl md:text-2xl font-bold text-[#1a3a4a] mb-3" style={SERIF}>
+                  {post.body ? (
+                    <Link href={`/blog/${post.slug}`} className="no-underline hover:text-[#0d7a8a] transition-colors">
+                      {post.title}
+                    </Link>
+                  ) : (
+                    post.title
+                  )}
                 </h2>
-                <p className="text-gray-600 leading-relaxed mb-4" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+
+                <p className="text-gray-600 leading-relaxed mb-4" style={SANS}>
                   {post.excerpt}
                 </p>
-                <a
-                  href="tel:6506600430"
-                  className="text-sm font-semibold text-[#0d7a8a] hover:underline no-underline"
-                  style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                >
-                  Read Full Article →
-                </a>
+
+                {/* Only posts with a written body get a link. The previous version
+                    linked every "Read Full Article" to tel:6506600430, which called
+                    Phil instead of opening the article. */}
+                {post.body && (
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="text-sm font-semibold text-[#0d7a8a] hover:underline no-underline"
+                    style={SANS}
+                  >
+                    Read Full Article →
+                  </Link>
+                )}
               </article>
             ))}
           </div>
 
           <div className="mt-16 bg-[#f0f5f8] rounded-xl p-10 text-center">
-            <h2 className="text-2xl font-bold text-[#1a3a4a] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-2xl font-bold text-[#1a3a4a] mb-3" style={SERIF}>
               Ready for Spotless Windows?
             </h2>
-            <p className="text-gray-600 mb-6" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+            <p className="text-gray-600 mb-6" style={SANS}>
               Put our expertise to work for your home or business. Call Phil for a free quote.
             </p>
             <a
               href="tel:6506600430"
               className="inline-block bg-[#0d7a8a] hover:bg-[#0a6370] text-white font-semibold px-8 py-3 rounded no-underline transition-colors"
-              style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+              style={SANS}
             >
               📞 Call 650-660-0430
             </a>

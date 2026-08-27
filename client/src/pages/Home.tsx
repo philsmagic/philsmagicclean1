@@ -154,7 +154,7 @@ export default function Home() {
            <div className="flex-shrink-0 w-full md:w-80">
              <div className="border border-gray-200 rounded-lg p-6 flex flex-col items-center shadow-sm">
               <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/118996510/OxZZcKSTsAXFjGTF.jpg"
+                  src="/images/logo.jpg"
                   alt="Phil's Magic Cleaning logo"
                   className="w-48 h-auto mb-2"
               />
@@ -207,7 +207,7 @@ export default function Home() {
             </span>
           </div>
           <img
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/118996510/XcchJpdZnbGUFrsy.png"
+            src="/images/window-type-guide.jpg"
             alt="Visual guide showing different window types and their pane counts for pricing"
             className="w-full h-auto"
           />
