@@ -99,7 +99,7 @@ export const posts: Post[] = [
         label: "Read about janitorial services",
         href: "/blog/janitorial-services",
       },
-      { type: "cta", text: "Thanks for trusting us with your space. — Phil" },
+      { type: "cta", text: "Thanks for trusting us with your space. — Phil's Magic Cleaning" },
     ],
   },
   {
@@ -160,7 +160,7 @@ export const posts: Post[] = [
         type: "p",
         text: "Same team. Same standard. Work we already know how to do \u2014 we'd just like to do more of it.",
       },
-      { type: "cta", text: "\u2014 Phil" },
+      { type: "cta", text: "\u2014 Phil's Magic Cleaning" },
     ],
   },
   {
