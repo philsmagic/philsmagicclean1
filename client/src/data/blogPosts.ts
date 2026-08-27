@@ -1,10 +1,23 @@
 /**
- * Jobber request form, from Settings > Requests and Bookings > ... > Share links.
- * Leave empty and the request buttons simply do not render, so an unset link can
- * never ship as a dead end. Phone remains the primary path either way: Phil's
- * business runs on him answering his own phone, and that is a selling point.
+ * Jobber request forms, from Settings > Requests and Bookings > ... > Share links.
+ *
+ * Two separate forms on purpose: every submission through the janitorial form is
+ * definitionally a janitorial lead, so attribution needs no UTM tracking, and the
+ * form itself can ask janitorial-specific questions (square footage, frequency,
+ * after-hours access) that a general form cannot.
+ *
+ * An empty value renders no button at all - an unset link must never ship as a
+ * dead end. Phone stays the primary route in every case.
  */
-export const REQUEST_FORM_URL = "";
+export const REQUEST_FORM_URL =
+  "https://clienthub.getjobber.com/hubs/c080b44c-658d-4e03-aad4-23bd241272cb/public/requests/5008849/new";
+
+/** Janitorial-specific form. Falls back to the general form until it exists. */
+export const JANITORIAL_FORM_URL = 
+  "https://clienthub.getjobber.com/hubs/c080b44c-658d-4e03-aad4-23bd241272cb/public/requests/5126135/new";
+
+/** Resolves which form a janitorial CTA should point at. */
+export const janitorialFormUrl = () => JANITORIAL_FORM_URL || REQUEST_FORM_URL;
 
 export type Block =
   | { type: "p"; text: string }

@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { Link, useRoute } from "wouter";
 import NotFound from "@/pages/NotFound";
-import { getPost, REQUEST_FORM_URL, type Block } from "@/data/blogPosts";
+import { getPost, janitorialFormUrl, type Block } from "@/data/blogPosts";
 import { useSeo } from "@/hooks/useSeo";
 
 const SERIF = { fontFamily: "'Playfair Display', serif" };
@@ -78,11 +78,12 @@ function renderBlock(block: Block, i: number) {
     case "request":
       // Renders only when a form URL is configured. Phone stays the primary
       // route; this is the alternative for people who would rather not call.
-      if (!REQUEST_FORM_URL) return null;
+      const formUrl = janitorialFormUrl();
+      if (!formUrl) return null;
       return (
         <div key={i} className="my-8">
           <a
-            href={REQUEST_FORM_URL}
+            href={formUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#0d7a8a] hover:bg-[#0a6370] text-white font-semibold px-7 py-3 rounded no-underline transition-colors"
