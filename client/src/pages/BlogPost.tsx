@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { Link, useRoute } from "wouter";
 import NotFound from "@/pages/NotFound";
-import { getPost, type Block } from "@/data/blogPosts";
+import { getPost, REQUEST_FORM_URL, type Block } from "@/data/blogPosts";
 import { useSeo } from "@/hooks/useSeo";
 
 const SERIF = { fontFamily: "'Playfair Display', serif" };
@@ -75,6 +75,28 @@ function renderBlock(block: Block, i: number) {
         </div>
       );
     }
+    case "request":
+      // Renders only when a form URL is configured. Phone stays the primary
+      // route; this is the alternative for people who would rather not call.
+      if (!REQUEST_FORM_URL) return null;
+      return (
+        <div key={i} className="my-8">
+          <a
+            href={REQUEST_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#0d7a8a] hover:bg-[#0a6370] text-white font-semibold px-7 py-3 rounded no-underline transition-colors"
+            style={SANS}
+          >
+            {block.label} →
+          </a>
+          {block.note && (
+            <p className="text-sm text-gray-500 mt-3 mb-0" style={SANS}>
+              {block.note}
+            </p>
+          )}
+        </div>
+      );
     case "cta":
       return (
         <p key={i} className="text-lg text-[#1a3a4a] font-semibold mt-10 mb-2" style={SANS}>

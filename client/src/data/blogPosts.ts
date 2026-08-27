@@ -1,9 +1,18 @@
+/**
+ * Jobber request form, from Settings > Requests and Bookings > ... > Share links.
+ * Leave empty and the request buttons simply do not render, so an unset link can
+ * never ship as a dead end. Phone remains the primary path either way: Phil's
+ * business runs on him answering his own phone, and that is a selling point.
+ */
+export const REQUEST_FORM_URL = "";
+
 export type Block =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
   | { type: "list"; items: string[]; variant?: "check" | "bullet" }
   | { type: "callout"; title: string; text: string }
   | { type: "button"; label: string; href: string }
+  | { type: "request"; label: string; note?: string }
   | { type: "cta"; text: string };
 
 export type Post = {
@@ -99,6 +108,11 @@ export const posts: Post[] = [
         label: "Read about janitorial services",
         href: "/blog/janitorial-services",
       },
+      {
+        type: "request",
+        label: "Request a janitorial quote",
+        note: "Or call Phil directly at 650-660-0430 \u2014 whichever you prefer.",
+      },
       { type: "cta", text: "Thanks for trusting us with your space. — Phil's Magic Cleaning" },
     ],
   },
@@ -155,6 +169,11 @@ export const posts: Post[] = [
       {
         type: "p",
         text: "Every commercial space is different, so there's no flat price list \u2014 a two-room salon and a restaurant with a full kitchen need very different things. Call or text 650-660-0430 and we'll set up a walkthrough. Phil will look at the space, ask what matters most to you, and give you a straight number with no surprises.",
+      },
+      {
+        type: "request",
+        label: "Request a janitorial quote",
+        note: "Prefer not to call? Send us the details and we'll get back to you.",
       },
       {
         type: "p",
