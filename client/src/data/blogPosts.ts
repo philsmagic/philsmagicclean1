@@ -76,7 +76,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "If that link asks you to verify, enter the email address you use with us, or the last four digits of your phone number.",
+        text: "The portal asks for your email and sends you a secure link \u2014 so it only works if we already have your address. If nothing arrives, we probably don't have it. Text it to us and we'll fix that in a minute.",
       },
       { type: "h2", text: "Coming soon: our referral program" },
       {
@@ -93,7 +93,7 @@ export const posts: Post[] = [
           "Do I have to create an account? No. There's no password to set \u2014 your invoice email has a link that logs you straight in.",
           "Why re-enter my card? We never see your saved payment details and we don't move them between systems. Re-entering is the safe way to do it, and it takes a minute.",
           "Can I still pay the way I always have? Yes. Your invoice will come with payment instructions.",
-          "What if you don't have my email? Then your invoice can't reach you and the portal won't recognize you. Text your email to 650-660-0430 and we'll add it \u2014 that's all it takes.",
+          "What if you don't have my email? Then your invoice can't reach you and you won't be able to use the portal \u2014 it logs you in by emailing you a link. Text your email to 650-660-0430 and we'll add it.",
           "What about my old invoices? Past Square invoices stay in Square. Ask us any time and we'll send you a copy.",
           "Are your prices changing? No. This is a scheduling and invoicing change only.",
         ],
