@@ -59,15 +59,24 @@ export const posts: Post[] = [
         variant: "bullet",
         items: [
           "Your next invoice will come from Jobber, with instructions for completing payment.",
-          "You'll have access to your own Client Portal, where you can view upcoming appointments and invoices. To log in, use the email address we have on file and select \"Forgot Password\" on the login screen — that sets your credentials, no separate signup needed.",
+          "You'll have access to your own Client Portal, where you can view upcoming appointments and invoices. There's no password and no signup \u2014 your invoice email contains a link that takes you straight in.",
           "You'll be asked to re-enter your payment details. This is for your protection: we don't carry payment information between systems, your old payment details were never visible to us, and they'll be deleted.",
           "Your Jobber portal will show invoices going forward. Past Square invoices won't carry over into it — if you need a copy of an older invoice, just call or text and we'll get it to you.",
         ],
       },
       {
+        type: "callout",
+        title: "Make sure we have your current email",
+        text: "Your invoices and portal access both go to the email address we have on file. If you're not certain we have the right one \u2014 or you've never had an email from us \u2014 send it over and we'll get you set up. It takes one text.",
+      },
+      {
         type: "button",
         label: "Open Your Client Portal",
         href: "https://clienthub.getjobber.com/client_hubs/c080b44c-658d-4e03-aad4-23bd241272cb/login/new?source=share_login",
+      },
+      {
+        type: "p",
+        text: "If that link asks you to verify, enter the email address you use with us, or the last four digits of your phone number.",
       },
       { type: "h2", text: "Coming soon: our referral program" },
       {
@@ -81,9 +90,10 @@ export const posts: Post[] = [
         items: [
           "Do I need to do anything right now? No. Your appointments carry over on their own.",
           "Will my appointment times change? No. Same dates, same times, same crew.",
-          "Do I have to create an account? No signup needed. Use the email address we already have for you and choose \"Forgot Password\" to set your credentials.",
+          "Do I have to create an account? No. There's no password to set \u2014 your invoice email has a link that logs you straight in.",
           "Why re-enter my card? We never see your saved payment details and we don't move them between systems. Re-entering is the safe way to do it, and it takes a minute.",
           "Can I still pay the way I always have? Yes. Your invoice will come with payment instructions.",
+          "What if you don't have my email? Then your invoice can't reach you and the portal won't recognize you. Text your email to 650-660-0430 and we'll add it \u2014 that's all it takes.",
           "What about my old invoices? Past Square invoices stay in Square. Ask us any time and we'll send you a copy.",
           "Are your prices changing? No. This is a scheduling and invoicing change only.",
         ],
