@@ -99,15 +99,6 @@ const whyItems = [
   },
 ];
 
-const pricingRows = [
-  { type: "Standard / Oval / Octagon", panes: "1 pane each" },
-  { type: "Two-Lite Slider / Double Hung", panes: "2 panes each" },
-  { type: "Patio Door / Bay Window", panes: "2–3 panes each" },
-  { type: "French Windows & Doors", panes: "5 panes each" },
-  { type: "Bow Window", panes: "4 panes each" },
-  { type: "Base Rate", panes: "$20 / pane", bold: true },
-];
-
 export default function HomeJanitorial() {
   // A near-duplicate of the live homepage. It MUST stay out of the search index
   // or it competes with "/" for the same terms - the classic duplicate-homepage
@@ -171,12 +162,15 @@ export default function HomeJanitorial() {
                     Request a Janitorial Quote
                   </a>
                 )}
+                {/* Paired with the janitorial CTA so the two service lines read as
+                    equals, and window pricing stays one click away rather than
+                    dominating the page with per-pane detail janitorial cannot share. */}
                 <Link
-                  href="/reviews"
-                  className="border border-[#1a3a4a] text-[#1a3a4a] hover:bg-gray-50 font-semibold px-6 py-3 rounded no-underline transition-colors"
+                  href="/window-cleaning"
+                  className="border border-[#0d7a8a] text-[#0d7a8a] hover:bg-[#f0f5f8] font-semibold px-6 py-3 rounded no-underline transition-colors"
                   style={{ fontFamily: "'Source Sans 3', sans-serif" }}
                 >
-                  Read Reviews
+                  Window Cleaning &amp; Pricing
                 </Link>
               </div>
             </div>
@@ -281,67 +275,6 @@ export default function HomeJanitorial() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="bg-white py-16">
-      <div className="container mx-auto px-4 max-w-7xl">
-         <span className="text-xs font-bold text-[#0d7a8a] uppercase tracking-widest" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-           Transparent Pricing
-         </span>
-         <h2 className="text-3xl md:text-4xl font-bold text-[#1a3a4a] mt-2 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-           Simple Per-Pane Pricing
-         </h2>
-         <p className="text-sm text-gray-600 mb-8 max-w-xl" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-           Starting at <strong>$20 per pane</strong>. Each window type counts as a set number of panes. Call for a free quote based on your specific home or business.
-         </p>
-        {/* Window Type Visual Guide — below the pricing intro, above the table */}
-        <div className="max-w-2xl border border-gray-200 rounded-lg overflow-hidden mb-8">
-          <div className="bg-gray-50 px-5 py-2 border-b border-gray-200">
-            <span className="text-xs font-bold text-[#0d7a8a] uppercase tracking-widest" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              Window Type Visual Guide
-            </span>
-          </div>
-          <img
-            src="/images/window-type-guide.jpg"
-            alt="Visual guide showing different window types and their pane counts for pricing"
-            className="w-full h-auto"
-          />
-        </div>
-        <div className="max-w-2xl border border-gray-200 rounded-lg overflow-hidden mb-8">
-           <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-gray-50 border-b border-gray-200">
-                  <th className="text-left px-5 py-3 font-semibold text-gray-700 uppercase text-xs tracking-wider" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                    Window Type
-                  </th>
-                  <th className="text-right px-5 py-3 font-semibold text-gray-700 uppercase text-xs tracking-wider" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                    Pane Count
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {pricingRows.map((row, i) => (
-                  <tr key={row.type} className={`border-b border-gray-100 last:border-0 ${row.bold ? "bg-gray-50" : ""}`}>
-                    <td className={`px-5 py-3 text-gray-700 ${row.bold ? "font-bold" : ""}`} style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                      {row.type}
-                    </td>
-                    <td className={`px-5 py-3 text-right text-[#0d7a8a] ${row.bold ? "font-bold" : ""}`} style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                      {row.panes}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="text-sm text-gray-500" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-            Pricing varies by property. Call{" "}
-            <a href="tel:6506600430" className="text-[#0d7a8a] no-underline hover:underline">
-              650-660-0430
-            </a>{" "}
-            for a free estimate.
-          </p>
-        </div>
-      </section>
 
       {/* Services */}
       <section className="bg-white py-16">
