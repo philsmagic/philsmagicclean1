@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import HomeJanitorial from "./pages/HomeJanitorial";
+import WindowCleaning from "./pages/WindowCleaning";
 import Services from "./pages/Services";
 import ServiceAreas from "./pages/ServiceAreas";
 import Reviews from "./pages/Reviews";
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/" component={Home} />
       {/* Janitorial-led homepage for review. noindex - see HomeJanitorial. */}
       <Route path="/new" component={HomeJanitorial} />
+      <Route path="/window-cleaning" component={WindowCleaning} />
       <Route path="/services" component={Services} />
       <Route path="/service-areas" component={ServiceAreas} />
       <Route path="/reviews" component={Reviews} />
