@@ -3,41 +3,59 @@ import { Link } from "wouter";
 import { useSeo } from "@/hooks/useSeo";
 import { janitorialFormUrl } from "@/data/blogPosts";
 
-const services = [
+const commercialServices = [
   {
-    icon: "🧹",
-    title: "Janitorial & Commercial Cleaning",
-    desc: "Complete interior cleaning for offices, storefronts, and restaurants — floors, restrooms, break rooms. Recurring schedules, one standard.",
+    icon: "🏢",
+    title: "Offices & Professional Suites",
+    desc: "Workstations, conference rooms, break rooms, and restrooms — cleaned around your hours so nobody works around us.",
   },
   {
-    icon: "🏠",
-    title: "Residential Window Cleaning",
-    desc: "From single-story homes to multi-floor condos, we leave every window sparkling — inside and out.",
+    icon: "🍽️",
+    title: "Restaurants & Food Service",
+    desc: "Front of house, restrooms, and hard floors. Scheduled before opening or after close, on whatever cadence your traffic demands.",
   },
   {
     icon: "🏪",
-    title: "Commercial & Storefront Window Cleaning",
-    desc: "Restaurants, salons, retail shops, and offices. Your first impression starts with your windows.",
+    title: "Retail & Storefronts",
+    desc: "Floors, fixtures, restrooms, and the glass customers judge you by before they ever walk in.",
   },
   {
-    icon: "🪟",
-    title: "Screen Cleaning & Reinstallation",
-    desc: "We clean and reinstall screens so you get the full crystal-clear effect — not just halfway there.",
+    icon: "🩺",
+    title: "Medical & Dental Offices",
+    desc: "Waiting rooms, treatment areas, and restrooms held to the standard a clinical space needs.",
+  },
+  {
+    icon: "💇",
+    title: "Salons, Gyms & Studios",
+    desc: "High-traffic spaces where clients notice everything. Floors, mirrors, restrooms, and equipment areas.",
   },
   {
     icon: "🏗️",
-    title: "Post-Construction Window Cleaning",
-    desc: "Construction dust and residue removed completely. Trusted by Belfor and major restoration firms.",
+    title: "Post-Construction Cleanup",
+    desc: "Dust, residue, and debris removed completely so a finished build actually looks finished.",
+  },
+];
+
+const windowServices = [
+  {
+    icon: "🏠",
+    title: "Residential Window Cleaning",
+    desc: "From single-story homes to multi-floor condos — inside, outside, screens included.",
+  },
+  {
+    icon: "🪟",
+    title: "Commercial & Storefront Windows",
+    desc: "Restaurants, salons, retail, and offices. Your first impression starts with your glass.",
   },
   {
     icon: "📅",
     title: "Recurring Maintenance Plans",
-    desc: "Weekly, bi-weekly, or monthly plans for homes and businesses that need consistent, reliable cleaning.",
+    desc: "Weekly, bi-weekly, or monthly schedules for homes and businesses that want it handled.",
   },
   {
     icon: "🏢",
-    title: "High-Rise & Multi-Story Window Cleaning",
-    desc: "Third-story condos, tall commercial facades — we have the equipment and experience to reach it all.",
+    title: "High-Rise & Multi-Story",
+    desc: "Third-story condos and tall commercial facades — the equipment and experience to reach it all.",
   },
 ];
 
@@ -86,8 +104,8 @@ const whyItems = [
     desc: "Clients regularly note Phil arrives before the scheduled window. Your time is respected.",
   },
   {
-    title: "Meticulous on every pane",
-    desc: "Phil scrapes, deep cleans, and inspects each window before considering the job complete.",
+    title: "Meticulous on every surface",
+    desc: "Phil deep cleans and inspects the work himself before considering a job complete \u2014 glass, floors, or anything else.",
   },
   {
     title: "Professional and personable",
@@ -277,30 +295,74 @@ export default function HomeJanitorial() {
 
 
       {/* Services */}
+      {/* Services - split into two labelled groups. A single mixed grid put one
+          janitorial tile against six window tiles, which read as a window company
+          that also mops. */}
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-[#0d7a8a] uppercase tracking-widest" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              What We Do
-            </span>
+          <span className="text-xs font-bold text-[#0d7a8a] uppercase tracking-widest" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+            What We Do
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1a3a4a] mt-2 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Two Services, One Standard
+          </h2>
+          <p className="text-lg text-gray-600 mb-12 max-w-3xl leading-relaxed" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+            Full commercial and janitorial cleaning for Peninsula businesses, and the window
+            work that earned us 42 five-star reviews. Same crew, same standard.
+          </p>
+
+          <div className="flex items-baseline justify-between gap-4 mb-6 flex-wrap">
+            <h3 className="text-2xl font-bold text-[#1a3a4a]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Commercial &amp; Janitorial Cleaning
+            </h3>
             <Link
-              href="/services"
+              href="/blog/janitorial-services"
               className="text-sm text-[#0d7a8a] hover:underline no-underline font-medium"
               style={{ fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              View all services →
+              More about janitorial &rarr;
             </Link>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1a3a4a] mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Every Pane, Perfected
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {commercialServices.map((s) => (
               <div key={s.title} className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <div className="text-3xl mb-3">{s.icon}</div>
-                <h3 className="text-lg font-bold text-[#1a3a4a] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                <h4 className="font-bold text-[#1a3a4a] mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
                   {s.title}
-                </h3>
+                </h4>
+                <p className="text-sm text-gray-600 leading-relaxed" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                  {s.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-gray-600 mb-14 leading-relaxed" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+            Not on the list? If people walk into it, we can keep it clean.{" "}
+            <a href="tel:6506600430" className="text-[#0d7a8a] no-underline hover:underline font-semibold">
+              Call 650-660-0430
+            </a>{" "}
+            and we&rsquo;ll talk through your space.
+          </p>
+
+          <div className="flex items-baseline justify-between gap-4 mb-6 flex-wrap">
+            <h3 className="text-2xl font-bold text-[#1a3a4a]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Window Cleaning
+            </h3>
+            <Link
+              href="/window-cleaning"
+              className="text-sm text-[#0d7a8a] hover:underline no-underline font-medium"
+              style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+            >
+              Window pricing &amp; details &rarr;
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {windowServices.map((s) => (
+              <div key={s.title} className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                <div className="text-3xl mb-3">{s.icon}</div>
+                <h4 className="font-bold text-[#1a3a4a] mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                  {s.title}
+                </h4>
                 <p className="text-sm text-gray-600 leading-relaxed" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
                   {s.desc}
                 </p>
