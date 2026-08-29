@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 
 const NAV_LINKS = [
+  { label: "Janitorial", href: "/janitorial-cleaning" },
+  { label: "Window Cleaning", href: "/window-cleaning" },
   { label: "Services", href: "/services" },
   { label: "Service Areas", href: "/service-areas" },
   { label: "Reviews", href: "/reviews" },
@@ -146,7 +148,7 @@ export function Footer() {
   return (
     <footer className="bg-[#1a3a4a] text-white pt-12 pb-6">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 no-underline mb-3">
@@ -160,7 +162,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-gray-300 leading-relaxed" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              Professional window cleaning for homes and businesses across the Bay Area. Licensed, insured, and rated 5.0 stars.
+              Commercial janitorial and window cleaning for homes and businesses across the Peninsula. Licensed, insured, and rated 5.0 stars.
             </p>
             <a
               href="tel:6506600430"
@@ -178,6 +180,31 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-300 hover:text-white no-underline transition-colors"
+                    style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services - both lines named explicitly so the footer does not
+              read as a window-only business, as it did before. */}
+          <div>
+            <h4 className="text-sm font-bold text-white mb-3 uppercase tracking-wider" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              Services
+            </h4>
+            <ul className="space-y-2">
+              {[
+                { label: "Janitorial & Commercial Cleaning", href: "/janitorial-cleaning" },
+                { label: "Window Cleaning & Pricing", href: "/window-cleaning" },
+                { label: "All Services", href: "/services" },
+              ].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

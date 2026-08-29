@@ -5,8 +5,8 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import HomeJanitorial from "./pages/HomeJanitorial";
 import WindowCleaning from "./pages/WindowCleaning";
+import JanitorialCleaning from "./pages/JanitorialCleaning";
 import Services from "./pages/Services";
 import ServiceAreas from "./pages/ServiceAreas";
 import Reviews from "./pages/Reviews";
@@ -19,9 +19,11 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      {/* Janitorial-led homepage for review. noindex - see HomeJanitorial. */}
-      <Route path="/new" component={HomeJanitorial} />
+      {/* /new was the review URL for this homepage before it was approved.
+          Kept pointing at the homepage so any link Phil shared still works. */}
+      <Route path="/new" component={Home} />
       <Route path="/window-cleaning" component={WindowCleaning} />
+      <Route path="/janitorial-cleaning" component={JanitorialCleaning} />
       <Route path="/services" component={Services} />
       <Route path="/service-areas" component={ServiceAreas} />
       <Route path="/reviews" component={Reviews} />
