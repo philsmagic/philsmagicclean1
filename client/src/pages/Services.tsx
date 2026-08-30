@@ -1,4 +1,7 @@
 import Layout from "@/components/Layout";
+import { Link } from "wouter";
+import { useSeo } from "@/hooks/useSeo";
+import { janitorialFormUrl } from "@/data/blogPosts";
 
 const services = [
   {
@@ -112,18 +115,100 @@ If you have a multi-story property in the Bay Area that you've been putting off 
 ];
 
 export default function Services() {
+  useSeo({
+    title: "Cleaning Services — Janitorial & Window | Phil's Magic Cleaning",
+    description:
+      "Commercial janitorial cleaning and professional window cleaning across the Peninsula. Offices, restaurants, retail, and homes from South San Francisco to Mountain View.",
+    canonical: "/services",
+  });
+
   return (
     <Layout>
+      {/* Hub: both service lines get equal billing before the window detail,
+          which previously ran the length of the page unopposed. */}
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <span className="text-xs font-bold text-[#0d7a8a] uppercase tracking-widest" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
             What We Offer
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#1a3a4a] mt-2 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Professional Window Cleaning Services
+            Two Services, One Standard
           </h1>
+          <p className="text-lg text-gray-600 max-w-3xl mb-10" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+            Commercial janitorial cleaning for Peninsula businesses, and the window cleaning that
+            earned us 42 five-star reviews. Same crew, same standard, from South San Francisco to
+            Mountain View.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-4">
+            <div className="border border-gray-200 rounded-lg p-8 hover:shadow-md transition-shadow">
+              <div className="text-3xl mb-3">🧹</div>
+              <h2 className="text-2xl font-bold text-[#1a3a4a] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Janitorial &amp; Commercial Cleaning
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                Offices, restaurants, retail, medical suites, salons and gyms. Floors, restrooms,
+                break rooms, and the whole interior &mdash; on a schedule built around your hours.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/janitorial-cleaning"
+                  className="bg-[#0d7a8a] hover:bg-[#0a6370] text-white font-semibold px-6 py-3 rounded no-underline transition-colors"
+                  style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  Janitorial services &rarr;
+                </Link>
+                {janitorialFormUrl() && (
+                  <a
+                    href={janitorialFormUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-[#0d7a8a] text-[#0d7a8a] hover:bg-[#f0f5f8] font-semibold px-6 py-3 rounded no-underline transition-colors"
+                    style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    Request a quote
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div className="border border-gray-200 rounded-lg p-8 hover:shadow-md transition-shadow">
+              <div className="text-3xl mb-3">🪟</div>
+              <h2 className="text-2xl font-bold text-[#1a3a4a] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Window Cleaning
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                Homes, storefronts, and multi-story properties. Inside and out, screens included,
+                with transparent per-pane pricing starting at $20.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/window-cleaning"
+                  className="bg-[#1a3a4a] hover:bg-[#0d2a38] text-white font-semibold px-6 py-3 rounded no-underline transition-colors"
+                  style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  Window pricing &rarr;
+                </Link>
+                <a
+                  href="tel:6506600430"
+                  className="border border-[#1a3a4a] text-[#1a3a4a] hover:bg-gray-50 font-semibold px-6 py-3 rounded no-underline transition-colors"
+                  style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  Call for a quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white pb-16">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1a3a4a] mb-4 pt-8 border-t border-gray-200" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Window Cleaning in Detail
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mb-12" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-            From single-story homes to multi-story commercial buildings, Phil's Magic Cleaning has the expertise, equipment, and track record to get it done right — across Burlingame, San Mateo, and the greater Bay Area.
+            From single-story homes to multi-story commercial buildings, Phil's Magic Cleaning has the expertise, equipment, and track record to get it done right.
           </p>
 
           <div className="space-y-16">

@@ -1,4 +1,6 @@
 import Layout from "@/components/Layout";
+import { Link } from "wouter";
+import { useSeo } from "@/hooks/useSeo";
 
 const areas = [
   {
@@ -76,6 +78,13 @@ Ready to schedule window cleaning in South San Francisco? Call Phil's Magic Clea
 ];
 
 export default function ServiceAreas() {
+  useSeo({
+    title: "Service Areas — Peninsula Cleaning | Phil's Magic Cleaning",
+    description:
+      "Janitorial and window cleaning across the Peninsula: Burlingame, San Mateo, Foster City, Millbrae, Redwood City, Palo Alto, South San Francisco and surrounding communities.",
+    canonical: "/service-areas",
+  });
+
   return (
     <Layout>
       <section className="bg-white py-16">
@@ -84,10 +93,38 @@ export default function ServiceAreas() {
             Where We Work
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#1a3a4a] mt-2 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Window Cleaning Across the Bay Area Peninsula
+            Cleaning Across the Bay Area Peninsula
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mb-12" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+          <p className="text-lg text-gray-600 max-w-3xl mb-6" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
             Phil's Magic Cleaning serves Burlingame, San Mateo, Foster City, Millbrae, Redwood City, Palo Alto, Daly City, South San Francisco, and surrounding communities of San Mateo County.
+          </p>
+
+          {/* Both service lines are available everywhere we work. The per-city
+              write-ups below are window-specific because that is the work with
+              a local track record - no janitorial history is implied per city. */}
+          <div className="bg-[#f0f5f8] border-l-4 border-[#0d7a8a] rounded-r-lg p-6 mb-12 max-w-3xl">
+            <p className="font-bold text-[#1a3a4a] mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              Janitorial &amp; commercial cleaning is available everywhere we work
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-4" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              Offices, restaurants, retail, and medical suites across every city listed here &mdash;
+              floors, restrooms, break rooms, and the whole interior, on a recurring schedule that
+              works around your hours.
+            </p>
+            <Link
+              href="/janitorial-cleaning"
+              className="text-[#0d7a8a] font-semibold no-underline hover:underline"
+              style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+            >
+              Janitorial services &rarr;
+            </Link>
+          </div>
+
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1a3a4a] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Window Cleaning, City by City
+          </h2>
+          <p className="text-gray-600 max-w-2xl mb-12" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+            What the local conditions do to your glass, and how we handle it.
           </p>
 
           <div className="space-y-16">
