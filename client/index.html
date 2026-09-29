@@ -19,6 +19,61 @@
       gtag('js', new Date());
       gtag('config', 'G-V3TMEPTD2V');
     </script>
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1076653965253682');
+      fbq('track', 'PageView');
+
+      // This is a single-page app: wouter changes the URL without a reload,
+      // so the pixel would only ever see the first page. Re-fire PageView
+      // whenever the route actually changes.
+      (function () {
+        var last = location.pathname;
+        function onRouteChange() {
+          if (location.pathname === last) return;
+          last = location.pathname;
+          fbq('track', 'PageView');
+        }
+        ['pushState', 'replaceState'].forEach(function (m) {
+          var orig = history[m];
+          history[m] = function () {
+            var r = orig.apply(this, arguments);
+            onRouteChange();
+            return r;
+          };
+        });
+        window.addEventListener('popstate', onRouteChange);
+
+        // A click through to a Jobber request form is the conversion that
+        // matters — it is the only way a quote request reaches Phil from here.
+        document.addEventListener('click', function (e) {
+          var a = e.target && e.target.closest && e.target.closest('a[href]');
+          if (!a) return;
+          if (a.href.indexOf('clienthub.getjobber.com') === -1) return;
+          fbq('track', 'Lead', {
+            content_name: a.href.indexOf('5126135') !== -1
+              ? 'Janitorial request form'
+              : 'General request form'
+          });
+        }, true);
+      })();
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        alt=""
+        src="https://www.facebook.com/tr?id=1076653965253682&ev=PageView&noscript=1"
+    /></noscript>
   </head>
 
   <body>
