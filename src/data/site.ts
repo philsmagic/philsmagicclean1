@@ -23,7 +23,12 @@ export const BUSINESS = {
   yearsServing: "4+",
   logo: `${SITE_URL}/images/logo.jpg`,
   /** Profile URLs for schema sameAs. EMPTY until E.L. supplies them (GBP, Facebook, Instagram, Yelp). */
-  sameAs: [] as string[],
+  sameAs: [
+    "https://maps.google.com/?cid=2561441622886334181", // Google Business Profile
+    "https://www.facebook.com/philsmagiccleaning",
+    "https://www.instagram.com/philsmagiccleaning/",
+    "https://www.yelp.com/biz/phils-magic-cleaning-burlingame",
+  ] as string[],
   /** Public hours — EMPTY until E.L. confirms. Schema omits openingHours while empty. */
   openingHours: [] as string[],
 };

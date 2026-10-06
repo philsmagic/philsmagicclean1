@@ -10,7 +10,7 @@ export default defineConfig({
   site: "https://philsmagicclean.com",
   output: "static",
   trailingSlash: "never",
-  build: { format: "file" },
+  build: { format: "file", inlineStylesheets: "always" }, // critical CSS inline — no render-blocking stylesheet (AEO S2 §H)
   integrations: [
     sitemap({
       filter: (page) => !page.endsWith("/404"),

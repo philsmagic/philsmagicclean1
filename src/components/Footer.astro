@@ -30,7 +30,7 @@ const a = BUSINESS.address;
       <div>
         <h2 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Contact</h2>
         <address class="not-italic space-y-2 text-sm text-gray-300">
-          <div><a href={`tel:${BUSINESS.phoneE164}`} class="hover:text-white no-underline">{BUSINESS.phoneDisplay}</a></div>
+          <div><a href={`tel:${BUSINESS.phoneE164}`} class="text-gray-300 hover:text-white no-underline">{BUSINESS.phoneDisplay}</a></div>
           <div>{a.street}</div>
           <div>{a.city}, {a.region} {a.postal}</div>
         </address>
@@ -39,7 +39,7 @@ const a = BUSINESS.address;
 
     <div class="border-t border-white/10 pt-6">
       <p class="text-xs text-gray-400 text-center">Serving {SERVICE_AREA.join(" · ")}</p>
-      <p class="text-xs text-gray-500 text-center mt-2">© {year} {BUSINESS.name}. All rights reserved.</p>
+      <p class="text-xs text-gray-400 text-center mt-2">© {year} {BUSINESS.name}. All rights reserved.</p>
     </div>
   </div>
 </footer>
