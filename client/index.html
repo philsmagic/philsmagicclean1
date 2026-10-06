@@ -58,10 +58,18 @@
           var a = e.target && e.target.closest && e.target.closest('a[href]');
           if (!a) return;
           if (a.href.indexOf('clienthub.getjobber.com') === -1) return;
+          var janitorial = a.href.indexOf('5126135') !== -1;
           fbq('track', 'Lead', {
-            content_name: a.href.indexOf('5126135') !== -1
-              ? 'Janitorial request form'
-              : 'General request form'
+            content_name: janitorial ? 'Janitorial request form' : 'General request form'
+          });
+          // GA4 key event `quote_click` — site-fired so GA4's outbound-click
+          // domain settings can never silently disable it. Same tagging as
+          // Lead so Meta and GA4 reconcile. Exact name; E.L. registers it in
+          // GA4 Admin by name. (Retrofit for the before/after baseline, 2026-10-05.)
+          if (window.gtag) gtag('event', 'quote_click', {
+            request_type: janitorial ? 'janitorial' : 'general',
+            link_url: a.href,
+            page_path: location.pathname
           });
         }, true);
       })();
