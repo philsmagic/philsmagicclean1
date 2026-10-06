@@ -33,21 +33,23 @@ export const BUSINESS = {
   openingHours: [] as string[],
 };
 
-/** 14-city Peninsula corridor, South San Francisco → Mountain View (client file). */
 export const SERVICE_AREA = [
+  // Confirmed list — agency/projects/phils-magic/seo-plan.md (2026-08-09, from the GBP
+  // dashboard; safe for page copy AND GBP). Brisbane is NOT served (E.L., 2026-10-05).
+  // Must match the Google Business Profile service area exactly (NAP consistency).
   "South San Francisco",
   "San Bruno",
   "Millbrae",
   "Burlingame",
-  "Hillsborough",
   "San Mateo",
   "Foster City",
   "Belmont",
   "San Carlos",
   "Redwood City",
+  "Atherton",
   "Menlo Park",
+  "East Palo Alto",
   "Palo Alto",
-  "Los Altos",
   "Mountain View",
 ];
 
