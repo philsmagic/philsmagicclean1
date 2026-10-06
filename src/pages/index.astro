@@ -1,0 +1,286 @@
+---
+/**
+ * Home — Emily Matthews' AEO copy (Assets/aeo-copy-2026-10-05/md/Home.md) applied over the
+ * 1:1 translation of the live homepage. Home keeps her capitalisation as written (humans are
+ * the #1 audience here). Home-cleaning wording substituted per E.L. ruling 10/5 — see
+ * docs/EMILY-CHANGES.md and the EMILY: comments inline.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { BUSINESS, JANITORIAL_FORM_URL } from "@/data/site";
+
+const path = "/";
+// EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Commercial and Home Cleaning | Phil's Magic Cleaning"
+const title = "Commercial and Window Cleaning | Phil's Magic Cleaning";
+const description =
+  "Phil's Magic Cleaning provides professional cleaning for businesses and homes on the San Francisco Peninsula, including janitorial and window cleaning services.";
+
+const commercialServices = [
+  { icon: "🏢", title: "Offices & Professional Suites", desc: "Workstations, conference rooms, break rooms, and restrooms — cleaned around your hours so nobody works around us." },
+  { icon: "🍽️", title: "Restaurants & Food Service", desc: "Front of house, restrooms, and hard floors. Scheduled before opening or after close, on whatever cadence your traffic demands." },
+  { icon: "🏪", title: "Retail & Storefronts", desc: "Floors, fixtures, restrooms, and the glass customers judge you by before they ever walk in." },
+  { icon: "🩺", title: "Medical & Dental Offices", desc: "Waiting rooms, treatment areas, and restrooms held to the standard a clinical space needs." },
+  { icon: "💇", title: "Salons, Gyms & Studios", desc: "High-traffic spaces where clients notice everything. Floors, mirrors, restrooms, and equipment areas." },
+  { icon: "🏗️", title: "Post-Construction Cleanup", desc: "Dust, residue, and debris removed completely so a finished build actually looks finished." },
+];
+
+const windowServices = [
+  { icon: "🏠", title: "Residential Window Cleaning", desc: "From single-story homes to multi-floor condos — inside, outside, screens included." },
+  { icon: "🪟", title: "Commercial & Storefront Windows", desc: "Restaurants, salons, retail, and offices. Your first impression starts with your glass." },
+  { icon: "📅", title: "Recurring Maintenance Plans", desc: "Weekly, bi-weekly, or monthly schedules for homes and businesses that want it handled." },
+  { icon: "🏢", title: "High-Rise & Multi-Story", desc: "Third-story condos and tall commercial facades — the equipment and experience to reach it all." },
+];
+
+const reviews = [
+  { initials: "KK", name: "Klara Kallis", role: "Homeowner", text: "Phil's Magic Window Cleaning was fantastic from start to finish. Professional, punctual, and incredibly efficient. Left our windows sparkling like new. He's just a joy to work with." },
+  { initials: "MO", name: "Mesut Ozcab", role: "Salon Owner", text: "He cleans the windows, doors, and the entire front of my salon perfectly. He does an amazing job with love and passion. Thank you, Phil, for keeping my place spotless!" },
+  { initials: "TC", name: "Theary Chhuo", role: "Restaurant Owner", text: "My restaurant windows are perfect now! Crystal clear. He's also cleaned my other restaurant location. I would highly recommend this cleaning service!" },
+  { initials: "BR", name: "Becca Russell", role: "Property Manager", text: "Hired Phil to clean windows for a client in Burlingame and he did a fantastic job. Thorough, punctual (early, in fact!), and personable. Reasonably priced for the quality." },
+  { initials: "BR", name: "Betsy Rosen", role: "Homeowner", text: "Phil and his assistant did an amazing job. Easy to schedule, arrived on time, totally professional. I've used others — will only go with Phil in the future." },
+  // REVIEW E.L.: this public Google review names Belfor (a client of Phil's) — carried as on the live site.
+  { initials: "DA", name: "Dan A", role: "Restoration Pro", text: "I work for Belfor in property restoration and I've seen my fair share of cleaning crews. But I've never seen anyone clean windows the way Phil Magic and his team did." },
+];
+
+const whyItems = [
+  { title: "Always on time — often early", desc: "Clients regularly note Phil arrives before the scheduled window. Your time is respected." },
+  { title: "Meticulous on every surface", desc: "Phil deep cleans and inspects the work himself before considering a job complete — glass, floors, or anything else." },
+  { title: "Professional and personable", desc: "Consistently described as warm and a genuine pleasure to work with." },
+  // REVIEW E.L.: named clients (FASTSIGNS, Baking Arts, Burlingame Tobacconist, Belfor) — carried from the live site; guardrail says no client named without recorded consent.
+  { title: "Community-trusted", desc: "Trusted by FASTSIGNS, Baking Arts, Burlingame Tobacconist, and Belfor Restoration for years." },
+  { title: "Licensed and insured", desc: "Fully covered for residential and commercial work" },
+];
+
+/** Emily's new "Cleaning resources" cards. Two resource centers aren't written yet (see EMILY: comments in the markup). */
+const resourceCards = [
+  {
+    title: "Cleaning resource center",
+    // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Learn what commercial and home cleaning includes, how often service is needed, what it costs, and how to choose a cleaning provider."
+    desc: "Learn what commercial cleaning and window cleaning for businesses and homes includes, how often service is needed, what it costs, and how to choose a cleaning provider.",
+    cta: "Explore commercial cleaning resources",
+    href: "/resources", // EMILY: resource center not yet written; linking to /resources until it exists
+  },
+  {
+    title: "Window cleaning resource center",
+    desc: "Find answers about professional window cleaning for homes and businesses, including services, frequency, costs, multi-story cleaning, and choosing a window cleaner.",
+    cta: "Discover window cleaning resources",
+    href: "/resources", // EMILY: resource center not yet written; linking to /resources until it exists
+  },
+  {
+    title: "Choosing and managing professional cleaning services",
+    desc: "Get guidance on evaluating professional cleaning companies, comparing quotes and service options, and knowing what to expect before and during service.",
+    cta: "Compare professional cleaning options",
+    href: "/resources/choosing-professional-cleaning-services",
+  },
+];
+
+const stats = [
+  { value: "5.0★", label: "Google rating" },
+  { value: String(BUSINESS.rating.count), label: "Five-star reviews" },
+  { value: `${BUSINESS.yearsServing} yrs`, label: "Serving the Bay Area" },
+  // REVIEW E.L.: "100% satisfaction rate" is an unverified claim — carried from the live site.
+  { value: "100%", label: "Satisfaction rate" },
+];
+
+const toc = [
+  { id: "janitorial", label: "Commercial and janitorial cleaning services" },
+  { id: "services", label: "Cleaning services we offer" },
+  { id: "cleaning-resources", label: "Cleaning resources" },
+  { id: "reviews", label: "What people say" },
+  { id: "why-phils-magic", label: "Why choose Phil's Magic Cleaning" },
+];
+---
+<Base {title} {description} {path}>
+  <!-- Hero -->
+  <section class="bg-white py-12 md:py-20">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-1">
+          <p class="flex items-center gap-2 mb-4 text-sm text-muted"><span class="stars" aria-hidden="true">★★★★★</span> {BUSINESS.rating.value} Stars · {BUSINESS.address.city}, {BUSINESS.address.region}</p>
+          <h1 class="text-4xl md:text-5xl mb-3">Professional cleaning for businesses and homes on the San Francisco Peninsula</h1>
+          <h2 id="spotless-windows" class="text-xl md:text-2xl text-muted font-semibold mb-4">Spotless windows built our name. We clean everything else too.</h2>
+          <p class="text-lg text-muted mb-6 leading-relaxed max-w-2xl">
+            Phil's Magic Cleaning provides five-star-rated janitorial services and window cleaning, with flexible options for one-time and recurring cleaning. Service area: San Francisco Peninsula, from South San Francisco to Mountain View.
+          </p>
+          <div class="brand-rule max-w-xs mb-6"></div>
+          <a href={`tel:${BUSINESS.phoneE164}`} class="block text-2xl font-black mb-1 no-underline" style="font-family: var(--font-display)">{BUSINESS.phoneDisplay}</a>
+          <p class="text-sm text-muted mb-6">Free quotes · Licensed &amp; insured</p>
+          <div class="flex flex-wrap gap-3">
+            <a href={JANITORIAL_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request commercial cleaning</a>
+            <a href={`tel:${BUSINESS.phoneE164}`} class="btn btn-outline">Get a free estimate</a>
+            <a href="/window-cleaning" class="btn btn-outline">Schedule window cleaning</a>
+          </div>
+          <Toc items={toc} />
+        </div>
+        <div class="flex-shrink-0 w-full md:w-80">
+          <div class="border border-line rounded-lg p-6 flex flex-col items-center shadow-sm">
+            <img src="/images/logo-stacked.png" alt="Phil's Magic Cleaning logo" width="240" height="241" class="w-48 h-auto" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-ink py-6" aria-label="At a glance">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <dl class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {stats.map((s) => (
+          <div>
+            <dd class="text-2xl font-black text-aqua" style="font-family: var(--font-display)">{s.value}</dd>
+            <dt class="text-xs text-gray-300 mt-1 tracking-wider uppercase">{s.label}</dt>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- Janitorial band — above window pricing so the new service line is seen first -->
+  <section class="bg-wash py-16 border-b border-line">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <p class="eyebrow">For Peninsula Businesses</p>
+      <h2 class="text-3xl md:text-4xl mt-2 mb-4" id="janitorial">What commercial and janitorial cleaning services does Phil's Magic Cleaning provide?</h2>
+      <p class="text-lg text-muted mb-8 max-w-3xl leading-relaxed">
+        Phil's Magic Cleaning provides recurring and one-time commercial and janitorial cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other Peninsula businesses. Services include floors, restrooms, break rooms, common areas, and interior glass.
+      </p>
+      <ul class="grid md:grid-cols-3 gap-6 mb-8 list-none p-0">
+        {[
+          ["Your whole space", "Floors, restrooms, break rooms, and the glass you already trust us with."],
+          ["On your schedule", "Nightly, weekly, or a cadence built around your business hours."],
+          ["Across the Peninsula", "South San Francisco through Burlingame and San Mateo to Mountain View."],
+        ].map(([t, b]) => (
+          <li class="bg-white border border-line rounded-lg p-6">
+            <p class="font-bold mb-2">{t}</p>
+            <p class="text-muted leading-relaxed">{b}</p>
+          </li>
+        ))}
+      </ul>
+
+      <aside class="callout mb-8 max-w-3xl">
+        <p class="font-bold mb-1">Already a client? $150 off your first month.</p>
+        <p class="text-muted leading-relaxed">Set up recurring janitorial service and we'll take $150 off your first month — a thank-you for the support that built this business. One-time deep cleans are available too; just call for a quote.</p>
+      </aside>
+
+      <div class="flex flex-wrap gap-3 items-center">
+        <a href={JANITORIAL_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Tell us about your space →</a>
+        <a href={`tel:${BUSINESS.phoneE164}`} class="btn btn-outline">Or call {BUSINESS.phoneDisplay}</a>
+        <a href="/janitorial-cleaning" class="font-semibold">Janitorial cleaning services and pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services — two labelled groups so janitorial and window read as equals -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <p class="eyebrow">What We Do</p>
+      <h2 class="text-3xl md:text-4xl mt-2 mb-3" id="services">What cleaning services does Phil's Magic Cleaning offer?</h2>
+      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Phil's Magic Cleaning offers two primary types of professional cleaning—commercial and residential cleaning as well as window cleaning for homes and businesses." -->
+      <p class="text-lg text-muted mb-12 max-w-3xl leading-relaxed">
+        Phil's Magic Cleaning offers two primary types of professional cleaning—commercial cleaning as well as window cleaning for homes and businesses. <a href="/services">See all services</a>.
+      </p>
+
+      <div class="flex items-baseline justify-between gap-4 mb-6 flex-wrap">
+        <h3 id="commercial-janitorial" class="text-2xl">Commercial &amp; Janitorial Cleaning</h3>
+        <a href="/janitorial-cleaning" class="text-sm font-semibold">Janitorial services →</a>
+      </div>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 list-none p-0">
+        {commercialServices.map((s) => (
+          <li class="border border-line rounded-lg p-6 hover:shadow-md transition-shadow">
+            <div class="text-3xl mb-3" aria-hidden="true">{s.icon}</div>
+            <h4 class="font-bold mb-2">{s.title}</h4>
+            <p class="text-sm text-muted leading-relaxed">{s.desc}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="text-muted mb-14 leading-relaxed">
+        Not on the list? If people walk into it, we can keep it clean. <a href={`tel:${BUSINESS.phoneE164}`} class="font-semibold">Call {BUSINESS.phoneDisplay}</a> and we'll talk through your space.
+      </p>
+
+      <div class="flex items-baseline justify-between gap-4 mb-6 flex-wrap">
+        <h3 id="window-cleaning" class="text-2xl">Window Cleaning</h3>
+        <a href="/window-cleaning" class="text-sm font-semibold">Window pricing &amp; details →</a>
+      </div>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 list-none p-0">
+        {windowServices.map((s) => (
+          <li class="border border-line rounded-lg p-6 hover:shadow-md transition-shadow">
+            <div class="text-3xl mb-3" aria-hidden="true">{s.icon}</div>
+            <h4 class="font-bold mb-2">{s.title}</h4>
+            <p class="text-sm text-muted leading-relaxed">{s.desc}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Cleaning resources (Emily, NEW — above the reviews section) -->
+  <section class="bg-wash py-16 border-t border-line">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <p class="eyebrow">Cleaning resources</p>
+      <h2 class="text-3xl md:text-4xl mt-2 mb-3" id="cleaning-resources">What should you know about professional cleaning services?</h2>
+      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Find practical information about commercial and home cleaning services, including what different services cover, …" -->
+      <p class="text-lg text-muted mb-10 max-w-3xl leading-relaxed">
+        Find practical information about commercial cleaning and window cleaning services for businesses and homes, including what different services cover, how to choose a cleaning provider, how frequently properties should be cleaned, window cleaning, and what businesses and homeowners should consider when comparing options.
+      </p>
+      <!-- EMILY: "Cleaning resource center" and "Window cleaning resource center" are not yet written; those cards link to /resources until they exist. -->
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0">
+        {resourceCards.map((c) => (
+          <li class="bg-white border border-line rounded-lg p-6 hover:shadow-md transition-shadow flex flex-col">
+            <h3 class="font-bold mb-2">{c.title}</h3>
+            <p class="text-sm text-muted leading-relaxed mb-4 flex-1">{c.desc}</p>
+            <a href={c.href} class="text-sm font-semibold">{c.cta} →</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="bg-white py-16 border-t border-line">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="flex items-center justify-between mb-2">
+        <p class="eyebrow">What People Say</p>
+        <a href="/reviews" class="text-sm font-semibold">Read all {BUSINESS.rating.count} reviews →</a>
+      </div>
+      <h2 class="text-3xl md:text-4xl mb-10" id="reviews">Neighbors Are Asking for Phil's Number</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {reviews.map((r) => (
+          <article class="border border-line rounded-lg p-6">
+            <p class="stars text-sm mb-3" aria-label="5 out of 5 stars">★★★★★</p>
+            <blockquote class="text-sm text-ink italic leading-relaxed mb-4">"{r.text}"</blockquote>
+            <footer class="flex items-center gap-3">
+              <span class="w-9 h-9 rounded-full bg-blue flex items-center justify-center text-white text-xs font-bold flex-shrink-0" aria-hidden="true">{r.initials}</span>
+              <cite class="not-italic"><span class="block text-sm font-semibold">{r.name}</span><span class="block text-xs text-muted">{r.role}</span></cite>
+            </footer>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Phil's Magic -->
+  <section class="bg-wash py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <p class="eyebrow">Why Phil's Magic</p>
+      <h2 class="text-3xl md:text-4xl mt-2 mb-4" id="why-phils-magic">Why choose Phil's Magic Cleaning?</h2>
+      <p class="text-lg text-muted mb-8 max-w-3xl leading-relaxed">
+        Customers choose Phil's Magic Cleaning for reliable scheduling, detailed cleaning, personalized service, and licensed and insured service for homes and businesses on the San Francisco Peninsula.
+      </p>
+      <ul class="space-y-6 max-w-2xl list-none p-0">
+        {whyItems.map((item) => (
+          <li class="flex items-start gap-4">
+            <span class="w-7 h-7 rounded-full bg-blue flex items-center justify-center flex-shrink-0 mt-0.5" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+            <div>
+              <h3 class="font-bold mb-1 text-base">{item.title}</h3>
+              <p class="text-sm text-muted leading-relaxed">{item.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <!-- Emily: "Licensed & Insured · Burlingame, CA" badge removed — repeats the bullet above. -->
+    </div>
+  </section>
+
+  <CtaBand formUrl={JANITORIAL_FORM_URL} formLabel="Request commercial cleaning" />
+</Base>

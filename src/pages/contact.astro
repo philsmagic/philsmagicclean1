@@ -1,0 +1,146 @@
+---
+/**
+ * Contact — Emily Matthews' AEO copy (Assets/aeo-copy-2026-10-05/md/Contact.md), carried
+ * verbatim except the home-cleaning substitutions required by E.L.'s ruling of 2026-10-05
+ * (flagged inline; docs/EMILY-CHANGES.md). Phone and address come from BUSINESS, never
+ * hard-coded. "Submitting the contact form" = the two Jobber request forms (janitorial is
+ * the teal action; general is the outline). Sentence-case headings are Emily's.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import { BUSINESS, REQUEST_FORM_URL, JANITORIAL_FORM_URL } from "@/data/site";
+import { breadcrumbs, faqPage } from "@/data/schema";
+
+const path = "/contact";
+const addr = BUSINESS.address;
+const addressLine = `${addr.street}, ${addr.city}, ${addr.region} ${addr.postal}`;
+// EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original meta title: "Contact Phil's Magic Cleaning | Commercial & Home"
+const title = "Contact Phil's Magic Cleaning | Commercial & Window";
+const description =
+  "Contact Phil's Magic Cleaning for janitorial and window cleaning for businesses and homes across the San Francisco Peninsula. Request a free estimate.";
+
+// REVIEW E.L.: city list differs from site.ts — Emily lists 8 named cities + "Other communities";
+// SERVICE_AREA has 14. Her visible copy is kept; schema areaServed still uses SERVICE_AREA.
+const cities = [
+  "South San Francisco",
+  "Millbrae",
+  "Burlingame",
+  "San Mateo",
+  "Foster City",
+  "Redwood City",
+  "Palo Alto",
+  "Mountain View",
+  "Other communities along the San Francisco Peninsula",
+];
+
+const faq = [
+  {
+    // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "…free estimates for janitorial, home, commercial, and window cleaning."
+    q: "Does Phil's Magic Cleaning provide free estimates?",
+    a: "Yes. Phil's Magic Cleaning provides free estimates for janitorial, commercial, and window cleaning. Contact Phil's by phone or submit the online form with your property location, cleaning needs, and whether you are interested in one-time or recurring service.",
+  },
+  {
+    q: "What information should I provide when requesting an estimate?",
+    a: "Provide your property location, whether it is a home or business, the type of cleaning you need, and whether you want one-time or recurring service. Also include the areas that need cleaning and any specific scheduling or service requirements.",
+  },
+  {
+    q: "Can I request both general cleaning and window cleaning?",
+    a: "Yes. Phil's Magic Cleaning provides both general cleaning and professional window cleaning for homes and businesses. You can request both services together based on your property's needs, including recurring general or janitorial cleaning combined with one-time or periodic window cleaning.",
+  },
+  {
+    q: "Can I request recurring cleaning?",
+    a: "Yes. Phil's Magic Cleaning offers recurring cleaning for homes and businesses. Service can be scheduled weekly, biweekly, monthly, nightly, or at another cadence based on the property, level of use, cleaning requirements, and preferred schedule. One-time cleaning is also available.",
+  },
+];
+
+const toc = [
+  { id: "request-estimate", label: "How can I request a cleaning estimate?" },
+  { id: "services", label: "What cleaning services can I request?" },
+  { id: "service-area", label: "What areas does Phil's Magic Cleaning serve?" },
+  { id: "why-contact", label: "Why contact Phil's Magic Cleaning?" },
+  { id: "faq", label: "Frequently asked questions about contacting Phil's Magic Cleaning" },
+];
+---
+<Base {title} {description} {path} schema={[breadcrumbs([{ name: "Home", path: "/" }, { name: "Contact", path }]), faqPage(path, faq)]}>
+  <article class="container mx-auto px-4 max-w-4xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4"><ol class="flex gap-2 list-none p-0 m-0"><li><a href="/">Home</a></li><li aria-hidden="true">›</li><li aria-current="page">Contact</li></ol></nav>
+
+    <h1 class="text-4xl md:text-5xl mt-2 mb-4">How can I contact Phil's Magic Cleaning?</h1>
+    <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Contact Phil's Magic Cleaning for janitorial, home, commercial, or window cleaning." -->
+    <p class="text-lg text-muted max-w-3xl">
+      Contact Phil's Magic Cleaning for janitorial, commercial, or window cleaning. One-time and recurring services are available for homes and businesses on the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <dl class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-wash rounded-xl p-6 mb-6">
+      <div>
+        <dt class="font-bold">Phone</dt>
+        <dd><a href={`tel:${BUSINESS.phoneE164}`} class="text-xl font-semibold">{BUSINESS.phoneDisplay}</a></dd>
+      </div>
+      <div>
+        <dt class="font-bold">Mailing address</dt>
+        <dd><address class="not-italic">{addressLine}</address></dd>
+      </div>
+    </dl>
+    <Toc items={toc} />
+
+    <section id="request-estimate" class="mt-12">
+      <h2 id="request-estimate-heading" class="text-2xl md:text-3xl mb-4">How can I request a cleaning estimate?</h2>
+      <p class="leading-relaxed max-w-3xl">
+        Request a free cleaning estimate by calling Phil's Magic Cleaning at <a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a> or submitting the contact form. Include your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-6">
+        <a href={JANITORIAL_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a janitorial estimate</a>
+        <a href={REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-outline">Request window cleaning or other services</a>
+      </div>
+    </section>
+
+    <section id="services" class="border-t border-line pt-12 mt-12">
+      <h2 id="services-heading" class="text-2xl md:text-3xl mb-4">What cleaning services can I request?</h2>
+      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Services include commercial cleaning, home cleaning, and residential and commercial window cleaning, with one-time and recurring options available." -->
+      <p class="leading-relaxed max-w-3xl">
+        Phil's Magic Cleaning provides two primary types of professional cleaning for homes and businesses: janitorial and general cleaning, and window cleaning. Services include commercial cleaning and residential and commercial window cleaning, with one-time and recurring options available.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+        <div class="bg-wash rounded-lg p-5 flex flex-col">
+          <h3 id="janitorial-and-general-cleaning" class="font-bold mb-2">Janitorial and general cleaning</h3>
+          <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Professional cleaning for homes and businesses, including commercial and janitorial cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other commercial properties." -->
+          <p class="text-sm text-muted leading-relaxed flex-1">Commercial and janitorial cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other commercial properties.</p>
+          <p class="mt-4"><a href="/janitorial-cleaning" class="btn btn-outline">Learn about cleaning services</a></p>
+        </div>
+        <div class="bg-wash rounded-lg p-5 flex flex-col">
+          <h3 id="window-cleaning" class="font-bold mb-2">Window cleaning</h3>
+          <p class="text-sm text-muted leading-relaxed flex-1">Residential and commercial window cleaning for homes, offices, restaurants, storefronts, and other properties.</p>
+          <p class="mt-4"><a href="/window-cleaning" class="btn btn-outline">Learn about window cleaning</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="service-area" class="border-t border-line pt-12 mt-12">
+      <h2 id="service-area-heading" class="text-2xl md:text-3xl mb-4">What areas does Phil's Magic Cleaning serve?</h2>
+      <div class="space-y-4 leading-relaxed max-w-3xl">
+        <p>Phil's Magic Cleaning serves homes and businesses across the San Francisco Peninsula, with a primary service area extending from South San Francisco to Mountain View.</p>
+        <p>Service areas include:</p>
+        <!-- REVIEW E.L.: city list differs from site.ts (Emily: 8 cities + "Other communities"; SERVICE_AREA: 14) -->
+        <ul class="list-disc pl-6 space-y-1">
+          {cities.map((c) => <li>{c}</li>)}
+        </ul>
+        <p>Service availability depends on the property location and type of cleaning requested.</p>
+      </div>
+      <p class="mt-6"><a href="/service-areas" class="btn btn-outline">View service areas</a></p>
+    </section>
+
+    <section id="why-contact" class="border-t border-line pt-12 mt-12">
+      <h2 id="why-contact-heading" class="text-2xl md:text-3xl mb-4">Why contact Phil's Magic Cleaning?</h2>
+      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "…licensed and insured professional commercial and home cleaning backed by five-star customer reviews…" -->
+      <p class="leading-relaxed max-w-3xl"><strong>Phil's Magic Cleaning provides licensed and insured professional commercial cleaning and window cleaning for businesses and homes backed by five-star customer reviews across the San Francisco Peninsula. One-time and recurring cleaning can be customized based on the property, cleaning requirements, and preferred schedule.</strong></p>
+    </section>
+
+    <Faq
+      items={faq}
+      heading="Frequently asked questions about contacting Phil's Magic Cleaning"
+      intro="Find answers about requesting estimates, providing property information, combining services, and scheduling recurring cleaning."
+    />
+  </article>
+</Base>

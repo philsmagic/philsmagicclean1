@@ -1,0 +1,127 @@
+---
+/**
+ * Blog post — copy from Emily Matthews' AEO pass (2026-10-05), via
+ * src/data/posts.ts. One static page per post in published() (posts with a
+ * body). Breadcrumb: Home › Resources › Blog › title.
+ * Every Block type in src/data/posts.ts renders here. The `faq` block's items
+ * go to <Faq> AND schema.faqPage() as the same array, so the JSON-LD text
+ * matches the page verbatim.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { REQUEST_FORM_URL, JANITORIAL_FORM_URL } from "@/data/site";
+import { breadcrumbs, blogPosting, faqPage } from "@/data/schema";
+import { published, displayDate, type Post, type Block } from "@/data/posts";
+
+export function getStaticPaths() {
+  return published().map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props as { post: Post };
+const body = post.body ?? [];
+const path = `/resources/blog/${post.slug}`;
+const title = post.metaTitle ?? `${post.title} | Phil's Magic Cleaning`;
+const description = post.metaDescription ?? post.excerpt;
+const intro = post.intro ?? post.excerpt;
+const isJanitorial = post.slug.includes("janitorial");
+
+const toc = body.filter((b): b is Extract<Block, { type: "h2" }> => b.type === "h2").map((b) => ({ id: b.id, label: b.text }));
+const faqBlock = body.find((b): b is Extract<Block, { type: "faq" }> => b.type === "faq");
+
+// An h2 immediately followed by a faq block is that FAQ's heading: <Faq>
+// renders its own H2, so fold the two together rather than emit a duplicate.
+const faqHeadingFor = (i: number) => {
+  const prev = body[i - 1];
+  return prev && prev.type === "h2" ? { heading: prev.text, id: prev.id } : {};
+};
+const foldedIntoFaq = (i: number) => body[i].type === "h2" && body[i + 1]?.type === "faq";
+
+const schema = [
+  breadcrumbs([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources" }, { name: "Blog", path: "/resources/blog" }, { name: post.title, path }]),
+  blogPosting({ path, headline: post.title, description, datePublished: post.datePublished, dateModified: post.dateModified }),
+  ...(faqBlock ? [faqPage(path, faqBlock.items)] : []),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources/blog">Blog</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{post.title}</li>
+      </ol>
+    </nav>
+
+    <p class="text-sm text-muted mb-2">
+      <time datetime={post.datePublished}>{displayDate(post.datePublished)}</time>
+      <span aria-hidden="true"> · </span>
+      <span>By Phil, owner of Phil's Magic Cleaning</span>
+    </p>
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{post.title}</h1>
+    {/* Definition under the H1. new-system has one in Emily's doc; janitorial-services does not, so its /blog blurb (her words) stands in. */}
+    <p class="text-lg text-muted max-w-3xl">{intro}</p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    {toc.length >= 3 && <Toc items={toc} />}
+
+    <div class="max-w-3xl">
+      {body.map((block, i) => {
+        switch (block.type) {
+          case "p":
+            return (
+              <p class="text-lg leading-relaxed mb-5">
+                {block.text}{block.link && <a href={block.link.href}>{block.link.text}</a>}{block.after}
+              </p>
+            );
+          case "h2":
+            return foldedIntoFaq(i) ? null : <h2 id={block.id} class="text-2xl md:text-3xl mt-10 mb-4">{block.text}</h2>;
+          case "list":
+            return block.variant === "bullet" ? (
+              <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+                {block.items.map((item) => <li>{item}</li>)}
+              </ul>
+            ) : (
+              <ul class="mb-6 space-y-3 text-lg leading-relaxed">
+                {block.items.map((item) => (
+                  <li class="flex gap-3"><span class="text-action font-bold shrink-0" aria-hidden="true">✓</span><span>{item}</span></li>
+                ))}
+              </ul>
+            );
+          case "faq":
+            return <Faq items={block.items} {...faqHeadingFor(i)} />;
+          case "callout":
+            return (
+              <aside class="callout my-8">
+                <p class="font-bold text-lg mb-1">{block.title}</p>
+                <p class="leading-relaxed">{block.text}</p>
+              </aside>
+            );
+          case "button":
+            return <p class="my-8"><a class="btn btn-outline" href={block.href}>{block.label}</a></p>;
+          case "request":
+            return (
+              <div class="my-8">
+                <a class="btn btn-action" href={block.form === "janitorial" ? JANITORIAL_FORM_URL : REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer">{block.label}</a>
+                {block.note && <p class="text-sm text-muted mt-3">{block.note}</p>}
+              </div>
+            );
+          case "cta":
+            return <p class="font-bold text-lg mt-10">{block.text}</p>;
+        }
+      })}
+    </div>
+  </article>
+
+  <CtaBand
+    heading="Questions about any of this?"
+    text="Call or text Phil directly. He answers his own phone."
+    formUrl={isJanitorial ? JANITORIAL_FORM_URL : REQUEST_FORM_URL}
+    formLabel={isJanitorial ? "Request a janitorial quote" : "Request a quote online"}
+  />
+</Base>

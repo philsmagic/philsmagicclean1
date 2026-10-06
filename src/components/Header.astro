@@ -1,0 +1,57 @@
+---
+import { NAV_LINKS, BUSINESS } from "@/data/site";
+const current = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+  <div class="container mx-auto px-4 max-w-7xl">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="flex items-center no-underline hover:no-underline" aria-label={`${BUSINESS.name} home`}>
+        <img src="/images/logo-landscape.png" alt={`${BUSINESS.name} logo`} width="180" height="51" class="h-11 w-auto" />
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-6" aria-label="Primary">
+        {NAV_LINKS.map((l) => (
+          <a href={l.href} aria-current={current === l.href ? "page" : undefined}
+             class:list={["text-sm font-semibold no-underline hover:no-underline hover:text-action", current === l.href ? "text-action" : "text-ink"]}>
+            {l.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href={`tel:${BUSINESS.phoneE164}`} class="text-sm font-bold no-underline" style="font-family: var(--font-display)">{BUSINESS.phoneDisplay}</a>
+        <a href={`tel:${BUSINESS.phoneE164}`} class="btn btn-action text-sm !py-2 !px-4">Free Quote</a>
+      </div>
+
+      <div class="flex lg:hidden items-center gap-3">
+        <a href={`tel:${BUSINESS.phoneE164}`} class="text-sm font-bold no-underline">{BUSINESS.phoneDisplay}</a>
+        <button id="menu-toggle" class="p-2 text-ink" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <line x1="3" y1="6" x2="19" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="3" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="3" y1="16" x2="19" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu: plain <a> links are in the HTML regardless of JS; JS only toggles visibility. -->
+  <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-line shadow-lg">
+    <nav class="container mx-auto px-4 py-4 flex flex-col gap-4" aria-label="Mobile">
+      {NAV_LINKS.map((l) => <a href={l.href} class="text-sm font-semibold text-ink no-underline">{l.label}</a>)}
+      <a href={`tel:${BUSINESS.phoneE164}`} class="btn btn-action text-center text-sm">Free Quote — {BUSINESS.phone}</a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    var b = document.getElementById('menu-toggle'), m = document.getElementById('mobile-menu');
+    if (!b || !m) return;
+    b.addEventListener('click', function () {
+      var open = m.classList.toggle('hidden') === false;
+      b.setAttribute('aria-expanded', String(open));
+    });
+  })();
+</script>

@@ -1,0 +1,232 @@
+---
+/**
+ * Resource article — "How do you choose a professional cleaning company?"
+ * Emily Matthews' copy (2026-10-05), carried verbatim; sentence-case headings
+ * and cross-page repetition are deliberate. No visible date → Article schema
+ * without dates. Home-cleaning substitutions per E.L. ruling 10/5 are flagged
+ * inline and logged in docs/EMILY-CHANGES.md.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import AuthorBio from "@/components/AuthorBio.astro";
+import { REQUEST_FORM_URL } from "@/data/site";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+
+const hub = "/resources/choosing-professional-cleaning-services";
+const path = `${hub}/how-to-choose-a-cleaning-company`;
+const h1 = "How do you choose a professional cleaning company?";
+const title = "How to choose a professional cleaning company";
+const description =
+  "Learn how to choose a professional cleaning company, compare cleaning quotes, evaluate insurance and reviews, and know what to ask before hiring.";
+
+// Emily's TOC lists these H2s only (deliberately not all of them).
+const toc = [
+  { id: "what-to-look-for", label: "What should you look for in a professional cleaning company?" },
+  { id: "what-to-ask", label: "What should you ask before hiring a professional cleaning company?" },
+  { id: "how-to-compare-quotes", label: "How do you compare quotes from professional cleaning companies?" },
+  { id: "what-a-quote-should-include", label: "What information should a professional cleaning quote include?" },
+  { id: "licensed-and-insured", label: "Should a cleaning company be licensed and insured?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about choosing a professional cleaning company" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Should you get multiple quotes from cleaning companies?",
+    a: "Yes. Getting multiple cleaning quotes can help you compare pricing, scope, exclusions, and service terms. Give each company the same information about your property and cleaning requirements so the estimates address equivalent work. A lower-priced quote can cost less because it covers fewer tasks or services, so compare the scope before comparing the total price.",
+  },
+  {
+    q: "Are customer reviews important when choosing a cleaning company?",
+    a: "Yes. Customer reviews provide evidence about reliability, professionalism, communication, attention to detail, and cleaning results. Look for recurring patterns across several reviews rather than relying on a single rating or comment. Compare that feedback with the services and qualifications you have already verified.",
+  },
+  {
+    q: "Should you choose a local professional cleaning company?",
+    a: "A local cleaning company can be a good choice when it provides the services you need and regularly serves your area. Confirm the provider’s geographic coverage before requesting service. Phil’s Magic Cleaning serves homes and businesses across the San Francisco Peninsula, with a primary service area from South San Francisco to Mountain View.",
+  },
+  {
+    q: "How do you know if a cleaning company is reputable?",
+    a: "A reputable cleaning company should provide verifiable information about its services, insurance, experience, pricing, and customer feedback. Look for consistency between what the company promises, what its quote includes, and what customers report. Clear documentation and responsive communication provide stronger evidence than promotional claims alone.",
+  },
+  {
+    q: "How can you choose a cleaning company with confidence?",
+    a: "Choose a professional cleaning company by first defining what you need and then comparing qualified providers against the same requirements. Confirm the cleaning scope, quote, insurance, scheduling, and responsibilities before agreeing to service. A consistent evaluation process makes it easier to identify a provider whose services, qualifications, and price fit your home or business.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Choosing and managing professional cleaning services", path: hub },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={hub}>Choosing and managing professional cleaning services</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Choose a professional cleaning company by evaluating its services, experience, insurance, scope of work, pricing, customer reviews, scheduling, and communication. Compare providers using the same criteria to find one whose services and quote match your home or business.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning for businesses and homes across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-to-look-for" class="text-2xl md:text-3xl mt-10 mb-4">What should you look for in a professional cleaning company?</h2>
+        <p class="text-lg leading-relaxed mb-5">Look for a professional cleaning company with the right services, relevant property experience, clear pricing, appropriate insurance, reliable scheduling, and strong customer feedback.</p>
+        <p class="text-lg leading-relaxed mb-5">Before choosing a provider, evaluate:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li><strong>Service fit:</strong> Does the company provide the type of cleaning you need?</li>
+          <li><strong>Experience:</strong> Does it have experience with your type of home or business?</li>
+          <li><strong>Scope:</strong> Does it clearly define which areas and tasks are included?</li>
+          <li><strong>Insurance:</strong> Does it carry coverage appropriate for the work?</li>
+          <li><strong>Pricing:</strong> Does the quote explain what you are paying for?</li>
+          <li><strong>Scheduling:</strong> Can the company accommodate your property and timing requirements?</li>
+          <li><strong>Communication:</strong> Is there a clear process for questions and service changes?</li>
+          <li><strong>Reviews:</strong> Do customer experiences support claims about reliability, professionalism, and quality?</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Evaluate the same criteria for each provider so differences in service, qualifications, price, and customer experience are easier to compare.</p>
+      </section>
+
+      <section>
+        <h2 id="what-to-ask" class="text-2xl md:text-3xl mt-10 mb-4">What should you ask before hiring a professional cleaning company?</h2>
+        <p class="text-lg leading-relaxed mb-5">Before hiring a professional cleaning company, ask what services it provides, what the quote includes, how pricing works, whether it is insured, and how scheduling and communication are handled.</p>
+        <p class="text-lg leading-relaxed mb-5">Key questions include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>What professional cleaning services do you provide?</li>
+          <li>Do you have experience with my type of property?</li>
+          <li>Do you provide cleaning services in my location?</li>
+          <li>What areas and cleaning tasks are included?</li>
+          <li>What services or tasks are excluded?</li>
+          <li>Can the cleaning scope be customized?</li>
+          <li>Are you licensed and insured?</li>
+          <li>How do you determine the price?</li>
+          <li>What does the cleaning quote include?</li>
+          <li>How are appointments and service changes handled?</li>
+          <li>Who should I contact if there is a problem?</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Specific answers help establish expectations before you agree to service and make it easier to compare one professional cleaning company with another.</p>
+      </section>
+
+      <section>
+        <h2 id="how-to-compare-quotes" class="text-2xl md:text-3xl mt-10 mb-4">How do you compare quotes from professional cleaning companies?</h2>
+        <p class="text-lg leading-relaxed mb-5">Compare professional cleaning quotes by reviewing the scope, included tasks, exclusions, pricing, scheduling, and other service terms—not by comparing price alone.</p>
+        <p class="text-lg leading-relaxed mb-5">A useful side-by-side comparison looks like this:</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">What to compare</th><th scope="col" class="py-2">What to evaluate</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Cleaning scope</td><td class="py-2">Areas and tasks covered</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Property requirements</td><td class="py-2">Size, type, condition, and access</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Included services</td><td class="py-2">Work covered by the quoted price</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Excluded services</td><td class="py-2">Work requiring separate service or pricing</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Price</td><td class="py-2">Total cost or pricing method</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Additional charges</td><td class="py-2">Conditions or services that change the price</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Scheduling</td><td class="py-2">Availability and timing requirements</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Insurance</td><td class="py-2">Coverage appropriate for the work</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">Give each company the same information about your property and cleaning needs. Quotes are only directly comparable when they cover equivalent areas, tasks, and service requirements.</p>
+        <p class="text-lg leading-relaxed mb-5">Comparing equivalent scopes shows whether price differences reflect the provider’s rate or differences in the services included.</p>
+      </section>
+
+      <section>
+        <h2 id="what-a-quote-should-include" class="text-2xl md:text-3xl mt-10 mb-4">What information should a professional cleaning quote include?</h2>
+        <p class="text-lg leading-relaxed mb-5">A professional cleaning quote should identify the property, cleaning scope, included services, exclusions, price, and any conditions that affect the work or cost.</p>
+        <p class="text-lg leading-relaxed mb-5">Look for information covering:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Property: Type, size, location, or other relevant characteristics</li>
+          <li>Scope: Rooms, areas, surfaces, or cleaning tasks covered</li>
+          <li>Inclusions: Services included in the quoted price</li>
+          <li>Exclusions: Services not covered by the estimate</li>
+          <li>Price: Total charge or method used to calculate it</li>
+          <li>Extras: Optional work or conditions that create additional charges</li>
+          <li>Schedule: Timing requirements relevant to the quoted service</li>
+          <li>Access: Property conditions that affect how the work is completed</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">The exact information depends on the cleaning service. A commercial or janitorial cleaning quote can identify areas such as floors, restrooms, break rooms, common areas, and interior glass. A professional window cleaning quote can specify interior and exterior glass, screens, accessibility, and other property-specific requirements.</p>
+        <p class="text-lg leading-relaxed mb-5">A detailed quote reduces ambiguity by establishing what the customer is purchasing before the cleaning begins.</p>
+      </section>
+
+      <section>
+        <h2 id="licensed-and-insured" class="text-2xl md:text-3xl mt-10 mb-4">Should a cleaning company be licensed and insured?</h2>
+        <p class="text-lg leading-relaxed mb-5">Yes. A professional cleaning company should meet applicable business licensing requirements and carry insurance appropriate for the services it performs. Ask a prospective provider about its insurance before hiring it. Coverage matters because professional cleaners work inside homes and businesses, around customer property, and in environments where accidental damage or injury can occur.</p>
+        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Phil’s Magic Cleaning is licensed and insured for residential and commercial cleaning across the San Francisco Peninsula." -->
+        <!-- REVIEW E.L.: unverified claim — "licensed and insured" is Emily's wording; confirm against the client file. -->
+        <p class="text-lg leading-relaxed mb-5">Licensing and insurance provide important business and risk protections, but you should evaluate them alongside the provider’s ability to do the required cleaning. Phil’s Magic Cleaning is licensed and insured for commercial cleaning and window cleaning across the San Francisco Peninsula.</p>
+        <p class="text-lg leading-relaxed mb-5">A company that performs well across these criteria gives you clearer expectations about the service before you hire it.</p>
+      </section>
+
+      <nav aria-label="Related articles" class="my-12">
+        <h2 id="related-articles" class="text-2xl md:text-3xl mb-6">Related articles</h2>
+        <ul class="space-y-8">
+          <li>
+            <h3 class="text-xl mb-2">What is the difference between one-time, deep, and recurring cleaning?</h3>
+            <p class="leading-relaxed mb-2">One-time and recurring cleaning describe how frequently service occurs, while deep cleaning describes the extent of the work. Learn how each approach differs, how recurring cleaning schedules work, and how to choose the right combination of service frequency and cleaning scope for your home or business.</p>
+            <a href={`${hub}/one-time-deep-and-recurring-cleaning`} class="font-bold">Explore cleaning service options</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">What should you expect from a professional cleaning service?</h3>
+            <p class="leading-relaxed mb-2">A professional cleaning service should follow an agreed scope, complete the specified work, follow property access instructions, and provide a clear process for questions or concerns. Learn how to prepare, what happens when cleaners arrive, how long service can take, whether you need to be present, and what to review afterward.</p>
+            <a href={`${hub}/what-to-expect`} class="font-bold">Understand the cleaning process</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">How to choose and use professional cleaning services: a resource center</h3>
+            <p class="leading-relaxed mb-2">Learn how to choose and use professional cleaning services, from evaluating cleaning companies and comparing service options to preparing for an appointment and knowing what to expect before, during, and after cleaning.</p>
+            <a href={hub} class="font-bold">Explore professional cleaning guides</a>
+          </li>
+        </ul>
+      </nav>
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about choosing a professional cleaning company">
+        <p>These answers cover additional considerations when comparing professional cleaning companies for a home or business.</p>
+      </Faq>
+
+      <section>
+        <h2 id="services-phils-magic-cleaning-provides" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services does Phil’s Magic Cleaning provide?</h2>
+        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Phil’s Magic Cleaning provides professional cleaning for homes and businesses across the San Francisco Peninsula. Services include janitorial and general cleaning for homes and businesses, including commercial cleaning for businesses, plus residential and commercial window cleaning." -->
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides commercial cleaning and window cleaning for businesses and homes across the San Francisco Peninsula. Services include janitorial and commercial cleaning for businesses, plus residential and commercial window cleaning.</p>
+        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original button label: "View commercial and home cleaning services" -->
+        <div class="flex flex-wrap gap-4 my-6">
+          <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
+          <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="request-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can I request cleaning from Phil’s Magic Cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Contact Phil’s Magic Cleaning to request a free estimate for professional cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.</p>
+        <div class="my-6">
+          <a href={REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a free estimate</a>
+        </div>
+      </section>
+
+      <AuthorBio />
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

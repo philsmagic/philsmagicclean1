@@ -1,0 +1,13 @@
+---
+/**
+ * Emits one JSON-LD block in the initial HTML (AEO S1 §A). Pass a single
+ * object or an array; arrays are wrapped in @graph so the page carries ONE
+ * script tag (S1 §4 — duplication is worse than omission).
+ */
+interface Props { data: Record<string, unknown> | Record<string, unknown>[] }
+const { data } = Astro.props;
+const payload = Array.isArray(data)
+  ? { "@context": "https://schema.org", "@graph": data }
+  : { "@context": "https://schema.org", ...data };
+---
+<script type="application/ld+json" set:html={JSON.stringify(payload)} />

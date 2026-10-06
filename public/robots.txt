@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://philsmagicclean.com/sitemap-index.xml

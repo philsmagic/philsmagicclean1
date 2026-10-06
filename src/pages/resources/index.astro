@@ -1,0 +1,54 @@
+---
+/**
+ * Resources landing — NEW page from Emily Matthews' AEO pass (2026-10-05),
+ * Resources_Landing page.md, carried verbatim. Two hubs: the blog (/resources/blog)
+ * and the "choosing and using professional cleaning services" resource
+ * center (/resources/choosing-professional-cleaning-services, built
+ * separately). Breadcrumb: Home › Resources.
+ */
+import Base from "@/layouts/Base.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { breadcrumbs } from "@/data/schema";
+
+const path = "/resources";
+const title = "Cleaning resources | Phil’s Magic Cleaning";
+const description =
+  "Explore cleaning resources, company news, and professional cleaning guides for homeowners and businesses across the San Francisco Peninsula.";
+---
+<Base {title} {description} {path} schema={[breadcrumbs([{ name: "Home", path: "/" }, { name: "Resources", path }])]}>
+  <section class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">Resources</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-4xl md:text-5xl mb-4">Cleaning resources for San Francisco Peninsula homes and businesses</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Explore professional cleaning resources for San Francisco Peninsula homes and businesses, including Phil’s Magic Cleaning announcements, practical cleaning advice and guides to choosing, scheduling, and using professional cleaning services.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <div class="max-w-3xl space-y-10 mt-12">
+      <section id="blog" class="border-b border-line pb-10">
+        <h2 class="text-2xl md:text-3xl mb-3">Blog: Phil’s Magic Cleaning news and announcements</h2>
+        <p class="text-lg leading-relaxed mb-4">
+          Get the latest Phil’s Magic Cleaning news, including service announcements, scheduling and invoicing updates, and other changes affecting customers across the San Francisco Peninsula.
+        </p>
+        <p><a href="/resources/blog">Read Phil’s Magic Cleaning news</a></p>
+      </section>
+
+      <section id="choosing-professional-cleaning-services">
+        <h2 class="text-2xl md:text-3xl mb-3">How to choose and use professional cleaning services: a resource center</h2>
+        <p class="text-lg leading-relaxed mb-4">
+          Learn how to choose and use professional cleaning services, from evaluating cleaning companies and comparing service options to preparing for an appointment and knowing what to expect before, during, and after cleaning.
+        </p>
+        <p><a href="/resources/choosing-professional-cleaning-services">Explore professional cleaning guides</a></p>
+      </section>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

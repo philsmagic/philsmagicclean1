@@ -1,0 +1,77 @@
+---
+/**
+ * Resource center hub — "How to choose and use professional cleaning services"
+ * (Emily Matthews' copy, 2026-10-05, carried verbatim; sentence-case headings
+ * are deliberate). Links out to the three articles beneath it.
+ */
+import Base from "@/layouts/Base.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { breadcrumbs } from "@/data/schema";
+
+const path = "/resources/choosing-professional-cleaning-services";
+const title = "How to choose professional cleaning services";
+const description =
+  "Learn how to choose a professional cleaning company, compare cleaning options, and know what to expect before, during, and after professional cleaning.";
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Choosing and managing professional cleaning services", path },
+  ]),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">Choosing and managing professional cleaning services</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">How to choose and use professional cleaning services: a resource center</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Learn how to choose and use professional cleaning services, from evaluating cleaning companies and selecting the right service approach to preparing for an appointment and knowing what to expect before, during, and after cleaning.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-can-you-learn" class="text-2xl md:text-3xl mt-10 mb-4">What can you learn about choosing and using professional cleaning services?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Choosing and using professional cleaning services involves three different decisions: selecting a qualified cleaning company, determining the service approach that fits your needs, and understanding what happens before, during, and after an appointment. The resources below address each stage separately.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="how-to-choose-a-cleaning-company" class="text-2xl md:text-3xl mt-10 mb-4">How do you choose a professional cleaning company?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Choose a professional cleaning company by evaluating its services, experience, insurance, customer reviews, scheduling, communication, and pricing. Learn what to ask before hiring, what a professional cleaning quote should include, and how to compare providers based on equivalent cleaning scopes and service requirements.
+        </p>
+        <p class="mb-5"><a href="/resources/choosing-professional-cleaning-services/how-to-choose-a-cleaning-company" class="font-bold">Compare cleaning companies</a></p>
+      </section>
+
+      <section>
+        <h2 id="one-time-deep-and-recurring-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">What is the difference between one-time, deep, and recurring cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          One-time and recurring cleaning describe how frequently service occurs, while deep cleaning describes the extent of the work. Learn how each approach differs, how recurring cleaning schedules work, and how to choose the right combination of service frequency and cleaning scope for your home or business.
+        </p>
+        <p class="mb-5"><a href="/resources/choosing-professional-cleaning-services/one-time-deep-and-recurring-cleaning" class="font-bold">Explore cleaning service options</a></p>
+      </section>
+
+      <section>
+        <h2 id="what-to-expect" class="text-2xl md:text-3xl mt-10 mb-4">What should you expect from a professional cleaning service?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          A professional cleaning service should follow an agreed scope, complete the specified work, follow property access instructions, and provide a clear process for questions or concerns. Learn how to prepare, what happens when cleaners arrive, how long service can take, whether you need to be present, and what to review afterward.
+        </p>
+        <p class="mb-5"><a href="/resources/choosing-professional-cleaning-services/what-to-expect" class="font-bold">Understand the cleaning process</a></p>
+      </section>
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

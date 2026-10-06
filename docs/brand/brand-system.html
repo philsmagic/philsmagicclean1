@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phil's Magic Brand System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;800;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Logo gradient — sampled from the logo's pixels, 2026-10-05 */
+  --pm-blue:#0000FF; --pm-bright:#0064FF; --pm-sky:#04B8F7; --pm-aqua:#30DADB;
+  --pm-gradient:linear-gradient(90deg,#0000FF 0%,#0064FF 45%,#04B8F7 80%,#30DADB 100%);
+  /* Ink + paper */
+  --pm-black:#000000; --pm-ink:#171616; --pm-white:#FFFFFF; --pm-wash:#F0F5F8; --pm-line:#D9E2E8; --pm-muted:#55606A;
+  /* Action — E.L. 2026-10-05: the action button stays teal */
+  --pm-action:#0D7A8A; --pm-action-hover:#0A6370;
+  --font-display:'Archivo',system-ui,sans-serif; --font-body:'Source Sans 3',system-ui,sans-serif;
+  --bg:var(--pm-white); --surface:var(--pm-wash); --text:var(--pm-ink); --sub:var(--pm-muted); --border:var(--pm-line);
+}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--font-body)}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 16px 80px}
+h1,h2,h3{font-family:var(--font-display);line-height:1.1;margin:0}
+h1{font-weight:900;font-size:clamp(32px,6vw,52px);text-transform:uppercase;letter-spacing:-.01em}
+h2{font-weight:800;font-size:26px;margin:56px 0 6px;padding-top:24px;border-top:1px solid var(--border)}
+h3{font-weight:800;font-size:18px;margin:22px 0 8px}
+.eyebrow{font-family:var(--font-display);font-weight:400;text-transform:uppercase;letter-spacing:.32em;font-size:13px;color:var(--sub)}
+.lede{color:var(--sub);max-width:680px}
+.grad-text{background:var(--pm-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bar{height:10px;border-radius:5px;background:var(--pm-gradient);margin:18px 0 0}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+.sw{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff}
+.sw .chip{height:84px}
+.sw .meta{padding:10px 12px;font-size:14px;line-height:1.4}
+.sw b{display:block;font-family:var(--font-display);font-weight:800}
+.sw code{font-size:13px;color:var(--sub)}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--pm-wash);color:var(--sub);margin-top:4px}
+.logos{display:grid;gap:14px;grid-template-columns:2fr 1fr}
+.logo-tile{border:1px solid var(--border);border-radius:10px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:150px}
+.logo-tile img{max-width:100%;max-height:140px}
+.logo-tile.dark{background:#000}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-family:var(--font-display);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--sub)}
+.ok{color:#137a3a;font-weight:600}.no{color:#b3261e;font-weight:600}
+.btn{display:inline-block;font:800 16px var(--font-display);padding:14px 26px;border-radius:8px;text-decoration:none;border:2px solid transparent;margin:6px 10px 6px 0}
+.btn-action{background:var(--pm-action);color:#fff}.btn-action:hover{background:var(--pm-action-hover)}
+.btn-secondary{border-color:var(--pm-blue);color:var(--pm-blue);background:#fff}
+.btn-phone{color:var(--pm-blue);font:800 20px var(--font-display);text-decoration:none}
+.card{border:1px solid var(--border);border-radius:10px;padding:18px;background:var(--surface)}
+.two{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.note{border-left:4px solid var(--pm-action);background:var(--surface);padding:12px 16px;border-radius:0 8px 8px 0;font-size:15px}
+ul{padding-left:20px}
+.type-sample{border:1px solid var(--border);border-radius:10px;padding:20px;margin:10px 0}
+@media (max-width:700px){.logos,.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<p class="eyebrow">Brand system · v0.1 · draft for E.L. review · 2026-10-05</p>
+<h1><span class="grad-text">Phil's Magic</span><br>Cleaning</h1>
+<div class="bar"></div>
+<p class="lede">The brand system for the AEO rebuild, taken from Phil's real logo file. The logo colors were sampled from its pixels, not guessed. One rule comes from E.L. (10/5): the action button stays teal. Everything else follows the logo.</p>
+
+<h2>1. Logo</h2>
+<p class="lede">Use the original file only. Never redraw, recolor or retype the wordmark.</p>
+<div class="logos">
+  <div class="logo-tile"><img src="phils-magic-logo-landscape-transparent.png" alt="Phil's Magic Cleaning logo, landscape"></div>
+  <div class="logo-tile"><img src="phils-magic-logo-transparent.png" alt="Phil's Magic Cleaning logo, stacked"></div>
+</div>
+<div class="two" style="margin-top:14px">
+  <div class="card"><h3>Do</h3><ul>
+    <li>Landscape lockup in the site header; stacked lockup for square spaces (social, favicon source).</li>
+    <li>Place it on white or the light wash only.</li>
+    <li>Leave clear space on every side equal to the height of the "C" in CLEANING.</li>
+    <li>Minimum width: 160px (landscape), 64px (stacked).</li>
+  </ul></div>
+  <div class="card"><h3>Don't</h3><ul>
+    <li>Put it on black or a photo. The black "CLEANING" disappears, as shown in the dark tile test below.</li>
+    <li>Stretch it, outline it, or drop-shadow it.</li>
+    <li>Separate the phone number from the logo, or update it inside the image. A changed number needs a new file.</li>
+    <li>Rebuild the wordmark in a web font.</li>
+  </ul></div>
+</div>
+<div class="logos" style="margin-top:14px;grid-template-columns:1fr">
+  <div class="logo-tile dark"><img src="phils-magic-logo-landscape-transparent.png" alt="Logo on black — test showing CLEANING disappears"></div>
+</div>
+<p class="note"><b>Gap:</b> there is no white or reversed version of the logo. If the new site uses a dark footer, we need a one-color white version. That means a request to Phil for his original artwork, or a vector redraw he approves.</p>
+
+<h2>2. Color</h2>
+<p class="lede">The correction found 10/5: the logo gradient doesn't stop at <code>#0064FF</code>. It runs from pure blue through bright blue and sky to an aqua tip on the final "C". That aqua end is why the teal action button sits comfortably beside the logo.</p>
+
+<h3>Logo gradient: brand identity</h3>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:#0000FF"></div><div class="meta"><b>Magic Blue</b><code>#0000FF</code><br><span class="tag">primary</span></div></div>
+  <div class="sw"><div class="chip" style="background:#0064FF"></div><div class="meta"><b>Bright Blue</b><code>#0064FF</code><br><span class="tag">gradient mid</span></div></div>
+  <div class="sw"><div class="chip" style="background:#04B8F7"></div><div class="meta"><b>Sky</b><code>#04B8F7</code><br><span class="tag">gradient · decorative only</span></div></div>
+  <div class="sw"><div class="chip" style="background:#30DADB"></div><div class="meta"><b>Aqua tip</b><code>#30DADB</code><br><span class="tag">gradient end · decorative only</span></div></div>
+</div>
+<div class="sw" style="margin-top:14px"><div class="chip" style="background:var(--pm-gradient);height:56px"></div><div class="meta"><b>Logo gradient</b><code>linear-gradient(90deg, #0000FF, #0064FF 45%, #04B8F7 80%, #30DADB)</code><br>For accents only: hero rules, section dividers, the brand name in large display type. Never behind body text.</div></div>
+
+<h3>Action: teal (E.L. ruling)</h3>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:#0D7A8A"></div><div class="meta"><b>Action Teal</b><code>#0D7A8A</code><br><span class="tag">CTA buttons only</span></div></div>
+  <div class="sw"><div class="chip" style="background:#0A6370"></div><div class="meta"><b>Teal hover</b><code>#0A6370</code><br><span class="tag">button hover / pressed</span></div></div>
+</div>
+<p class="note">Teal means one thing: <b>"do this now"</b>, as in Get a quote or Book. Keeping it to buttons is what makes the button the most visible thing on the page. Links and the phone number use Magic Blue instead.</p>
+
+<h3>Ink &amp; paper</h3>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:#171616"></div><div class="meta"><b>Ink</b><code>#171616</code><br><span class="tag">body text · sampled from "CLEANING"</span></div></div>
+  <div class="sw"><div class="chip" style="background:#000000"></div><div class="meta"><b>Black</b><code>#000000</code><br><span class="tag">headings</span></div></div>
+  <div class="sw"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid var(--border)"></div><div class="meta"><b>White</b><code>#FFFFFF</code><br><span class="tag">page background</span></div></div>
+  <div class="sw"><div class="chip" style="background:#F0F5F8"></div><div class="meta"><b>Wash</b><code>#F0F5F8</code><br><span class="tag">alternate sections, cards</span></div></div>
+  <div class="sw"><div class="chip" style="background:#55606A"></div><div class="meta"><b>Muted</b><code>#55606A</code><br><span class="tag">captions, secondary text</span></div></div>
+  <div class="sw"><div class="chip" style="background:#D9E2E8"></div><div class="meta"><b>Line</b><code>#D9E2E8</code><br><span class="tag">borders, dividers</span></div></div>
+</div>
+
+<h3>Contrast check (WCAG AA = 4.5 for text)</h3>
+<table>
+<tr><th>Pairing</th><th>Ratio</th><th>Use it for</th></tr>
+<tr><td>White on Action Teal <code>#0D7A8A</code></td><td>5.04</td><td class="ok">✓ button labels</td></tr>
+<tr><td>White on Teal hover <code>#0A6370</code></td><td>6.93</td><td class="ok">✓ button labels</td></tr>
+<tr><td>Magic Blue <code>#0000FF</code> on white</td><td>8.59</td><td class="ok">✓ links, phone, headings</td></tr>
+<tr><td>Bright Blue <code>#0064FF</code> on white</td><td>4.92</td><td class="ok">✓ large text only, by preference</td></tr>
+<tr><td>Ink on white</td><td>~18</td><td class="ok">✓ body text</td></tr>
+<tr><td>Sky <code>#04B8F7</code> on white</td><td>~2.3</td><td class="no">✗ never for text, decorative only</td></tr>
+<tr><td>Magic Blue on black</td><td>2.44</td><td class="no">✗ never (also why the logo can't sit on black)</td></tr>
+</table>
+
+<h2>3. Typography</h2>
+<p class="lede">The logo pairs a <b>heavy, wide, all-caps sans</b> ("PHIL'S MAGIC") with a <b>light, widely-spaced caps line</b> ("CLEANING"). The web type below echoes that structure.</p>
+<div class="type-sample">
+  <p class="eyebrow">Eyebrow · Archivo 400 · caps · tracking .32em</p>
+  <h1 style="font-size:40px">Archivo 900 Display</h1>
+  <h3 style="font-size:24px;margin-top:10px">Archivo 800 — section heading</h3>
+  <p style="margin:10px 0 0">Source Sans 3 400 for body text. Pure-water window cleaning for homes and storefronts across the Peninsula, from South San Francisco to Mountain View.</p>
+</div>
+<table>
+<tr><th>Role</th><th>Font</th><th>Why</th></tr>
+<tr><td>Display / H1–H2</td><td>Archivo 800–900</td><td>Closest free web match to the logo's heavy grotesque; makes headings feel like the logo</td></tr>
+<tr><td>Eyebrow / labels</td><td>Archivo 400, caps, wide tracking</td><td>Echoes the "C L E A N I N G" line</td></tr>
+<tr><td>Body</td><td>Source Sans 3 400/600</td><td>Already on the live site; clear at small sizes</td></tr>
+</table>
+<p class="note"><b>Your decision:</b> the live site uses <b>Playfair Display</b>, an elegant serif, for headings. It has nothing in common with the logo, and it came from the earlier teal design (D-4). This system replaces it with Archivo. If you'd rather keep Playfair, swap one variable. Archivo is a recommendation, not a ruling.</p>
+
+<h2>4. Buttons &amp; links</h2>
+<p>
+  <a class="btn btn-action" href="#">Get a free quote</a>
+  <a class="btn btn-secondary" href="#">See our services</a>
+  <a class="btn-phone" href="#">(650) 660-0430</a>
+</p>
+<ul>
+  <li><b>Primary (teal):</b> one per screen. Use it for the quote or booking action that opens the Jobber request form, which is where the pixel's Lead event fires.</li>
+  <li><b>Secondary (blue outline):</b> navigation-type actions.</li>
+  <li><b>Phone:</b> Magic Blue, always a tap-to-call <code>tel:</code> link. The format matches the 10/4 ad fix: (650) 660-0430.</li>
+</ul>
+
+<h2>5. Voice &amp; facts guardrails</h2>
+<div class="two">
+  <div class="card"><h3>Say</h3><ul>
+    <li>5.0★ from 42 Google reviews. This is <b>Phil's</b> achievement; keep the count current.</li>
+    <li>Pure-water filtration window cleaning.</li>
+    <li>Services: window cleaning, janitorial / commercial cleaning, pressure washing.</li>
+    <li>Service area: 14 cities, South San Francisco → Mountain View.</li>
+    <li>Plain, local, direct: answer the question in the first sentence.</li>
+  </ul></div>
+  <div class="card"><h3>Never say</h3><ul>
+    <li>House cleaning. It is not a service.</li>
+    <li>Scale claims ("the Bay Area's largest…").</li>
+    <li>Any of Phil's clients by name; blur third-party signage in photos.</li>
+    <li>Facts that aren't on Emily's Verified Facts sheet.</li>
+  </ul></div>
+</div>
+
+<h2>6. Tokens for the build</h2>
+<pre style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;overflow:auto;font-size:13px">:root {
+  --pm-blue: #0000FF;  --pm-bright: #0064FF;  --pm-sky: #04B8F7;  --pm-aqua: #30DADB;
+  --pm-gradient: linear-gradient(90deg, #0000FF 0%, #0064FF 45%, #04B8F7 80%, #30DADB 100%);
+  --pm-action: #0D7A8A;  --pm-action-hover: #0A6370;
+  --pm-black: #000000;  --pm-ink: #171616;  --pm-white: #FFFFFF;
+  --pm-wash: #F0F5F8;   --pm-muted: #55606A; --pm-line: #D9E2E8;
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
+}</pre>
+
+<p class="eyebrow" style="margin-top:48px">Retired: navy/gold (a guess, 08-09) · teal as the overall site color, Playfair Display (D-4, 08-26). Teal is kept for action buttons only (E.L., 10-05)</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* Brand tokens — docs/brand/brand-system.html (v0.1, 2026-10-05).
+   Teal is the ACTION colour only (E.L. ruling 10/5); identity is the logo blue. */
+@theme {
+  --color-blue: #0000ff;
+  --color-bright: #0064ff;
+  --color-sky: #04b8f7;
+  --color-aqua: #30dadb;
+  --color-action: #0d7a8a;
+  --color-action-hover: #0a6370;
+  --color-ink: #171616;
+  --color-wash: #f0f5f8;
+  --color-muted: #55606a;
+  --color-line: #d9e2e8;
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+}
+
+:root {
+  --pm-gradient: linear-gradient(90deg, #0000ff 0%, #0064ff 45%, #04b8f7 80%, #30dadb 100%);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--color-ink); background: #fff; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; }
+h1 { font-weight: 900; letter-spacing: -0.01em; }
+h2, h3 { font-weight: 800; }
+a { color: var(--color-blue); }
+a:hover { text-decoration: underline; }
+
+/* Logo-gradient accent rule, used under H1s */
+.brand-rule { height: 6px; border-radius: 3px; background: var(--pm-gradient); }
+.grad-text { background: var(--pm-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Buttons */
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 800; padding: 0.8rem 1.6rem; border-radius: 0.5rem; text-decoration: none; border: 2px solid transparent; transition: background-color .15s, color .15s; }
+.btn:hover { text-decoration: none; }
+.btn-action { background: var(--color-action); color: #fff; }
+.btn-action:hover { background: var(--color-action-hover); }
+.btn-outline { border-color: var(--color-blue); color: var(--color-blue); background: #fff; }
+.btn-outline:hover { background: var(--color-wash); }
+.btn-outline-white { border-color: #fff; color: #fff; }
+.btn-outline-white:hover { background: rgba(255,255,255,.1); }
+
+/* Eyebrow label — echoes the C L E A N I N G line of the logo */
+.eyebrow { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; letter-spacing: .3em; font-size: .75rem; color: var(--color-muted); }
+
+/* Callout — semantic <aside>, text in initial HTML (AEO S2 §K) */
+.callout { border-left: 4px solid var(--color-action); background: var(--color-wash); padding: 1rem 1.25rem; border-radius: 0 .5rem .5rem 0; }
+
+/* Table of contents */
+.toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+.toc a { font-size: .9rem; color: var(--color-blue); }
+
+/* Anchored headings: offset for the sticky header */
+h2[id], h3[id], section[id] { scroll-margin-top: 5rem; }
+
+/* Stars */
+.stars { color: #f5b301; letter-spacing: .05em; }
