@@ -19,7 +19,7 @@ export const BUSINESS = {
     postal: "94010",
     country: "US",
   },
-  rating: { value: "5.0", count: 42 }, // Google — Phil's own achievement; keep current
+  rating: { value: "5.0", count: 45, asOf: "2026-10-06" }, // Google Maps listing (cid 2561441622886334181), confirmed by Sable 2026-10-06. Phil's own achievement. Update here only — every page reads this.
   yearsServing: "4+",
   logo: `${SITE_URL}/images/logo.jpg`,
   /** Profile URLs for schema sameAs. EMPTY until E.L. supplies them (GBP, Facebook, Instagram, Yelp). */
