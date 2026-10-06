@@ -21,13 +21,20 @@
   --pm-gradient: linear-gradient(90deg, #0000ff 0%, #0064ff 45%, #04b8f7 80%, #30dadb 100%);
 }
 
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); color: var(--color-ink); background: #fff; }
-h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; }
-h1 { font-weight: 900; letter-spacing: -0.01em; }
-h2, h3 { font-weight: 800; }
-a { color: var(--color-blue); }
-a:hover { text-decoration: underline; }
+/* Element defaults live in the base layer so Tailwind utilities (text-white,
+   text-gray-300 …) override them. Unlayered, `a { color }` beat every utility
+   and painted the dark footer's links Magic Blue on ink (contrast 2.1:1). */
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--color-ink); background: #fff; }
+  h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; }
+  h1 { font-weight: 900; letter-spacing: -0.01em; }
+  h2, h3 { font-weight: 800; }
+  a { color: var(--color-blue); }
+  a:hover { text-decoration: underline; }
+  /* Links inside running text must be distinguishable without colour (WCAG 1.4.1). */
+  p a:not(.btn), li p a:not(.btn), dd a:not(.btn) { text-decoration: underline; text-underline-offset: 2px; }
+}
 
 /* Logo-gradient accent rule, used under H1s */
 .brand-rule { height: 6px; border-radius: 3px; background: var(--pm-gradient); }

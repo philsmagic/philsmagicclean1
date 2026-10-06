@@ -19,30 +19,37 @@ export const BUSINESS = {
     postal: "94010",
     country: "US",
   },
-  rating: { value: "5.0", count: 42 }, // Google — Phil's own achievement; keep current
+  rating: { value: "5.0", count: 45, asOf: "2026-10-06" }, // Google Maps listing (cid 2561441622886334181), confirmed by Sable 2026-10-06. Phil's own achievement. Update here only — every page reads this.
   yearsServing: "4+",
   logo: `${SITE_URL}/images/logo.jpg`,
   /** Profile URLs for schema sameAs. EMPTY until E.L. supplies them (GBP, Facebook, Instagram, Yelp). */
-  sameAs: [] as string[],
+  sameAs: [
+    "https://maps.google.com/?cid=2561441622886334181", // Google Business Profile
+    "https://www.facebook.com/philsmagiccleaning",
+    "https://www.instagram.com/philsmagiccleaning/",
+    "https://www.yelp.com/biz/phils-magic-cleaning-burlingame",
+  ] as string[],
   /** Public hours — EMPTY until E.L. confirms. Schema omits openingHours while empty. */
   openingHours: [] as string[],
 };
 
-/** 14-city Peninsula corridor, South San Francisco → Mountain View (client file). */
 export const SERVICE_AREA = [
+  // Confirmed list — agency/projects/phils-magic/seo-plan.md (2026-08-09, from the GBP
+  // dashboard; safe for page copy AND GBP). Brisbane is NOT served (E.L., 2026-10-05).
+  // Must match the Google Business Profile service area exactly (NAP consistency).
   "South San Francisco",
   "San Bruno",
   "Millbrae",
   "Burlingame",
-  "Hillsborough",
   "San Mateo",
   "Foster City",
   "Belmont",
   "San Carlos",
   "Redwood City",
+  "Atherton",
   "Menlo Park",
+  "East Palo Alto",
   "Palo Alto",
-  "Los Altos",
   "Mountain View",
 ];
 
