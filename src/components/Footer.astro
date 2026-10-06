@@ -1,0 +1,45 @@
+---
+import { FOOTER_LINKS, BUSINESS, SERVICE_AREA } from "@/data/site";
+const year = new Date().getFullYear();
+const a = BUSINESS.address;
+---
+<footer class="bg-ink text-white pt-12 pb-6">
+  <div class="container mx-auto px-4 max-w-7xl">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <!-- No reversed logo exists yet (brand-system.html gap); wordmark in type until Phil supplies one. -->
+        <a href="/" class="no-underline hover:no-underline">
+          <span class="block text-lg font-black uppercase tracking-tight" style="font-family: var(--font-display)">
+            <span class="grad-text">Phil's Magic</span> <span class="text-white font-normal tracking-[.25em]">Cleaning</span>
+          </span>
+        </a>
+        <p class="text-sm text-gray-300 leading-relaxed mt-3">
+          Commercial janitorial and window cleaning for homes and businesses across the Peninsula. Licensed, insured, and rated {BUSINESS.rating.value} stars.
+        </p>
+        <a href={`tel:${BUSINESS.phoneE164}`} class="block mt-3 text-sm font-bold text-white no-underline">{BUSINESS.phoneDisplay}</a>
+      </div>
+
+      <!-- Emily's footer nav (Home.md): Services stays here though removed from the top nav; Meet Magic Phil added. Service links live in FOOTER_LINKS, so the old "Services" column is gone. -->
+      <nav aria-label="Footer pages">
+        <h2 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Pages</h2>
+        <ul class="space-y-2">
+          {FOOTER_LINKS.map((l) => <li><a href={l.href} class="text-sm text-gray-300 hover:text-white no-underline">{l.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Contact</h2>
+        <address class="not-italic space-y-2 text-sm text-gray-300">
+          <div><a href={`tel:${BUSINESS.phoneE164}`} class="hover:text-white no-underline">{BUSINESS.phoneDisplay}</a></div>
+          <div>{a.street}</div>
+          <div>{a.city}, {a.region} {a.postal}</div>
+        </address>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-6">
+      <p class="text-xs text-gray-400 text-center">Serving {SERVICE_AREA.join(" · ")}</p>
+      <p class="text-xs text-gray-500 text-center mt-2">© {year} {BUSINESS.name}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

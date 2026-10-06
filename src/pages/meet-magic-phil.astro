@@ -1,0 +1,79 @@
+---
+/**
+ * Meet Magic Phil — NEW page from Emily Matthews' copy (Assets/aeo-copy-2026-10-05/md/Meet Magic Phil.md).
+ * Copy carried verbatim, sentence-case headings as written.
+ *
+ * ProfilePage note: this URL is the Person entity's `url` (schema.ts `person.url`). The Person node
+ * is already in every page's graph via Base.astro, so page-level schema here is breadcrumbs only —
+ * no second Person/ProfilePage node (one canonical entity, no duplicates).
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import { BUSINESS } from "@/data/site";
+import { breadcrumbs } from "@/data/schema";
+
+const path = "/meet-magic-phil";
+const title = "Meet Magic Phil | Founder of Phil's Magic Cleaning";
+const description =
+  "Magic Phil is the founder of Phil's Magic Cleaning, a professional cleaning company providing janitorial and window cleaning for businesses and homes on the San Francisco Peninsula.";
+
+const toc = [
+  { id: "who-is-magic-phil", label: "Who is Magic Phil?" },
+  { id: "how-phils-magic-cleaning-started", label: "How did Phil's Magic Cleaning get started?" },
+  { id: "what-phils-magic-cleaning-does-today", label: "What does Phil's Magic Cleaning do today?" },
+  { id: "burlingame-community", label: "How is Phil involved in the Burlingame community?" },
+  { id: "working-with-phils-magic-cleaning", label: "Interested in working with Phil's Magic Cleaning?" },
+];
+---
+<Base {title} {description} {path} schema={[breadcrumbs([{ name: "Home", path: "/" }, { name: "About", path: "/about" }, { name: "Meet Magic Phil", path }])]}>
+  <article class="container mx-auto px-4 max-w-4xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4"><ol class="flex gap-2 list-none p-0 m-0"><li><a href="/">Home</a></li><li aria-hidden="true">›</li><li><a href="/about">About</a></li><li aria-hidden="true">›</li><li aria-current="page">Meet Magic Phil</li></ol></nav>
+
+    <h1 class="text-4xl md:text-5xl mb-4">Meet Magic Phil</h1>
+    <p class="text-lg text-muted max-w-3xl leading-relaxed">
+      Magic Phil is the founder of Phil's Magic Cleaning, a professional cleaning company providing janitorial and window cleaning for businesses and homes on the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+    <Toc items={toc} />
+
+    <section class="mt-12">
+      <h2 id="who-is-magic-phil" class="text-2xl md:text-3xl mb-4">Who is Magic Phil?</h2>
+      <div class="space-y-4 leading-relaxed">
+        <p>Magic Phil is a <strong>Burlingame business owner and former restaurant manager who founded Phil's Magic Cleaning.</strong> Born in Eritrea, in East Africa, Phil moved with his family to the East Bay when he was ten.</p>
+        <p>Phil built his career in restaurant management, rising to manage three Five Guys locations. That experience taught him how to manage teams, maintain high standards, run a reliable operation, and build lasting customer relationships—principles he later brought to Phil's Magic Cleaning.</p>
+      </div>
+    </section>
+
+    <section class="border-t border-line pt-12 mt-12">
+      <h2 id="how-phils-magic-cleaning-started" class="text-2xl md:text-3xl mb-4">How did Phil's Magic Cleaning get started?</h2>
+      <div class="space-y-4 leading-relaxed">
+        <p>Phil founded Phil's Magic Cleaning in Burlingame after seeing a local cleaning company pressure-washing a sidewalk and becoming interested in the business. He asked about the business, bought his own equipment, and found his first client in Burlingame.</p>
+        <p>Phil initially built the business by washing windows and pressure-washing storefronts for local shops. He wanted financial control over his own life, the means to give back to his community, and work that used what he does best: connecting with people and making them feel seen and special.</p>
+        <p>That is the magic behind Phil.</p>
+      </div>
+    </section>
+
+    <section class="border-t border-line pt-12 mt-12">
+      <h2 id="what-phils-magic-cleaning-does-today" class="text-2xl md:text-3xl mb-4">What does Phil's Magic Cleaning do today?</h2>
+      <div class="space-y-4 leading-relaxed">
+        <p>Phil's Magic Cleaning provides professional cleaning for businesses and homes across the San Francisco Peninsula, from South San Francisco to Mountain View. What began as a window cleaning business has expanded to provide commercial and janitorial cleaning in addition to professional window cleaning.</p>
+        <p>Phil's Magic Cleaning has earned a {BUSINESS.rating.value}-star rating on Google.</p>
+      </div>
+    </section>
+
+    <section class="border-t border-line pt-12 mt-12">
+      <h2 id="burlingame-community" class="text-2xl md:text-3xl mb-4">How is Phil involved in the Burlingame community?</h2>
+      <div class="space-y-4 leading-relaxed">
+        <p>Phil stays involved in the Burlingame community by volunteering at Burlingame Chamber of Commerce events, mentoring young entrepreneurs, and participating in local cultural events celebrating his Eritrean heritage.</p>
+        <!-- REVIEW E.L.: named business — "Don's in Burlingame" (Emily's copy). -->
+        <p>Off the clock, you'll find him making music, on the golf course, or enjoying a cigar at Don's in Burlingame.</p>
+      </div>
+    </section>
+
+    <section class="border-t border-line pt-12 mt-12">
+      <h2 id="working-with-phils-magic-cleaning" class="text-2xl md:text-3xl mb-4">Interested in working with Phil's Magic Cleaning?</h2>
+      <p class="leading-relaxed mb-6">Phil's Magic Cleaning is growing, and Phil is looking for people who take pride in their work and in providing excellent service. If that sounds like you, he would like to hear from you.</p>
+      <a href="/contact" class="btn btn-action">Contact Phil's Magic Cleaning</a>
+    </section>
+  </article>
+</Base>

@@ -1,0 +1,249 @@
+---
+/**
+ * Resource article — "What is the difference between one-time, deep, and
+ * recurring cleaning?" Emily Matthews' copy (2026-10-05), carried verbatim;
+ * sentence-case headings and cross-page repetition are deliberate. No visible
+ * date → Article schema without dates. Home-cleaning substitutions per E.L.
+ * ruling 10/5 are flagged inline and logged in docs/EMILY-CHANGES.md.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import AuthorBio from "@/components/AuthorBio.astro";
+import { REQUEST_FORM_URL } from "@/data/site";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+
+const hub = "/resources/choosing-professional-cleaning-services";
+const path = `${hub}/one-time-deep-and-recurring-cleaning`;
+const h1 = "What is the difference between one-time, deep, and recurring cleaning?";
+const title = "One-time vs. deep vs. recurring cleaning";
+const description =
+  "Compare one-time, deep, and recurring cleaning, how each service differs, how recurring cleaning works, and which option fits your home or business.";
+
+// Emily's TOC lists these H2s only (deliberately not all of them).
+const toc = [
+  { id: "what-is-one-time-cleaning", label: "What is one-time cleaning?" },
+  { id: "what-is-deep-cleaning", label: "What is deep cleaning?" },
+  { id: "what-is-recurring-cleaning", label: "What is recurring cleaning?" },
+  { id: "how-recurring-cleaning-works", label: "How do recurring cleaning services work?" },
+  { id: "how-often-recurring-cleaning", label: "How often can recurring cleaning be scheduled?" },
+  { id: "which-type-to-choose", label: "Which type of cleaning service should you choose?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about cleaning service options" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+// (Emily's bold inside two answers is dropped — FAQ answers are plain text so schema and page match.)
+const faq = [
+  {
+    q: "Is deep cleaning the same as one-time cleaning?",
+    a: "No. Deep cleaning and one-time cleaning describe different aspects of a service. Deep cleaning refers to the extent of the work, while one-time cleaning refers to the schedule. A deep clean can take place during a single appointment, but not every one-time cleaning requires a deep-cleaning scope.",
+  },
+  {
+    q: "Can recurring cleaning include deep cleaning?",
+    a: "Yes. Deep cleaning can be incorporated into a recurring cleaning plan when more detailed work is needed. Routine visits can cover regular maintenance, while selected tasks or areas receive additional attention at agreed intervals. The cleaning plan should specify which work is routine and which requires a more extensive scope.",
+  },
+  {
+    q: "Do businesses use one-time or recurring cleaning services?",
+    a: "Businesses use both one-time and recurring professional cleaning depending on the property, cleaning requirements, and maintenance schedule. One-time commercial cleaning can address a specific situation or periodic requirement, while recurring janitorial cleaning supports ongoing maintenance. Offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other businesses can choose a schedule based on property use and cleaning requirements.",
+  },
+  // EMILY: FAQ "Can homes use recurring professional cleaning?" REMOVED per E.L. ruling 10/5 (house cleaning is not a service) — please supply a window-cleaning-for-homes question if one is wanted.
+  {
+    q: "How can you choose the right cleaning schedule and scope?",
+    a: "Choose the right professional cleaning service by deciding both how extensive the work needs to be and how frequently it should occur. One-time and recurring cleaning define the schedule, while deep cleaning defines the scope.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Choosing and managing professional cleaning services", path: hub },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={hub}>Choosing and managing professional cleaning services</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      One-time and recurring cleaning describe how frequently professional cleaning is scheduled, while deep cleaning describes the extent of the work. One-time cleaning is a single visit, recurring cleaning follows a regular schedule, and deep cleaning addresses more extensive buildup or detailed work.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning for businesses and homes across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-is-one-time-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">What is one-time cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">One-time cleaning is professional cleaning scheduled for a single visit rather than an ongoing service plan. It is designed for a specific cleaning need, event, transition, or periodic service that does not require a recurring schedule.</p>
+        <p class="text-lg leading-relaxed mb-5">Common reasons for scheduling one-time cleaning include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Preparing a property for guests or an event</li>
+          <li>Cleaning after a particularly busy period</li>
+          <li>Addressing areas that need periodic attention</li>
+          <li>Preparing a space for a transition</li>
+          <li>Completing periodic cleaning outside a recurring schedule</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">The scope depends on the property and the work requested. A one-time appointment can focus on selected rooms or areas rather than automatically covering every surface in the property.</p>
+        <p class="text-lg leading-relaxed mb-5">Defining the areas and tasks before a one-time appointment helps ensure the service addresses the specific cleaning need without establishing an ongoing schedule.</p>
+      </section>
+
+      <section>
+        <h2 id="what-is-deep-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">What is deep cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Deep cleaning is a more detailed level of professional cleaning that addresses accumulated dirt, buildup, or areas that need more attention than routine maintenance.</p>
+        <p class="text-lg leading-relaxed mb-5">Deep cleaning does not have one universal checklist. The exact work depends on the property, its condition, and the cleaning company’s service definitions. Before scheduling, confirm which rooms, surfaces, fixtures, or tasks are included.</p>
+        <p class="text-lg leading-relaxed mb-5">Deep cleaning can involve:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Cleaning areas with heavier buildup</li>
+          <li>Addressing surfaces beyond routine maintenance</li>
+          <li>Cleaning selected rooms or areas more extensively</li>
+          <li>Focusing on spaces that have gone longer between professional cleanings</li>
+          <li>Completing agreed-upon tasks beyond the normal cleaning scope</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Deep cleaning can be a one-time service or part of an ongoing cleaning plan. <strong>One-time describes when the service occurs; deep describes how extensive the cleaning is.</strong></p>
+        <p class="text-lg leading-relaxed mb-5">Confirming the deep-cleaning scope before receiving a quote establishes which rooms, surfaces, fixtures, and tasks the service will cover.</p>
+      </section>
+
+      <section>
+        <h2 id="what-is-recurring-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">What is recurring cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Recurring cleaning is professional cleaning performed on a regular schedule to maintain agreed-upon areas of a home or business over time. Common schedules include weekly, biweekly, monthly, nightly, or another established frequency.</p>
+        <p class="text-lg leading-relaxed mb-5">A recurring cleaning plan typically defines:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>The areas covered</li>
+          <li>The tasks performed</li>
+          <li>The service frequency</li>
+          <li>The cleaning schedule</li>
+          <li>The property access requirements</li>
+          <li>The process for requesting changes</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Recurring service can be appropriate for homes that need ongoing upkeep and businesses that require consistent attention to workspaces, floors, restrooms, break rooms, common areas, or other regularly used spaces.</p>
+        <p class="text-lg leading-relaxed mb-5">A defined schedule creates a predictable maintenance routine rather than requiring the customer to arrange each cleaning separately.</p>
+      </section>
+
+      <section>
+        <h2 id="how-recurring-cleaning-works" class="text-2xl md:text-3xl mt-10 mb-4">How do recurring cleaning services work?</h2>
+        <p class="text-lg leading-relaxed mb-5">Recurring cleaning services work by establishing a cleaning scope and repeating the agreed-upon service at scheduled intervals. The customer and cleaning company determine what needs attention, how frequently service is required, and when cleaning will take place.</p>
+        <p class="text-lg leading-relaxed mb-5">The basic structure is:</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Step</th><th scope="col" class="py-2">What is established</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Define the property</td><td class="py-2">Property type, size, use, and relevant conditions</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Identify the scope</td><td class="py-2">Areas and cleaning tasks covered</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Set the frequency</td><td class="py-2">Weekly, biweekly, monthly, nightly, or another cadence</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Establish the schedule</td><td class="py-2">Days and timing for service</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Confirm access</td><td class="py-2">Entry and property requirements</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Adjust as needed</td><td class="py-2">Changes to scope or scheduling</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">Recurring service does not require every possible cleaning task during every visit. The agreed scope determines the routine work, while additional or more detailed cleaning can be scheduled separately.</p>
+        <p class="text-lg leading-relaxed mb-5">Establishing the scope, frequency, and schedule in advance gives homeowners and businesses a consistent framework for maintaining the property.</p>
+      </section>
+
+      <section>
+        <h2 id="how-often-recurring-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How often can recurring cleaning be scheduled?</h2>
+        <p class="text-lg leading-relaxed mb-5">Recurring cleaning can be scheduled weekly, biweekly, monthly, nightly, or at another agreed-upon frequency. The right cadence depends on property use, traffic, cleaning requirements, and the condition you want to maintain between visits.</p>
+        <p class="text-lg leading-relaxed mb-5">Consider these factors when choosing a cleaning frequency:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li><strong>Property use:</strong> Higher-use spaces can require more frequent attention.</li>
+          <li><strong>Property type:</strong> Homes, offices, restaurants, storefronts, medical offices, salons, and gyms have different cleaning demands.</li>
+          <li><strong>Traffic level:</strong> More occupants, employees, customers, or visitors can increase cleaning needs.</li>
+          <li><strong>Cleaning scope:</strong> Larger or more extensive requirements can influence the service schedule.</li>
+          <li><strong>Maintenance goals:</strong> The desired condition between visits helps determine an appropriate cadence.</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">For example, a business with frequently used restrooms and common areas may need a different schedule than a home receiving routine professional cleaning.</p>
+        <p class="text-lg leading-relaxed mb-5">Matching frequency to actual property use helps maintain the desired condition without scheduling service more or less frequently than needed.</p>
+      </section>
+
+      <section>
+        <h2 id="which-type-to-choose" class="text-2xl md:text-3xl mt-10 mb-4">Which type of cleaning service should you choose?</h2>
+        <p class="text-lg leading-relaxed mb-5">Choose one-time cleaning for a specific need, deep cleaning for more extensive work, and recurring cleaning for ongoing maintenance. Because deep cleaning describes scope rather than frequency, a deep clean can also be scheduled as a one-time or periodic service.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Cleaning need</th><th scope="col" class="py-2">Service approach to consider</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Specific cleaning need</td><td class="py-2">One-time cleaning</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Event or periodic cleaning</td><td class="py-2">One-time cleaning</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Accumulated dirt or buildup</td><td class="py-2">Deep cleaning</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">More detailed cleaning scope</td><td class="py-2">Deep cleaning</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Ongoing property maintenance</td><td class="py-2">Recurring cleaning</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Regularly scheduled upkeep</td><td class="py-2">Recurring cleaning</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Detailed cleaning on a single visit</td><td class="py-2">One-time deep cleaning</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">One-time and recurring cleaning describe <strong>service frequency</strong>, while deep cleaning describes <strong>service scope</strong>. A customer can therefore request a one-time deep cleaning or arrange more detailed work within an ongoing cleaning plan.</p>
+        <p class="text-lg leading-relaxed mb-5">Separating frequency from scope makes it easier to describe your needs, request an accurate estimate, and compare professional cleaning services.</p>
+      </section>
+
+      <!-- EMILY: your "Related articles" here listed the resource center twice and omitted "How do you choose a professional cleaning company?". Rendered as the two sibling articles + the hub once; the first item's blurb is your hub-page copy for that article. -->
+      <nav aria-label="Related articles" class="my-12">
+        <h2 id="related-articles" class="text-2xl md:text-3xl mb-6">Related articles</h2>
+        <ul class="space-y-8">
+          <li>
+            <h3 class="text-xl mb-2">How do you choose a professional cleaning company?</h3>
+            <p class="leading-relaxed mb-2">Choose a professional cleaning company by evaluating its services, experience, insurance, customer reviews, scheduling, communication, and pricing. Learn what to ask before hiring, what a professional cleaning quote should include, and how to compare providers based on equivalent cleaning scopes and service requirements.</p>
+            <a href={`${hub}/how-to-choose-a-cleaning-company`} class="font-bold">Compare cleaning companies</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">What should you expect from a professional cleaning service?</h3>
+            <p class="leading-relaxed mb-2">A professional cleaning service should follow an agreed scope, complete the specified work, follow property access instructions, and provide a clear process for questions or concerns. Learn how to prepare, what happens when cleaners arrive, how long service can take, whether you need to be present, and what to review afterward.</p>
+            <a href={`${hub}/what-to-expect`} class="font-bold">Understand the cleaning process</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">How to choose and use professional cleaning services: a resource center</h3>
+            <p class="leading-relaxed mb-2">Learn how to choose and use professional cleaning services, from evaluating cleaning companies and comparing service options to preparing for an appointment and knowing what to expect before, during, and after cleaning.</p>
+            <a href={hub} class="font-bold">Explore professional cleaning guides</a>
+          </li>
+        </ul>
+      </nav>
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about cleaning service options">
+        <p>These answers clarify how one-time, deep, and recurring cleaning can be scheduled or combined for different property needs.</p>
+      </Faq>
+
+      <section>
+        <h2 id="services-phils-magic-cleaning-provides" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services does Phil’s Magic Cleaning provide?</h2>
+        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Phil’s Magic Cleaning provides professional cleaning for homes and businesses across the San Francisco Peninsula. Services include janitorial and general cleaning for homes and businesses, including commercial cleaning for businesses, plus residential and commercial window cleaning." -->
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides commercial cleaning and window cleaning for businesses and homes across the San Francisco Peninsula. Services include janitorial and commercial cleaning for businesses, plus residential and commercial window cleaning.</p>
+        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original button label: "View commercial and home cleaning services" -->
+        <div class="flex flex-wrap gap-4 my-6">
+          <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
+          <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="request-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can I request cleaning from Phil’s Magic Cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Contact Phil’s Magic Cleaning to request a free estimate for professional cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.</p>
+        <div class="my-6">
+          <a href={REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a free estimate</a>
+        </div>
+      </section>
+
+      <AuthorBio />
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

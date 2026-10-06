@@ -1,0 +1,9 @@
+---
+/** Static table of contents right after the H1 + definition (AEO S2 §K). Items point at stable heading ids. */
+interface Props { items: { id: string; label: string }[] }
+const { items } = Astro.props;
+---
+<nav class="toc my-6" aria-label="On this page">
+  <h2 class="text-xs font-bold uppercase tracking-wider text-muted mb-2">On this page</h2>
+  <ul>{items.map((i) => <li><a href={`#${i.id}`}>{i.label}</a></li>)}</ul>
+</nav>

@@ -1,0 +1,265 @@
+---
+/**
+ * Resource article — "What should you expect from a professional cleaning
+ * service?" Emily Matthews' copy (2026-10-05), carried verbatim; sentence-case
+ * headings and cross-page repetition are deliberate. No visible date → Article
+ * schema without dates. Home-cleaning substitutions per E.L. ruling 10/5 are
+ * flagged inline and logged in docs/EMILY-CHANGES.md.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import AuthorBio from "@/components/AuthorBio.astro";
+import { REQUEST_FORM_URL } from "@/data/site";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+
+const hub = "/resources/choosing-professional-cleaning-services";
+const path = `${hub}/what-to-expect`;
+const h1 = "What should you expect from a professional cleaning service?";
+const title = "What to expect from a professional cleaning service";
+const description =
+  "Learn what to expect from a professional cleaning service, including preparation, cleaning scope, arrival, access, service time, and what happens afterward.";
+
+// Emily's TOC lists these H2s only (deliberately not all of them). Her doc ran
+// "after a professional cleaning service?" and "How can you get the most…"
+// together on one line (docx conversion); treated as two items.
+const toc = [
+  { id: "before-a-cleaning-service", label: "What happens before a professional cleaning service?" },
+  { id: "how-the-scope-is-determined", label: "How is the cleaning scope determined?" },
+  { id: "when-the-cleaning-team-arrives", label: "What should you expect when the cleaning team arrives?" },
+  { id: "do-you-need-to-prepare", label: "Do you need to prepare before a professional cleaning service?" },
+  { id: "how-long-cleaning-takes", label: "How long does a professional cleaning service take?" },
+  { id: "do-you-need-to-be-present", label: "Do you need to be present during professional cleaning?" },
+  { id: "after-a-cleaning-service", label: "What should happen after a professional cleaning service?" },
+  { id: "get-the-most-from-cleaning", label: "How can you get the most from a professional cleaning service?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about professional cleaning appointments" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Does a professional cleaning company bring its own supplies?",
+    a: "Supply arrangements vary by cleaning company and service. Some professional cleaners provide their own supplies and equipment, while others establish different arrangements with the customer. Confirm what is provided before the appointment and communicate any surface requirements or product restrictions that affect how the property should be cleaned.",
+  },
+  {
+    q: "What should you do with pets during professional cleaning?",
+    a: "Tell the cleaning company about pets before the appointment and arrange a safe location when necessary. Provide instructions about animals that should not be approached, doors that must remain closed, or areas pets can access. Providing pet and access instructions before the appointment helps keep animals secure while giving cleaners safe access to the requested areas.",
+  },
+  {
+    q: "What should you do with fragile or valuable items before professional cleaning?",
+    a: "Identify fragile, valuable, or sensitive items before professional cleaning begins. Move personal valuables when appropriate, and tell the cleaning company about surfaces or objects that require special care. Sharing those details before the appointment helps the team understand property-specific restrictions and reduces uncertainty about how to handle particular areas.",
+  },
+  {
+    q: "What should you do if the cleaning does not match the agreed scope?",
+    a: "Contact the cleaning company and identify the specific room, area, or task that did not match the agreed scope. Refer to the original service requirements and explain what needs to be reviewed. Specific information helps the provider evaluate the concern and determine the appropriate next step.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Choosing and managing professional cleaning services", path: hub },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={hub}>Choosing and managing professional cleaning services</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Expect a professional cleaning service to follow an agreed scope, arrive within the scheduled service window, complete the specified tasks, follow property access requirements, and provide a clear process for questions or concerns before and after cleaning.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning for businesses and homes across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="before-a-cleaning-service" class="text-2xl md:text-3xl mt-10 mb-4">What happens before a professional cleaning service?</h2>
+        <p class="text-lg leading-relaxed mb-5">Before a professional cleaning service, the customer and cleaning company should confirm the property details, cleaning scope, requested tasks, schedule, access requirements, and any conditions that could affect the work.</p>
+        <p class="text-lg leading-relaxed mb-5">Depending on the property, pre-service information can include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Property type and location</li>
+          <li>Rooms or areas requiring service</li>
+          <li>Surfaces requiring specific care</li>
+          <li>Entry or access instructions</li>
+          <li>Parking or building requirements</li>
+          <li>Pets or other property considerations</li>
+          <li>Priority areas or requested tasks</li>
+          <li>Relevant exclusions or limitations</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">For a business, access information can include building hours, alarm procedures, keys, entry codes, or instructions for working around employees and customers. Homeowners can identify pets, locked areas, fragile items, or spaces that do not require attention.</p>
+        <p class="text-lg leading-relaxed mb-5">Confirming these details before the appointment helps the cleaning team arrive prepared and reduces questions or delays once the scheduled work begins.</p>
+      </section>
+
+      <section>
+        <h2 id="how-the-scope-is-determined" class="text-2xl md:text-3xl mt-10 mb-4">How is the cleaning scope determined?</h2>
+        <p class="text-lg leading-relaxed mb-5">A professional cleaning scope is determined by the property, customer requirements, requested tasks, and services the cleaning company agrees to perform. It should clearly identify the areas and work included or excluded from the appointment.</p>
+        <p class="text-lg leading-relaxed mb-5">A defined scope can identify:</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Service detail</th><th scope="col" class="py-2">What it clarifies</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Areas</td><td class="py-2">Rooms or spaces included</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Tasks</td><td class="py-2">Cleaning work to be completed</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Surfaces</td><td class="py-2">Materials or fixtures requiring attention</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Priorities</td><td class="py-2">Areas needing particular focus</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Exclusions</td><td class="py-2">Work not included</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Access</td><td class="py-2">Entry and property requirements</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Special conditions</td><td class="py-2">Property-specific considerations</td></tr>
+          </tbody>
+        </table>
+        <!-- REVIEW E.L.: generic "Homeowners scheduling window cleaning can identify specific windows, access points, and household priorities." kept — describes the industry, not Phil's offering. Remove per the 10/5 ruling if you read it as offering house cleaning. -->
+        <p class="text-lg leading-relaxed mb-5">A commercial or janitorial cleaning scope can cover floors, restrooms, break rooms, common areas, workspaces, and interior glass. Homeowners scheduling window cleaning can identify specific windows, access points, and household priorities. Professional window cleaning can define interior or exterior glass, screens, and accessibility requirements.</p>
+        <p class="text-lg leading-relaxed mb-5">A clearly defined scope gives the customer and cleaning company the same expectations about what will be completed during the appointment.</p>
+      </section>
+
+      <section>
+        <h2 id="when-the-cleaning-team-arrives" class="text-2xl md:text-3xl mt-10 mb-4">What should you expect when the cleaning team arrives?</h2>
+        <p class="text-lg leading-relaxed mb-5">The cleaning team should follow the scheduled appointment details, established access instructions, and agreed cleaning scope when arriving at the property.</p>
+        <p class="text-lg leading-relaxed mb-5">The exact arrival process depends on the property. A homeowner can provide access in person or through previously arranged instructions. A business can establish entry procedures that allow work during operating hours, after hours, or another agreed period.</p>
+        <p class="text-lg leading-relaxed mb-5">If the property has conditions that affect the work, communicate them before service whenever possible. Relevant information includes restricted spaces, security procedures, pets, parking limitations, delicate surfaces, or areas requiring special attention.</p>
+        <p class="text-lg leading-relaxed mb-5">Establishing arrival and access procedures in advance allows cleaning to begin without avoidable delays.</p>
+      </section>
+
+      <section>
+        <h2 id="do-you-need-to-prepare" class="text-2xl md:text-3xl mt-10 mb-4">Do you need to prepare before a professional cleaning service?</h2>
+        <p class="text-lg leading-relaxed mb-5">Yes, some preparation can help a professional cleaning service proceed efficiently. Customers should provide access, remove obstacles from areas being cleaned, secure pets when necessary, and communicate property conditions that affect the work.</p>
+        <p class="text-lg leading-relaxed mb-5">Useful preparation can include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Providing entry instructions</li>
+          <li>Securing pets when necessary</li>
+          <li>Identifying restricted areas</li>
+          <li>Removing important personal items</li>
+          <li>Clearing excessive clutter from requested surfaces</li>
+          <li>Communicating fragile or sensitive materials</li>
+          <li>Confirming parking or building access</li>
+          <li>Identifying priority areas</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Preparation does not mean completing the cleaning yourself. The goal is to make the agreed areas accessible and communicate information that affects the work.</p>
+        <p class="text-lg leading-relaxed mb-5">Preparing only what is necessary allows the cleaning team to focus its service time on the tasks the customer requested.</p>
+      </section>
+
+      <section>
+        <h2 id="how-long-cleaning-takes" class="text-2xl md:text-3xl mt-10 mb-4">How long does a professional cleaning service take?</h2>
+        <p class="text-lg leading-relaxed mb-5">There is no standard length of time for a professional cleaning service. Duration depends on the property size, cleaning scope, number of areas, property condition, accessibility, and type of work requested.</p>
+        <p class="text-lg leading-relaxed mb-5">Factors that influence service time include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li><strong>Property size:</strong> Larger spaces generally take more time to clean.</li>
+          <li><strong>Cleaning scope:</strong> More tasks increase the amount of work required.</li>
+          <li><strong>Property condition:</strong> Heavy buildup requires extra attention.</li>
+          <li><strong>Accessibility:</strong> Difficult-to-reach areas can affect completion time.</li>
+          <li><strong>Property use:</strong> Occupied homes and active businesses can require different workflows.</li>
+          <li><strong>Service type:</strong> General cleaning, janitorial work, and window cleaning involve different tasks.</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Ask about expected service time when discussing the scope if timing affects building access, staffing, appointments, pets, or other activities.</p>
+        <p class="text-lg leading-relaxed mb-5">Understanding the factors that affect duration helps customers plan around the appointment without assuming every professional cleaning visit takes the same amount of time.</p>
+      </section>
+
+      <section>
+        <h2 id="do-you-need-to-be-present" class="text-2xl md:text-3xl mt-10 mb-4">Do you need to be present during professional cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">No. You do not need to be present during professional cleaning when property access, cleaning instructions, and contact procedures have been arranged in advance.</p>
+        <p class="text-lg leading-relaxed mb-5">A customer who will not be present should confirm:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>How the team will enter</li>
+          <li>Which areas are accessible</li>
+          <li>Which spaces are restricted</li>
+          <li>How the property will be secured</li>
+          <li>Who can be contacted with questions</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Businesses can also establish procedures for cleaning during or outside normal operating hours.</p>
+        <p class="text-lg leading-relaxed mb-5">Confirming access, security, and contact procedures beforehand allows cleaning to proceed without requiring the customer to remain on-site.</p>
+      </section>
+
+      <section>
+        <h2 id="after-a-cleaning-service" class="text-2xl md:text-3xl mt-10 mb-4">What should happen after a professional cleaning service?</h2>
+        <p class="text-lg leading-relaxed mb-5">After a professional cleaning service, review whether the agreed areas and tasks were completed and communicate any questions, concerns, or requested changes to the cleaning company.</p>
+        <p class="text-lg leading-relaxed mb-5">After the appointment, check:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Whether agreed areas were addressed</li>
+          <li>Whether requested tasks were completed</li>
+          <li>Whether priority areas received attention</li>
+          <li>Whether any issue requires follow-up</li>
+          <li>Whether future instructions need adjustment</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">If something does not match the agreed scope, contact the cleaning company and describe the specific area or task in question. Clear feedback is more useful than a general statement because it identifies what needs to be reviewed.</p>
+        <p class="text-lg leading-relaxed mb-5">Reviewing the completed work and communicating specific concerns creates a clear basis for resolving issues and adjusting future service when needed.</p>
+      </section>
+
+      <section>
+        <h2 id="get-the-most-from-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can you get the most from a professional cleaning service?</h2>
+        <p class="text-lg leading-relaxed mb-5">Getting the expected results from a professional cleaning service starts with clear information about the property, cleaning scope, access, schedule, and priorities. Confirm what is included before the appointment, communicate conditions that affect the work, and review the completed service afterward.</p>
+        <p class="text-lg leading-relaxed mb-5">Clear expectations before, during, and after the appointment help the customer and cleaning company work from the same requirements and address questions efficiently.</p>
+      </section>
+
+      <nav aria-label="Related articles" class="my-12">
+        <h2 id="related-articles" class="text-2xl md:text-3xl mb-6">Related articles</h2>
+        <ul class="space-y-8">
+          <li>
+            <h3 class="text-xl mb-2">How do you choose a professional cleaning company?</h3>
+            <p class="leading-relaxed mb-2">Choose a professional cleaning company by evaluating its services, experience, insurance, customer reviews, scheduling, communication, and pricing. Learn what to ask before hiring, what a professional cleaning quote should include, and how to compare providers based on equivalent cleaning scopes and service requirements.</p>
+            <a href={`${hub}/how-to-choose-a-cleaning-company`} class="font-bold">Compare cleaning companies</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">What is the difference between one-time, deep, and recurring cleaning?</h3>
+            <p class="leading-relaxed mb-2">One-time and recurring cleaning describe how frequently service occurs, while deep cleaning describes the extent of the work. Learn how each approach differs, how recurring cleaning schedules work, and how to choose the right combination of service frequency and cleaning scope for your home or business.</p>
+            <a href={`${hub}/one-time-deep-and-recurring-cleaning`} class="font-bold">Explore cleaning service options</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">How to choose and use professional cleaning services: a resource center</h3>
+            <p class="leading-relaxed mb-2">Learn how to choose and use professional cleaning services, from evaluating cleaning companies and comparing service options to preparing for an appointment and knowing what to expect before, during, and after cleaning.</p>
+            <a href={hub} class="font-bold">Explore professional cleaning guides</a>
+          </li>
+        </ul>
+      </nav>
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about professional cleaning appointments">
+        <p>These answers address common questions about supplies, pets, valuables, and service concerns before and after a professional cleaning appointment.</p>
+      </Faq>
+
+      <section>
+        <h2 id="services-phils-magic-cleaning-provides" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services does Phil’s Magic Cleaning provide?</h2>
+        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Phil’s Magic Cleaning provides professional cleaning for homes and businesses across the San Francisco Peninsula. Services include janitorial and general cleaning for homes and businesses, including commercial cleaning for businesses, plus residential and commercial window cleaning." -->
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides commercial cleaning and window cleaning for businesses and homes across the San Francisco Peninsula. Services include janitorial and commercial cleaning for businesses, plus residential and commercial window cleaning.</p>
+        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original button label: "View commercial and home cleaning services" -->
+        <div class="flex flex-wrap gap-4 my-6">
+          <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
+          <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="request-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can I request cleaning from Phil’s Magic Cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Contact Phil’s Magic Cleaning to request a free estimate for professional cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.</p>
+        <div class="my-6">
+          <a href={REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a free estimate</a>
+        </div>
+      </section>
+
+      <AuthorBio />
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

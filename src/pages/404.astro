@@ -1,0 +1,17 @@
+---
+import Base from "@/layouts/Base.astro";
+import { BUSINESS } from "@/data/site";
+---
+<Base title={`Page not found | ${BUSINESS.name}`} description="That page doesn't exist. Find janitorial, window cleaning, reviews and contact details for Phil's Magic Cleaning." path="/404" noindex>
+  <section class="py-24 text-center container mx-auto px-4 max-w-3xl">
+    <p class="eyebrow mb-3">404</p>
+    <h1 class="text-4xl mb-4">Page not found</h1>
+    <p class="text-muted mb-8">The page you're looking for isn't here. These are:</p>
+    <nav aria-label="Main pages" class="flex flex-wrap justify-center gap-3">
+      <a href="/" class="btn btn-outline">Home</a>
+      <a href="/services" class="btn btn-outline">Services</a>
+      <a href="/reviews" class="btn btn-outline">Reviews</a>
+      <a href="/contact" class="btn btn-action">Contact</a>
+    </nav>
+  </section>
+</Base>

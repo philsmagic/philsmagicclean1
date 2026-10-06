@@ -1,0 +1,325 @@
+---
+/**
+ * Window Cleaning — Emily Matthews' AEO copy, `Assets/aeo-copy-2026-10-05/md/Window Cleaning.md`,
+ * carried verbatim except where the E.L. ruling of 2026-10-05 applies: HOUSE CLEANING IS NOT A
+ * SERVICE. Every such change is flagged inline `<!-- EMILY: … -->` and listed in docs/EMILY-CHANGES.md.
+ * Service spoke under /services. The per-pane pricing table + window-type guide image are retained
+ * from the live site (Emily's copy drops them) — see the flag in the estimate section.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { BUSINESS, REQUEST_FORM_URL } from "@/data/site";
+import { breadcrumbs, service, faqPage } from "@/data/schema";
+
+const path = "/window-cleaning";
+const title = "Window Cleaning | Phil's Magic Cleaning";
+const description =
+  "Professional window cleaning for homes and businesses across the San Francisco Peninsula, including interior, exterior, and hard-to-reach windows.";
+
+const services = [
+  "Interior window cleaning",
+  "Exterior window cleaning",
+  "Glass cleaning",
+  "Screens",
+  "Hard-to-reach windows",
+  "Multi-story windows",
+];
+
+const frequencyFactors = [
+  "Property type",
+  "Location",
+  "Weather and environmental exposure",
+  "Customer-facing storefront glass",
+  "Number and accessibility of windows",
+  "Desired appearance",
+  "Previous cleaning frequency",
+];
+
+const serviceAreas = [
+  "South San Francisco",
+  "Millbrae",
+  "Burlingame",
+  "San Mateo",
+  "Foster City",
+  "Redwood City",
+  "Palo Alto",
+  "Mountain View",
+  "Other communities along the San Francisco Peninsula",
+];
+
+const pricingRows = [
+  { type: "Standard / Oval / Octagon", panes: "1 pane each" },
+  { type: "Two-Lite Slider / Double Hung", panes: "2 panes each" },
+  { type: "Patio Door / Bay Window", panes: "2–3 panes each" },
+  { type: "French Windows & Doors", panes: "5 panes each" },
+  { type: "Bow Window", panes: "4 panes each" },
+];
+
+const faq = [
+  {
+    q: "Can window cleaning be combined with general cleaning?",
+    // EMILY: home-cleaning clause removed per E.L. ruling 10/5 — original: "…Businesses can combine window cleaning with commercial or janitorial services, while residential customers can combine window cleaning with home cleaning based on their property and cleaning needs."
+    a: "Yes. Homes and businesses can combine professional window cleaning with general cleaning. Businesses can combine window cleaning with commercial or janitorial services based on their property and cleaning needs.",
+  },
+  {
+    q: "Can I schedule window cleaning without other cleaning services?",
+    // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "…combine window cleaning with general, commercial, janitorial, or home cleaning when they need multiple services."
+    a: "Yes. Professional window cleaning can be scheduled as a standalone service for homes and businesses. Customers can also combine window cleaning with general, commercial, or janitorial cleaning when they need multiple services.",
+  },
+  {
+    q: "Do businesses need recurring window cleaning?",
+    a: "Recurring window cleaning can help businesses maintain customer-facing windows and other glass on an ongoing basis. The right frequency depends on the business type, location, window exposure, appearance requirements, and how quickly the glass gets dirty.",
+  },
+  {
+    q: "Can I schedule window cleaning for just the exterior or interior windows?",
+    a: "Yes. Customers can request interior window cleaning, exterior window cleaning, or both based on the property and cleaning needs. Service options can be discussed when requesting a window cleaning estimate.",
+  },
+];
+
+const toc = [
+  { id: "services-provided", label: "What window cleaning services does Phil’s Magic Cleaning provide?" },
+  { id: "residential-window-cleaning", label: "Does Phil’s Magic Cleaning provide residential window cleaning?" },
+  { id: "commercial-window-cleaning", label: "Does Phil’s Magic Cleaning provide commercial window cleaning?" },
+  { id: "hard-to-reach-and-multi-story", label: "Can Phil’s Magic Cleaning clean hard-to-reach and multi-story windows?" },
+  { id: "one-time-and-recurring", label: "Does Phil’s Magic Cleaning offer one-time and recurring window cleaning?" },
+  { id: "cleaning-frequency", label: "How often should windows be professionally cleaned?" },
+  { id: "service-area", label: "Where does Phil’s Magic Cleaning provide window cleaning?" },
+  { id: "why-choose", label: "Why choose Phil’s Magic Cleaning for window cleaning?" },
+  { id: "customer-reviews", label: "What do customers say about Phil’s Magic Cleaning?" },
+  { id: "get-an-estimate", label: "How can I get a window cleaning estimate?" },
+  { id: "other-services", label: "Does Phil’s Magic Cleaning provide other professional cleaning services?" },
+  { id: "faq-heading", label: "Frequently asked questions about professional window cleaning" },
+];
+---
+<Base
+  {title}
+  {description}
+  {path}
+  schema={[
+    breadcrumbs([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Window Cleaning", path }]),
+    service(path, "Window Cleaning", description),
+    faqPage(path, faq),
+  ]}
+>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex gap-2 list-none p-0 m-0">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/services">Services</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">Window Cleaning</li>
+      </ol>
+    </nav>
+
+    <p class="eyebrow">Window cleaning</p>
+    <h1 class="text-4xl md:text-5xl mt-2 mb-4">Professional window cleaning for homes and businesses on the San Francisco Peninsula</h1>
+    <p class="text-lg text-muted max-w-3xl leading-relaxed">
+      Phil’s Magic Cleaning provides professional residential and commercial window cleaning from South San Francisco to Mountain View, with one-time and recurring service for homes, offices, restaurants, storefronts, and other properties.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <div class="flex flex-wrap gap-3 items-center mb-6">
+      <a href={REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Schedule window cleaning</a>
+      <a href={`tel:${BUSINESS.phoneE164}`} class="btn btn-outline">Or call {BUSINESS.phoneDisplay}</a>
+    </div>
+
+    <Toc items={toc} />
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="services-provided" class="text-3xl md:text-4xl mb-4">What window cleaning services does Phil’s Magic Cleaning provide?</h2>
+      <p class="leading-relaxed mb-4">
+        Phil’s Magic Cleaning provides interior and exterior window cleaning for homes and businesses, including glass cleaning, screens, and hard-to-reach or multi-story windows depending on the property.
+      </p>
+      <p class="leading-relaxed mb-2">Window cleaning services include:</p>
+      <ul class="list-disc pl-6 space-y-1 mb-4">
+        {services.map((s) => <li>{s}</li>)}
+      </ul>
+      <p class="leading-relaxed">
+        Service can be customized based on the property, window accessibility, cleaning needs, and preferred schedule.
+      </p>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="residential-window-cleaning" class="text-3xl md:text-4xl mb-4">Does Phil’s Magic Cleaning provide residential window cleaning?</h2>
+      <p class="leading-relaxed mb-4">
+        Yes. Phil’s Magic Cleaning provides professional residential window cleaning for homes across the San Francisco Peninsula, including single-family homes, condominiums, apartments, and other residential properties.
+      </p>
+      <p class="leading-relaxed">
+        Residential window cleaning can be scheduled as a one-time service or recurring maintenance based on the property and cleaning needs.
+      </p>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="commercial-window-cleaning" class="text-3xl md:text-4xl mb-4">Does Phil’s Magic Cleaning provide commercial window cleaning?</h2>
+      <p class="leading-relaxed mb-4">
+        Yes. Phil’s Magic Cleaning provides commercial window cleaning for offices, restaurants, retail stores, storefronts, medical and dental offices, salons, gyms, studios, and other businesses across the San Francisco Peninsula.
+      </p>
+      <p class="leading-relaxed">
+        Commercial window cleaning can be scheduled as a one-time service or recurring maintenance based on the property, business operations, and cleaning requirements.
+      </p>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="hard-to-reach-and-multi-story" class="text-3xl md:text-4xl mb-4">Can Phil’s Magic Cleaning clean hard-to-reach and multi-story windows?</h2>
+      <p class="leading-relaxed">
+        Yes. Phil’s Magic Cleaning can clean hard-to-reach and multi-story windows depending on the property. The appropriate cleaning approach depends on the window location, building configuration, accessibility, and service requirements.
+      </p>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="one-time-and-recurring" class="text-3xl md:text-4xl mb-4">Does Phil’s Magic Cleaning offer one-time and recurring window cleaning?</h2>
+      <p class="leading-relaxed mb-4">
+        Yes. Residential and commercial window cleaning can be scheduled as a one-time service or as recurring maintenance based on the property and cleaning needs.
+      </p>
+      <p class="leading-relaxed mb-6">
+        One-time window cleaning can address periodic or specific cleaning needs, while recurring window cleaning provides service on an ongoing schedule.
+      </p>
+      <a href={REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Schedule window cleaning</a>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="cleaning-frequency" class="text-3xl md:text-4xl mb-4">How often should windows be professionally cleaned?</h2>
+      <p class="leading-relaxed mb-4">
+        How often windows should be professionally cleaned depends on the property, location, exposure to dirt and weather, and appearance requirements. Businesses with customer-facing windows can require more frequent cleaning than some residential properties.
+      </p>
+      <p class="leading-relaxed mb-2">Factors that can affect window cleaning frequency include:</p>
+      <ul class="list-disc pl-6 space-y-1 mb-4">
+        {frequencyFactors.map((f) => <li>{f}</li>)}
+      </ul>
+      <p class="leading-relaxed">
+        Phil’s Magic Cleaning can recommend a one-time or recurring window cleaning schedule based on the property, window exposure, appearance requirements, and cleaning needs.
+      </p>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="service-area" class="text-3xl md:text-4xl mb-4">Where does Phil’s Magic Cleaning provide window cleaning?</h2>
+      <p class="leading-relaxed mb-4">
+        Phil’s Magic Cleaning provides residential and commercial window cleaning across the San Francisco Peninsula, with a primary service area from South San Francisco to Mountain View.
+      </p>
+      <p class="leading-relaxed mb-2">Service areas include:</p>
+      <ul class="list-disc pl-6 space-y-1 mb-4">
+        {serviceAreas.map((c) => <li>{c}</li>)}
+      </ul>
+      <p class="leading-relaxed">
+        Service availability depends on the property location and window cleaning requirements. <a href="/service-areas" class="font-semibold">View service areas</a>.
+      </p>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="why-choose" class="text-3xl md:text-4xl mb-4">Why choose Phil’s Magic Cleaning for window cleaning?</h2>
+      <p class="leading-relaxed mb-6">
+        Window cleaning is the service Phil’s Magic Cleaning was built on. Customers choose Phil’s for detailed cleaning, reliable scheduling, personalized service, and licensed and insured window cleaning for homes and businesses across the San Francisco Peninsula.
+      </p>
+      <div class="space-y-5">
+        <div>
+          <h3 id="reliable-scheduling" class="text-xl font-bold mb-1">Reliable scheduling</h3>
+          <p class="text-muted leading-relaxed">One-time and recurring window cleaning can be scheduled based on the property and cleaning needs.</p>
+        </div>
+        <div>
+          <h3 id="detailed-cleaning" class="text-xl font-bold mb-1">Detailed cleaning</h3>
+          <p class="text-muted leading-relaxed">Window cleaning can be tailored to the property, window locations, accessibility, and specific cleaning requirements.</p>
+        </div>
+        <div>
+          <h3 id="personalized-service" class="text-xl font-bold mb-1">Personalized service</h3>
+          <p class="text-muted leading-relaxed">Phil works directly with customers to determine their window cleaning needs, service frequency, and schedule based on the property.</p>
+        </div>
+        <div>
+          <h3 id="community-trusted" class="text-xl font-bold mb-1">Community-trusted</h3>
+          <!-- REVIEW E.L.: named clients (FASTSIGNS, Baking Arts, Burlingame Tobacconist, Belfor Restoration) — carried from Emily's copy. -->
+          <p class="text-muted leading-relaxed">Trusted by FASTSIGNS, Baking Arts, Burlingame Tobacconist, and Belfor Restoration for years.</p>
+        </div>
+        <div>
+          <h3 id="licensed-and-insured" class="text-xl font-bold mb-1">Licensed and insured</h3>
+          <p class="text-muted leading-relaxed">Fully covered for residential and commercial work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="customer-reviews" class="text-3xl md:text-4xl mb-4">What do customers say about Phil’s Magic Cleaning?</h2>
+      <p class="leading-relaxed mb-6">
+        Phil’s Magic Cleaning has a {BUSINESS.rating.value}-star rating across Google reviews, with customers citing reliable service, attention to detail, professionalism, and personalized service.
+      </p>
+      <a href="/reviews" class="btn btn-outline">See customer reviews</a>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="get-an-estimate" class="text-3xl md:text-4xl mb-4">How can I get a window cleaning estimate?</h2>
+      <p class="leading-relaxed mb-6">
+        Request a free window cleaning estimate from Phil’s Magic Cleaning. Provide your location, property type, window cleaning needs, and whether you are interested in one-time or recurring service.
+      </p>
+      <a href={REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Get a free estimate</a>
+
+      <!-- EMILY: pricing table retained from live site; confirm -->
+      <h3 id="pricing" class="text-xl font-bold mt-10 mb-3">Simple per-pane pricing</h3>
+      <p class="text-muted mb-6 max-w-xl leading-relaxed">
+        Starting at <strong>$20 per pane</strong>. Each window type counts as a set number of panes. Call for a free quote based on your specific home or business.
+      </p>
+
+      <figure class="max-w-2xl border border-line rounded-lg overflow-hidden mb-8 m-0">
+        <figcaption class="bg-wash px-5 py-2 border-b border-line eyebrow">Window type visual guide</figcaption>
+        <img
+          src="/images/window-type-guide.jpg"
+          width="1344"
+          height="896"
+          alt="Visual guide showing different window types and their pane counts for pricing"
+          class="w-full h-auto"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="max-w-2xl border border-line rounded-lg overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-wash border-b border-line">
+              <th scope="col" class="text-left px-5 py-3 font-semibold">Window type</th>
+              <th scope="col" class="text-right px-5 py-3 font-semibold">Pane count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pricingRows.map((row) => (
+              <tr class="border-b border-line">
+                <th scope="row" class="px-5 py-3 text-left font-normal">{row.type}</th>
+                <td class="px-5 py-3 text-right text-action">{row.panes}</td>
+              </tr>
+            ))}
+            <tr class="bg-wash">
+              <th scope="row" class="px-5 py-3 text-left font-bold">Base rate</th>
+              <td class="px-5 py-3 text-right text-action font-bold">$20 / pane</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-sm text-muted">
+        Pricing varies by property. Call <a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a> for a free estimate.
+      </p>
+    </section>
+
+    <section class="py-10 border-t border-line max-w-3xl">
+      <h2 id="other-services" class="text-3xl md:text-4xl mb-4">Does Phil’s Magic Cleaning provide other professional cleaning services?</h2>
+      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "…provides commercial, janitorial, and home cleaning for businesses and homes across the San Francisco Peninsula." -->
+      <p class="leading-relaxed mb-6">
+        Yes. In addition to window cleaning, Phil’s Magic Cleaning provides commercial and janitorial cleaning for businesses across the San Francisco Peninsula. One-time and recurring cleaning options are available.
+      </p>
+      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original button: "View commercial and home cleaning" -->
+      <a href="/janitorial-cleaning" class="btn btn-outline">View commercial and janitorial cleaning</a>
+    </section>
+
+    <Faq items={faq} id="faq" heading="Frequently asked questions about professional window cleaning">
+      <p>These answers cover common questions about scheduling window cleaning, combining cleaning services, and recurring window cleaning for homes and businesses.</p>
+    </Faq>
+
+    <p class="text-muted"><a href="/services" class="font-semibold">All cleaning services</a></p>
+  </article>
+
+  <CtaBand
+    heading="Request a window cleaning estimate"
+    text="Provide your location, property type, window cleaning needs, and whether you are interested in one-time or recurring service."
+    formLabel="Get a free estimate"
+  />
+</Base>

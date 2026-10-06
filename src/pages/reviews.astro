@@ -1,0 +1,228 @@
+---
+/**
+ * Reviews — Emily Matthews' AEO copy (Assets/aeo-copy-2026-10-05/md/Reviews.md), carried
+ * verbatim (her light edits to review punctuation included) except the home-cleaning
+ * substitutions required by E.L.'s ruling of 2026-10-05 (flagged inline; docs/EMILY-CHANGES.md).
+ * Each review is an <article> with <blockquote> + <cite>. NO AggregateRating / Review
+ * schema on purpose (Google's self-serving review rule) — breadcrumbs + FAQPage only.
+ * Her meta title/description replace the ones written on 10/5.
+ *
+ * Emily's doc groups 14 of the live page's 20 reviews under her H2s. The other six are
+ * public Google reviews carried from the live site; kept below under "More customer
+ * reviews" and flagged, per "flag, don't delete".
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { BUSINESS } from "@/data/site";
+import { breadcrumbs, faqPage } from "@/data/schema";
+
+const path = "/reviews";
+const title = "Customer Reviews | Phil's Magic Cleaning";
+const description =
+  "Customers give Phil's Magic Cleaning five-star reviews for reliable, detailed, professional service for homes and businesses across the San Francisco Peninsula.";
+
+type Review = { name: string; role?: string; text: string };
+
+const homeowners: Review[] = [
+  { name: "Klara Kallis", role: "Homeowner", text: "Phil's Magic Window Cleaning was fantastic from start to finish. Professional, punctual, and incredibly efficient. Left our windows sparkling like new. He's just a joy to work with." },
+  { name: "Ann Greenberg", role: "Homeowner", text: "Phil and Noah were so professional and left my windows clean enough to eat off of. They arrived promptly and did above and beyond what was requested." },
+  { name: "Doug Person", role: "Condo owner", text: "Showed up promptly. Terrific work on the outside windows of our third-story condo. Very customer friendly — he wants you to be a satisfied customer!" },
+];
+
+// REVIEW E.L.: named clients — FASTSIGNS San Mateo and Baking Arts are public Google reviewers (Emily's copy).
+const businesses: Review[] = [
+  { name: "Mesut Ozcab", role: "Salon Owner", text: "He cleans the windows, doors, and the entire front of my salon perfectly. He does an amazing job with love and passion. Thank you, Phil, for keeping my place spotless!" },
+  { name: "Theary Chhuo", role: "Restaurant Owner", text: "My restaurant windows are perfect now! Crystal clear. He's also cleaned my other restaurant location. I would highly recommend this cleaning service!" },
+  { name: "FASTSIGNS San Mateo", text: "Phil is in fact Magic, just like the name. He's our go-to for window cleaning. Always on time and professional. A pleasure to see his involvement in the community." },
+  { name: "Baking Arts", role: "Bakery", text: "Phil did a fabulous job on our store's front doors and back windows. Crystal clear now! Highly recommend." },
+];
+
+// REVIEW E.L.: named clients — Burlingame Tobacconist and Belfor are named in these public Google reviews (Emily's copy).
+const recurring: Review[] = [
+  { name: "Don Gross", role: "Burlingame Tobacconist", text: "Phil has been cleaning our store windows for the last two years, and we are incredibly happy. Always on time, exceptional quality, and a wonderful person to work with!" },
+  { name: "Dan Hampe", role: "Recurring Client", text: "Phil's Magic keeps my windows looking brand new every time! Reliable and hard-working, I can always count on Phil." },
+  { name: "Becca Russell", role: "Property Manager", text: "Hired Phil to clean windows for a client in Burlingame and he did a fantastic job. Thorough, punctual (early, in fact!), and personable. Reasonably priced for the quality." },
+  { name: "Dan A", role: "Restoration Pro", text: "I work for Belfor in property restoration and I've seen my fair share of cleaning crews. But I've never seen anyone clean windows the way Phil Magic and his team did." },
+];
+
+// REVIEW E.L.: these six public Google reviews were on the live page but are not in Emily's Reviews.md.
+// Kept (flag, don't delete) — drop this section if she left them out on purpose.
+const more: Review[] = [
+  { name: "Betsy Rosen", role: "Homeowner", text: "Phil and his assistant did an amazing job. Easy to schedule, arrived on time, totally professional. I've used others — will only go with Phil in the future." },
+  { name: "Wuv Yu", role: "Local Merchant", text: "Best window washer ever. So efficient, polite and attention to detail. He scraped all the crap off my windows then deep cleaned them to pristine! Recommended to all merchants." },
+  { name: "Everett Carvalho", role: "Homeowner", text: "Phil did an amazing job on all my windows. He was extremely professional and I would highly recommend him to anyone who wants their windows perfect." },
+  { name: "Vincent Lan", role: "Verified Customer", text: "Phil's window cleaning is top notch! Super friendly guy, very nice work recommended!" },
+  { name: "Nichol Lee", role: "Homeowner", text: "Phil is professional and does exceptional work. I highly recommend him to clean your windows inside and out." },
+  { name: "Sunny", role: "Homeowner", text: "Phil's Magic Cleaning is an excellent and reliable window cleaning service. Friendly, professional, accommodating with scheduling. HIGHLY RECOMMENDED." },
+];
+
+const faq = [
+  {
+    q: "Where can I read reviews of Phil's Magic Cleaning?",
+    a: "Customer reviews of Phil's Magic Cleaning are available on this page and through Phil's Google Business Profile. Reviews describe customers' experiences with cleaning quality, reliability, professionalism, scheduling, and service for homes and businesses on the San Francisco Peninsula.",
+  },
+  {
+    q: "What do customers like about Phil's Magic Cleaning?",
+    a: "Customers frequently mention punctuality, professionalism, thorough cleaning, attention to detail, scheduling flexibility, and high-quality results. Several reviews also describe repeat service, long-term customer relationships, and positive experiences working with Phil and his team.",
+  },
+  {
+    q: "Does Phil's Magic Cleaning have reviews from both homeowners and businesses?",
+    a: "Yes. Phil's Magic Cleaning has reviews from both residential and commercial customers. Reviewers include homeowners, a condo owner, restaurant and salon owners, local merchants, recurring customers, a property manager, and a restoration professional, offering perspectives from several customer types and property types.",
+  },
+  {
+    q: "Does Phil's Magic Cleaning have recurring customers?",
+    a: "Yes. Customer reviews describe recurring and long-term relationships with Phil's Magic Cleaning. One business customer reports using Phil for two years, while other recurring customers cite reliable service, consistent results, scheduling flexibility, and dependable cleaning quality as reasons they continue using Phil.",
+  },
+];
+
+const toc = [
+  { id: "why-recommend", label: "Why do customers recommend Phil's Magic Cleaning?" },
+  { id: "homeowners", label: "What do homeowners say about Phil's Magic Cleaning?" },
+  { id: "business-customers", label: "What do business customers say about Phil's Magic Cleaning?" },
+  { id: "recurring-customers", label: "What do recurring customers and professionals say about Phil's Magic Cleaning?" },
+  { id: "services", label: "What cleaning services does Phil's Magic Cleaning provide?" },
+  { id: "request-cleaning", label: "How can I request cleaning from Phil's Magic Cleaning?" },
+  { id: "faq", label: "Frequently asked questions about Phil's Magic Cleaning reviews" },
+];
+---
+<Base {title} {description} {path} schema={[breadcrumbs([{ name: "Home", path: "/" }, { name: "Reviews", path }]), faqPage(path, faq)]}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4"><ol class="flex gap-2 list-none p-0 m-0"><li><a href="/">Home</a></li><li aria-hidden="true">›</li><li aria-current="page">Reviews</li></ol></nav>
+
+    <h1 class="text-4xl md:text-5xl mt-2 mb-4">What do customers say about Phil's Magic Cleaning?</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Customers give Phil's Magic Cleaning five-star reviews for professional cleaning across the San Francisco Peninsula, citing reliable service, detailed work, professionalism, and personalized attention for homes and businesses.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <p class="flex flex-wrap items-center gap-3 mb-6">
+      <span class="stars text-lg" aria-label="5 out of 5 stars">★★★★★</span>
+      <strong>Five-star rated on Google</strong>
+    </p>
+    <Toc items={toc} />
+
+    <section id="why-recommend" class="mt-12">
+      <h2 id="why-recommend-heading" class="text-2xl md:text-3xl mb-4">Why do customers recommend Phil's Magic Cleaning?</h2>
+      <p class="max-w-3xl leading-relaxed mb-8">Customers recommend Phil's Magic Cleaning for reliable scheduling, detailed work, professionalism, personalized service, and consistently high-quality results.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h3 id="reliable-service" class="text-lg font-bold mb-2">Reliable service</h3>
+          <p class="text-sm text-muted mb-3">Customers describe Phil as reliable, professional, flexible with scheduling, and thorough.</p>
+          <article class="border border-line rounded-lg p-6">
+            <p class="stars text-sm mb-1" aria-label="5 out of 5 stars">★★★★★</p>
+            <blockquote class="text-sm text-ink italic leading-relaxed mb-4">"Professional, flexible with scheduling, and the quality of his work is exceptional. Always does a very thorough job and uses great cleaning products. Very satisfied!"</blockquote>
+            <footer><cite class="not-italic text-sm font-semibold">Cybelle Brown</cite></footer>
+          </article>
+        </div>
+        <div>
+          <h3 id="detailed-cleaning" class="text-lg font-bold mb-2">Detailed cleaning</h3>
+          <p class="text-sm text-muted mb-3">Customer reviews highlight thorough work, attention to detail, and high-quality cleaning results.</p>
+          <article class="border border-line rounded-lg p-6">
+            <p class="stars text-sm mb-1" aria-label="5 out of 5 stars">★★★★★</p>
+            <blockquote class="text-sm text-ink italic leading-relaxed mb-4">"Our windows have never looked better — they sparkle like new! He took the time to ensure every detail was perfect and exceeded our expectations."</blockquote>
+            <footer><cite class="not-italic text-sm font-semibold">easerk</cite></footer>
+          </article>
+        </div>
+        <div>
+          <h3 id="professional-personalized-service" class="text-lg font-bold mb-2">Professional and personalized service</h3>
+          <p class="text-sm text-muted mb-3">Customers also describe Phil and his team as professional, thorough, punctual, and efficient.</p>
+          <article class="border border-line rounded-lg p-6">
+            <p class="stars text-sm mb-1" aria-label="5 out of 5 stars">★★★★★</p>
+            <blockquote class="text-sm text-ink italic leading-relaxed mb-4">"Phil and his team were amazing, very thorough and professional. Arrived on time, worked quickly and efficiently, and exceeded our expectations. 10/10."</blockquote>
+            <footer><cite class="not-italic text-sm font-semibold">Med Castel</cite></footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="homeowners" class="border-t border-line pt-12 mt-12">
+      <h2 id="homeowners-heading" class="text-2xl md:text-3xl mb-4">What do homeowners say about Phil's Magic Cleaning?</h2>
+      <p class="max-w-3xl leading-relaxed mb-8">Homeowners reviewing Phil's Magic Cleaning cite professional service, punctuality, attention to detail, and high-quality residential window cleaning.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {homeowners.map((r) => (
+          <article class="border border-line rounded-lg p-6 flex flex-col">
+            <p class="stars text-sm mb-3" aria-label="5 out of 5 stars">★★★★★</p>
+            <blockquote class="text-sm text-ink italic leading-relaxed flex-1 mb-4">"{r.text}"</blockquote>
+            <footer><cite class="not-italic text-sm font-semibold">{r.name}{r.role && <span class="font-normal text-muted">, {r.role}</span>}</cite></footer>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="business-customers" class="border-t border-line pt-12 mt-12">
+      <h2 id="business-customers-heading" class="text-2xl md:text-3xl mb-4">What do business customers say about Phil's Magic Cleaning?</h2>
+      <p class="max-w-3xl leading-relaxed mb-8"><strong>Business customers reviewing Phil's Magic Cleaning cite reliable service, professionalism, attention to detail, and high-quality window cleaning for restaurants, salons, storefronts, and other commercial properties.</strong></p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {businesses.map((r) => (
+          <article class="border border-line rounded-lg p-6 flex flex-col">
+            <p class="stars text-sm mb-3" aria-label="5 out of 5 stars">★★★★★</p>
+            <blockquote class="text-sm text-ink italic leading-relaxed flex-1 mb-4">"{r.text}"</blockquote>
+            <footer><cite class="not-italic text-sm font-semibold">{r.name}{r.role && <span class="font-normal text-muted">, {r.role}</span>}</cite></footer>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="recurring-customers" class="border-t border-line pt-12 mt-12">
+      <h2 id="recurring-customers-heading" class="text-2xl md:text-3xl mb-4">What do recurring customers and professionals say about Phil's Magic Cleaning?</h2>
+      <p class="max-w-3xl leading-relaxed mb-8">Recurring customers and professionals cite Phil's reliability, consistent results, punctuality, professionalism, and high-quality window cleaning.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {recurring.map((r) => (
+          <article class="border border-line rounded-lg p-6 flex flex-col">
+            <p class="stars text-sm mb-3" aria-label="5 out of 5 stars">★★★★★</p>
+            <blockquote class="text-sm text-ink italic leading-relaxed flex-1 mb-4">"{r.text}"</blockquote>
+            <footer><cite class="not-italic text-sm font-semibold">{r.name}{r.role && <span class="font-normal text-muted">, {r.role}</span>}</cite></footer>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- REVIEW E.L.: section not in Emily's doc — six live-site Google reviews she did not place. Kept so no public review is dropped silently. -->
+    <section id="more-reviews" class="border-t border-line pt-12 mt-12">
+      <h2 id="more-reviews-heading" class="text-2xl md:text-3xl mb-8">More customer reviews</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {more.map((r) => (
+          <article class="border border-line rounded-lg p-6 flex flex-col">
+            <p class="stars text-sm mb-3" aria-label="5 out of 5 stars">★★★★★</p>
+            <blockquote class="text-sm text-ink italic leading-relaxed flex-1 mb-4">"{r.text}"</blockquote>
+            <footer><cite class="not-italic text-sm font-semibold">{r.name}{r.role && <span class="font-normal text-muted">, {r.role}</span>}</cite></footer>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="services" class="border-t border-line pt-12 mt-12">
+      <h2 id="services-heading" class="text-2xl md:text-3xl mb-4">What cleaning services does Phil's Magic Cleaning provide?</h2>
+      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Services include janitorial and general cleaning for homes and businesses, including commercial cleaning for businesses, plus residential and commercial window cleaning." -->
+      <p class="max-w-3xl leading-relaxed">
+        Phil's Magic Cleaning provides professional cleaning for homes and businesses across the San Francisco Peninsula. Services include janitorial and commercial cleaning for businesses, plus residential and commercial window cleaning.
+      </p>
+      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original button: "View commercial and home cleaning services" -->
+      <div class="flex flex-wrap gap-3 mt-6">
+        <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
+        <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
+      </div>
+    </section>
+
+    <section id="request-cleaning" class="border-t border-line pt-12 mt-12">
+      <h2 id="request-cleaning-heading" class="text-2xl md:text-3xl mb-4">How can I request cleaning from Phil's Magic Cleaning?</h2>
+      <p class="max-w-3xl leading-relaxed">
+        Contact Phil's Magic Cleaning to request a free estimate for professional cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.
+      </p>
+      <p class="mt-6"><a href="/contact" class="btn btn-action">Get a free estimate</a></p>
+    </section>
+
+    <Faq
+      items={faq}
+      heading="Frequently asked questions about Phil's Magic Cleaning reviews"
+      intro="Find answers about Phil's Magic Cleaning reviews, customer experiences, and feedback from residential and commercial customers."
+    />
+  </article>
+
+  <CtaBand
+    heading={`Join ${BUSINESS.rating.count} Satisfied Customers`}
+    text="Experience the Phil's Magic difference for yourself. Call for a free quote — most jobs scheduled within the week."
+  />
+</Base>

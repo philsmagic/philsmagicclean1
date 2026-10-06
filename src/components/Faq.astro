@@ -1,0 +1,24 @@
+---
+/**
+ * Visible FAQ: every question is a heading with a stable id, every answer a
+ * <p> in the initial HTML. Nothing collapsed by default (AEO S1 §G, S2 §C).
+ * The same `items` array must be passed to schema.faqPage() so the JSON-LD
+ * text matches the page verbatim.
+ */
+interface Props { items: { q: string; a: string; id?: string }[]; heading?: string; id?: string; intro?: string }
+const { items, heading = "Common questions", id = "faq", intro } = Astro.props;
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").slice(0, 60);
+---
+<section id={id} class="my-12">
+  <h2 id={`${id}-heading`} class="text-2xl md:text-3xl mb-6">{heading}</h2>
+  {intro && <p class="text-muted max-w-3xl mb-6">{intro}</p>}
+  {Astro.slots.has("default") && <div class="text-lg leading-relaxed max-w-3xl mb-6"><slot /></div>}
+  <dl class="space-y-6 max-w-3xl">
+    {items.map((it) => (
+      <div>
+        <dt><h3 id={it.id ?? slug(it.q)} class="text-lg font-bold mb-1">{it.q}</h3></dt>
+        <dd class="text-muted leading-relaxed">{it.a}</dd>
+      </div>
+    ))}
+  </dl>
+</section>
