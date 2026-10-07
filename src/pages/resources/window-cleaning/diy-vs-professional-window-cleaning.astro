@@ -1,0 +1,256 @@
+---
+/**
+ * Resource article — "Should you clean your windows yourself or hire a professional window cleaner?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings and cross-page
+ * repetition are deliberate. No visible date → Article schema without dates.
+ * Built on the choosing-professional-cleaning-services article pattern.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+import ArticleClose from "./_ArticleClose.astro";
+import Related from "./_Related.astro";
+import { HUB, HUB_NAME, ARTICLES } from "./_articles";
+
+const path = ARTICLES.diy.href;
+const h1 = ARTICLES.diy.title;
+const title = "DIY vs. professional window cleaning";
+const description =
+  "Compare DIY vs. professional window cleaning by cost, equipment, time, access, safety, and results to decide which option is right for your windows.";
+
+// Emily's TOC (every H2 in this article).
+const toc = [
+  { id: "diy-or-professional", label: "Is it better to clean windows yourself or hire a professional?" },
+  { id: "when-to-diy", label: "When should you clean your windows yourself?" },
+  { id: "when-to-hire", label: "When should you hire a professional window cleaner?" },
+  { id: "is-diy-cheaper", label: "Is DIY window cleaning cheaper than hiring a professional?" },
+  { id: "diy-equipment", label: "What equipment do you need for DIY window cleaning?" },
+  { id: "save-time", label: "Does professional window cleaning save time?" },
+  { id: "better-results", label: "Does a professional window cleaner get better results than DIY?" },
+  { id: "safety", label: "Is it safe to clean your own windows?" },
+  { id: "combine-diy-and-professional", label: "Can you combine DIY and professional window cleaning?" },
+  { id: "how-to-choose", label: "How should you choose between DIY and professional window cleaning?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about DIY vs. professional window cleaning" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Is professional window cleaning worth the cost?",
+    a: "Professional window cleaning can be worth the cost when a property has numerous windows, difficult access, multi-story glass, limited time for DIY work, or recurring cleaning needs. For a small number of accessible windows, doing the work yourself can be practical. The value depends on the size and complexity of the job.",
+  },
+  {
+    q: "Should businesses clean their own windows?",
+    a: "Businesses can clean accessible windows themselves when the work is limited and can be completed without disrupting normal operations. Professional cleaning can be more practical for storefronts, restaurants, offices, and other businesses with extensive glass, difficult access, recurring maintenance requirements, or limited employee time available for window cleaning.",
+  },
+  {
+    q: "Can professional window cleaners clean second-story windows?",
+    a: "Professional window cleaning can include second story and other multi-story windows when building configuration and access conditions allow. Identify elevated windows when requesting an estimate so the provider can evaluate their height, location, exterior and interior access, and other conditions before determining the appropriate service scope.",
+  },
+  {
+    q: "How do I know if I need a professional window cleaner?",
+    a: "Consider a professional window cleaner when you cannot comfortably access all the windows, the project involves numerous or multi-story windows, the work takes a long time, or you want recurring service. DIY is better suited to manageable projects where the glass is easily accessible and you have the right equipment.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: HUB_NAME, path: HUB },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={HUB}>{HUB_NAME}</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Clean your windows yourself when the job is manageable, the glass is easy to reach, and you have suitable equipment and time. Hire a professional window cleaner when height, difficult access, project size, recurring needs, or time make DIY impractical.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="diy-or-professional" class="text-2xl md:text-3xl mt-10 mb-4">Is it better to clean windows yourself or hire a professional?</h2>
+        <p class="text-lg leading-relaxed mb-5">DIY window cleaning works well for a limited number of readily accessible windows when you have the right equipment and time. Hiring a professional is better for larger projects, difficult or multi-story access, recurring maintenance, or situations where completing the work yourself is impractical.</p>
+        <p class="text-lg leading-relaxed mb-5">Neither approach is right for every home or business. The decision depends primarily on six factors: cost, equipment, access, time, results, and safety.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Factor</th><th scope="col" class="py-2 pr-4">DIY window cleaning</th><th scope="col" class="py-2">Professional window cleaning</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Cost</td><td class="py-2 pr-4">You purchase supplies and provide the labor</td><td class="py-2">You pay for the agreed service</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Equipment</td><td class="py-2 pr-4">You supply the required tools</td><td class="py-2">Cleaner supplies equipment for the work</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Access</td><td class="py-2 pr-4">Best for readily accessible windows</td><td class="py-2">Can accommodate difficult or elevated windows, depending on conditions</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Time</td><td class="py-2 pr-4">You complete the entire project</td><td class="py-2">Cleaner completes the scheduled work</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Results</td><td class="py-2 pr-4">Depend on tools, technique, and available time</td><td class="py-2">Work follows the defined service scope</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Safety</td><td class="py-2 pr-4">You determine which windows you can comfortably reach</td><td class="py-2">Access requirements are evaluated before service</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">Comparing these factors with the windows that need cleaning gives you a practical way to choose between DIY and professional service.</p>
+      </section>
+
+      <section>
+        <h2 id="when-to-diy" class="text-2xl md:text-3xl mt-10 mb-4">When should you clean your windows yourself?</h2>
+        <p class="text-lg leading-relaxed mb-5">Clean your windows yourself when the glass is readily accessible, the project is manageable, and you have the equipment and time needed to complete the work.</p>
+        <p class="text-lg leading-relaxed mb-5">DIY window cleaning is best suited to situations where:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Windows are within comfortable reach</li>
+          <li>Interior and exterior access is straightforward</li>
+          <li>The number of windows is manageable</li>
+          <li>Suitable cleaning tools are available</li>
+          <li>Enough time is available to finish the job</li>
+          <li>Elevated access is unnecessary</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Consider the complete job before starting. A project that looks manageable based on a few accessible windows can become more complicated when it includes exterior, elevated, or hard-to-reach glass.</p>
+      </section>
+
+      <section>
+        <h2 id="when-to-hire" class="text-2xl md:text-3xl mt-10 mb-4">When should you hire a professional window cleaner?</h2>
+        <p class="text-lg leading-relaxed mb-5">Hire a professional window cleaner when difficult access, window height, project size, limited time, or ongoing maintenance makes cleaning the windows yourself impractical.</p>
+        <p class="text-lg leading-relaxed mb-5">Professional window cleaning is particularly useful for:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Hard-to-reach windows</li>
+          <li>Multi-story windows</li>
+          <li>Large numbers of windows</li>
+          <li>Extensive residential or commercial glass</li>
+          <li>Complicated interior or exterior access</li>
+          <li>Recurring window maintenance</li>
+          <li>Projects that require significant time</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Choosing a professional service based on the job's complexity helps match the cleaning approach to the work, rather than treating every window the same.</p>
+      </section>
+
+      <section>
+        <h2 id="is-diy-cheaper" class="text-2xl md:text-3xl mt-10 mb-4">Is DIY window cleaning cheaper than hiring a professional?</h2>
+        <p class="text-lg leading-relaxed mb-5">DIY window cleaning can cost less when you already have suitable supplies, the windows are easily accessible, and the job takes little time. Professional cleaning adds service cost but eliminates the need to perform the agreed work yourself.</p>
+        <p class="text-lg leading-relaxed mb-5">A useful cost comparison should account for more than the price of cleaning solution. Consider:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Cleaning supplies</li>
+          <li>Required equipment</li>
+          <li>Number of windows</li>
+          <li>Window accessibility</li>
+          <li>Time required</li>
+          <li>Frequency of cleaning</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">The balance changes as the project becomes larger or more difficult. A small group of accessible windows requires fewer resources than extensive glass or hard-to-reach windows.</p>
+        <p class="text-lg leading-relaxed mb-5">Comparing the job’s total requirements provides a more useful cost assessment than comparing a professional estimate with the price of basic supplies alone.</p>
+      </section>
+
+      <section>
+        <h2 id="diy-equipment" class="text-2xl md:text-3xl mt-10 mb-4">What equipment do you need for DIY window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">DIY window cleaning requires glass-cleaning supplies and equipment appropriate for the windows you can safely and comfortably reach. Equipment requirements increase with window size, height, configuration, and accessibility.</p>
+        <p class="text-lg leading-relaxed mb-5">Before choosing DIY, determine whether you have:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Glass-cleaning supplies appropriate for the work</li>
+          <li>Tools suited to the window configuration</li>
+          <li>Equipment appropriate for the reachable areas</li>
+          <li>Supplies for the interior and exterior surfaces being cleaned</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Equipment needs become more important as windows become larger, higher, or harder to reach.</p>
+        <p class="text-lg leading-relaxed mb-5">If completing the project requires access or equipment beyond what you can comfortably use, hiring a professional cleaner can be the more practical option.</p>
+      </section>
+
+      <section>
+        <h2 id="save-time" class="text-2xl md:text-3xl mt-10 mb-4">Does professional window cleaning save time?</h2>
+        <p class="text-lg leading-relaxed mb-5">Yes. Hiring a professional window cleaner saves the homeowner or business from performing the agreed cleaning work, although the customer still needs to define the scope and arrange access.</p>
+        <p class="text-lg leading-relaxed mb-5">DIY cleaning involves gathering supplies, preparing the area, cleaning each window, and completing the entire project. The time required increases with:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>More windows</li>
+          <li>Larger glass surfaces</li>
+          <li>Interior and exterior cleaning</li>
+          <li>Difficult access</li>
+          <li>Multiple stories</li>
+          <li>More extensive cleaning needs</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Time matters most for businesses that would otherwise need an owner or employee to do the work.</p>
+        <p class="text-lg leading-relaxed mb-5">Comparing the hours required for DIY cleaning with the convenience of scheduled service helps determine whether doing the work yourself is an efficient use of time.</p>
+      </section>
+
+      <section>
+        <h2 id="better-results" class="text-2xl md:text-3xl mt-10 mb-4">Does a professional window cleaner get better results than DIY?</h2>
+        <p class="text-lg leading-relaxed mb-5">Not necessarily. Professional window cleaning follows a defined service scope, while DIY results depend on the person’s equipment, technique, available time, and ability to reach all of the glass.</p>
+        <p class="text-lg leading-relaxed mb-5">Several factors affect the finished result:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Condition of the glass</li>
+          <li>Accessibility of the windows</li>
+          <li>Cleaning tools available</li>
+          <li>Technique used</li>
+          <li>Time spent on the work</li>
+          <li>Completeness of the project</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">DIY can work well for a manageable group of accessible windows. Larger projects and difficult access create more variables that can affect consistency across the property.</p>
+        <p class="text-lg leading-relaxed mb-5">Compare the approaches based on whether you can achieve the desired result across all windows included in the project, not simply whether the work is DIY or professional.</p>
+      </section>
+
+      <section>
+        <h2 id="safety" class="text-2xl md:text-3xl mt-10 mb-4">Is it safe to clean your own windows?</h2>
+        <p class="text-lg leading-relaxed mb-5">DIY window cleaning is best limited to windows you can access comfortably and safely. Height, difficult exterior access, obstacles, and building configuration can make some windows unsuitable for a straightforward DIY project.</p>
+        <p class="text-lg leading-relaxed mb-5">Before cleaning, consider:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>How high the windows are</li>
+          <li>Where the windows are located</li>
+          <li>Whether exterior access is clear</li>
+          <li>Whether obstacles affect access</li>
+          <li>Whether the building has multiple stories</li>
+          <li>Whether you can comfortably reach the glass</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Professional window cleaning can include hard-to-reach and multi-story windows when site and access conditions allow.</p>
+        <p class="text-lg leading-relaxed mb-5">Separating accessible windows from difficult ones before starting helps determine whether DIY, professional cleaning, or a combination of both fits the job.</p>
+      </section>
+
+      <section>
+        <h2 id="combine-diy-and-professional" class="text-2xl md:text-3xl mt-10 mb-4">Can you combine DIY and professional window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Yes. You can clean readily accessible windows yourself and hire a professional for windows that are difficult to reach, elevated, numerous, or impractical to handle on your own.</p>
+        <p class="text-lg leading-relaxed mb-5">A combined approach can work when:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Ground-level windows are easy to clean</li>
+          <li>Upper-story windows are difficult to access</li>
+          <li>Interior glass is manageable</li>
+          <li>Exterior glass presents greater challenges</li>
+          <li>Only part of the building requires professional service</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">The choice does not have to apply to every window. Evaluating individual areas allows homeowners and businesses to use DIY cleaning where it is practical and professional service where the work becomes more complex.</p>
+      </section>
+
+      <section>
+        <h2 id="how-to-choose" class="text-2xl md:text-3xl mt-10 mb-4">How should you choose between DIY and professional window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Choose DIY when the windows are easily accessible, the project is manageable, and you have the right equipment and time. Choose professional window cleaning when height, access, workload, recurring needs, or time make DIY impractical.</p>
+        <p class="text-lg leading-relaxed mb-5">Homeowners and businesses can also combine the approaches by handling straightforward windows independently and using a professional for more complex areas. Evaluating cost, equipment, access, time, results, and safety provides a clear framework for making the decision.</p>
+      </section>
+
+      <Related {...ARTICLES.hardToReach} />
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about DIY vs. professional window cleaning">
+        <p>Cost is only one consideration when deciding how to clean your windows. Window height, workload, access, available time, and ongoing maintenance requirements can also determine which approach fits a home or business.</p>
+      </Faq>
+
+      <ArticleClose />
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

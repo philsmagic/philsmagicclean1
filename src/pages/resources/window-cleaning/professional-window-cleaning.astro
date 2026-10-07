@@ -1,0 +1,219 @@
+---
+/**
+ * Resource article — "What should you know about professional window cleaning?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings and cross-page
+ * repetition are deliberate. No visible date → Article schema without dates.
+ * Built on the choosing-professional-cleaning-services article pattern.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+import ArticleClose from "./_ArticleClose.astro";
+import Related from "./_Related.astro";
+import { HUB, HUB_NAME, ARTICLES } from "./_articles";
+
+const path = ARTICLES.professional.href;
+const h1 = ARTICLES.professional.title;
+const title = "What to know about professional window cleaning";
+const description =
+  "Learn what professional window cleaning includes, how residential and commercial services differ, and what affects cleaning frequency, cost, and scope.";
+
+// Emily's TOC lists these H2s only (deliberately not all of them).
+const toc = [
+  { id: "how-often", label: "How often should windows be professionally cleaned?" },
+  { id: "cost-factors", label: "What factors affect the cost of professional window cleaning?" },
+  { id: "hard-to-reach-and-multi-story", label: "Can professional window cleaners clean hard-to-reach and multi-story windows?" },
+  { id: "one-time-or-recurring", label: "Should window cleaning be one-time or recurring?" },
+  { id: "before-requesting-an-estimate", label: "What should you tell a window cleaning company before requesting an estimate?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about professional window cleaning" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Can professional window cleaning include both interior and exterior windows?",
+    a: "Yes. Professional window cleaning can include both interior and exterior glass when both are part of the agreed service. Customers should specify which sides of the windows need cleaning when requesting an estimate. Interior and exterior access can differ, so identifying both helps the provider establish the complete scope before scheduling.",
+  },
+  {
+    q: "Are window screens included in professional window cleaning?",
+    a: "Window screens can be included when they are part of the agreed window cleaning service. Phil’s Magic Cleaning includes screens as part of its window cleaning services. Customers who need screen cleaning should note that requirement when requesting an estimate so the provider can include it in the scope of work.",
+  },
+  {
+    q: "Does professional window cleaning include window frames and tracks?",
+    a: "Window frames and tracks should not be assumed to be included in professional window cleaning unless the provider specifically confirms them as part of the service. Customers should ask which window components are covered in the estimate and identify any additional areas they want addressed before agreeing to the scope.",
+  },
+  {
+    q: "Do I need to be home or at my business during window cleaning?",
+    a: "Whether you need to be present depends on the property, access arrangements, and whether interior windows are included. Interior cleaning requires building access, while exterior-only service has different requirements. Confirming entry instructions and access before the appointment helps prevent delays when the window cleaning service begins.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: HUB_NAME, path: HUB },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={HUB}>{HUB_NAME}</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Professional window cleaning removes dirt and buildup from residential and commercial window glass. Services can include interior and exterior glass, screens, and hard-to-reach or multi-story windows, depending on the property, accessibility, and cleaning needs.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-it-includes" class="text-2xl md:text-3xl mt-10 mb-4">What does professional window cleaning include?</h2>
+        <p class="text-lg leading-relaxed mb-5">Professional window cleaning includes cleaning the window glass specified in the service scope and can cover interior glass, exterior glass, screens, and hard-to-reach or multi-story windows.</p>
+        <p class="text-lg leading-relaxed mb-5">A window cleaning service can cover:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Interior window glass</li>
+          <li>Exterior window glass</li>
+          <li>Accessible glass surfaces</li>
+          <li>Window screens</li>
+          <li>Hard-to-reach windows</li>
+          <li>Multi-story windows</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Not every service includes every component. Customers should confirm whether the agreed work covers interior glass, exterior glass, screens, or a combination of these services.</p>
+        <p class="text-lg leading-relaxed mb-5">Frames, tracks, repairs, restoration, and other window-related work should not be assumed to be included unless the cleaning provider specifically confirms them.</p>
+        <p class="text-lg leading-relaxed mb-5">Defining the included windows and components before service gives the customer and cleaning company a shared understanding of the work to be completed.</p>
+      </section>
+
+      <section>
+        <h2 id="residential-vs-commercial" class="text-2xl md:text-3xl mt-10 mb-4">What is the difference between residential and commercial window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Residential window cleaning serves houses, condominiums, apartments, and other homes, while commercial window cleaning serves offices, restaurants, storefronts, and other business properties. The services differ primarily in building configuration, access requirements, scheduling, service frequency, and customer visibility.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Consideration</th><th scope="col" class="py-2 pr-4">Residential window cleaning</th><th scope="col" class="py-2">Commercial window cleaning</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Properties</td><td class="py-2 pr-4">Houses, condominiums, apartments</td><td class="py-2">Offices, restaurants, storefronts, other businesses</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Scheduling</td><td class="py-2 pr-4">Based on household access and needs</td><td class="py-2">Based on operating hours and business access</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Accessibility</td><td class="py-2 pr-4">Based on home design and window location</td><td class="py-2">Based on building configuration and window location</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Frequency</td><td class="py-2 pr-4">Based on exposure, condition, and appearance preferences</td><td class="py-2">Based on exposure, property use, visibility, and appearance requirements</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Service options</td><td class="py-2 pr-4">One-time or recurring</td><td class="py-2">One-time or recurring</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides both residential and commercial window cleaning on the San Francisco Peninsula. Residential service covers homes, while commercial service covers offices, restaurants, retail stores, storefronts, medical and dental offices, salons, gyms, studios, and other businesses.</p>
+        <p class="text-lg leading-relaxed mb-5">Identifying the property type and access requirements helps determine the appropriate window-cleaning scope and schedule.</p>
+      </section>
+
+      <section>
+        <h2 id="how-often" class="text-2xl md:text-3xl mt-10 mb-4">How often should windows be professionally cleaned?</h2>
+        <p class="text-lg leading-relaxed mb-5">Professionals should clean windows whenever dirt, environmental exposure, or visible buildup affects their appearance or maintenance needs. The appropriate frequency depends on the property type, location, window condition, customer visibility, and appearance requirements rather than a single schedule for every property.</p>
+        <p class="text-lg leading-relaxed mb-5">Factors that influence window cleaning frequency include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Property type</li>
+          <li>Property location</li>
+          <li>Weather and environmental exposure</li>
+          <li>Window condition</li>
+          <li>Customer-facing glass</li>
+          <li>Desired appearance</li>
+          <li>Previous cleaning frequency</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Homes can use one-time or recurring service based on household needs and exterior conditions. Offices can set a schedule around workplace appearance and building use, while restaurants, storefronts, and other customer-facing businesses can require more frequent cleaning because their glass is highly visible to customers.</p>
+        <p class="text-lg leading-relaxed mb-5">Reviewing how quickly the glass becomes visibly dirty provides a practical basis for determining whether one-time service or recurring window cleaning is appropriate.</p>
+      </section>
+
+      <section>
+        <h2 id="cost-factors" class="text-2xl md:text-3xl mt-10 mb-4">What factors affect the cost of professional window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Professional window cleaning does not have one standard cost because pricing depends on the amount and complexity of the work, including window count, size, configuration, accessibility, service scope, screens, and hard-to-reach or multi-story glass.</p>
+        <p class="text-lg leading-relaxed mb-5">Common cost factors include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Number of windows</li>
+          <li>Window size and configuration</li>
+          <li>Interior versus exterior cleaning</li>
+          <li>Screen cleaning</li>
+          <li>Window accessibility</li>
+          <li>Hard-to-reach glass</li>
+          <li>Multi-story access</li>
+          <li>Window condition</li>
+          <li>One-time versus recurring service</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Window count alone does not define the amount of work. A property with accessible ground-level glass has different service requirements from one with elevated or difficult-to-reach windows.</p>
+        <p class="text-lg leading-relaxed mb-5">Providing the property type, window details, accessibility information, and requested scope helps the cleaning company prepare an estimate based on the actual work required.</p>
+      </section>
+
+      <section>
+        <h2 id="hard-to-reach-and-multi-story" class="text-2xl md:text-3xl mt-10 mb-4">Can professional window cleaners clean hard-to-reach and multi-story windows?</h2>
+        <p class="text-lg leading-relaxed mb-5">Yes. Professional window cleaning can include hard-to-reach and multi-story windows when the property and access conditions allow the work to be completed.</p>
+        <p class="text-lg leading-relaxed mb-5">Accessibility can depend on:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Window height</li>
+          <li>Window location</li>
+          <li>Number of stories</li>
+          <li>Building configuration</li>
+          <li>Interior access</li>
+          <li>Exterior access</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides hard-to-reach and multi-story window cleaning depending on the property. Customers should identify elevated or difficult windows when requesting an estimate so accessibility can be considered before service is scheduled.</p>
+        <p class="text-lg leading-relaxed mb-5">Clarifying access requirements in advance establishes which windows can be included and helps avoid uncertainty about the service scope.</p>
+      </section>
+
+      <section>
+        <h2 id="one-time-or-recurring" class="text-2xl md:text-3xl mt-10 mb-4">Should window cleaning be one-time or recurring?</h2>
+        <p class="text-lg leading-relaxed mb-5">One-time window cleaning suits a specific or periodic need, while recurring service provides ongoing cleaning on a set schedule.</p>
+        <p class="text-lg leading-relaxed mb-5">The right option depends on how quickly the windows require attention, property use, environmental exposure, appearance expectations, and customer visibility. A homeowner can choose one-time service for periodic cleaning, while a storefront or other customer-facing business can set up recurring service when its windows need consistent attention.</p>
+      </section>
+
+      <section>
+        <h2 id="before-requesting-an-estimate" class="text-2xl md:text-3xl mt-10 mb-4">What should you tell a window cleaning company before requesting an estimate?</h2>
+        <p class="text-lg leading-relaxed mb-5">Tell the window cleaning company about the property, windows requiring service, interior and exterior cleaning needs, screens, accessibility, building configuration, and whether you want one-time or recurring service.</p>
+        <p class="text-lg leading-relaxed mb-5">Useful information includes:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Property type and location</li>
+          <li>Approximate number of windows</li>
+          <li>Interior or exterior service needs</li>
+          <li>Screens requiring cleaning</li>
+          <li>Hard-to-reach windows</li>
+          <li>Multi-story windows</li>
+          <li>Access requirements</li>
+          <li>Preferred service frequency</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Accurate information helps define the requested work before an estimate is prepared. It also gives the customer and provider a clearer basis for discussing service scope, access, and scheduling.</p>
+      </section>
+
+      <section>
+        <h2 id="plan-window-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can you plan professional window cleaning for your property?</h2>
+        <p class="text-lg leading-relaxed mb-5">Plan professional window cleaning by identifying which windows need service, whether interior or exterior glass is included, screen cleaning needs, accessibility, and whether you need one-time or recurring service.</p>
+        <p class="text-lg leading-relaxed mb-5">A clearly defined scope helps homeowners and businesses compare services, request an accurate estimate, and schedule appropriately. For properties on the San Francisco Peninsula, window location, access, use, and appearance requirements provide a practical basis for determining the service needed.</p>
+      </section>
+
+      <Related {...ARTICLES.choose} />
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about professional window cleaning">
+        <p>Window type, accessibility, property use, and service scope affect what a window cleaning appointment involves. These answers address additional questions homeowners and businesses have when evaluating professional window cleaning.</p>
+      </Faq>
+
+      <ArticleClose />
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

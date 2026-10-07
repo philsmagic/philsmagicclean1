@@ -1,0 +1,42 @@
+---
+/**
+ * Closing blocks shared by the six window-cleaning resource articles (Emily Matthews' copy,
+ * 2026-10-07, identical in all six docs, carried verbatim):
+ *   "What cleaning services does Phil’s Magic Cleaning provide?" + two service buttons,
+ *   "How can I request cleaning from Phil’s Magic Cleaning?" + estimate button,
+ *   "About the author".
+ * Underscore prefix: Astro does not route this file.
+ *
+ * EMILY: the "About the author" text in the 10/07 docs differs from the shared
+ * src/components/AuthorBio.astro (10/05 text with E.L.'s home-cleaning substitution). Her 10/07
+ * wording already complies with the 10/5 ruling, so it is carried verbatim here instead of
+ * reusing AuthorBio. Same id (#about-the-author) and markup as AuthorBio. E.L.: decide whether
+ * AuthorBio should adopt the 10/07 wording site-wide.
+ */
+import { REQUEST_FORM_URL } from "@/data/site";
+---
+<section>
+  <h2 id="services-phils-magic-cleaning-provides" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services does Phil’s Magic Cleaning provide?</h2>
+  <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides commercial and janitorial cleaning for businesses and professional window cleaning for homes and businesses across the San Francisco Peninsula. Commercial service is available for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other Peninsula businesses.</p>
+  <div class="flex flex-wrap gap-4 my-6">
+    <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
+    <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
+  </div>
+</section>
+
+<section>
+  <h2 id="request-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can I request cleaning from Phil’s Magic Cleaning?</h2>
+  <p class="text-lg leading-relaxed mb-5">Contact Phil’s Magic Cleaning to request a free estimate for professional cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.</p>
+  <!-- EMILY: no button text in the doc for this section; built as "Request a free estimate" → Jobber general request form, matching the existing resource articles. -->
+  <div class="my-6">
+    <a href={REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a free estimate</a>
+  </div>
+</section>
+
+<section id="about-the-author" class="my-12 max-w-3xl border-t border-line pt-8">
+  <h2 id="about-the-author-heading" class="text-2xl md:text-3xl mb-4">About the author</h2>
+  <p class="text-lg leading-relaxed mb-4">
+    Magic Phil is the founder of Phil’s Magic Cleaning and has hands-on experience in professional cleaning. After managing three Five Guys locations, Phil founded his business in Burlingame and initially provided window cleaning and pressure washing for local storefronts. Today, Phil’s Magic Cleaning provides commercial and janitorial cleaning for businesses and window cleaning for homes and businesses across the San Francisco Peninsula, from South San Francisco to Mountain View. Phil is also active in the Burlingame business community.
+  </p>
+  <p><a href="/meet-magic-phil">More about Magic Phil</a></p>
+</section>

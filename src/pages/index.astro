@@ -51,20 +51,20 @@ const whyItems = [
   { title: "Licensed and insured", desc: "Fully covered for residential and commercial work" },
 ];
 
-/** Emily's new "Cleaning resources" cards. Two resource centers aren't written yet (see EMILY: comments in the markup). */
+/** Emily's "Cleaning resources" cards — each links to its resource center (all three built by 2026-10-07). */
 const resourceCards = [
   {
     title: "Cleaning resource center",
     // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Learn what commercial and home cleaning includes, how often service is needed, what it costs, and how to choose a cleaning provider."
     desc: "Learn what commercial cleaning and window cleaning for businesses and homes includes, how often service is needed, what it costs, and how to choose a cleaning provider.",
     cta: "Explore commercial cleaning resources",
-    href: "/resources", // EMILY: resource center not yet written; linking to /resources until it exists
+    href: "/resources/commercial-cleaning",
   },
   {
     title: "Window cleaning resource center",
     desc: "Find answers about professional window cleaning for homes and businesses, including services, frequency, costs, multi-story cleaning, and choosing a window cleaner.",
     cta: "Discover window cleaning resources",
-    href: "/resources", // EMILY: resource center not yet written; linking to /resources until it exists
+    href: "/resources/window-cleaning",
   },
   {
     title: "Choosing and managing professional cleaning services",
@@ -221,7 +221,6 @@ const toc = [
       <p class="text-lg text-muted mb-10 max-w-3xl leading-relaxed">
         Find practical information about commercial cleaning and window cleaning services for businesses and homes, including what different services cover, how to choose a cleaning provider, how frequently properties should be cleaned, window cleaning, and what businesses and homeowners should consider when comparing options.
       </p>
-      <!-- EMILY: "Cleaning resource center" and "Window cleaning resource center" are not yet written; those cards link to /resources until they exist. -->
       <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0">
         {resourceCards.map((c) => (
           <li class="bg-white border border-line rounded-lg p-6 hover:shadow-md transition-shadow flex flex-col">

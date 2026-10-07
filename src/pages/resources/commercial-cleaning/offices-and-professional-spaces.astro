@@ -1,0 +1,274 @@
+---
+/**
+ * Resource article — "What cleaning services do offices and professional spaces need?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings
+ * and cross-page repetition are deliberate. No visible date → Article schema
+ * without dates. Doc fixes are flagged inline and logged in docs/EMILY-CHANGES.md.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import AuthorBio from "./_AuthorBio.astro";
+import { JANITORIAL_FORM_URL } from "@/data/site";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+
+const hub = "/resources/commercial-cleaning";
+const path = `${hub}/offices-and-professional-spaces`;
+const h1 = "What cleaning services do offices and professional spaces need?";
+const title = "What cleaning services do offices need?";
+const description =
+  "Learn what professional office cleaning includes, which areas need cleaning, what belongs on an office cleaning checklist, and how to plan service.";
+
+// Emily's TOC lists these H2s only.
+const toc = [
+  { id: "what-office-cleaning-includes", label: "What does professional office cleaning include?" },
+  { id: "areas-that-need-regular-cleaning", label: "Which office areas need regular cleaning?" },
+  { id: "office-cleaning-checklist", label: "What should an office cleaning checklist include?" },
+  { id: "workstations-and-conference-rooms", label: "How should workstations and conference rooms be cleaned?" },
+  { id: "kitchens-break-rooms-and-restrooms", label: "What cleaning do office kitchens, break rooms, and restrooms need?" },
+  { id: "reception-entrances-and-interior-glass", label: "Does office cleaning include reception areas, entrances, and interior glass?" },
+  { id: "needs-by-office-type", label: "How do cleaning needs differ among office and professional spaces?" },
+  { id: "scheduling", label: "How should office cleaning be scheduled?" },
+  { id: "office-cleaning-plan", label: "How can businesses create an effective office cleaning plan?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about office cleaning services" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Is office cleaning the same as commercial cleaning?",
+    a: "Office cleaning is a type of commercial cleaning focused on professional workplaces. It can cover workstations, conference rooms, break rooms, restrooms, reception areas, floors, common spaces, entrances, and interior glass. Commercial cleaning is broader and also applies to restaurants, storefronts, salons, gyms, medical and dental offices, and other business properties.",
+  },
+  {
+    q: "Does office cleaning include desks and workstations?",
+    a: "Yes. Office cleaning can include agreed desk and workstation surfaces. Businesses should specify which surfaces cleaners should address and whether personal workspaces, electronics, private offices, or shared equipment are included. Clear boundaries help employees understand what will be cleaned and give the provider specific instructions for completing the work.",
+  },
+  {
+    q: "How often should an office be professionally cleaned?",
+    a: "Office cleaning frequency depends on workplace use, employee and visitor traffic, shared facilities, business hours, and the tasks included in the service. Businesses can choose one-time or recurring cleaning based on their needs. Higher-use areas may need more frequent attention than lower-use spaces, so businesses should set the schedule based on workplace use and the tasks included in each visit.",
+  },
+  {
+    q: "Does office cleaning include windows?",
+    a: "Office cleaning can include accessible interior glass when specified in the service. Professional window cleaning can be a separate service covering interior or exterior windows, screens, and hard-to-reach glass. Businesses should confirm which glass surfaces are included in routine office cleaning, and which require a dedicated window cleaning service.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Commercial and janitorial cleaning", path: hub },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={hub}>Commercial and janitorial cleaning</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Professional office cleaning can include floors, restrooms, workstations, conference rooms, kitchens and break rooms, reception areas, entrances, common spaces, and interior glass. Services should match the workplace layout, employee and visitor use, and agreed cleaning requirements.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-office-cleaning-includes" class="text-2xl md:text-3xl mt-10 mb-4">What does professional office cleaning include?</h2>
+        <p class="text-lg leading-relaxed mb-5">Professional office cleaning includes agreed cleaning tasks for work areas, shared facilities, visitor spaces, floors, entrances, and other parts of a workplace that require routine attention.</p>
+        <p class="text-lg leading-relaxed mb-5">Depending on the office, services can include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Cleaning floors and hard surfaces</li>
+          <li>Cleaning restrooms and fixtures</li>
+          <li>Cleaning agreed workstation surfaces</li>
+          <li>Cleaning conference and meeting rooms</li>
+          <li>Cleaning kitchens and break rooms</li>
+          <li>Cleaning reception and waiting areas</li>
+          <li>Cleaning entrances and common spaces</li>
+          <li>Cleaning accessible interior glass</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Organizing service around the actual workplace keeps cleaning focused on the areas employees and visitors use.</p>
+      </section>
+
+      <section>
+        <h2 id="areas-that-need-regular-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">Which office areas need regular cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Office areas that typically need regular cleaning include frequently used employee workspaces, restrooms, break rooms, meeting rooms, reception areas, entrances, and shared facilities.</p>
+        <p class="text-lg leading-relaxed mb-5">Grouping office areas by who uses them helps businesses establish cleaning priorities:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li><strong>Employee areas:</strong> workstations, shared desks, break rooms, kitchens, and internal common spaces</li>
+          <li><strong>Meeting areas:</strong> conference rooms, meeting rooms, and other collaborative spaces</li>
+          <li><strong>Visitor areas:</strong> reception desks, waiting areas, entrances, and accessible interior glass</li>
+          <li><strong>Shared facilities:</strong> restrooms, hallways, floors, kitchens, and other communal spaces</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Categorizing employee, meeting, visitor, and shared areas helps businesses prioritize service according to workplace use.</p>
+      </section>
+
+      <section>
+        <h2 id="office-cleaning-checklist" class="text-2xl md:text-3xl mt-10 mb-4">What should an office cleaning checklist include?</h2>
+        <p class="text-lg leading-relaxed mb-5">An office cleaning checklist should identify each area requiring service and the specific cleaning tasks assigned to it. The checklist should reflect the office layout and agreed work rather than rely on a generic template.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Office area</th><th scope="col" class="py-2">Cleaning checklist can include</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Floors</td><td class="py-2">Clean hard floors and other agreed floor surfaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Restrooms</td><td class="py-2">Clean fixtures, surfaces, floors, and restroom areas</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Workstations</td><td class="py-2">Clean agreed desks, surfaces, and work areas</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Conference rooms</td><td class="py-2">Clean agreed surfaces, floors, and meeting spaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Kitchens and break rooms</td><td class="py-2">Clean counters, floors, surfaces, and shared areas</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Reception areas</td><td class="py-2">Clean agreed visitor and waiting spaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Common areas</td><td class="py-2">Clean shared employee and visitor spaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Entrances</td><td class="py-2">Clean entryways and surrounding surfaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Interior glass</td><td class="py-2">Clean accessible interior glass surfaces</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">The checklist can also document areas or tasks that are excluded from service. A written reference gives the business and cleaning provider a shared understanding of what to complete during each visit.</p>
+      </section>
+
+      <section>
+        <h2 id="workstations-and-conference-rooms" class="text-2xl md:text-3xl mt-10 mb-4">How should workstations and conference rooms be cleaned?</h2>
+        <p class="text-lg leading-relaxed mb-5">Workstations and conference rooms should be cleaned according to the agreed service, with clear boundaries for desks, shared surfaces, electronics, personal items, private offices, and equipment.</p>
+        <p class="text-lg leading-relaxed mb-5">A service plan can specify:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Which desk and workstation surfaces are included</li>
+          <li>Which meeting room surfaces receive cleaning</li>
+          <li>Which floors require service</li>
+          <li>Which shared spaces are covered</li>
+          <li>Which items cleaners should not move or handle</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Clarifying those boundaries is especially useful in offices where employees leave documents, personal belongings, or equipment at individual workstations.</p>
+        <p class="text-lg leading-relaxed mb-5">Defining included surfaces before service begins helps protect workplace items and gives cleaners clear instructions on the work to perform.</p>
+      </section>
+
+      <section>
+        <h2 id="kitchens-break-rooms-and-restrooms" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning do office kitchens, break rooms, and restrooms need?</h2>
+        <p class="text-lg leading-relaxed mb-5">Office kitchens, break rooms, and restrooms require cleaning based on their included floors, counters, fixtures, shared surfaces, and other agreed areas.</p>
+        <p class="text-lg leading-relaxed mb-5">Because these shared facilities serve different functions from workstations and meeting rooms, their cleaning requirements should be defined separately.</p>
+        <p class="text-lg leading-relaxed mb-5">A cleaning plan can include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Cleaning restroom fixtures and surfaces</li>
+          <li>Cleaning restroom floors</li>
+          <li>Cleaning break room counters</li>
+          <li>Cleaning kitchen and break room floors</li>
+          <li>Cleaning agreed shared surfaces</li>
+          <li>Cleaning other included communal areas</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Separating shared facilities from general office space makes it easier to specify the work required in each part of the workplace.</p>
+      </section>
+
+      <section>
+        <h2 id="reception-entrances-and-interior-glass" class="text-2xl md:text-3xl mt-10 mb-4">Does office cleaning include reception areas, entrances, and interior glass?</h2>
+        <p class="text-lg leading-relaxed mb-5">Yes. Office cleaning can include reception areas, entrances, waiting spaces, and accessible interior glass when those areas are part of the agreed service.</p>
+        <p class="text-lg leading-relaxed mb-5">Visitor-facing areas can include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Reception desks</li>
+          <li>Waiting areas</li>
+          <li>Suite entrances</li>
+          <li>Interior doors</li>
+          <li>Accessible glass partitions</li>
+          <li>Interior office glass</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Routine office cleaning and professional window cleaning are separate service categories, although both can include certain interior glass surfaces. Accessible interior glass can be included in general cleaning, while interior or exterior windows, screens, and hard-to-reach glass can require separate professional window cleaning.</p>
+        <p class="text-lg leading-relaxed mb-5">Specifying which glass and entrance surfaces are included prevents uncertainty about where office cleaning ends and window cleaning begins.</p>
+      </section>
+
+      <section>
+        <h2 id="needs-by-office-type" class="text-2xl md:text-3xl mt-10 mb-4">How do cleaning needs differ among office and professional spaces?</h2>
+        <p class="text-lg leading-relaxed mb-5">Cleaning needs vary by workplace layout, employee activity, visitor use, shared facilities, and the type of professional environment.</p>
+        <p class="text-lg leading-relaxed mb-5">For example:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Open offices can emphasize shared workstations, conference rooms, break rooms, restrooms, floors, and common spaces.</li>
+          <li>Professional offices can focus on reception areas, private and shared workspaces, meeting rooms, restrooms, and entrances.</li>
+          <li>Medical and dental offices can include waiting rooms, administrative areas, floors, restrooms, interior glass, and other areas based on facility requirements.</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">A workplace-specific approach helps businesses identify relevant cleaning needs without assuming every professional environment requires the same service.</p>
+      </section>
+
+      <section>
+        <h2 id="scheduling" class="text-2xl md:text-3xl mt-10 mb-4">How should office cleaning be scheduled?</h2>
+        <p class="text-lg leading-relaxed mb-5">Schedule office cleaning around business hours, workplace access, facility use, and the frequency required for the agreed tasks.</p>
+        <p class="text-lg leading-relaxed mb-5">Some businesses need service outside employee or visitor hours, while others can accommodate cleaning during operating periods. Before establishing a schedule, businesses should determine:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Which days service is needed</li>
+          <li>Which time windows are available</li>
+          <li>How cleaners will access the property</li>
+          <li>How schedule changes will be handled</li>
+          <li>Whether service will be one-time or recurring</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Coordinating timing and access before service begins helps cleaning take place without unnecessary disruption to workplace operations.</p>
+      </section>
+
+      <section>
+        <h2 id="office-cleaning-plan" class="text-2xl md:text-3xl mt-10 mb-4">How can businesses create an effective office cleaning plan?</h2>
+        <p class="text-lg leading-relaxed mb-5">Businesses can create an effective office cleaning plan by identifying the areas that require service, assigning appropriate tasks to each space, and establishing scheduling, access, and frequency requirements.</p>
+        <p class="text-lg leading-relaxed mb-5">A documented plan gives offices and professional spaces a practical framework for communicating their needs. For San Francisco Peninsula offices and professional spaces, documenting these requirements provides a clear framework for communicating expectations and establishing one-time or recurring service.</p>
+      </section>
+
+      <nav aria-label="Related articles" class="my-12">
+        <h2 id="related-articles" class="text-2xl md:text-3xl mb-6">Related articles</h2>
+        <ul class="space-y-8">
+          <li>
+            <h3 class="text-xl mb-2">What is commercial cleaning, and what services does it include?</h3>
+            <p class="leading-relaxed mb-2">Commercial cleaning covers professional cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other business properties. Learn which areas commercial cleaning can cover, how commercial and janitorial services differ, and how businesses can define a cleaning scope based on their facility and requirements.</p>
+            <a href={`${hub}/what-is-commercial-cleaning`} class="font-bold">Explore commercial cleaning services</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">How do you choose a commercial cleaning company?</h3>
+            <!-- EMILY: related-article blurb for this item duplicated the customer-facing paragraph; used the article's own definition. Original: "Restaurants, retail stores, salons, gyms, offices, and other customer-facing businesses have different commercial cleaning priorities. Learn how to identify the customer, employee, and shared areas that require attention, what to include in a facility-specific cleaning checklist, and how to prioritize cleaning based on how each space is used." -->
+            <p class="leading-relaxed mb-2">Choose a commercial cleaning company by evaluating its experience, insurance, scope of work, scheduling, references, communication, and quality-control process. Compare providers using the same facility requirements to determine which company best fits your business.</p>
+            <a href={`${hub}/how-to-choose-a-commercial-cleaning-company`} class="font-bold">Compare commercial cleaning companies</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">Professional cleaning services overview</h3>
+            <p class="leading-relaxed mb-2">This hub provides an overview of choosing and using professional cleaning services, including how to evaluate cleaning companies, compare one-time, deep, and recurring cleaning options, and know what to expect before, during, and after a professional cleaning appointment.</p>
+            <a href="/resources/choosing-professional-cleaning-services" class="font-bold">Go to the professional cleaning resource center</a>
+          </li>
+        </ul>
+      </nav>
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about office cleaning services">
+        <p>Workplace layouts, operating schedules, and shared facilities influence what office cleaning involves. The following answers address common questions businesses have when establishing professional cleaning requirements.</p>
+      </Faq>
+
+      <section>
+        <h2 id="services-phils-magic-cleaning-provides" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services does Phil’s Magic Cleaning provide?</h2>
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides commercial and janitorial cleaning for businesses and professional window cleaning for homes and businesses across the San Francisco Peninsula. Commercial service is available for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other Peninsula businesses.</p>
+        <div class="flex flex-wrap gap-4 my-6">
+          <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
+          <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="request-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can I request cleaning from Phil’s Magic Cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Contact Phil’s Magic Cleaning to request a free estimate for professional cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.</p>
+        <div class="my-6">
+          <a href={JANITORIAL_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a free estimate</a>
+        </div>
+      </section>
+
+      <AuthorBio />
+    </div>
+  </article>
+
+  <CtaBand formUrl={JANITORIAL_FORM_URL} formLabel="Request commercial cleaning" />
+</Base>

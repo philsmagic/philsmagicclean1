@@ -1,0 +1,214 @@
+---
+/**
+ * Resource article — "What should post-construction window cleaning include?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings and cross-page
+ * repetition are deliberate. No visible date → Article schema without dates.
+ * Built on the choosing-professional-cleaning-services article pattern.
+ *
+ * REVIEW E.L.: post-construction window cleaning (incl. sticker/adhesive removal) is not on the
+ * live /window-cleaning page (the old site's post-construction section was dropped in Emily's
+ * 10/05 Services copy). Most of this article is generic, but the last FAQ answer speaks as Phil's
+ * ("so we can evaluate…"), which implies Phil's offers the service. Confirm.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+import ArticleClose from "./_ArticleClose.astro";
+import Related from "./_Related.astro";
+import { HUB, HUB_NAME, ARTICLES } from "./_articles";
+
+const path = ARTICLES.postConstruction.href;
+const h1 = ARTICLES.postConstruction.title;
+const title = "What does post-construction window cleaning include?";
+const description =
+  "Learn what post-construction window cleaning includes, from removing construction dust, stickers, and adhesive to cleaning interior and exterior glass.";
+
+// Emily's TOC (every H2 in this article).
+const toc = [
+  { id: "what-it-includes", label: "What does post-construction window cleaning include?" },
+  { id: "what-needs-removing", label: "What needs to be removed from windows after construction?" },
+  { id: "vs-regular-window-cleaning", label: "How is post-construction window cleaning different from regular window cleaning?" },
+  { id: "sticker-and-adhesive-removal", label: "Does post-construction window cleaning include sticker and adhesive removal?" },
+  { id: "inspection", label: "Why should windows be inspected before post-construction cleaning?" },
+  { id: "interior-and-exterior", label: "Should post-construction cleaning include interior and exterior windows?" },
+  { id: "estimate-information", label: "What information should you provide for a post-construction window cleaning estimate?" },
+  { id: "before-scheduling", label: "What should you confirm before scheduling post-construction window cleaning?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about post-construction window cleaning" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "When should windows be cleaned after construction?",
+    a: "Clean windows after construction or renovation work affecting the glass is complete, and the windows are ready for final cleanup. Cleaning before surrounding work is finished can allow additional dust or residue to reach the glass. Coordinate window cleaning with the project schedule so affected surfaces are ready for service.",
+  },
+  {
+    q: "Do newly installed windows need post-construction cleaning?",
+    a: "Newly installed windows can need post-construction cleaning when labels, adhesive, construction dust, dirt, or other project-related material remains on the glass. The required service depends on the windows' condition after installation and which surfaces need cleaning.",
+  },
+  {
+    q: "Is post-construction window cleaning only for new buildings?",
+    a: "No. Post-construction window cleaning can apply after remodeling, renovation, window installation, or other property work that leaves construction-related dirt or residue on the glass. The determining factor is the condition of the windows after the project, not whether the entire residential or commercial property is newly constructed.",
+  },
+  {
+    // REVIEW E.L.: unverified claim — "so we can evaluate" implies Phil's offers post-construction
+    // window cleaning, which is not on the live /window-cleaning page.
+    q: "Can post-construction cleaning include hard-to-reach windows?",
+    a: "Yes, post-construction cleaning can include hard-to-reach or multi-story windows when the property and access conditions allow. Identify elevated or difficult-access glass when requesting service so we can evaluate its location, building configuration, and interior or exterior access before confirming the post-construction window-cleaning scope.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: HUB_NAME, path: HUB },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={HUB}>{HUB_NAME}</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Post-construction window cleaning should include inspecting the windows, removing agreed construction dust and residue, addressing stickers or adhesive when included, cleaning the specified glass surfaces, and reviewing the finished work. The scope depends on the project and condition of the windows.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-it-includes" class="text-2xl md:text-3xl mt-10 mb-4">What does post-construction window cleaning include?</h2>
+        <p class="text-lg leading-relaxed mb-5">Post-construction window cleaning addresses glass affected by building, remodeling, renovation, or installation work. The service can involve project-related materials that are not typically part of routine window cleaning.</p>
+        <p class="text-lg leading-relaxed mb-5">A typical process can include:</p>
+        <ol class="list-decimal pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Inspecting affected windows</li>
+          <li>Identifying construction-related buildup</li>
+          <li>Confirming the surfaces to be serviced</li>
+          <li>Removing included labels or adhesive</li>
+          <li>Cleaning the specified glass</li>
+          <li>Reviewing the completed work</li>
+        </ol>
+        <p class="text-lg leading-relaxed mb-5">The exact service varies because construction projects leave different conditions behind. Establishing the required work before cleaning creates a clear scope for the property owner and cleaning provider.</p>
+      </section>
+
+      <section>
+        <h2 id="what-needs-removing" class="text-2xl md:text-3xl mt-10 mb-4">What needs to be removed from windows after construction?</h2>
+        <p class="text-lg leading-relaxed mb-5">Windows can collect construction dust, surface dirt, installation materials, and other project-related residue. What requires cleaning depends on the work performed and what remains on the glass after the project.</p>
+        <p class="text-lg leading-relaxed mb-5">Common conditions include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Dust from construction or remodeling</li>
+          <li>Dirt deposited during project work</li>
+          <li>Materials left from window installation</li>
+          <li>Residue associated with labels or protective coverings</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Existing windows near a renovation can primarily collect dust, while newly installed glass can have installation-related material. Identifying the type of buildup helps determine the appropriate cleanup for each area.</p>
+      </section>
+
+      <section>
+        <h2 id="vs-regular-window-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How is post-construction window cleaning different from regular window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Post-construction window cleaning addresses material associated with building or renovation work, while regular window cleaning primarily removes everyday dirt and environmental buildup.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Consideration</th><th scope="col" class="py-2 pr-4">Regular window cleaning</th><th scope="col" class="py-2">Post-construction window cleaning</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Primary purpose</td><td class="py-2 pr-4">Routine glass maintenance</td><td class="py-2">Cleanup after project work</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Typical condition</td><td class="py-2 pr-4">Everyday dirt and buildup</td><td class="py-2">Construction-related residue</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Stickers and labels</td><td class="py-2 pr-4">Not a primary focus</td><td class="py-2">Can require removal</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Adhesive</td><td class="py-2 pr-4">Not typically part of routine service</td><td class="py-2">Can require additional attention</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Timing</td><td class="py-2 pr-4">One-time or recurring</td><td class="py-2">After construction or renovation</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Planning</td><td class="py-2 pr-4">Based on routine cleaning needs</td><td class="py-2">Based on project conditions</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">Distinguishing between the two services helps homeowners and businesses describe the job accurately when requesting professional window cleaning.</p>
+      </section>
+
+      <section>
+        <h2 id="sticker-and-adhesive-removal" class="text-2xl md:text-3xl mt-10 mb-4">Does post-construction window cleaning include sticker and adhesive removal?</h2>
+        <p class="text-lg leading-relaxed mb-5">Yes. Post-construction window cleaning can include removing stickers, labels, tape, and adhesive when the agreed service includes that work. Customers should identify materials attached to the glass when requesting an estimate rather than assuming removal is automatically included.</p>
+        <p class="text-lg leading-relaxed mb-5">Examples include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Manufacturer stickers</li>
+          <li>Installation labels</li>
+          <li>Protective tape</li>
+          <li>Adhesive left after labels are removed</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Communicating these materials in advance helps the provider account for the additional work when evaluating the project.</p>
+      </section>
+
+      <section>
+        <h2 id="inspection" class="text-2xl md:text-3xl mt-10 mb-4">Why should windows be inspected before post-construction cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Inspect windows before post-construction cleaning to document their condition and determine whether different areas require different types of cleanup.</p>
+        <p class="text-lg leading-relaxed mb-5">An assessment can determine:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Identify affected windows</li>
+          <li>Locate remaining project residue</li>
+          <li>Note differences in glass condition</li>
+          <li>Recognize access considerations</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Inspection is particularly useful when conditions vary across a property. Identifying those differences before work begins helps align the cleaning approach with each area's condition.</p>
+      </section>
+
+      <section>
+        <h2 id="interior-and-exterior" class="text-2xl md:text-3xl mt-10 mb-4">Should post-construction cleaning include interior and exterior windows?</h2>
+        <p class="text-lg leading-relaxed mb-5">Post-construction cleaning should cover interior glass, exterior glass, or both when those surfaces were affected by the project and are included in the service.</p>
+        <p class="text-lg leading-relaxed mb-5">Construction can affect the two sides differently. Interior remodeling can leave dust on indoor glass, while exterior work can deposit material on outside surfaces. Newly installed windows can require attention on either side.</p>
+        <p class="text-lg leading-relaxed mb-5">Identifying affected surfaces prevents assumptions about the service and makes the requested work easier to define.</p>
+      </section>
+
+      <section>
+        <h2 id="estimate-information" class="text-2xl md:text-3xl mt-10 mb-4">What information should you provide for a post-construction window cleaning estimate?</h2>
+        <p class="text-lg leading-relaxed mb-5">Provide the property location, project type, approximate number of affected windows, visible residue, interior or exterior cleaning requirements, and any access considerations when requesting a post-construction window cleaning estimate.</p>
+        <p class="text-lg leading-relaxed mb-5">Useful details include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Property type and location</li>
+          <li>Type of construction or renovation</li>
+          <li>Approximate number of affected windows</li>
+          <li>Areas where residue remains</li>
+          <li>Stickers, labels, tape, or adhesive</li>
+          <li>Interior or exterior cleaning requirements</li>
+          <li>Elevated or difficult-access glass</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Photos can help communicate window conditions before an onsite evaluation. Accurate project details make it easier to distinguish straightforward glass cleaning from work requiring additional cleanup.</p>
+      </section>
+
+      <section>
+        <h2 id="before-scheduling" class="text-2xl md:text-3xl mt-10 mb-4">What should you confirm before scheduling post-construction window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Before scheduling post-construction window cleaning, confirm which windows were affected, what residue remains, whether interior or exterior surfaces need service, and whether any glass has access considerations.</p>
+        <p class="text-lg leading-relaxed mb-5">Defining those conditions before service helps establish the appropriate scope for cleaning glass after construction, renovation, remodeling, or window installation.</p>
+      </section>
+
+      <Related {...ARTICLES.professional} />
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about post-construction window cleaning">
+        <p>Construction and renovation projects leave different window conditions depending on the work completed and materials involved. These answers address common questions about timing, newly installed windows, residue removal, and difficult-access glass.</p>
+      </Faq>
+
+      <ArticleClose />
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

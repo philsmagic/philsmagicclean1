@@ -1,10 +1,8 @@
 ---
 /**
  * Resources landing — NEW page from Emily Matthews' AEO pass (2026-10-05),
- * Resources_Landing page.md, carried verbatim. Two hubs: the blog (/resources/blog)
- * and the "choosing and using professional cleaning services" resource
- * center (/resources/choosing-professional-cleaning-services, built
- * separately). Breadcrumb: Home › Resources.
+ * Resources_Landing page.md, carried verbatim, plus Emily's 2026-10-06/07 blocks for the commercial and
+ * window resource centers. Breadcrumb: Home › Resources.
  */
 import Base from "@/layouts/Base.astro";
 import CtaBand from "@/components/CtaBand.astro";
@@ -46,6 +44,28 @@ const description =
           Learn how to choose and use professional cleaning services, from evaluating cleaning companies and comparing service options to preparing for an appointment and knowing what to expect before, during, and after cleaning.
         </p>
         <p><a href="/resources/choosing-professional-cleaning-services">Explore professional cleaning guides</a></p>
+      </section>
+
+      <!-- EMILY: her 2026-10-06 17:45 block ("Professional cleaning services overview") linked to the commercial center but its text
+           describes the choosing center above. Per E.L. (2026-10-07): one block per hub — this block uses the commercial
+           center's own H1 and intro, and links to it. Original block text: "This hub provides an overview of choosing and using
+           professional cleaning services, including how to evaluate cleaning companies, compare one-time, deep, and recurring
+           cleaning options, and know what to expect before, during, and after a professional cleaning appointment." -->
+      <section id="commercial-cleaning" class="border-t border-line pt-10">
+        <h2 class="text-2xl md:text-3xl mb-3">Commercial and janitorial cleaning: a resource center for San Francisco Peninsula businesses</h2>
+        <p class="text-lg leading-relaxed mb-4">
+          Explore commercial and janitorial cleaning resources for San Francisco Peninsula businesses, including what services can cover, how to evaluate cleaning companies, and how cleaning needs differ by business type and facility use.
+        </p>
+        <p><a href="/resources/commercial-cleaning">Go to the commercial cleaning resource center</a></p>
+      </section>
+
+      <!-- Emily, 2026-10-07 "Last Resources section": added verbatim. -->
+      <section id="window-cleaning" class="border-t border-line pt-10">
+        <h2 class="text-2xl md:text-3xl mb-3">Professional window cleaning overview</h2>
+        <p class="text-lg leading-relaxed mb-4">
+          This hub provides an overview of professional window cleaning for homeowners and businesses, including what services can include, DIY versus professional cleaning, choosing a provider, cleaning frequency, post-construction cleanup, and cleaning hard-to-reach and multi-story windows.
+        </p>
+        <p><a href="/resources/window-cleaning">Go to the window cleaning resource center</a></p>
       </section>
     </div>
   </section>

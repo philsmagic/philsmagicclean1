@@ -1,0 +1,255 @@
+---
+/**
+ * Resource article — "What cleaning services do restaurants, retail stores, salons,
+ * and other customer-facing businesses need?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings
+ * and cross-page repetition are deliberate. No visible date → Article schema
+ * without dates. Doc fixes are flagged inline and logged in docs/EMILY-CHANGES.md.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import AuthorBio from "./_AuthorBio.astro";
+import { JANITORIAL_FORM_URL } from "@/data/site";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+
+const hub = "/resources/commercial-cleaning";
+const path = `${hub}/customer-facing-businesses`;
+const h1 = "What cleaning services do restaurants, retail stores, salons, and other customer-facing businesses need?";
+const title = "Cleaning services for customer-facing businesses";
+const description =
+  "Learn what cleaning services restaurants, retail stores, salons, offices, and other customer-facing businesses need on the San Francisco Peninsula.";
+
+// Emily's TOC lists these H2s only.
+const toc = [
+  { id: "needs-by-business-type", label: "How do cleaning needs differ by type of business?" },
+  { id: "restaurants", label: "What cleaning services do restaurants need?" },
+  { id: "retail-stores-and-storefronts", label: "What cleaning services do retail stores and storefronts need?" },
+  { id: "salons-gyms-and-studios", label: "What cleaning services do salons, gyms, and studios need?" },
+  { id: "offices-and-professional-spaces", label: "What cleaning services do offices and professional spaces need?" },
+  { id: "commercial-cleaning-checklist", label: "What should be included in a commercial cleaning checklist?" },
+  { id: "prioritize-customer-and-employee-areas", label: "How should businesses prioritize customer-facing and employee areas?" },
+  { id: "define-cleaning-priorities", label: "How can businesses define cleaning priorities for their facility?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about cleaning customer-facing businesses" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Is office cleaning different from cleaning a retail store?",
+    a: "Yes. Office and retail cleaning typically emphasize different areas because employees and customers use the properties differently. Retail cleaning places greater emphasis on customer areas, entrances, fixtures, floors, restrooms, and interior glass. Each service should reflect how people use the property rather than follow an identical checklist.",
+  },
+  {
+    q: "Does commercial cleaning include entrances and customer areas?",
+    a: "Yes. Commercial cleaning can include entrances, waiting areas, sales floors, dining areas, common spaces, and other customer-facing locations when they are part of the agreed service. Businesses should identify which public areas need attention so the cleaning plan clearly defines the included spaces and tasks.",
+  },
+  {
+    q: "Should employee areas be included in a commercial cleaning checklist?",
+    a: "Yes, you can include employee areas when they are part of the agreed work. Offices, restaurants, stores, salons, and other businesses can have break rooms, workspaces, restrooms, or shared facilities used primarily by staff. Listing employee areas separately helps ensure the cleaning plan addresses both staff and customer spaces appropriately.",
+  },
+  {
+    q: "Can the same commercial cleaning checklist work for every business?",
+    a: "No. A single checklist does not fit every commercial property because restaurants, retail stores, salons, gyms, offices, and other facilities have different layouts and usage patterns. A checklist should identify the areas and tasks relevant to the individual property while excluding work that is not required.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Commercial and janitorial cleaning", path: hub },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={hub}>Commercial and janitorial cleaning</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Restaurants, retail stores, salons, offices, gyms, and other customer-facing businesses need commercial cleaning focused on their highest-use customer, employee, and shared areas. Priorities can include floors, restrooms, work areas, entrances, common spaces, interior glass, and other frequently used surfaces.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="needs-by-business-type" class="text-2xl md:text-3xl mt-10 mb-4">How do cleaning needs differ by type of business?</h2>
+        <p class="text-lg leading-relaxed mb-5">Cleaning needs differ by business type because restaurants, stores, salons, gyms, and offices have different customer areas, employee spaces, surfaces, and patterns of use. Commercial cleaning should prioritize the parts of each facility that receive the greatest use and require routine attention.</p>
+        <p class="text-lg leading-relaxed mb-5">Customer-facing businesses can have different priorities:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li><strong>Restaurants:</strong> front-of-house areas, floors, restrooms, interior glass, and other high-use spaces</li>
+          <li><strong>Retail stores:</strong> floors, fixtures, restrooms, entrances, common areas, and interior glass</li>
+          <li><strong>Salons:</strong> floors, mirrors, restrooms, common areas, entrances, and frequently used spaces</li>
+          <li><strong>Gyms and studios:</strong> floors, mirrors, restrooms, common areas, entrances, and high-use spaces</li>
+          <li><strong>Offices:</strong> workstations, conference rooms, break rooms, restrooms, floors, common areas, entrances, and interior glass</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">These differences provide a starting point for building a facility-specific cleaning checklist rather than applying identical requirements to every commercial property.</p>
+      </section>
+
+      <section>
+        <h2 id="restaurants" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services do restaurants need?</h2>
+        <p class="text-lg leading-relaxed mb-5">Restaurant cleaning can include front-of-house areas, floors, restrooms, interior glass, and other high-use spaces based on the establishment’s layout and requirements.</p>
+        <p class="text-lg leading-relaxed mb-5">A restaurant cleaning plan can address:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Cleaning front-of-house areas</li>
+          <li>Cleaning floors and hard surfaces</li>
+          <li>Cleaning customer restrooms</li>
+          <li>Cleaning entrances and common spaces</li>
+          <li>Cleaning interior glass</li>
+          <li>Addressing other agreed high-use areas</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Matching the checklist to the restaurant’s layout keeps the service focused on the areas included in the agreed work.</p>
+      </section>
+
+      <section>
+        <h2 id="retail-stores-and-storefronts" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services do retail stores and storefronts need?</h2>
+        <p class="text-lg leading-relaxed mb-5">Retail stores and storefronts can require cleaning for floors, fixtures, restrooms, common areas, entrances, interior glass, and other spaces used by customers or employees.</p>
+        <p class="text-lg leading-relaxed mb-5">Retail cleaning should account for customer traffic, store layout, employee spaces, and visible surfaces when determining which areas require routine attention.</p>
+        <p class="text-lg leading-relaxed mb-5">For a storefront, priorities can include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Cleaning floors</li>
+          <li>Cleaning agreed fixtures</li>
+          <li>Cleaning restrooms</li>
+          <li>Cleaning shared areas</li>
+          <li>Cleaning entrances</li>
+          <li>Cleaning interior glass</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">A store-specific checklist keeps service aligned with the areas customers and employees use throughout the business.</p>
+      </section>
+
+      <section>
+        <h2 id="salons-gyms-and-studios" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services do salons, gyms, and studios need?</h2>
+        <p class="text-lg leading-relaxed mb-5">Salons, gyms, and studios can require cleaning for floors, mirrors, restrooms, entrances, common areas, waiting areas, and other spaces used throughout the day. Their layouts can also include mirrors, shared facilities, waiting areas, and activity spaces that require regular attention.</p>
+        <p class="text-lg leading-relaxed mb-5">Depending on the property, a service plan can cover:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Cleaning floors</li>
+          <li>Cleaning mirrors</li>
+          <li>Cleaning restrooms</li>
+          <li>Cleaning entrances</li>
+          <li>Cleaning common areas</li>
+          <li>Cleaning agreed high-use spaces</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Organizing the checklist around the facility layout helps ensure shared, customer, and activity areas receive appropriate attention.</p>
+      </section>
+
+      <section>
+        <h2 id="offices-and-professional-spaces" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services do offices and professional spaces need?</h2>
+        <p class="text-lg leading-relaxed mb-5">Office cleaning can include workstations, conference rooms, break rooms, restrooms, floors, common areas, entrances, and interior glass, with service organized around employee, visitor, and shared spaces.</p>
+        <p class="text-lg leading-relaxed mb-5">Professional spaces can include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Workstations</li>
+          <li>Conference rooms</li>
+          <li>Break rooms</li>
+          <li>Restrooms</li>
+          <li>Floors</li>
+          <li>Common areas</li>
+          <li>Entrances</li>
+          <li>Interior glass</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Identifying employee, visitor, and shared areas helps businesses establish office cleaning requirements that reflect how the workplace functions.</p>
+      </section>
+
+      <section>
+        <h2 id="commercial-cleaning-checklist" class="text-2xl md:text-3xl mt-10 mb-4">What should be included in a commercial cleaning checklist?</h2>
+        <p class="text-lg leading-relaxed mb-5">A commercial cleaning checklist should identify the areas and tasks required for the specific facility, including floors, restrooms, workspaces, shared spaces, entrances, interior glass, and other applicable areas. The exact checklist should reflect how the property is used.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Area</th><th scope="col" class="py-2">Cleaning checklist can include</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Floors</td><td class="py-2">Clean hard floors and other agreed floor surfaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Restrooms</td><td class="py-2">Clean fixtures, surfaces, floors, and restroom areas</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Workspaces</td><td class="py-2">Clean agreed surfaces and workplace areas</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Kitchens and break rooms</td><td class="py-2">Clean counters, floors, surfaces, and shared spaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Common areas</td><td class="py-2">Clean spaces used by employees, customers, or visitors</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Entrances</td><td class="py-2">Clean entryways and surrounding surfaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Interior glass</td><td class="py-2">Clean accessible interior glass surfaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Mirrors</td><td class="py-2">Clean agreed mirrors in salons, gyms, studios, and other facilities</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Customer areas</td><td class="py-2">Clean agreed waiting, retail, dining, or other public-facing spaces</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">A property-specific checklist gives the business and cleaning provider a common reference for the work to be completed while keeping unrelated tasks out of the service plan.</p>
+      </section>
+
+      <section>
+        <h2 id="prioritize-customer-and-employee-areas" class="text-2xl md:text-3xl mt-10 mb-4">How should businesses prioritize customer-facing and employee areas?</h2>
+        <p class="text-lg leading-relaxed mb-5">Businesses should prioritize cleaning based on how frequently each area is used, whether it serves customers or employees, and how important it is to daily operations. Customer-facing, employee, and shared spaces can therefore receive different levels of attention within the same facility.</p>
+        <p class="text-lg leading-relaxed mb-5">A restaurant can emphasize dining areas and customer restrooms while also addressing employee spaces included in the agreement. A retail store can prioritize entrances and sales areas alongside staff facilities. An office can focus more heavily on workstations, meeting rooms, break rooms, and shared spaces.</p>
+        <p class="text-lg leading-relaxed mb-5">Prioritizing areas this way helps concentrate service on the spaces most important to the facility’s daily use.</p>
+      </section>
+
+      <section>
+        <h2 id="define-cleaning-priorities" class="text-2xl md:text-3xl mt-10 mb-4">How can businesses define cleaning priorities for their facility?</h2>
+        <p class="text-lg leading-relaxed mb-5"><strong>Businesses can define cleaning priorities by identifying the customer, employee, and shared areas that require routine attention and organizing them into a facility-specific checklist.</strong></p>
+        <p class="text-lg leading-relaxed mb-5"><strong>For San Francisco Peninsula restaurants, retail stores, salons, offices, gyms, studios, and other commercial properties, matching cleaning requirements to the way each space is used creates a clearer framework for communicating service needs.</strong></p>
+      </section>
+
+      <nav aria-label="Related articles" class="my-12">
+        <h2 id="related-articles" class="text-2xl md:text-3xl mb-6">Related articles</h2>
+        <ul class="space-y-8">
+          <li>
+            <h3 class="text-xl mb-2">What is commercial cleaning, and what services does it include?</h3>
+            <p class="leading-relaxed mb-2">Commercial cleaning covers professional cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other business properties. Learn which areas commercial cleaning can cover, how commercial and janitorial services differ, and how businesses can define a cleaning scope based on their facility and requirements.</p>
+            <a href={`${hub}/what-is-commercial-cleaning`} class="font-bold">Explore commercial cleaning services</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">How do you choose a commercial cleaning company?</h3>
+            <!-- EMILY: related-article blurb for this item duplicated the customer-facing paragraph; used the article's own definition. Original: "Restaurants, retail stores, salons, gyms, offices, and other customer-facing businesses have different commercial cleaning priorities. Learn how to identify the customer, employee, and shared areas that require attention, what to include in a facility-specific cleaning checklist, and how to prioritize cleaning based on how each space is used." -->
+            <p class="leading-relaxed mb-2">Choose a commercial cleaning company by evaluating its experience, insurance, scope of work, scheduling, references, communication, and quality-control process. Compare providers using the same facility requirements to determine which company best fits your business.</p>
+            <a href={`${hub}/how-to-choose-a-commercial-cleaning-company`} class="font-bold">Compare commercial cleaning companies</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">Professional cleaning services overview</h3>
+            <p class="leading-relaxed mb-2">This hub provides an overview of choosing and using professional cleaning services, including how to evaluate cleaning companies, compare one-time, deep, and recurring cleaning options, and know what to expect before, during, and after a professional cleaning appointment.</p>
+            <a href="/resources/choosing-professional-cleaning-services" class="font-bold">Go to the professional cleaning resource center</a>
+          </li>
+        </ul>
+      </nav>
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about cleaning customer-facing businesses">
+        <p>Different commercial environments raise different questions about which spaces belong in a cleaning plan. These answers clarify how to address office, customer-facing, and employee areas.</p>
+      </Faq>
+
+      <section>
+        <h2 id="services-phils-magic-cleaning-provides" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services does Phil’s Magic Cleaning provide?</h2>
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides commercial and janitorial cleaning for businesses and professional window cleaning for homes and businesses across the San Francisco Peninsula. Commercial service is available for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other Peninsula businesses.</p>
+        <div class="flex flex-wrap gap-4 my-6">
+          <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
+          <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="request-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can I request cleaning from Phil’s Magic Cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Contact Phil’s Magic Cleaning to request a free estimate for professional cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.</p>
+        <div class="my-6">
+          <a href={JANITORIAL_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a free estimate</a>
+        </div>
+      </section>
+
+      <AuthorBio />
+    </div>
+  </article>
+
+  <CtaBand formUrl={JANITORIAL_FORM_URL} formLabel="Request commercial cleaning" />
+</Base>

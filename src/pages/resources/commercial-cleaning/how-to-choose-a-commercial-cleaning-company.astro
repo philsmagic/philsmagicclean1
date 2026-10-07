@@ -1,0 +1,252 @@
+---
+/**
+ * Resource article — "How do you choose a commercial cleaning company?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings
+ * and cross-page repetition are deliberate. No visible date → Article schema
+ * without dates. Home-cleaning substitution per E.L. ruling 10/5 and doc fixes
+ * are flagged inline and logged in docs/EMILY-CHANGES.md.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import AuthorBio from "./_AuthorBio.astro";
+import { JANITORIAL_FORM_URL } from "@/data/site";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+
+const hub = "/resources/commercial-cleaning";
+const path = `${hub}/how-to-choose-a-commercial-cleaning-company`;
+const h1 = "How do you choose a commercial cleaning company?";
+const title = "How to choose a commercial cleaning company";
+const description =
+  "Learn how to choose a commercial cleaning company by comparing experience, insurance, service scope, scheduling, references, and quality control.";
+
+// Emily's TOC lists these H2s only.
+const toc = [
+  { id: "what-to-look-for", label: "What should you look for in a commercial cleaning company?" },
+  { id: "verify-insurance", label: "Why should you verify insurance before hiring a commercial cleaner?" },
+  { id: "compare-scope-of-work", label: "How should you compare the scope of work from cleaning companies?" },
+  { id: "scheduling", label: "How should scheduling factor into your decision?" },
+  { id: "references", label: "Should you ask a commercial cleaning company for references?" },
+  { id: "communication", label: "How should a commercial cleaning company communicate with your business?" },
+  { id: "quality-control", label: "What should you ask about quality control?" },
+  { id: "confident-decision", label: "How can you make a confident commercial cleaning decision?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about choosing a commercial cleaning company" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Should you get multiple commercial cleaning quotes?",
+    a: "Yes. Getting multiple commercial cleaning quotes can show differences in pricing, included work, and service terms. Give each company the same information about your facility, required tasks, access, and other needs. Equivalent requirements make it easier to identify meaningful differences among proposals rather than comparing different levels of service.",
+  },
+  {
+    q: "Is the cheapest commercial cleaning company the best choice?",
+    a: "Not necessarily. A lower price can reflect differences in included work, service requirements, scheduling, or other proposal details. Review what each company will provide before judging proposals by cost. Price is most useful when the competing quotes cover equivalent work and the providers meet your requirements for insurance, experience, reliability, and service management.",
+  },
+  {
+    q: "Should you choose a local commercial cleaning company?",
+    a: "A local commercial cleaning company can provide familiarity with the service area and simpler coordination, but proximity alone does not determine service quality. San Francisco Peninsula businesses should evaluate local providers based on their qualifications, proposed work, availability, references, communication, and quality-control process.",
+  },
+  {
+    q: "What questions should you ask before hiring a commercial cleaner?",
+    a: "Ask what work is included, whether the company is insured, whether it serves similar properties, when service is available, how access is handled, who provides supplies, how concerns are reported, and how completed work is checked. Clear answers help determine whether the provider can meet your facility’s operational needs.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Commercial and janitorial cleaning", path: hub },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={hub}>Commercial and janitorial cleaning</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Choose a commercial cleaning company by evaluating its experience, insurance, scope of work, scheduling, references, communication, and quality-control process. Compare providers using the same facility requirements to determine which company best fits your business.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-to-look-for" class="text-2xl md:text-3xl mt-10 mb-4">What should you look for in a commercial cleaning company?</h2>
+        <p class="text-lg leading-relaxed mb-5">Look for a commercial cleaning company with relevant property experience, appropriate insurance, clearly defined services, dependable scheduling, responsive communication, and a process for maintaining consistent results.</p>
+        <p class="text-lg leading-relaxed mb-5">Before selecting a provider, evaluate:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Experience with similar commercial properties</li>
+          <li>Services suited to your facility</li>
+          <li>Clearly defined included and excluded work</li>
+          <li>Appropriate insurance coverage</li>
+          <li>Scheduling compatible with business operations</li>
+          <li>Relevant references or customer feedback</li>
+          <li>Reliable communication</li>
+          <li>Defined quality-control procedures</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Evaluating these factors together helps identify providers whose capabilities and operating practices align with your facility and expectations.</p>
+      </section>
+
+      <section>
+        <h2 id="verify-insurance" class="text-2xl md:text-3xl mt-10 mb-4">Why should you verify insurance before hiring a commercial cleaner?</h2>
+        <p class="text-lg leading-relaxed mb-5">Businesses should verify that a commercial cleaning company carries appropriate insurance before allowing cleaners to work on the property. Insurance helps establish that the provider operates as a professional business and has coverage relevant to its work.</p>
+        <p class="text-lg leading-relaxed mb-5">Ask the company what coverage it carries and request documentation when appropriate. Avoid relying only on statements such as “fully insured” without understanding what they mean.</p>
+        <p class="text-lg leading-relaxed mb-5">Insurance is one qualification among several, but verifying coverage early helps businesses remove providers that do not meet their vendor standards before investing time in a detailed comparison.</p>
+      </section>
+
+      <section>
+        <h2 id="compare-scope-of-work" class="text-2xl md:text-3xl mt-10 mb-4">How should you compare the scope of work from cleaning companies?</h2>
+        <p class="text-lg leading-relaxed mb-5">Compare commercial cleaning proposals by confirming that each company is quoting the same spaces, tasks, exclusions, access requirements, supplies, and other facility needs.</p>
+        <p class="text-lg leading-relaxed mb-5">A broad description such as “office cleaning” does not provide enough information for an accurate comparison. Review what each proposal covers.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">What to compare</th><th scope="col" class="py-2">What to confirm</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Included spaces</td><td class="py-2">Which rooms and areas receive service</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Required tasks</td><td class="py-2">Which cleaning activities are performed</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Exclusions</td><td class="py-2">Which work is not included</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Access</td><td class="py-2">How cleaners enter and secure the property</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Supplies</td><td class="py-2">Which supplies or equipment are provided</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Special requirements</td><td class="py-2">Which facility-specific needs are addressed</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Service expectations</td><td class="py-2">How agreed work is documented</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">Two proposals with different prices are not directly comparable if one covers substantially more work. Reviewing equivalent requirements helps businesses evaluate providers on the service they will receive, not price alone.</p>
+      </section>
+
+      <section>
+        <h2 id="scheduling" class="text-2xl md:text-3xl mt-10 mb-4">How should scheduling factor into your decision?</h2>
+        <p class="text-lg leading-relaxed mb-5">Choose a cleaning company that can provide service at times that fit your business operations and reliably follow the agreed schedule.</p>
+        <p class="text-lg leading-relaxed mb-5">Commercial properties have different operating requirements. An office can require service outside employee hours, while a restaurant or retail business can require cleaning around opening, closing, or customer traffic.</p>
+        <p class="text-lg leading-relaxed mb-5">Ask prospective providers:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Which service days are available?</li>
+          <li>Which time windows are available?</li>
+          <li>How are schedule changes handled?</li>
+          <li>What happens if a cleaner cannot arrive as planned?</li>
+          <li>How are holidays or closures managed?</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Confirming availability, timing, and procedures for schedule changes helps businesses choose a provider that can clean the facility without unnecessarily disrupting operations.</p>
+      </section>
+
+      <section>
+        <h2 id="references" class="text-2xl md:text-3xl mt-10 mb-4">Should you ask a commercial cleaning company for references?</h2>
+        <p class="text-lg leading-relaxed mb-5">Yes. References and customer feedback can help determine whether a commercial cleaning company has experience with similar properties and a record of reliable service.</p>
+        <p class="text-lg leading-relaxed mb-5">References add practical evidence by showing how a provider performs for businesses with similar operating conditions. An office, restaurant, storefront, medical or dental office, salon, or gym can have different operating conditions, so experience with a similar environment provides more relevant context.</p>
+        <p class="text-lg leading-relaxed mb-5">When reviewing references or feedback, look for information about:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Reliability</li>
+          <li>Professionalism</li>
+          <li>Communication</li>
+          <li>Attention to detail</li>
+          <li>Responsiveness</li>
+          <li>Consistency</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">References should support the broader evaluation rather than replace it. Combining customer feedback with insurance, service details, scheduling, and communication gives businesses a more complete view of the provider.</p>
+      </section>
+
+      <section>
+        <h2 id="communication" class="text-2xl md:text-3xl mt-10 mb-4">How should a commercial cleaning company communicate with your business?</h2>
+        <p class="text-lg leading-relaxed mb-5">A commercial cleaning company should provide a clear way to communicate about scheduling, access, service requests, changes, and concerns.</p>
+        <p class="text-lg leading-relaxed mb-5">Before hiring, identify the primary contact and confirm how questions, service changes, schedule adjustments, and problems are handled. Businesses should know whom to contact and what process to follow when something requires attention.</p>
+        <p class="text-lg leading-relaxed mb-5">Strong communication includes:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Clear contact information</li>
+          <li>Defined primary contact</li>
+          <li>Prompt responses to questions</li>
+          <li>Documented service changes</li>
+          <li>Consistent follow-up on concerns</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Establishing the communication process before service starts reduces uncertainty and gives both parties a straightforward way to resolve questions as they arise.</p>
+      </section>
+
+      <section>
+        <h2 id="quality-control" class="text-2xl md:text-3xl mt-10 mb-4">What should you ask about quality control?</h2>
+        <p class="text-lg leading-relaxed mb-5">Ask how the commercial cleaning company checks completed work, responds to missed tasks, handles recurring concerns, and keeps service aligned with the agreed requirements.</p>
+        <p class="text-lg leading-relaxed mb-5">An effective quality-control process provides a repeatable way to check completed work, identify problems, correct missed tasks, and prevent recurring issues.</p>
+        <p class="text-lg leading-relaxed mb-5">Ask questions such as:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>How is completed work checked?</li>
+          <li>How should a concern be reported?</li>
+          <li>Who follows up on service issues?</li>
+          <li>How are missed tasks corrected?</li>
+          <li>How are recurring problems addressed?</li>
+          <li>How are changes to requirements documented?</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">A defined quality-control process gives businesses a way to evaluate service against agreed expectations, rather than addressing each problem informally.</p>
+      </section>
+
+      <section>
+        <h2 id="confident-decision" class="text-2xl md:text-3xl mt-10 mb-4">How can you make a confident commercial cleaning decision?</h2>
+        <p class="text-lg leading-relaxed mb-5"><strong>A confident commercial cleaning decision comes from comparing providers against consistent criteria and confirming that the proposed service fits your facility and operations.</strong></p>
+        <p class="text-lg leading-relaxed mb-5"><strong>Before selecting a company, review its qualifications, proposal, availability, references, communication process, and approach to quality control. For San Francisco Peninsula businesses, documenting these requirements before requesting proposals creates a clearer basis for choosing a commercial or janitorial cleaning provider.</strong></p>
+      </section>
+
+      <nav aria-label="Related articles" class="my-12">
+        <h2 id="related-articles" class="text-2xl md:text-3xl mb-6">Related articles</h2>
+        <ul class="space-y-8">
+          <li>
+            <!-- EMILY: this related-article title was marked H2 in the doc (it sits under "Related articles"); rendered as H3 like the other related items. -->
+            <h3 class="text-xl mb-2">What is commercial cleaning, and what services does it include?</h3>
+            <p class="leading-relaxed mb-2">Commercial cleaning covers professional cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other business properties. Learn which areas commercial cleaning can cover, how commercial and janitorial services differ, and how businesses can define a cleaning scope based on their facility and requirements.</p>
+            <a href={`${hub}/what-is-commercial-cleaning`} class="font-bold">Explore commercial cleaning services</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">Professional cleaning services overview</h3>
+            <p class="leading-relaxed mb-2">This hub provides an overview of choosing and using professional cleaning services, including how to evaluate cleaning companies, compare one-time, deep, and recurring cleaning options, and know what to expect before, during, and after a professional cleaning appointment.</p>
+            <a href="/resources/choosing-professional-cleaning-services" class="font-bold">Go to the professional cleaning resource center</a>
+          </li>
+        </ul>
+      </nav>
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about choosing a commercial cleaning company">
+        <p>Price is only one consideration when evaluating a commercial cleaner. These questions cover quotes, local providers, and the information businesses should gather before choosing a provider.</p>
+      </Faq>
+
+      <section>
+        <h2 id="services-phils-magic-cleaning-provides" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services does Phil’s Magic Cleaning provide?</h2>
+        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 (same wording as the live choosing articles) — original: "Phil’s Magic Cleaning provides professional cleaning for homes and businesses across the San Francisco Peninsula. Services include janitorial and general cleaning for homes and businesses, including commercial cleaning for businesses, plus residential and commercial window cleaning." -->
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides commercial cleaning and window cleaning for businesses and homes across the San Francisco Peninsula. Services include janitorial and commercial cleaning for businesses, plus residential and commercial window cleaning.</p>
+        <div class="flex flex-wrap gap-4 my-6">
+          <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
+          <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="request-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can I request a commercial cleaning estimate from Phil’s Magic Cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Contact Phil’s Magic Cleaning to request a free estimate for professional cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.</p>
+        <div class="my-6">
+          <a href={JANITORIAL_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a free estimate</a>
+        </div>
+      </section>
+
+      <AuthorBio />
+    </div>
+  </article>
+
+  <CtaBand formUrl={JANITORIAL_FORM_URL} formLabel="Request commercial cleaning" />
+</Base>
