@@ -141,3 +141,42 @@ Breadcrumbs follow this hierarchy; `breadcrumbs()` schema must match the visible
 ## Still E.L.'s decisions — carry and keep flagged (don't resolve)
 Named clients (FASTSIGNS, Baking Arts, Burlingame Tobacconist, Belfor; "Don's" on Meet Magic Phil) ·
 "42 five-star reviews" (count sweep pending — leave 42) · any "100%" claim.
+
+---
+
+# Resource centers 2 + 3 (branch `resource-centers-commercial-window`, 2026-10-07)
+
+Copy: `Development/ACTIVE PROJECTS/2026 - Phil's Magic/Assets/aeo-copy-2026-10-07/md/` (emails summarised in `../EMAILS.md`).
+Build each exactly like the existing **choosing-professional-cleaning-services** center — copy its hub
+(`src/pages/resources/choosing-professional-cleaning-services/index.astro`) and an article
+(`…/how-to-choose-a-cleaning-company.astro`) as the pattern: same components (Base, Toc, Faq, AuthorBio,
+CtaBand), same schema (`breadcrumbs`, `article()` with no dates, `faqPage` from the same array), same
+"By Magic Phil" → `#about-the-author`, TOC = only the H2s Emily lists in her "Table of contents", Related
+articles as a `<nav>`. Every rule in "Emily's copy pass" above still applies (verbatim, sentence case,
+house-cleaning ruling + flag + EMILY-CHANGES.md line).
+
+| Page | URL |
+|---|---|
+| Commercial hub | `/resources/commercial-cleaning` |
+| What is commercial cleaning…? | `/resources/commercial-cleaning/what-is-commercial-cleaning` |
+| How do you choose a commercial cleaning company? | `/resources/commercial-cleaning/how-to-choose-a-commercial-cleaning-company` |
+| …restaurants, retail stores, salons, and other customer-facing businesses | `/resources/commercial-cleaning/customer-facing-businesses` |
+| …offices and professional spaces | `/resources/commercial-cleaning/offices-and-professional-spaces` |
+| Window hub | `/resources/window-cleaning` |
+| What should you know about professional window cleaning? | `/resources/window-cleaning/professional-window-cleaning` |
+| Should you clean your windows yourself or hire a professional? | `/resources/window-cleaning/diy-vs-professional-window-cleaning` |
+| How do you choose a professional window cleaning company? | `/resources/window-cleaning/how-to-choose-a-window-cleaning-company` |
+| How often should storefront and restaurant windows be cleaned? | `/resources/window-cleaning/storefront-and-restaurant-window-cleaning-frequency` |
+| What should post-construction window cleaning include? | `/resources/window-cleaning/post-construction-window-cleaning` |
+| How do professional window cleaners clean hard-to-reach and multi-story windows? | `/resources/window-cleaning/hard-to-reach-and-multi-story-windows` |
+
+Breadcrumbs: Home › Resources › <hub H1 short name> › <article>. Placeholders: `[LINK TO MEET MAGIC PHIL]` → `/meet-magic-phil`;
+`[LINK TO CONTACT PAGE]` → `/contact`; `[BUTTON WITH LINK TO CLEANING SERVICES PAGE]` → `/janitorial-cleaning` (btn-outline);
+`[BUTTON WITH LINK TO WINDOW CLEANING PAGE]` → `/window-cleaning` (btn-outline); `[LINK TO <article title>]` → that article's URL
+above; `[LINK TO Resources_Choosing and managing professional cleaning services]` → `/resources/choosing-professional-cleaning-services`;
+`LINK TO Resources_Window cleaning resource center]` (missing "[") → `/resources/window-cleaning`.
+**E.L. ruling 2026-10-07:** the "Professional cleaning services overview" block at the end of the commercial articles keeps
+linking to the **Choosing** hub, as Emily's docs have it (its text describes that hub). Do not change it.
+Review/quote request buttons follow the existing articles: `btn-action` → the Jobber form (janitorial form `JANITORIAL_FORM_URL`
+on commercial pages, `REQUEST_FORM_URL` on window pages).
+The `$150 off` offer appears in both hubs — carry it verbatim (it is live on the site already).
