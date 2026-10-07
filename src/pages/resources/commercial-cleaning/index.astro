@@ -1,0 +1,130 @@
+---
+/**
+ * Resource center hub — "Commercial and janitorial cleaning: a resource center
+ * for San Francisco Peninsula businesses" (Emily Matthews' copy, 2026-10-07,
+ * replacement hub doc, carried verbatim; sentence-case headings are deliberate).
+ * Links out to the four articles beneath it.
+ */
+import Base from "@/layouts/Base.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { JANITORIAL_FORM_URL } from "@/data/site";
+import { breadcrumbs } from "@/data/schema";
+
+const path = "/resources/commercial-cleaning";
+const title = "Commercial & janitorial cleaning resource center";
+const description =
+  "Explore commercial and janitorial cleaning resources for San Francisco Peninsula businesses, including services, provider selection, and cleaning needs.";
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Commercial and janitorial cleaning", path },
+  ]),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">Commercial and janitorial cleaning</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">Commercial and janitorial cleaning: a resource center for San Francisco Peninsula businesses</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Explore commercial and janitorial cleaning resources for San Francisco Peninsula businesses, including what services can cover, how to evaluate cleaning companies, and how cleaning needs differ by business type and facility use.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-can-businesses-learn" class="text-2xl md:text-3xl mt-10 mb-4">What can businesses learn about commercial and janitorial cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Commercial and janitorial cleaning involves three related decisions—understanding which services a facility needs, selecting a qualified cleaning company, and defining cleaning priorities based on the type of business. The resources below address each area separately.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="what-is-commercial-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">What is commercial cleaning, and what services does it include?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Commercial cleaning covers professional cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other business properties. Learn which areas commercial cleaning can cover, how commercial and janitorial services differ, and how businesses can define a cleaning scope based on their facility and requirements.
+        </p>
+        <p class="mb-5"><a href={`${path}/what-is-commercial-cleaning`} class="font-bold">Explore commercial cleaning services</a></p>
+      </section>
+
+      <section>
+        <h2 id="how-to-choose-a-commercial-cleaning-company" class="text-2xl md:text-3xl mt-10 mb-4">How do you choose a commercial cleaning company?</h2>
+        <!-- EMILY: hub description for this H2 duplicated the customer-facing paragraph; used the article's own definition. Original: "Restaurants, retail stores, salons, gyms, offices, and other customer-facing businesses have different commercial cleaning priorities. Learn how to identify the customer, employee, and shared areas that require attention, what to include in a facility-specific cleaning checklist, and how to prioritize cleaning based on how each space is used." -->
+        <p class="text-lg leading-relaxed mb-5">
+          Choose a commercial cleaning company by evaluating its experience, insurance, scope of work, scheduling, references, communication, and quality-control process. Compare providers using the same facility requirements to determine which company best fits your business.
+        </p>
+        <p class="mb-5"><a href={`${path}/how-to-choose-a-commercial-cleaning-company`} class="font-bold">Compare commercial cleaning companies</a></p>
+      </section>
+
+      <section>
+        <h2 id="customer-facing-businesses" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services do restaurants, retail stores, salons, and other customer-facing businesses need?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Restaurants, retail stores, salons, gyms, offices, and other customer-facing businesses have different commercial cleaning priorities. Learn which customer, employee, and shared areas can require attention, what to include in a facility-specific cleaning checklist, and how to prioritize cleaning based on how each space is used.
+        </p>
+        <p class="mb-5"><a href={`${path}/customer-facing-businesses`} class="font-bold">Identify your cleaning needs</a></p>
+      </section>
+
+      <section>
+        <h2 id="offices-and-professional-spaces" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services do offices and professional spaces need?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Offices and professional spaces need cleaning matched to their workplace layout, employee and visitor use, and shared facilities. Learn what professional office cleaning includes, which areas need regular attention, what belongs on an office cleaning checklist, and how to establish scheduling and service requirements.
+        </p>
+        <p class="mb-5"><a href={`${path}/offices-and-professional-spaces`} class="font-bold">Plan your office cleaning</a></p>
+      </section>
+
+      <section>
+        <h2 id="still-provide-window-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">Does Phil’s Magic Cleaning still provide window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Yes. Phil’s Magic Cleaning continues to provide professional window cleaning for homes and businesses. Commercial and janitorial cleaning expands the company’s services for businesses rather than replacing its window cleaning services.
+        </p>
+        <p class="text-lg leading-relaxed mb-5">
+          Phil’s Magic Cleaning began as a window cleaning business and built its reputation through detailed work and strong customer relationships. The company has expanded that approach to professional cleaning for more areas of commercial properties.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="one-time-or-recurring" class="text-2xl md:text-3xl mt-10 mb-4">Are commercial cleaning services available one time or on a recurring schedule?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Both. Phil’s Magic Cleaning provides one-time and recurring commercial and janitorial cleaning so businesses can select service based on their property, cleaning needs, and schedule.
+        </p>
+        <p class="text-lg leading-relaxed mb-5">
+          Recurring cleaning provides ongoing care for businesses that need regular service, while one-time service addresses needs that don't require an ongoing schedule.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="service-area" class="text-2xl md:text-3xl mt-10 mb-4">Where does Phil’s Magic Cleaning provide commercial cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Phil’s Magic Cleaning provides commercial and janitorial cleaning for businesses across the San Francisco Peninsula, with a primary service area from South San Francisco to Mountain View.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="introductory-offer" class="text-2xl md:text-3xl mt-10 mb-4">Is there an introductory offer for existing window cleaning customers?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Existing Phil’s Magic Cleaning window cleaning customers can receive $150 off their first month of recurring commercial or janitorial cleaning service.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="more-information" class="text-2xl md:text-3xl mt-10 mb-4">More information</h2>
+        <!-- EMILY: sentence had no closing period in the doc; added one. -->
+        <p class="text-lg leading-relaxed mb-5">
+          To confirm current eligibility and offer details, <a href="/contact">contact Phil’s Magic Cleaning</a>.
+        </p>
+      </section>
+    </div>
+  </article>
+
+  <CtaBand formUrl={JANITORIAL_FORM_URL} formLabel="Request commercial cleaning" />
+</Base>

@@ -1,0 +1,207 @@
+---
+/**
+ * Resource article — "How do professional window cleaners clean hard-to-reach and multi-story windows?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings and cross-page
+ * repetition are deliberate. No visible date → Article schema without dates.
+ * Built on the choosing-professional-cleaning-services article pattern.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+import ArticleClose from "./_ArticleClose.astro";
+import Related from "./_Related.astro";
+import { HUB, HUB_NAME, ARTICLES } from "./_articles";
+
+const path = ARTICLES.hardToReach.href;
+const h1 = ARTICLES.hardToReach.title;
+const title = "How are hard-to-reach windows professionally cleaned?";
+const description =
+  "Learn how professional window cleaners assess access and clean hard-to-reach and multi-story windows based on height, location, and building configuration.";
+
+// Emily's TOC (every H2 in this article).
+const toc = [
+  { id: "how-they-are-cleaned", label: "How are hard-to-reach and multi-story windows professionally cleaned?" },
+  { id: "what-makes-a-window-hard-to-reach", label: "What makes a window hard to reach?" },
+  { id: "can-it-be-cleaned", label: "How do window cleaners determine whether an elevated window can be cleaned?" },
+  { id: "equipment", label: "What equipment do professionals use to clean hard-to-reach windows?" },
+  { id: "interior-vs-exterior-access", label: "Does interior versus exterior access change how high windows are cleaned?" },
+  { id: "every-multi-story-window", label: "Can professional window cleaners clean every multi-story window?" },
+  { id: "what-to-tell-a-window-cleaner", label: "What should you tell a window cleaner about hard-to-reach windows?" },
+  { id: "how-to-prepare", label: "How can you prepare for professional multi-story window cleaning?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about hard-to-reach and multi-story window cleaning" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Can professional window cleaners clean second-story windows?",
+    a: "Yes. Professional window cleaning can include second-story windows when the building configuration and access conditions allow. Identify elevated glass before scheduling so the provider can evaluate its height, location, interior and exterior access, and surrounding conditions and determine whether the windows can be included in the service.",
+  },
+  {
+    q: "Can high windows be cleaned from inside?",
+    a: "Some high windows can be cleaned from inside when their location, configuration, and interior access allow the glass to be reached appropriately. Other windows require exterior access. Knowing which side of the glass needs cleaning helps the provider evaluate full access requirements before confirming the work.",
+  },
+  {
+    q: "Does a multi-story building require special window cleaning equipment?",
+    a: "The equipment required for a multi-story building depends on the height, location, configuration, and accessibility of its windows. The number of stories alone does not determine the cleaning setup. Professional cleaners evaluate the glass and access conditions before selecting equipment appropriate for the work.",
+  },
+  {
+    q: "Can professional window cleaners clean windows above roofs or other obstacles?",
+    a: "Windows positioned above roofs, landscaping, architectural features, or other obstacles require an access assessment before service is confirmed. The cleaner needs to consider the window’s height and position, the obstruction, and available interior and exterior access to determine whether the glass can be reached and included in the work.",
+  },
+  {
+    q: "Does Phil’s Magic Cleaning clean hard-to-reach and multi-story windows?",
+    a: "Yes. Phil’s Magic Cleaning provides professional hard-to-reach and multi-story window cleaning for homes and businesses across the San Francisco Peninsula when the property, window location, and access conditions allow the work to be completed.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: HUB_NAME, path: HUB },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={HUB}>{HUB_NAME}</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Professional window cleaners clean hard-to-reach and multi-story windows by first evaluating each window’s height, location, building configuration, obstacles, and interior and exterior access. They then determine whether the glass can be serviced and select equipment and a cleaning approach suited to those conditions.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="how-they-are-cleaned" class="text-2xl md:text-3xl mt-10 mb-4">How are hard-to-reach and multi-story windows professionally cleaned?</h2>
+        <p class="text-lg leading-relaxed mb-5">Professional cleaners first evaluate how each window can be accessed, then select equipment and a cleaning approach suited to its height, position, and surrounding conditions. Elevated glass is not handled the same way at every property.</p>
+        <p class="text-lg leading-relaxed mb-5">The process generally involves:</p>
+        <ol class="list-decimal pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Identifying the elevated or difficult-access windows</li>
+          <li>Assessing height, location, obstacles, and building configuration</li>
+          <li>Reviewing interior and exterior access</li>
+          <li>Determining which glass can be serviced</li>
+          <li>Selecting equipment suited to the access conditions</li>
+          <li>Cleaning the glass included in the agreed scope</li>
+        </ol>
+        <p class="text-lg leading-relaxed mb-5">Assessing access before selecting an approach helps the cleaning process match the actual conditions of the home or business.</p>
+      </section>
+
+      <section>
+        <h2 id="what-makes-a-window-hard-to-reach" class="text-2xl md:text-3xl mt-10 mb-4">What makes a window hard to reach?</h2>
+        <p class="text-lg leading-relaxed mb-5">A window is hard to reach when its height, location, building configuration, or surrounding conditions make direct access difficult. A window does not need to be several stories high to present an access challenge.</p>
+        <p class="text-lg leading-relaxed mb-5">Common access challenges include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Elevated or upper-story glass</li>
+          <li>Limited interior or exterior access</li>
+          <li>Building features that restrict approach</li>
+          <li>Obstacles around or below the window</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">For example, an upper-story window with clear access can be easier to approach than a lower window positioned above an obstruction.</p>
+        <p class="text-lg leading-relaxed mb-5">Evaluating each window, rather than relying only on story count, provides a more accurate picture of the work required.</p>
+      </section>
+
+      <section>
+        <h2 id="can-it-be-cleaned" class="text-2xl md:text-3xl mt-10 mb-4">How do window cleaners determine whether an elevated window can be cleaned?</h2>
+        <p class="text-lg leading-relaxed mb-5">Window cleaners determine whether they can clean an elevated window by evaluating its height, location, building configuration, and available access. Professional window cleaning can include hard-to-reach and multi-story glass when property conditions allow the work to be completed.</p>
+        <p class="text-lg leading-relaxed mb-5">Key considerations include the following.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Access factor</th><th scope="col" class="py-2">What the cleaner evaluates</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Window height</td><td class="py-2">How high the glass is located</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Window position</td><td class="py-2">Where the glass sits on the building</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Number of stories</td><td class="py-2">Which building level contains the window</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Building configuration</td><td class="py-2">How the property layout affects access</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Interior access</td><td class="py-2">Whether the glass can be approached from inside</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Exterior access</td><td class="py-2">Whether the glass can be approached from outside</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Obstacles</td><td class="py-2">Whether surrounding features interfere with access</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">Two buildings with the same number of stories can have very different accessibility. Evaluating the actual property conditions establishes which windows can be included before service begins.</p>
+      </section>
+
+      <section>
+        <h2 id="equipment" class="text-2xl md:text-3xl mt-10 mb-4">What equipment do professionals use to clean hard-to-reach windows?</h2>
+        <p class="text-lg leading-relaxed mb-5">Professional window cleaners can use extension tools, water-fed poles, ladders, or other access equipment suited to the window height, location, and property conditions. The appropriate method depends on how the glass can be reached safely and effectively.</p>
+        <p class="text-lg leading-relaxed mb-5">Equipment requirements can change based on:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Window height and position</li>
+          <li>Interior or exterior access</li>
+          <li>Building configuration</li>
+          <li>Obstacles near the work area</li>
+          <li>Amount and location of glass</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">A multi-story property alone does not determine the equipment needed. The cleaner must first understand how to reach each window.</p>
+        <p class="text-lg leading-relaxed mb-5">Matching equipment to the assessed conditions lets the provider choose an appropriate approach, rather than assuming every difficult-access window requires the same setup.</p>
+      </section>
+
+      <section>
+        <h2 id="interior-vs-exterior-access" class="text-2xl md:text-3xl mt-10 mb-4">Does interior versus exterior access change how high windows are cleaned?</h2>
+        <p class="text-lg leading-relaxed mb-5">Yes. Interior and exterior access can require different approaches because the two sides of the same window can have different accessibility. A window that is straightforward to reach indoors can have elevated or obstructed exterior glass.</p>
+        <p class="text-lg leading-relaxed mb-5">Professional cleaners evaluate whether each side can be approached, whether obstacles affect access, and whether both surfaces can be included in the service. Identifying the required surfaces before scheduling determines how the window must be approached and prevents assumptions that both sides can be serviced the same way.</p>
+      </section>
+
+      <section>
+        <h2 id="every-multi-story-window" class="text-2xl md:text-3xl mt-10 mb-4">Can professional window cleaners clean every multi-story window?</h2>
+        <p class="text-lg leading-relaxed mb-5">No. Professional window cleaners cannot automatically clean every multi-story or hard-to-reach window. Whether a window can be serviced depends on its height, location, building configuration, and interior and exterior access conditions.</p>
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides hard-to-reach and multi-story window cleaning for homes and businesses on the San Francisco Peninsula when property and access conditions allow. Customers should identify elevated or difficult windows before scheduling so accessibility can be evaluated.</p>
+        <p class="text-lg leading-relaxed mb-5">Confirming which windows can be reached before service creates a defined scope and avoids uncertainty about difficult-access glass.</p>
+      </section>
+
+      <section>
+        <h2 id="what-to-tell-a-window-cleaner" class="text-2xl md:text-3xl mt-10 mb-4">What should you tell a window cleaner about hard-to-reach windows?</h2>
+        <p class="text-lg leading-relaxed mb-5">Tell the window cleaner which windows are elevated or hard to access, and provide details on their location, height, building configuration, and interior and exterior access.</p>
+        <p class="text-lg leading-relaxed mb-5">Useful details include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Property type and location</li>
+          <li>Number of stories</li>
+          <li>Location of difficult-access windows</li>
+          <li>Known interior or exterior obstacles</li>
+          <li>Whether interior, exterior, or both sides need cleaning</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">These details give the company the information needed to evaluate accessibility and determine which windows can be included in the proposed service.</p>
+      </section>
+
+      <section>
+        <h2 id="how-to-prepare" class="text-2xl md:text-3xl mt-10 mb-4">How can you prepare for professional multi-story window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Prepare for hard-to-reach, multi-story window cleaning by identifying difficult-access windows and providing details on their height, location, building configuration, obstacles, and interior and exterior access.</p>
+        <p class="text-lg leading-relaxed mb-5">The cleaning company can use that information to determine which windows it can service and choose an appropriate approach. Establishing access requirements in advance clarifies the scope before professional window cleaning begins.</p>
+      </section>
+
+      <Related {...ARTICLES.postConstruction} />
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about hard-to-reach and multi-story window cleaning">
+        <p>Building height alone does not determine how elevated glass is serviced. These answers address common questions about second-story windows, interior access, difficult locations, and information to provide before professional window cleaning.</p>
+      </Faq>
+
+      <ArticleClose />
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

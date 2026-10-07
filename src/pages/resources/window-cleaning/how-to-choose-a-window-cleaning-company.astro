@@ -1,0 +1,256 @@
+---
+/**
+ * Resource article — "How do you choose a professional window cleaning company?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings and cross-page
+ * repetition are deliberate. No visible date → Article schema without dates.
+ * Built on the choosing-professional-cleaning-services article pattern.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+import ArticleClose from "./_ArticleClose.astro";
+import Related from "./_Related.astro";
+import { HUB, HUB_NAME, ARTICLES } from "./_articles";
+
+const path = ARTICLES.choose.href;
+const h1 = ARTICLES.choose.title;
+const title = "How to choose a professional window cleaning company";
+const description =
+  "Learn how to choose a window cleaning company by comparing insurance, experience, scope, pricing, scheduling, reviews, and multi-story capability.";
+
+// Emily's TOC (every H2 in this article).
+const toc = [
+  { id: "what-to-look-for", label: "What should you look for in a professional window cleaning company?" },
+  { id: "what-to-ask", label: "What should you ask before hiring a window cleaning company?" },
+  { id: "insurance", label: "Why should a window cleaning company be insured?" },
+  { id: "experience", label: "Why is window cleaning experience important when choosing a company?" },
+  { id: "what-a-quote-should-include", label: "What should a professional window cleaning quote include?" },
+  { id: "how-to-compare-quotes", label: "How do you compare quotes from window cleaning companies?" },
+  { id: "reviews", label: "How should you evaluate window cleaning reviews?" },
+  { id: "scheduling", label: "How should scheduling affect your choice of a window cleaning company?" },
+  { id: "multi-story-and-hard-to-reach", label: "How do you choose a company for multi-story or hard-to-reach windows?" },
+  { id: "choose-the-right-company", label: "How can you choose the right window cleaning company?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about choosing a window cleaning company" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Should you get multiple window cleaning quotes?",
+    a: "Yes. Multiple window cleaning quotes help you compare scope, exclusions, pricing, scheduling, and access requirements. Give each company the same information about your windows so the estimates cover equivalent work. Comparing the same requirements gives you a more useful evaluation than choosing the lowest quoted price alone.",
+  },
+  {
+    q: "Should you choose a local window cleaning company?",
+    a: "A local window cleaning company can be a good choice when it provides the services you need and regularly serves your area. Confirm geographic coverage before requesting an estimate. Phil’s Magic Cleaning provides professional window cleaning across the San Francisco Peninsula, from South San Francisco to Mountain View.",
+  },
+  {
+    q: "Is the cheapest window cleaning company the best choice?",
+    a: "No. The cheapest window cleaning company is not automatically the best choice because estimates can cover different windows, services, and access requirements. Compare insurance, experience, scope, exclusions, scheduling, reviews, and what each price includes before deciding which provider is the best fit.",
+  },
+  {
+    q: "How do you know if a window cleaning company is reputable?",
+    a: "Evaluate a window cleaning company using several signals—appropriate insurance, relevant experience, clearly defined services, understandable pricing, reliable communication, scheduling processes, and customer feedback. Consistency across these criteria provides stronger evidence than relying solely on a low price, high rating, or a single customer review.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: HUB_NAME, path: HUB },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={HUB}>{HUB_NAME}</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Choose a professional window cleaning company by evaluating insurance, relevant experience, scope of work, pricing, scheduling, customer reviews, and ability to handle your windows. Compare providers using the same requirements to determine which company best fits your home or business.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-to-look-for" class="text-2xl md:text-3xl mt-10 mb-4">What should you look for in a professional window cleaning company?</h2>
+        <p class="text-lg leading-relaxed mb-5">Look for a professional window cleaning company with appropriate insurance, relevant experience, a clearly defined scope, transparent pricing, reliable scheduling, credible reviews, and the capability to clean the windows included in your project.</p>
+        <p class="text-lg leading-relaxed mb-5">Evaluate each provider using the same criteria.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Selection factor</th><th scope="col" class="py-2">What to evaluate</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Insurance</td><td class="py-2">Does the company carry coverage appropriate for the work?</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Experience</td><td class="py-2">Has it cleaned windows for similar homes or businesses?</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Scope</td><td class="py-2">Does it specify which windows and services are included?</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Pricing</td><td class="py-2">Does the estimate explain what the price covers?</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Scheduling</td><td class="py-2">Can it meet your timing and access requirements?</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Reviews</td><td class="py-2">Does feedback support claims about window-cleaning service?</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Capability</td><td class="py-2">Can it evaluate hard-to-reach or multi-story windows?</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">Using consistent criteria helps separate a provider’s price from its actual capabilities and gives you a clearer basis for choosing a window cleaning company.</p>
+      </section>
+
+      <section>
+        <h2 id="what-to-ask" class="text-2xl md:text-3xl mt-10 mb-4">What should you ask before hiring a window cleaning company?</h2>
+        <p class="text-lg leading-relaxed mb-5">Before hiring a window cleaning company, ask about insurance, experience, included and excluded work, pricing, scheduling, and difficult-access windows.</p>
+        <p class="text-lg leading-relaxed mb-5">Key questions include:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Are you insured for the window cleaning work you perform?</li>
+          <li>Do you have experience with my type of home or business?</li>
+          <li>Which windows are included in the estimate?</li>
+          <li>Does the scope cover interior glass, exterior glass, or both?</li>
+          <li>Are screens included?</li>
+          <li>What work is excluded?</li>
+          <li>How is the price determined?</li>
+          <li>Can you evaluate hard-to-reach or multi-story windows?</li>
+          <li>How are appointments and access handled?</li>
+          <li>Do you provide one-time and recurring service?</li>
+          <li>Do you serve my location?</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Specific answers establish expectations before you agree to service and make competing providers easier to compare.</p>
+      </section>
+
+      <section>
+        <h2 id="insurance" class="text-2xl md:text-3xl mt-10 mb-4">Why should a window cleaning company be insured?</h2>
+        <p class="text-lg leading-relaxed mb-5">A professional window cleaning company should carry insurance appropriate for the services it performs. Insurance matters because cleaners work around customer property and may face elevated or difficult access conditions.</p>
+        <!-- EMILY: duplicated line removed — the doc repeats the second sentence above as its own paragraph: "Insurance matters because window cleaners work around customer property and may face elevated or difficult access conditions." -->
+        <p class="text-lg leading-relaxed mb-5">Confirming insurance before hiring helps you evaluate the business behind the quote rather than focusing solely on the proposed price.</p>
+      </section>
+
+      <section>
+        <h2 id="experience" class="text-2xl md:text-3xl mt-10 mb-4">Why is window cleaning experience important when choosing a company?</h2>
+        <p class="text-lg leading-relaxed mb-5">Relevant window cleaning experience helps a provider understand the service and access requirements associated with different homes, businesses, and window configurations.</p>
+        <p class="text-lg leading-relaxed mb-5">Experience is especially useful when the project involves:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Residential windows</li>
+          <li>Commercial windows</li>
+          <li>Interior and exterior glass</li>
+          <li>Window screens</li>
+          <li>Hard-to-reach glass</li>
+          <li>Multi-story windows</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Ask whether the company has completed work involving requirements similar to yours. A provider familiar with comparable conditions is better positioned to determine what can be included and define the work before service begins.</p>
+      </section>
+
+      <section>
+        <h2 id="what-a-quote-should-include" class="text-2xl md:text-3xl mt-10 mb-4">What should a professional window cleaning quote include?</h2>
+        <p class="text-lg leading-relaxed mb-5">A professional window cleaning quote should identify the windows and services included, exclusions, price, and conditions that affect the work.</p>
+        <p class="text-lg leading-relaxed mb-5">Look for these elements:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li><strong>Property:</strong> Type and location of the home or business</li>
+          <li><strong>Windows:</strong> Glass included in the proposed work</li>
+          <li><strong>Scope:</strong> Interior, exterior, or both</li>
+          <li><strong>Screens:</strong> Whether screen cleaning is included</li>
+          <li><strong>Access:</strong> Conditions affecting how the glass is reached</li>
+          <li><strong>Exclusions:</strong> Work not covered by the estimate</li>
+          <li><strong>Price:</strong> Charge or pricing method for the defined work</li>
+          <li><strong>Schedule:</strong> Timing requirements associated with the service</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Frames, tracks, repairs, restoration, and other window-related work should not be assumed to be included unless specifically confirmed.</p>
+        <p class="text-lg leading-relaxed mb-5">A clearly defined quote establishes what the provider will clean, what is excluded, and what the stated price covers before service begins.</p>
+      </section>
+
+      <section>
+        <h2 id="how-to-compare-quotes" class="text-2xl md:text-3xl mt-10 mb-4">How do you compare quotes from window cleaning companies?</h2>
+        <p class="text-lg leading-relaxed mb-5">Compare window cleaning quotes by reviewing equivalent scopes, not price alone. A lower estimate is not directly comparable to a higher one if companies are pricing different windows, services, or access requirements.</p>
+        <p class="text-lg leading-relaxed mb-5">Give each provider the same information about:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Property type and location</li>
+          <li>Approximate number of windows</li>
+          <li>Interior or exterior service</li>
+          <li>Screen cleaning</li>
+          <li>Hard-to-reach glass</li>
+          <li>Multi-story windows</li>
+          <li>Access requirements</li>
+          <li>One-time or recurring service</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Then compare what each price includes and excludes.</p>
+        <p class="text-lg leading-relaxed mb-5">Using equivalent requirements reveals whether a price difference reflects the provider’s rate or simply a different amount of work.</p>
+      </section>
+
+      <section>
+        <h2 id="reviews" class="text-2xl md:text-3xl mt-10 mb-4">How should you evaluate window cleaning reviews?</h2>
+        <p class="text-lg leading-relaxed mb-5">Evaluate window cleaning reviews for evidence of quality, reliability, communication, scheduling, and experience with work like yours. Focus on recurring patterns across multiple reviews rather than a single rating or comment.</p>
+        <p class="text-lg leading-relaxed mb-5">Relevant feedback can address:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Window cleaning specifically</li>
+          <li>Similar residential or commercial properties</li>
+          <li>Appointment reliability</li>
+          <li>Communication with customers</li>
+          <li>Quality of completed work</li>
+          <li>Difficult or elevated windows</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Reviews are strongest as a selection signal when considered alongside insurance, experience, scope, and pricing, not as a substitute for those factors.</p>
+      </section>
+
+      <section>
+        <h2 id="scheduling" class="text-2xl md:text-3xl mt-10 mb-4">How should scheduling affect your choice of a window cleaning company?</h2>
+        <p class="text-lg leading-relaxed mb-5">Choose a window cleaning company whose scheduling fits your property access and timing needs. For businesses, appointments can also need to accommodate operating hours, employees, and customers.</p>
+        <p class="text-lg leading-relaxed mb-5">Before hiring, determine:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>When appointments are available</li>
+          <li>How arrival timing is communicated</li>
+          <li>How interior access is arranged</li>
+          <li>How schedule changes are handled</li>
+          <li>Whether one-time service is available</li>
+          <li>Whether recurring service is available</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Clear scheduling and access expectations help prevent uncertainty after you book an appointment.</p>
+      </section>
+
+      <section>
+        <h2 id="multi-story-and-hard-to-reach" class="text-2xl md:text-3xl mt-10 mb-4">How do you choose a company for multi-story or hard-to-reach windows?</h2>
+        <p class="text-lg leading-relaxed mb-5">Choose a company that can evaluate your specific hard-to-reach or multi-story windows before confirming the work. Do not assume every provider can service every elevated window.</p>
+        <p class="text-lg leading-relaxed mb-5">Tell the company about:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Window height and location</li>
+          <li>Number of stories</li>
+          <li>Building configuration</li>
+          <li>Interior and exterior access</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Ask whether those windows can be included under the conditions at your home or business.</p>
+        <p class="text-lg leading-relaxed mb-5">Addressing difficult access before accepting an estimate helps ensure the proposed scope reflects the windows you need cleaned.</p>
+      </section>
+
+      <section>
+        <h2 id="choose-the-right-company" class="text-2xl md:text-3xl mt-10 mb-4">How can you choose the right window cleaning company?</h2>
+        <p class="text-lg leading-relaxed mb-5">Choose the right window cleaning company by defining your requirements first and evaluating each provider against the same criteria: insurance, experience, scope, pricing, scheduling, reviews, and ability to clean difficult-access windows.</p>
+        <p class="text-lg leading-relaxed mb-5">Comparing equivalent services gives homeowners and businesses a clearer basis for selecting a provider and establishes what will be cleaned before the appointment begins.</p>
+      </section>
+
+      <Related {...ARTICLES.frequency} />
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about choosing a window cleaning company">
+        <p>Price and availability are only part of the selection process. These answers address additional questions homeowners and businesses can use to verify a provider and make a final comparison.</p>
+      </Faq>
+
+      <ArticleClose />
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

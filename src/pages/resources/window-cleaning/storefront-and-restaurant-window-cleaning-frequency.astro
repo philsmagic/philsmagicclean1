@@ -1,0 +1,212 @@
+---
+/**
+ * Resource article — "How often should storefront and restaurant windows be cleaned?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings and cross-page
+ * repetition are deliberate. No visible date → Article schema without dates.
+ * Built on the choosing-professional-cleaning-services article pattern.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+import ArticleClose from "./_ArticleClose.astro";
+import Related from "./_Related.astro";
+import { HUB, HUB_NAME, ARTICLES } from "./_articles";
+
+const path = ARTICLES.frequency.href;
+const h1 = ARTICLES.frequency.title;
+const title = "How often should storefront windows be cleaned?";
+const description =
+  "Learn how often storefront and restaurant windows should be cleaned based on customer traffic, visibility, environmental exposure, and appearance standards.";
+
+// Emily's TOC (every H2 in this article).
+const toc = [
+  { id: "storefront-windows", label: "How often should storefront windows be cleaned?" },
+  { id: "restaurant-windows", label: "How often should restaurant windows be cleaned?" },
+  { id: "what-determines-frequency", label: "What determines how frequently commercial windows need cleaning?" },
+  { id: "most-frequent-cleaning", label: "Which storefront and restaurant windows need the most frequent cleaning?" },
+  { id: "business-appearance", label: "How does clean storefront glass affect a business's appearance?" },
+  { id: "recurring-window-cleaning", label: "When should a business use recurring window cleaning?" },
+  { id: "determine-the-schedule", label: "How do you determine the right window cleaning schedule for a storefront or restaurant?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about storefront and restaurant window cleaning" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Should storefront windows be cleaned weekly or monthly?",
+    a: "There is no universal weekly or monthly schedule for storefront window cleaning. Clean storefront windows based on how quickly they develop visible fingerprints, dirt, or exterior buildup. High-traffic or highly visible glass can need shorter intervals, while lower-contact windows can go longer. Monitor the glass between services to establish the appropriate frequency.",
+  },
+  {
+    q: "Do restaurant windows need to be cleaned more frequently than office windows?",
+    a: "Restaurant windows can require more frequent cleaning when they have greater customer visibility, contact, street exposure, or appearance requirements. Property type alone does not determine frequency. A restaurant entrance with constant customer contact can need attention sooner than office glass that receives little contact or is less visible from public areas.",
+  },
+  {
+    q: "Can different windows at the same business follow different cleaning schedules?",
+    a: "Yes. A business can clean different windows at different intervals based on customer contact, visibility, location, and environmental exposure. Entrance doors and prominent storefront glass can need attention sooner than less-visible windows. Separating high-priority glass from lower-priority areas creates a schedule that reflects actual conditions throughout the property.",
+  },
+  {
+    q: "What makes storefront windows get dirty faster?",
+    a: "Storefront windows can show dirt faster because of fingerprints, frequent customer contact, street exposure, weather conditions, and environmental buildup. Highly visible glass also makes marks easier to notice. Tracking which surfaces get visibly dirty first helps a business decide where more frequent professional window cleaning is needed.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: HUB_NAME, path: HUB },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={HUB}>{HUB_NAME}</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Clean storefront and restaurant windows whenever fingerprints, dirt, weather exposure, or visible buildup start to affect their appearance. High-traffic, customer-facing glass generally requires more frequent cleaning than windows with less contact, visibility, or environmental exposure.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="storefront-windows" class="text-2xl md:text-3xl mt-10 mb-4">How often should storefront windows be cleaned?</h2>
+        <p class="text-lg leading-relaxed mb-5">Storefront windows should be cleaned as often as needed to keep street-facing and customer-facing glass at the business’s desired appearance standard. The right interval depends primarily on how quickly fingerprints, smudges, dirt, or exterior buildup become noticeable.</p>
+        <p class="text-lg leading-relaxed mb-5">Storefronts should pay particular attention to:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Entry doors that customers touch frequently</li>
+          <li>Display windows that showcase merchandise</li>
+          <li>Street-facing glass visible to pedestrians</li>
+          <li>Windows positioned near sidewalks, roads, or other sources of exterior buildup</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">No single cleaning interval applies to every storefront. Monitoring how quickly these high-visibility surfaces lose their desired appearance provides a practical basis for setting a repeatable service schedule.</p>
+      </section>
+
+      <section>
+        <h2 id="restaurant-windows" class="text-2xl md:text-3xl mt-10 mb-4">How often should restaurant windows be cleaned?</h2>
+        <p class="text-lg leading-relaxed mb-5">Clean restaurant windows whenever visible marks or buildup begin to detract from entrance areas, dining spaces, or other glass customers see during their visit. Different parts of a restaurant can require attention at different intervals.</p>
+        <p class="text-lg leading-relaxed mb-5">Restaurant glass can have different cleaning priorities:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Entry doors accumulate fingerprints from customer contact.</li>
+          <li>Dining-area windows remain visible throughout the customer experience.</li>
+          <li>Street-facing glass collects exterior dirt and environmental buildup.</li>
+          <li>Lower-visibility windows can remain acceptable longer.</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Restaurants therefore do not need to clean every window on the same schedule. Tracking which surfaces get visibly dirty first helps direct service to the glass that most affects the property's customer-facing appearance.</p>
+      </section>
+
+      <section>
+        <h2 id="what-determines-frequency" class="text-2xl md:text-3xl mt-10 mb-4">What determines how frequently commercial windows need cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Commercial window cleaning frequency depends on how the property is used, where the glass is located, how much contact and environmental exposure it receives, and the appearance standard the business wants to maintain. These factors determine how quickly individual windows require attention.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Factor</th><th scope="col" class="py-2">Effect on cleaning frequency</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Customer traffic</td><td class="py-2">Higher traffic can increase fingerprints and visible marks</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Customer contact</td><td class="py-2">Frequently touched glass can need earlier attention</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Street visibility</td><td class="py-2">Prominent windows make buildup easier to notice</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Property location</td><td class="py-2">Surrounding conditions influence exterior glass</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Environmental exposure</td><td class="py-2">Weather and outdoor conditions affect buildup</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Window position</td><td class="py-2">Entrances and displays receive greater visual attention</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Appearance standards</td><td class="py-2">Higher standards can require shorter intervals</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">Businesses can evaluate these factors together when setting an initial service interval, then adjust the schedule according to the condition of the glass between appointments.</p>
+      </section>
+
+      <section>
+        <h2 id="most-frequent-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">Which storefront and restaurant windows need the most frequent cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Entrance doors, customer-facing storefront windows, display glass, and highly visible restaurant windows generally need the closest attention because customers see or touch them frequently.</p>
+        <p class="text-lg leading-relaxed mb-5">A business can prioritize glass by visibility and contact:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Entrance doors and adjacent glass</li>
+          <li>Street-facing storefront windows</li>
+          <li>Display windows</li>
+          <li>Customer-facing dining-area glass</li>
+          <li>Less-visible windows</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">A high-contact entrance can become visibly marked before nearby windows exposed to the same outdoor conditions. Likewise, a prominent display window can have a higher appearance priority than glass customers rarely see.</p>
+        <p class="text-lg leading-relaxed mb-5">Prioritizing glass by customer contact and visibility lets businesses clean high-impact areas more frequently without putting every window on the same schedule.</p>
+      </section>
+
+      <section>
+        <h2 id="business-appearance" class="text-2xl md:text-3xl mt-10 mb-4">How does clean storefront glass affect a business's appearance?</h2>
+        <p class="text-lg leading-relaxed mb-5">Clean storefront glass supports a maintained, professional appearance by keeping fingerprints, dirt, streaks, and exterior buildup from distracting from entrances, merchandise displays, dining areas, or the business itself.</p>
+        <p class="text-lg leading-relaxed mb-5">Windows are part of what customers see before entering a restaurant, retail store, salon, or other customer-facing property. Their condition contributes to the overall exterior presentation.</p>
+        <p class="text-lg leading-relaxed mb-5">Professional storefront window cleaning can help businesses maintain:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Clear entrance glass</li>
+          <li>Unobstructed product displays</li>
+          <li>Cleaner-looking dining areas</li>
+          <li>Consistent customer-facing presentation</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Window cleaning should not be treated as a guaranteed marketing return. Its practical value is keeping highly visible glass from detracting from the appearance the business wants customers to see.</p>
+      </section>
+
+      <section>
+        <h2 id="recurring-window-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">When should a business use recurring window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">A business should consider recurring window cleaning when customer-facing glass repeatedly becomes dirty at a predictable rate and maintaining its appearance requires regular attention.</p>
+        <p class="text-lg leading-relaxed mb-5">Recurring commercial window cleaning is appropriate when:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Fingerprints return consistently between services</li>
+          <li>Exterior buildup develops at a predictable pace</li>
+          <li>Customer-facing glass is highly visible</li>
+          <li>Storefront presentation requires ongoing maintenance</li>
+          <li>One-time appointments are being scheduled repeatedly</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">One-time window cleaning addresses a specific or periodic need. Recurring service establishes an ongoing interval when the cleaning requirement is continuous.</p>
+        <p class="text-lg leading-relaxed mb-5">If a business repeatedly calls for service after roughly the same amount of time, that pattern provides a practical starting point for a recurring schedule.</p>
+      </section>
+
+      <section>
+        <h2 id="determine-the-schedule" class="text-2xl md:text-3xl mt-10 mb-4">How do you determine the right window cleaning schedule for a storefront or restaurant?</h2>
+        <p class="text-lg leading-relaxed mb-5">Determine the right schedule by monitoring how quickly customer-facing windows become visibly dirty after cleaning, then adjusting the interval based on traffic, contact, exposure, and appearance requirements.</p>
+        <p class="text-lg leading-relaxed mb-5">A business can use a simple process:</p>
+        <ol class="list-decimal pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Identify the most visible glass.</li>
+          <li>Note when fingerprints or buildup become noticeable.</li>
+          <li>Record how much time has passed since cleaning.</li>
+          <li>Compare high-contact and lower-contact windows.</li>
+          <li>Set an initial service interval.</li>
+          <li>Reassess the glass before the next appointment.</li>
+          <li>Shorten or extend the interval based on actual conditions.</li>
+        </ol>
+        <p class="text-lg leading-relaxed mb-5">For example, if entrance glass consistently requires attention sooner than other windows, the business can prioritize that area instead of automatically increasing service for every window.</p>
+        <p class="text-lg leading-relaxed mb-5">Storefronts and restaurants should set window cleaning frequency by monitoring how quickly customer-facing glass develops visible marks or buildup and scheduling service based on traffic, exposure, visibility, and appearance standards.</p>
+        <p class="text-lg leading-relaxed mb-5">No universal schedule works for every business. Using actual window condition to establish and adjust the interval creates a practical approach to recurring commercial window cleaning.</p>
+      </section>
+
+      <Related {...ARTICLES.diy} />
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about storefront and restaurant window cleaning">
+        <p>Cleaning frequency can differ even among businesses on the same street because customer traffic, window placement, exposure, and appearance standards vary. These answers address common scheduling questions for customer-facing commercial properties.</p>
+      </Faq>
+
+      <ArticleClose />
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>

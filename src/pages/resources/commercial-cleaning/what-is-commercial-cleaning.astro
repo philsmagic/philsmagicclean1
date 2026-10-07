@@ -1,0 +1,228 @@
+---
+/**
+ * Resource article — "What is commercial cleaning, and what services does it include?"
+ * Emily Matthews' copy (2026-10-07), carried verbatim; sentence-case headings
+ * and cross-page repetition are deliberate. No visible date → Article schema
+ * without dates. Doc fixes are flagged inline and logged in docs/EMILY-CHANGES.md.
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import Faq from "@/components/Faq.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import AuthorBio from "@/components/AuthorBio.astro";
+import { JANITORIAL_FORM_URL } from "@/data/site";
+import { breadcrumbs, article, faqPage } from "@/data/schema";
+
+const hub = "/resources/commercial-cleaning";
+const path = `${hub}/what-is-commercial-cleaning`;
+const h1 = "What is commercial cleaning, and what services does it include?";
+const title = "What is commercial cleaning? Services included";
+const description =
+  "Learn what commercial cleaning is, which services it includes, how it differs from janitorial service, and which business areas can be cleaned.";
+
+// Emily's TOC lists these H2s only.
+const toc = [
+  { id: "what-is-commercial-cleaning", label: "What is commercial cleaning?" },
+  { id: "services-included", label: "What services are included in commercial cleaning?" },
+  { id: "janitorial-vs-commercial-cleaning", label: "What is the difference between janitorial services and commercial cleaning?" },
+  { id: "types-of-businesses", label: "What types of businesses use commercial cleaning services?" },
+  { id: "how-scope-is-determined", label: "How is a commercial cleaning scope determined?" },
+  { id: "define-the-right-service", label: "How can businesses define the right commercial cleaning service?" },
+  { id: "frequently-asked-questions", label: "Frequently asked questions about commercial cleaning services" },
+];
+
+// Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
+const faq = [
+  {
+    q: "Does commercial cleaning include window cleaning?",
+    a: "Commercial cleaning can include interior glass, while professional window cleaning can be a separate service covering interior or exterior windows, screens, and hard-to-reach glass. Businesses should confirm which glass surfaces are included in each service rather than assuming full window cleaning is part of general commercial cleaning.",
+  },
+  {
+    q: "Is office cleaning the same as commercial cleaning?",
+    a: "Office cleaning is a type of commercial cleaning focused on professional workplaces. It can cover workspaces, conference rooms, break rooms, restrooms, floors, common areas, entryways, and interior glass. Commercial cleaning is broader because it also applies to restaurants, storefronts, medical and dental offices, salons, gyms, and other business properties.",
+  },
+  {
+    q: "Can commercial cleaning services be customized?",
+    a: "Yes. Businesses can establish service around their facility, priority areas, required tasks, exclusions, and property-specific conditions. A restaurant, office, storefront, or gym does not need the same checklist. Defining the work before service begins helps ensure the cleaning plan reflects how the property is actually used.",
+  },
+  {
+    q: "Does commercial cleaning cover customer and employee areas?",
+    a: "Yes. Commercial cleaning can cover customer-facing, employee, and shared spaces when they are included in the service plan. Examples include entrances, waiting areas, workspaces, restrooms, break rooms, and common areas. Businesses should identify which spaces require service so the provider can define the work accordingly.",
+  },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Commercial and janitorial cleaning", path: hub },
+    { name: h1, path },
+  ]),
+  article(path, h1, description),
+  faqPage(path, faq),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href={hub}>Commercial and janitorial cleaning</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{h1}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">{h1}</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      Commercial cleaning is professional cleaning designed for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other business properties. Services are defined around the facility, areas requiring attention, and agreed cleaning tasks.
+    </p>
+    <p class="text-sm text-muted mt-4 max-w-3xl">
+      <span class="font-bold">By <a href="#about-the-author">Magic Phil</a></span><br />
+      Magic Phil is the founder of Phil’s Magic Cleaning, providing professional janitorial and window cleaning across the San Francisco Peninsula.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <Toc items={toc} />
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-is-commercial-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">What is commercial cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Commercial cleaning is professional cleaning performed in workplaces and other business properties to clean and maintain agreed areas, surfaces, and spaces. The exact work depends on the type of business, property layout, cleaning requirements, and scope established with the provider.</p>
+        <p class="text-lg leading-relaxed mb-5">Unlike residential cleaning, commercial service is designed around business environments. A restaurant, office, storefront, medical office, and gym each have different layouts, traffic patterns, surfaces, and areas requiring attention.</p>
+        <p class="text-lg leading-relaxed mb-5">A commercial cleaning scope can address:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Floors and hard surfaces</li>
+          <li>Restrooms and shared facilities</li>
+          <li>Kitchens and break rooms</li>
+          <li>Workspaces and common areas</li>
+          <li>Entryways and interior glass</li>
+          <li>Other agreed routine needs</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Defining the areas and tasks included gives the business and cleaning provider a shared understanding of the work to be completed.</p>
+      </section>
+
+      <section>
+        <h2 id="services-included" class="text-2xl md:text-3xl mt-10 mb-4">What services are included in commercial cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Commercial cleaning can include care for floors, restrooms, break rooms, workspaces, common areas, entryways, interior glass, and other areas specified for the property.</p>
+        <p class="text-lg leading-relaxed mb-5">No single commercial cleaning checklist applies to every business. Service should reflect the facility, how each space is used, and the tasks included in the agreed scope.</p>
+        <table class="w-full text-left mb-6 text-lg border-collapse">
+          <thead>
+            <tr class="border-b-2 border-line"><th scope="col" class="py-2 pr-4">Area</th><th scope="col" class="py-2">Commercial cleaning can include</th></tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Floors</td><td class="py-2">Cleaning hard floors and other floor surfaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Restrooms</td><td class="py-2">Cleaning fixtures, surfaces, floors, and restroom areas</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Break rooms</td><td class="py-2">Cleaning counters, floors, surfaces, and shared spaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Workspaces</td><td class="py-2">Cleaning agreed surfaces and workplace areas</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Common areas</td><td class="py-2">Cleaning shared spaces used by employees, customers, or visitors</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Entryways</td><td class="py-2">Cleaning entrances and surrounding surfaces</td></tr>
+            <tr class="border-b border-line"><td class="py-2 pr-4">Interior glass</td><td class="py-2">Cleaning interior glass and accessible glass surfaces</td></tr>
+          </tbody>
+        </table>
+        <p class="text-lg leading-relaxed mb-5">A clearly defined service list helps a business understand what is included instead of relying on a general description such as “office cleaning” or “commercial cleaning.”</p>
+      </section>
+
+      <section>
+        <h2 id="janitorial-vs-commercial-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">What is the difference between janitorial services and commercial cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Commercial cleaning is the broader category of professional cleaning for business properties, while janitorial services typically refer to routine work performed on an ongoing basis. The terms overlap, so businesses should compare the actual services included rather than rely on terminology alone.</p>
+        <p class="text-lg leading-relaxed mb-5">For example, recurring janitorial work can cover regularly used areas such as:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Maintaining floors</li>
+          <li>Cleaning restrooms</li>
+          <li>Cleaning break rooms</li>
+          <li>Cleaning common areas</li>
+          <li>Cleaning workspaces</li>
+          <li>Cleaning entryways</li>
+          <li>Cleaning interior glass</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">Commercial service can also address a specific business need outside routine maintenance. Because providers can use these terms differently, comparing the included areas and tasks gives businesses a clearer basis for evaluating services.</p>
+        <p class="text-lg leading-relaxed mb-5">Businesses comparing commercial and janitorial cleaning should review the defined scope rather than assume every provider uses the terms the same way.</p>
+      </section>
+
+      <section>
+        <h2 id="types-of-businesses" class="text-2xl md:text-3xl mt-10 mb-4">What types of businesses use commercial cleaning services?</h2>
+        <p class="text-lg leading-relaxed mb-5">Offices, restaurants, retail stores, medical and dental offices, salons, gyms, studios, and other commercial properties use professional cleaning to maintain employee, customer, and shared spaces.</p>
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning serves San Francisco Peninsula businesses such as:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Offices and professional spaces</li>
+          <li>Restaurants and food-service businesses</li>
+          <li>Retail stores and storefronts</li>
+          <li>Medical and dental offices</li>
+          <li>Salons</li>
+          <li>Gyms and fitness studios</li>
+          <li>Other commercial properties</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">An office can require attention to workspaces, conference rooms, floors, restrooms, and break rooms. A storefront can prioritize customer-facing areas, entryways, floors, interior glass, and restrooms. Salons, gyms, restaurants, and other high-use businesses have their own combinations of shared spaces and surfaces.</p>
+        <p class="text-lg leading-relaxed mb-5">Matching the cleaning scope to the facility type and use keeps the service focused on the areas relevant to that business.</p>
+      </section>
+
+      <section>
+        <h2 id="how-scope-is-determined" class="text-2xl md:text-3xl mt-10 mb-4">How is a commercial cleaning scope determined?</h2>
+        <p class="text-lg leading-relaxed mb-5">A commercial cleaning scope is determined by identifying the spaces to be cleaned, required tasks, priorities, exclusions, access instructions, and facility conditions that affect the work.</p>
+        <p class="text-lg leading-relaxed mb-5">The service plan should specify:</p>
+        <ul class="list-disc pl-6 mb-6 space-y-3 text-lg leading-relaxed">
+          <li>Included spaces</li>
+          <li>Required tasks</li>
+          <li>Priority areas</li>
+          <li>Excluded work</li>
+          <li>Entry instructions</li>
+          <li>Facility-specific conditions</li>
+        </ul>
+        <p class="text-lg leading-relaxed mb-5">For example, an office could include conference rooms, restrooms, floors, break rooms, and shared work areas while excluding private rooms. A storefront could place greater emphasis on entrances, customer areas, interior glass, floors, and other visible surfaces.</p>
+        <p class="text-lg leading-relaxed mb-5">A documented scope reduces ambiguity and gives both parties a specific definition of the commercial cleaning service being provided.</p>
+      </section>
+
+      <section>
+        <h2 id="define-the-right-service" class="text-2xl md:text-3xl mt-10 mb-4">How can businesses define the right commercial cleaning service?</h2>
+        <p class="text-lg leading-relaxed mb-5"><strong>Businesses can define the right commercial cleaning service by matching the work to how the facility is used, which areas need attention, and which tasks need to be completed. A written service plan gives the business and provider a common reference for what is included.</strong></p>
+        <p class="text-lg leading-relaxed mb-5"><strong>For Peninsula businesses, defining those requirements before requesting service makes it easier to communicate needs, evaluate the proposed work, and establish clear expectations from the start.</strong></p>
+      </section>
+
+      <nav aria-label="Related articles" class="my-12">
+        <h2 id="related-articles" class="text-2xl md:text-3xl mb-6">Related articles</h2>
+        <ul class="space-y-8">
+          <li>
+            <h3 class="text-xl mb-2">How do you choose a commercial cleaning company?</h3>
+            <!-- EMILY: related-article blurb for this item duplicated the customer-facing paragraph; used the article's own definition. Original: "Restaurants, retail stores, salons, gyms, offices, and other customer-facing businesses have different commercial cleaning priorities. Learn how to identify the customer, employee, and shared areas that require attention, what to include in a facility-specific cleaning checklist, and how to prioritize cleaning based on how each space is used." -->
+            <p class="leading-relaxed mb-2">Choose a commercial cleaning company by evaluating its experience, insurance, scope of work, scheduling, references, communication, and quality-control process. Compare providers using the same facility requirements to determine which company best fits your business.</p>
+            <a href={`${hub}/how-to-choose-a-commercial-cleaning-company`} class="font-bold">Compare commercial cleaning companies</a>
+          </li>
+          <li>
+            <h3 class="text-xl mb-2">Professional cleaning services overview</h3>
+            <p class="leading-relaxed mb-2">This hub provides an overview of choosing and using professional cleaning services, including how to evaluate cleaning companies, compare one-time, deep, and recurring cleaning options, and know what to expect before, during, and after a professional cleaning appointment.</p>
+            <a href="/resources/choosing-professional-cleaning-services" class="font-bold">Go to the professional cleaning resource center</a>
+          </li>
+        </ul>
+      </nav>
+
+      <Faq items={faq} id="frequently-asked-questions" heading="Frequently asked questions about commercial cleaning services">
+        <p>Commercial cleaning varies by property and business type. These answers clarify several common questions about what services can cover and how businesses can define their requirements.</p>
+      </Faq>
+
+      <section>
+        <h2 id="services-phils-magic-cleaning-provides" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services does Phil’s Magic Cleaning provide?</h2>
+        <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides commercial and janitorial cleaning for businesses and professional window cleaning for homes and businesses across the San Francisco Peninsula. Commercial service is available for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other Peninsula businesses.</p>
+        <div class="flex flex-wrap gap-4 my-6">
+          <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
+          <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="request-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can I request a commercial cleaning estimate from Phil’s Magic Cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">Contact Phil’s Magic Cleaning to request a free estimate for professional cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.</p>
+        <div class="my-6">
+          <a href={JANITORIAL_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a free estimate</a>
+        </div>
+      </section>
+
+      <AuthorBio />
+    </div>
+  </article>
+
+  <CtaBand formUrl={JANITORIAL_FORM_URL} formLabel="Request commercial cleaning" />
+</Base>

@@ -1,0 +1,95 @@
+---
+/**
+ * Resource center hub — "Window cleaning: a resource center for homeowners and businesses"
+ * (Emily Matthews' copy, 2026-10-07, carried verbatim; sentence-case headings are deliberate).
+ * Links out to the six articles beneath it. Built on the choosing-professional-cleaning-services
+ * hub pattern.
+ */
+import Base from "@/layouts/Base.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { REQUEST_FORM_URL } from "@/data/site";
+import { breadcrumbs } from "@/data/schema";
+import { HUB, HUB_NAME, ARTICLES } from "./_articles";
+
+const path = HUB;
+const title = "Window cleaning resource center";
+const description =
+  "Explore window cleaning resources for homeowners and businesses, including professional services, DIY options, cleaning frequency, access, and hiring.";
+
+const sections = [
+  { id: "professional-window-cleaning", a: ARTICLES.professional },
+  { id: "diy-vs-professional-window-cleaning", a: ARTICLES.diy },
+  { id: "how-to-choose-a-window-cleaning-company", a: ARTICLES.choose },
+  { id: "storefront-and-restaurant-window-cleaning-frequency", a: ARTICLES.frequency },
+  { id: "post-construction-window-cleaning", a: ARTICLES.postConstruction },
+  { id: "hard-to-reach-and-multi-story-windows", a: ARTICLES.hardToReach },
+];
+
+const schema = [
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: HUB_NAME, path },
+  ]),
+];
+---
+<Base {title} {description} {path} schema={schema}>
+  <article class="container mx-auto px-4 max-w-7xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4">
+      <ol class="flex flex-wrap gap-2">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/resources">Resources</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{HUB_NAME}</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-5xl mb-4 leading-tight max-w-4xl">Window cleaning: a resource center for homeowners and businesses</h1>
+    <p class="text-lg text-muted max-w-3xl">
+      This resource center explains professional window cleaning for homeowners and businesses, including what services can include, DIY versus professional cleaning, choosing a provider, cleaning frequency, post-construction cleanup, and hard-to-reach windows.
+    </p>
+    <div class="brand-rule max-w-xs my-6"></div>
+
+    <div class="max-w-3xl">
+      <section>
+        <h2 id="what-to-know-about-window-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">What should homeowners and businesses know about window cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Homeowners and businesses should understand what professional window cleaning includes, when to hire a professional, how to evaluate providers, and how property conditions affect cleaning needs. The resources below address common questions about professional window cleaning and planning service.
+        </p>
+      </section>
+
+      {sections.map(({ id, a }) => (
+        <section>
+          <h2 id={id} class="text-2xl md:text-3xl mt-10 mb-4">{a.title}</h2>
+          <p class="text-lg leading-relaxed mb-5">{a.blurb}</p>
+          <p class="mb-5"><a href={a.href} class="font-bold">{a.linkText}</a></p>
+        </section>
+      ))}
+
+      <section>
+        <h2 id="request-window-cleaning" class="text-2xl md:text-3xl mt-10 mb-4">How can I request window cleaning from Phil’s Magic Cleaning?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Contact Phil’s Magic Cleaning to request a free estimate for window cleaning on the San Francisco Peninsula. Provide your location, property type, cleaning needs, and whether you are interested in one-time or recurring service.
+        </p>
+        <!-- EMILY: no button text in the doc for this section; built as "Request a free estimate" → Jobber general request form, matching the existing resource articles. -->
+        <div class="my-6">
+          <a href={REQUEST_FORM_URL} target="_blank" rel="noopener noreferrer" class="btn btn-action">Request a free estimate</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="introductory-offer" class="text-2xl md:text-3xl mt-10 mb-4">Is there an introductory offer for existing window cleaning customers?</h2>
+        <p class="text-lg leading-relaxed mb-5">
+          Existing Phil’s Magic Cleaning window cleaning customers can receive $150 off their first month of recurring commercial or janitorial cleaning service.
+        </p>
+        <p class="text-lg leading-relaxed mb-5">
+          <!-- EMILY: sentence had no closing period before the [LINK TO CONTACT PAGE] placeholder; period added after the link. -->
+          To confirm current eligibility and offer details, <a href="/contact">contact Phil’s Magic Cleaning</a>.
+        </p>
+      </section>
+    </div>
+  </article>
+
+  <CtaBand />
+</Base>
