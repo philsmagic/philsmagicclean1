@@ -4,7 +4,17 @@
 /update              /resources/blog/new-system   301
 # Blog moved under Resources (E.L., 2026-10-05) — old URLs rank and are linked from SMS/email
 /blog                /resources/blog              301
+# Old blog teasers (listed but never written) → the articles that now answer them (2026-10-08)
+/blog/how-often-clean-windows             /resources/window-cleaning/professional-window-cleaning                       301
+/blog/storefront-window-cleaning-roi      /resources/window-cleaning/storefront-and-restaurant-window-cleaning-frequency 301
+/blog/post-construction-window-cleaning   /resources/window-cleaning/post-construction-window-cleaning                   301
+/resources/blog/how-often-clean-windows             /resources/window-cleaning/professional-window-cleaning                       301
+/resources/blog/storefront-window-cleaning-roi      /resources/window-cleaning/storefront-and-restaurant-window-cleaning-frequency 301
+/resources/blog/post-construction-window-cleaning   /resources/window-cleaning/post-construction-window-cleaning                   301
 /blog/*              /resources/blog/:splat       301
+# Pre-Manus site URLs still in Google/Brave (2026-10-08 site: checks)
+/service-page/*      /services                    301
+/service-areas/*     /service-areas               301
 /404                 /404.html               301
 # Crawlers that guess /sitemap.xml get the index (rewrite, not redirect)
 /sitemap.xml         /sitemap-index.xml      200
