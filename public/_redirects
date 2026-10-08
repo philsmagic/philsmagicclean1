@@ -14,7 +14,19 @@
 /blog/*              /resources/blog/:splat       301
 # Pre-Manus site URLs still in Google/Brave (2026-10-08 site: checks)
 /service-page/*      /services                    301
-/service-areas/*     /service-areas               301
+# Old per-city pages. A /service-areas/* splat does not fire on Netlify while /service-areas.html exists,
+# so each known city is listed (slugs from the old site's data, 2026-10-08).
+/service-areas/burlingame             /service-areas               301
+/service-areas/san-mateo              /service-areas               301
+/service-areas/foster-city            /service-areas               301
+/service-areas/millbrae               /service-areas               301
+/service-areas/redwood-city           /service-areas               301
+/service-areas/palo-alto              /service-areas               301
+/service-areas/daly-city              /service-areas               301
+/service-areas/south-san-francisco    /service-areas               301
+# Wix-era URLs (Bing Webmaster Tools IndexNow history, 2026-10-08)
+/booking-calendar/*  /contact                     301
+/book-online         /contact                     301
 /404                 /404.html               301
 # Crawlers that guess /sitemap.xml get the index (rewrite, not redirect)
 /sitemap.xml         /sitemap-index.xml      200
