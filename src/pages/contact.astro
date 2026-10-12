@@ -14,7 +14,7 @@ import { breadcrumbs, faqPage } from "@/data/schema";
 
 const path = "/contact";
 const addr = BUSINESS.address;
-const addressLine = `${addr.street}, ${addr.city}, ${addr.region} ${addr.postal}`;
+const addressLine = `${addr.city}, ${addr.region} ${addr.postal}`; // no street: service-area business (E.L., 2026-10-11)
 // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original meta title: "Contact Phil's Magic Cleaning | Commercial & Home"
 const title = "Contact Phil's Magic Cleaning | Commercial & Window";
 const description =
@@ -79,8 +79,12 @@ const toc = [
         <dd><a href={`tel:${BUSINESS.phoneE164}`} class="text-xl font-semibold">{BUSINESS.phoneDisplay}</a></dd>
       </div>
       <div>
-        <dt class="font-bold">Mailing address</dt>
+        <dt class="font-bold">Based in</dt>
         <dd><address class="not-italic">{addressLine}</address></dd>
+      </div>
+      <div>
+        <dt class="font-bold">Hours</dt>
+        <dd>{BUSINESS.hours.display}</dd>
       </div>
     </dl>
     <Toc items={toc} />

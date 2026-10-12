@@ -18,7 +18,6 @@ export const organization = {
   image: BUSINESS.logo,
   address: {
     "@type": "PostalAddress",
-    streetAddress: addr.street,
     addressLocality: addr.city,
     addressRegion: addr.region,
     postalCode: addr.postal,
@@ -27,10 +26,18 @@ export const organization = {
   areaServed: SERVICE_AREA.map((city) => ({ "@type": "City", name: city })),
   founder: { "@id": PERSON_ID },
   ...(BUSINESS.sameAs.length ? { sameAs: BUSINESS.sameAs } : {}),
-  ...(BUSINESS.openingHours.length ? { openingHours: BUSINESS.openingHours } : {}),
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: BUSINESS.hours.days,
+    opens: BUSINESS.hours.opens,
+    closes: BUSINESS.hours.closes,
+  },
 };
 
-/** Phil — owner. jobTitle/sameAs filled in once E.L. supplies them. */
+/**
+ * Phil, owner. No sameAs: the business's own profiles belong to the Organization, not the Person,
+ * and Phil's entry points to his page on this site only (E.L., 2026-10-11).
+ */
 export const person = {
   "@type": "Person",
   "@id": PERSON_ID,
@@ -39,7 +46,7 @@ export const person = {
   jobTitle: "Founder",
   url: `${SITE_URL}/meet-magic-phil`,
   worksFor: { "@id": ORG_ID },
-  ...(BUSINESS.sameAs.length ? { sameAs: BUSINESS.sameAs } : {}),
+  knowsAbout: ["Window cleaning", "Pure-water window cleaning", "Commercial cleaning", "Janitorial services", "Pressure washing"],
 };
 
 export const website = {
@@ -106,7 +113,7 @@ export function article(path: string, headline: string, description: string) {
   return {
     "@type": "Article",
     "@id": `${SITE_URL}${path}#article`,
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${path}` },
+    mainEntityOfPage: { "@id": `${SITE_URL}${path}#webpage` }, // same @id as the page's WebPage node
     headline,
     description,
     author: { "@id": PERSON_ID },
@@ -120,7 +127,7 @@ export function blogPosting(opts: {
   return {
     "@type": "BlogPosting",
     "@id": `${SITE_URL}${opts.path}#article`,
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${opts.path}` },
+    mainEntityOfPage: { "@id": `${SITE_URL}${opts.path}#webpage` },
     headline: opts.headline,
     description: opts.description,
     datePublished: opts.datePublished,

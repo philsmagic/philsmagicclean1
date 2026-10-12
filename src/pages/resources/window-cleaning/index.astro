@@ -6,6 +6,7 @@
  * hub pattern.
  */
 import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import { REQUEST_FORM_URL } from "@/data/site";
 import { breadcrumbs } from "@/data/schema";
@@ -32,6 +33,14 @@ const schema = [
     { name: HUB_NAME, path },
   ]),
 ];
+
+// Static TOC after the H1 + definition (AEO S2 §E/§K), built from this page's own H2s.
+const toc = [
+  { id: "what-to-know-about-window-cleaning", label: "What should homeowners and businesses know about window cleaning?" },
+  ...sections.map(({ id, a }) => ({ id, label: a.title })),
+  { id: "request-window-cleaning", label: "How can I request window cleaning from Phil’s Magic Cleaning?" },
+  { id: "introductory-offer", label: "Is there an introductory offer for existing window cleaning customers?" }
+];
 ---
 <Base {title} {description} {path} schema={schema}>
   <article class="container mx-auto px-4 max-w-7xl py-12">
@@ -50,6 +59,7 @@ const schema = [
       This resource center explains professional window cleaning for homeowners and businesses, including what services can include, DIY versus professional cleaning, choosing a provider, cleaning frequency, post-construction cleanup, and hard-to-reach windows.
     </p>
     <div class="brand-rule max-w-xs my-6"></div>
+    <Toc items={toc} />
 
     <div class="max-w-3xl">
       <section>

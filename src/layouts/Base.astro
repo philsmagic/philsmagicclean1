@@ -5,6 +5,15 @@
  * page's JSON-LD graph (always Organization + Person + WebSite + WebPage,
  * plus whatever the page adds).
  */
+// Self-hosted fonts, latin subset only (AEO S2 §H): served from our own domain as hashed,
+// immutable files, so article text no longer waits on fonts.googleapis.com.
+import "@fontsource/archivo/latin-400.css";
+import "@fontsource/archivo/latin-800.css";
+import "@fontsource/archivo/latin-900.css";
+import "@fontsource/source-sans-3/latin-400.css";
+import "@fontsource/source-sans-3/latin-600.css";
+import bodyFont from "@fontsource/source-sans-3/files/source-sans-3-latin-400-normal.woff2?url";
+import headingFont from "@fontsource/archivo/files/archivo-latin-900-normal.woff2?url";
 import "@/styles/global.css";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -44,12 +53,9 @@ const graph = [organization, person, website, webPage(path, title, description),
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={ogImage ?? BUSINESS.logo} />
   <link rel="icon" href="/images/logo-stacked.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Fonts load without blocking first paint (display=swap; system fallback until they arrive). -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;800;900&family=Source+Sans+3:wght@400;600&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;800;900&family=Source+Sans+3:wght@400;600&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;800;900&family=Source+Sans+3:wght@400;600&display=swap" /></noscript>
+  <!-- Body text (the largest paint on article pages) and H1 weight are preloaded; the rest load on use. display=swap. -->
+  <link rel="preload" as="font" type="font/woff2" href={bodyFont} crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href={headingFont} crossorigin />
 
   <JsonLd data={graph} />
 
