@@ -1,5 +1,8 @@
 # Redirect map — every legacy URL 301s to its canonical (AEO S2 §B).
 # No catch-all to index.html: unknown paths must be real 404s, not soft 404s.
+# The Netlify project address serves a full copy of the site; send it to the real domain (2026-10-12).
+# Deploy previews use deploy-preview-N--phils-magic-aeo.netlify.app, a different host, so they're unaffected.
+https://phils-magic-aeo.netlify.app/*   https://philsmagicclean.com/:splat   301!
 /new                 /                       301
 /update              /resources/blog/new-system   301
 # Blog moved under Resources (E.L., 2026-10-05) — old URLs rank and are linked from SMS/email
@@ -11,6 +14,10 @@
 /resources/blog/how-often-clean-windows             /resources/window-cleaning/professional-window-cleaning                       301
 /resources/blog/storefront-window-cleaning-roi      /resources/window-cleaning/storefront-and-restaurant-window-cleaning-frequency 301
 /resources/blog/post-construction-window-cleaning   /resources/window-cleaning/post-construction-window-cleaning                   301
+# Older blog posts from earlier versions of the site, still in Google's index (Search Console, 2026-10-12)
+/blog/how-often-should-you-clean-your-windows-bay-area                 /resources/window-cleaning/professional-window-cleaning                       301
+/blog/why-storefront-window-cleaning-is-your-best-marketing-investment  /resources/window-cleaning/storefront-and-restaurant-window-cleaning-frequency 301
+/blog/post-construction-window-cleaning-what-to-expect                 /resources/window-cleaning/post-construction-window-cleaning                   301
 /blog/*              /resources/blog/:splat       301
 # Pre-Manus site URLs still in Google/Brave (2026-10-08 site: checks)
 /service-page/*      /services                    301
