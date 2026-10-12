@@ -13,9 +13,24 @@
   --color-wash: #f0f5f8;
   --color-muted: #55606a;
   --color-line: #d9e2e8;
-  --font-display: "Archivo", system-ui, sans-serif;
-  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --font-display: "Archivo", "Archivo Fallback", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Source Sans 3 Fallback", system-ui, sans-serif;
 }
+
+/* Metric-matched fallbacks (AEO S2 §H, CLS): until the web fonts arrive, text is set in a local
+   Arial resized to the real font's width and line height, so the swap doesn't reflow the page.
+   Values computed from the font files with fontTools (2026-10-11): size-adjust = average
+   lowercase width ratio; ascent/descent = the web font's hhea metrics ÷ size-adjust. */
+@font-face { font-family: "Source Sans 3 Fallback"; font-weight: 400; src: local("Arial"), local("ArialMT");
+  size-adjust: 96.5%; ascent-override: 106.1%; descent-override: 41.5%; line-gap-override: 0%; }
+@font-face { font-family: "Source Sans 3 Fallback"; font-weight: 600 700; src: local("Arial Bold"), local("Arial-BoldMT");
+  size-adjust: 91%; ascent-override: 112.6%; descent-override: 44%; line-gap-override: 0%; }
+@font-face { font-family: "Archivo Fallback"; font-weight: 400; src: local("Arial"), local("ArialMT");
+  size-adjust: 100.8%; ascent-override: 87.1%; descent-override: 20.8%; line-gap-override: 0%; }
+@font-face { font-family: "Archivo Fallback"; font-weight: 800; src: local("Arial Bold"), local("Arial-BoldMT");
+  size-adjust: 105.1%; ascent-override: 83.5%; descent-override: 20%; line-gap-override: 0%; }
+@font-face { font-family: "Archivo Fallback"; font-weight: 900; src: local("Arial Black"), local("Arial-Black");
+  size-adjust: 98.8%; ascent-override: 88.9%; descent-override: 21.3%; line-gap-override: 0%; }
 
 :root {
   --pm-gradient: linear-gradient(90deg, #0000ff 0%, #0064ff 45%, #04b8f7 80%, #30dadb 100%);
