@@ -5,6 +5,7 @@
  * window resource centers. Breadcrumb: Home › Resources.
  */
 import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import { breadcrumbs } from "@/data/schema";
 
@@ -12,6 +13,14 @@ const path = "/resources";
 const title = "Cleaning resources | Phil’s Magic Cleaning";
 const description =
   "Explore cleaning resources, company news, and professional cleaning guides for homeowners and businesses across the San Francisco Peninsula.";
+
+// Static TOC after the H1 + definition (AEO S2 §E/§K), built from this page's own H2s.
+const toc = [
+  { id: "blog", label: "Blog: Phil’s Magic Cleaning news and announcements" },
+  { id: "choosing-professional-cleaning-services", label: "How to choose and use professional cleaning services: a resource center" },
+  { id: "commercial-cleaning", label: "Commercial and janitorial cleaning: a resource center for San Francisco Peninsula businesses" },
+  { id: "window-cleaning", label: "Professional window cleaning overview" }
+];
 ---
 <Base {title} {description} {path} schema={[breadcrumbs([{ name: "Home", path: "/" }, { name: "Resources", path }])]}>
   <section class="container mx-auto px-4 max-w-7xl py-12">
@@ -28,6 +37,7 @@ const description =
       Explore professional cleaning resources for San Francisco Peninsula homes and businesses, including Phil’s Magic Cleaning announcements, practical cleaning advice and guides to choosing, scheduling, and using professional cleaning services.
     </p>
     <div class="brand-rule max-w-xs my-6"></div>
+    <Toc items={toc} />
 
     <div class="max-w-3xl space-y-10 mt-12">
       <section id="blog" class="border-b border-line pb-10">

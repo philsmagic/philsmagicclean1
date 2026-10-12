@@ -12,8 +12,8 @@ export const BUSINESS = {
   phoneE164: "+16506600430",
   phoneDisplay: "(650) 660-0430",
   owner: "Phil",
+  /** No street address in public: service-area business, street hidden to match the Google profile (E.L., 2026-10-08 / 2026-10-11). */
   address: {
-    street: "1404 Burlingame Ave",
     city: "Burlingame",
     region: "CA",
     postal: "94010",
@@ -29,8 +29,13 @@ export const BUSINESS = {
     "https://www.instagram.com/philsmagiccleaning/",
     "https://www.yelp.com/biz/phils-magic-cleaning-burlingame",
   ] as string[],
-  /** Public hours — EMPTY until E.L. confirms. Schema omits openingHours while empty. */
-  openingHours: [] as string[],
+  /** Public hours, as on the Google Business Profile (read 2026-10-08): Mon–Sat 9–6, closed Sunday. */
+  hours: {
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "09:00",
+    closes: "18:00",
+    display: "Monday–Saturday, 9 a.m.–6 p.m. Closed Sunday.",
+  },
 };
 
 export const SERVICE_AREA = [

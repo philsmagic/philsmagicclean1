@@ -6,6 +6,7 @@
  * Links out to the four articles beneath it.
  */
 import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import { JANITORIAL_FORM_URL } from "@/data/site";
 import { breadcrumbs } from "@/data/schema";
@@ -21,6 +22,20 @@ const schema = [
     { name: "Resources", path: "/resources" },
     { name: "Commercial and janitorial cleaning", path },
   ]),
+];
+
+// Static TOC after the H1 + definition (AEO S2 §E/§K), built from this page's own H2s.
+const toc = [
+  { id: "what-can-businesses-learn", label: "What can businesses learn about commercial and janitorial cleaning?" },
+  { id: "what-is-commercial-cleaning", label: "What is commercial cleaning, and what services does it include?" },
+  { id: "how-to-choose-a-commercial-cleaning-company", label: "How do you choose a commercial cleaning company?" },
+  { id: "customer-facing-businesses", label: "What cleaning services do restaurants, retail stores, salons, and other customer-facing businesses need?" },
+  { id: "offices-and-professional-spaces", label: "What cleaning services do offices and professional spaces need?" },
+  { id: "still-provide-window-cleaning", label: "Does Phil’s Magic Cleaning still provide window cleaning?" },
+  { id: "one-time-or-recurring", label: "Are commercial cleaning services available one time or on a recurring schedule?" },
+  { id: "service-area", label: "Where does Phil’s Magic Cleaning provide commercial cleaning?" },
+  { id: "introductory-offer", label: "Is there an introductory offer for existing window cleaning customers?" },
+  { id: "more-information", label: "More information" }
 ];
 ---
 <Base {title} {description} {path} schema={schema}>
@@ -40,6 +55,7 @@ const schema = [
       Explore commercial and janitorial cleaning resources for San Francisco Peninsula businesses, including what services can cover, how to evaluate cleaning companies, and how cleaning needs differ by business type and facility use.
     </p>
     <div class="brand-rule max-w-xs my-6"></div>
+    <Toc items={toc} />
 
     <div class="max-w-3xl">
       <section>

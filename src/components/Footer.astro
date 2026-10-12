@@ -31,8 +31,8 @@ const a = BUSINESS.address;
         <h2 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Contact</h2>
         <address class="not-italic space-y-2 text-sm text-gray-300">
           <div><a href={`tel:${BUSINESS.phoneE164}`} class="text-gray-300 hover:text-white no-underline">{BUSINESS.phoneDisplay}</a></div>
-          <div>{a.street}</div>
-          <div>{a.city}, {a.region} {a.postal}</div>
+          <div>Based in {a.city}, {a.region} {a.postal}</div>
+          <div>{BUSINESS.hours.display}</div>
         </address>
       </div>
     </div>

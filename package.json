@@ -5,12 +5,14 @@
   "packageManager": "pnpm@10.4.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/strip-comments.mjs",
+    "build": "astro build && node scripts/strip-comments.mjs && node scripts/validate-schema.mjs",
     "preview": "astro preview",
     "check": "astro check"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.0",
+    "@fontsource/archivo": "^5.3.0",
+    "@fontsource/source-sans-3": "^5.3.1",
     "@tailwindcss/vite": "^4.1.0",
     "astro": "^5.12.0",
     "tailwindcss": "^4.1.0"

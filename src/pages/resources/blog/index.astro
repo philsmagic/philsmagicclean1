@@ -7,6 +7,7 @@
  * are gone from posts.ts until she writes them.
  */
 import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import { getPost, displayDate } from "@/data/posts";
 import { breadcrumbs } from "@/data/schema";
@@ -21,6 +22,9 @@ const entries = [
   { post: getPost("janitorial-services")!, linkText: "Explore expanded cleaning services" },
   { post: getPost("new-system")!, linkText: "Review the system update" },
 ];
+
+// Static TOC after the H1 + definition (AEO S2 §E/§K), built from this page's own H2s.
+const toc = entries.map(({ post }) => ({ id: post.slug, label: post.title }));
 ---
 <Base {title} {description} {path} schema={[breadcrumbs([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources" }, { name: "Blog", path }])]}>
   <section class="container mx-auto px-4 max-w-7xl py-12">
@@ -39,11 +43,12 @@ const entries = [
       Get the latest Phil’s Magic Cleaning news, including service announcements, scheduling and invoicing updates, and other changes affecting customers across the San Francisco Peninsula.
     </p>
     <div class="brand-rule max-w-xs my-6"></div>
+    <Toc items={toc} />
 
     <div class="max-w-3xl space-y-10 mt-12">
       <!-- EMILY: link target in doc looked like a paste error (both blocks pointed at the scheduling-and-invoicing post); linked the "expands commercial and janitorial" block to the janitorial post -->
       {entries.map(({ post, linkText }) => (
-        <article class="border-b border-line pb-10 last:border-0">
+        <article id={post.slug} class="border-b border-line pb-10 last:border-0">
           <h2 class="text-xl md:text-2xl mb-2">{post.title}</h2>
           <p class="text-sm text-muted mb-3"><time datetime={post.datePublished}>{displayDate(post.datePublished)}</time></p>
           <p class="text-muted leading-relaxed mb-4">{post.excerpt}</p>

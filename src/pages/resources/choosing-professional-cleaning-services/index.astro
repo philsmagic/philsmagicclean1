@@ -5,6 +5,7 @@
  * are deliberate). Links out to the three articles beneath it.
  */
 import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import { breadcrumbs } from "@/data/schema";
 
@@ -19,6 +20,14 @@ const schema = [
     { name: "Resources", path: "/resources" },
     { name: "Choosing and managing professional cleaning services", path },
   ]),
+];
+
+// Static TOC after the H1 + definition (AEO S2 §E/§K), built from this page's own H2s.
+const toc = [
+  { id: "what-can-you-learn", label: "What can you learn about choosing and using professional cleaning services?" },
+  { id: "how-to-choose-a-cleaning-company", label: "How do you choose a professional cleaning company?" },
+  { id: "one-time-deep-and-recurring-cleaning", label: "What is the difference between one-time, deep, and recurring cleaning?" },
+  { id: "what-to-expect", label: "What should you expect from a professional cleaning service?" }
 ];
 ---
 <Base {title} {description} {path} schema={schema}>
@@ -38,6 +47,7 @@ const schema = [
       Learn how to choose and use professional cleaning services, from evaluating cleaning companies and selecting the right service approach to preparing for an appointment and knowing what to expect before, during, and after cleaning.
     </p>
     <div class="brand-rule max-w-xs my-6"></div>
+    <Toc items={toc} />
 
     <div class="max-w-3xl">
       <section>
