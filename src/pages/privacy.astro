@@ -1,0 +1,136 @@
+---
+/**
+ * Privacy policy — approved by E.L. 2026-10-12 (agency/projects/phils-magic/legal/PRIVACY-2026-10-12.md,
+ * built from DATA-INVENTORY-2026-10-12.md). Lawyer Barbie's privacy-pages method; not legal advice.
+ * Update this page BEFORE any tracker, form or vendor changes, and move LEGAL_UPDATED (site.ts).
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import { BUSINESS, LEGAL_UPDATED } from "@/data/site";
+import { breadcrumbs } from "@/data/schema";
+
+const path = "/privacy";
+const title = "Privacy policy | Phil's Magic Cleaning";
+const description =
+  "What information philsmagicclean.com collects, why, who it's shared with, and how to ask Phil's Magic Cleaning to see, correct or delete it.";
+const updated = new Date(`${LEGAL_UPDATED}T12:00:00`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+const toc = [
+  { id: "who-we-are", label: "Who we are" },
+  { id: "what-we-collect", label: "What we collect" },
+  { id: "how-we-use-it", label: "How we use it" },
+  { id: "who-we-share-it-with", label: "Who we share it with" },
+  { id: "cookies", label: "Cookies and how to opt out" },
+  { id: "privacy-signals", label: "Do Not Track and Global Privacy Control" },
+  { id: "how-long-we-keep-it", label: "How long we keep it" },
+  { id: "your-choices", label: "Your choices" },
+  { id: "children", label: "Children" },
+  { id: "security", label: "Security" },
+  { id: "changes", label: "Changes to this policy" },
+  { id: "contact", label: "Contact" },
+];
+const mail = `mailto:${BUSINESS.email}`;
+const tel = `tel:${BUSINESS.phoneE164}`;
+---
+<Base {title} {description} {path} schema={[breadcrumbs([{ name: "Home", path: "/" }, { name: "Privacy policy", path }])]}>
+  <article class="container mx-auto px-4 max-w-3xl py-12 legal">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4"><ol class="flex gap-2 list-none p-0 m-0"><li><a href="/">Home</a></li><li aria-hidden="true">›</li><li aria-current="page">Privacy policy</li></ol></nav>
+
+    <h1 class="text-4xl md:text-5xl mb-4">Privacy policy</h1>
+    <p class="text-lg text-muted leading-relaxed">
+      This policy explains what information {BUSINESS.name} collects through philsmagicclean.com, why, who we share it with, and the choices you have. We keep it short, and we only describe what the site actually does.
+    </p>
+    <p class="text-sm text-muted mt-3">Effective and last updated: <time datetime={LEGAL_UPDATED}>{updated}</time></p>
+    <div class="brand-rule max-w-xs my-6"></div>
+    <Toc items={toc} />
+
+    <section class="mt-10">
+      <h2 id="who-we-are" class="text-2xl mb-3">Who we are</h2>
+      <p>{BUSINESS.name} is a window cleaning and commercial janitorial business serving the San Francisco Peninsula, based in Burlingame, California. Questions about this policy: <a href={mail}>{BUSINESS.email}</a> or <a href={tel}>{BUSINESS.phoneDisplay}</a>.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="what-we-collect" class="text-2xl mb-3">What we collect</h2>
+      <p><strong>When you browse the site</strong>, our analytics and advertising tools collect:</p>
+      <ul class="list-disc pl-6 my-3 space-y-1">
+        <li>the pages you view, how long you stay, and how you arrived (for example, from a Google search);</li>
+        <li>your device and browser type and your approximate location (city level, from your IP address);</li>
+        <li>whether you tap our phone number or click a “request a quote” button;</li>
+        <li>a random identifier stored in a cookie, so repeat visits can be counted.</li>
+      </ul>
+      <p><strong>When you request a quote</strong>, you fill out a form hosted by Jobber, the software we use to run our business. It asks for the details we need to quote and schedule your job, such as your name, phone number, email, service address and a description of the work.</p>
+      <p class="mt-3"><strong>When you call or text us</strong>, we receive your phone number and what you tell us.</p>
+      <p class="mt-3">We don't sell anything on this site, take payments here, offer accounts, run a newsletter, or send marketing texts.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="how-we-use-it" class="text-2xl mb-3">How we use it</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>To answer your questions, prepare quotes, schedule and complete work, and follow up.</li>
+        <li>To understand which pages are useful and improve the site.</li>
+        <li>To measure and improve our ads on Facebook and Instagram.</li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="who-we-share-it-with" class="text-2xl mb-3">Who we share it with</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li><strong>Google</strong> (Google Analytics) measures how the site is used.</li>
+        <li><strong>Meta</strong> (Facebook and Instagram) measures our ads and helps us show them to people likely to need our services. Meta may connect a visit to a Facebook or Instagram account you're logged into.</li>
+        <li><strong>Jobber</strong> stores quote requests and customer records for us.</li>
+        <li><strong>Netlify</strong> hosts the site and keeps standard server logs.</li>
+      </ul>
+      <p class="mt-3">Each company handles the information under its own privacy policy. We don't sell your personal information, and we don't share it with anyone else unless the law requires it.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="cookies" class="text-2xl mb-3">Cookies and how to opt out</h2>
+      <p>The site uses cookies from Google Analytics and the Meta pixel. These tools run only on philsmagicclean.com; nothing else on the site uses cookies. You can:</p>
+      <ul class="list-disc pl-6 my-3 space-y-1">
+        <li>block or delete cookies in your browser settings;</li>
+        <li>install Google's <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Analytics opt-out add-on</a>;</li>
+        <li>manage ad preferences in your Facebook or Instagram account settings.</li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="privacy-signals" class="text-2xl mb-3">Do Not Track and Global Privacy Control</h2>
+      <p>If your browser sends a <strong>Global Privacy Control</strong> signal, the site doesn't load the Meta pixel. The site doesn't respond to the older “Do Not Track” setting, because there's no common standard for it.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="how-long-we-keep-it" class="text-2xl mb-3">How long we keep it</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Website analytics: 14 months in Google Analytics.</li>
+        <li>Advertising data: under Meta's own retention rules.</li>
+        <li>Quote requests and customer records: for as long as you're a customer, and then up to seven years for business and tax records.</li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="your-choices" class="text-2xl mb-3">Your choices</h2>
+      <p>You can ask us to show you, correct or delete the personal information we hold about you. Email <a href={mail}>{BUSINESS.email}</a> or call <a href={tel}>{BUSINESS.phoneDisplay}</a>, and we'll reply within 30 days. We may need to confirm it's you before we act. We won't treat you differently for asking.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="children" class="text-2xl mb-3">Children</h2>
+      <p>This site is for adults arranging cleaning services. We don't knowingly collect information from children under 13.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="security" class="text-2xl mb-3">Security</h2>
+      <p>We use reputable providers and limit who can see customer information. No website or service is perfectly secure, so please don't send sensitive information such as payment card numbers through the quote form or by text.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="changes" class="text-2xl mb-3">Changes to this policy</h2>
+      <p>If we change what we collect or who we share it with, we'll update this page and the date at the top.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="contact" class="text-2xl mb-3">Contact</h2>
+      <p>{BUSINESS.name} · Burlingame, CA 94010 · <a href={tel}>{BUSINESS.phoneDisplay}</a> · <a href={mail}>{BUSINESS.email}</a></p>
+      <p class="mt-3">See also our <a href="/terms">terms of use</a>.</p>
+    </section>
+  </article>
+</Base>

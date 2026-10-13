@@ -11,6 +11,8 @@ export const BUSINESS = {
   phone: "650-660-0430",
   phoneE164: "+16506600430",
   phoneDisplay: "(650) 660-0430",
+  /** Published on /privacy and /terms for privacy requests (E.L. approval 2026-10-12). */
+  email: "philsmagicwindowcleaning@gmail.com",
   owner: "Phil",
   /** No street address in public: service-area business, street hidden to match the Google profile (E.L., 2026-10-08 / 2026-10-11). */
   address: {
@@ -92,6 +94,9 @@ export const FOOTER_LINKS = [
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
+
+/** Privacy policy and terms: approved by E.L. 2026-10-12 (legal/PRIVACY-2026-10-12.md, TERMS-2026-10-12.md). */
+export const LEGAL_UPDATED = "2026-10-12";
 
 /** Analytics fire ONLY on these hostnames. Localhost and previews send nothing (see Base.astro). */
 export const PROD_HOSTS = ["philsmagicclean.com", "www.philsmagicclean.com"];
