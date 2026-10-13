@@ -1,0 +1,105 @@
+---
+/**
+ * Terms of use — approved by E.L. 2026-10-12 (agency/projects/phils-magic/legal/TERMS-2026-10-12.md).
+ * Covers the website only; terms for cleaning work live in each quote or service agreement.
+ * E.L. 2026-10-12: no offer fine print here (the $150 offer stays on the site as written).
+ */
+import Base from "@/layouts/Base.astro";
+import Toc from "@/components/Toc.astro";
+import { BUSINESS, LEGAL_UPDATED } from "@/data/site";
+import { breadcrumbs } from "@/data/schema";
+
+const path = "/terms";
+const title = "Terms of use | Phil's Magic Cleaning";
+const description =
+  "The terms for using philsmagicclean.com: what the site is for, how quotes and prices work, links to other sites, and who to contact.";
+const updated = new Date(`${LEGAL_UPDATED}T12:00:00`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+const toc = [
+  { id: "what-the-site-is-for", label: "What the site is for" },
+  { id: "quotes-and-prices", label: "Quotes and prices" },
+  { id: "using-the-site", label: "Using the site" },
+  { id: "our-content", label: "Our content" },
+  { id: "other-websites", label: "Other websites" },
+  { id: "no-guarantees", label: "No guarantees about the website" },
+  { id: "liability", label: "Limits on our liability" },
+  { id: "privacy", label: "Privacy" },
+  { id: "changes", label: "Changes" },
+  { id: "governing-law", label: "Governing law" },
+  { id: "contact", label: "Contact" },
+];
+const mail = `mailto:${BUSINESS.email}`;
+const tel = `tel:${BUSINESS.phoneE164}`;
+---
+<Base {title} {description} {path} schema={[breadcrumbs([{ name: "Home", path: "/" }, { name: "Terms of use", path }])]}>
+  <article class="container mx-auto px-4 max-w-3xl py-12 legal">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4"><ol class="flex gap-2 list-none p-0 m-0"><li><a href="/">Home</a></li><li aria-hidden="true">›</li><li aria-current="page">Terms of use</li></ol></nav>
+
+    <h1 class="text-4xl md:text-5xl mb-4">Terms of use</h1>
+    <p class="text-lg text-muted leading-relaxed">
+      These terms apply to your use of philsmagicclean.com, run by {BUSINESS.name} of Burlingame, California. By using the site, you agree to them.
+    </p>
+    <p class="text-sm text-muted mt-3">Effective and last updated: <time datetime={LEGAL_UPDATED}>{updated}</time></p>
+    <div class="brand-rule max-w-xs my-6"></div>
+    <Toc items={toc} />
+
+    <section class="mt-10">
+      <h2 id="what-the-site-is-for" class="text-2xl mb-3">What the site is for</h2>
+      <p>The site describes our window cleaning and commercial janitorial services and lets you request a quote. Our articles and guides are general information, not professional advice for your specific property.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="quotes-and-prices" class="text-2xl mb-3">Quotes and prices</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Prices shown on the site, such as “starting at $20 per pane”, are starting points. Your actual price is in the quote we give you after we know the job.</li>
+        <li>A quote request isn't a booking. Work is confirmed only when we agree on the quote and the schedule with you.</li>
+        <li>Quote requests and scheduling go through Jobber, whose own terms also apply to their service.</li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="using-the-site" class="text-2xl mb-3">Using the site</h2>
+      <p>Please don't misuse the site: no attempts to break or overload it, no scraping it in bulk, and no using it for anything unlawful. You can share links to our pages and quote short passages with credit.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="our-content" class="text-2xl mb-3">Our content</h2>
+      <p>The text, images, logo and design are owned by {BUSINESS.name} or used with permission. Don't copy or republish them beyond short quotes without asking us.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="other-websites" class="text-2xl mb-3">Other websites</h2>
+      <p>We link to other sites, such as Google, Facebook, Instagram, Yelp and Jobber. We don't control them and aren't responsible for their content or practices.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="no-guarantees" class="text-2xl mb-3">No guarantees about the website</h2>
+      <p>We work to keep the site accurate and available, but it's provided “as is”. We don't promise it will always be error-free or online. Service guarantees, if any, are in your quote or service agreement, not on this website.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="liability" class="text-2xl mb-3">Limits on our liability</h2>
+      <p>To the extent the law allows, {BUSINESS.name} isn't liable for indirect or consequential losses from using the website. Nothing here limits any rights you have under California law that can't be waived.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="privacy" class="text-2xl mb-3">Privacy</h2>
+      <p>Our <a href="/privacy">privacy policy</a> explains what information the site collects and how we use it.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="changes" class="text-2xl mb-3">Changes</h2>
+      <p>We may update these terms. The date at the top shows the latest version, and the version on the site when you use it applies.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="governing-law" class="text-2xl mb-3">Governing law</h2>
+      <p>California law governs these terms.</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 id="contact" class="text-2xl mb-3">Contact</h2>
+      <p>{BUSINESS.name} · Burlingame, CA 94010 · <a href={tel}>{BUSINESS.phoneDisplay}</a> · <a href={mail}>{BUSINESS.email}</a></p>
+    </section>
+  </article>
+</Base>
