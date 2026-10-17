@@ -59,3 +59,8 @@ Source: `Assets/aeo-copy-2026-10-07/md/Resources_Window cleaning resource center
 - post-construction-window-cleaning · `REVIEW E.L.` — post-construction window cleaning is not on the live /window-cleaning page; FAQ "Can post-construction cleaning include hard-to-reach windows?" says "so we can evaluate…" (implies Phil's offers it). Kept verbatim, flagged.
 - hard-to-reach-and-multi-story-windows · `REVIEW E.L.` — "extension tools, water-fed poles, ladders" not named on the live /window-cleaning page. Kept verbatim, flagged.
 - Not changed, noted: post-construction "An assessment can determine:" is followed by imperative items ("Identify affected windows…"); DIY FAQ "second story" unhyphenated (hyphenated in the hard-to-reach FAQ). Verbatim.
+
+## 2026-10-16 — Meet Magic Phil (E.L. ruling)
+- Removed "Born in Eritrea, in East Africa, Phil moved with his family to the East Bay when he was ten." (paragraph 1 of "Who is Magic Phil?").
+- Removed "and participating in local cultural events celebrating his Eritrean heritage" from the community paragraph; it now reads "…volunteering at Burlingame Chamber of Commerce events and mentoring young entrepreneurs."
+- Reason: E.L. asked that Phil's birthplace not appear on the site. **Emily: the same lines may be in Phil's bio on the NOLA Resource Center.**
