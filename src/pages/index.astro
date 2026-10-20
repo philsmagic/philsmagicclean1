@@ -14,7 +14,7 @@ const path = "/";
 // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Commercial and Home Cleaning | Phil's Magic Cleaning"
 const title = "Commercial and Window Cleaning | Phil's Magic Cleaning";
 const description =
-  "Phil's Magic Cleaning provides professional cleaning for businesses and homes on the San Francisco Peninsula, including janitorial and window cleaning services.";
+  "Phil's Magic Cleaning provides professional cleaning for businesses and homes on the Peninsula, from South San Francisco to Mountain View, including janitorial and window cleaning services.";
 
 const commercialServices = [
   { icon: "🏢", title: "Offices & Professional Suites", desc: "Workstations, conference rooms, break rooms, and restrooms — cleaned around your hours so nobody works around us." },
@@ -97,10 +97,10 @@ const toc = [
       <div class="flex flex-col md:flex-row items-center gap-10">
         <div class="flex-1">
           <p class="flex items-center gap-2 mb-4 text-sm text-muted"><span class="stars" aria-hidden="true">★★★★★</span> {BUSINESS.rating.value} Stars · {BUSINESS.address.city}, {BUSINESS.address.region}</p>
-          <h1 class="text-4xl md:text-5xl mb-3">Professional cleaning for businesses and homes on the San Francisco Peninsula</h1>
+          <h1 class="text-4xl md:text-5xl mb-3">Professional cleaning for homes and businesses on the Peninsula</h1>
           <h2 id="spotless-windows" class="text-xl md:text-2xl text-muted font-semibold mb-4">Spotless windows built our name. We clean everything else too.</h2>
           <p class="text-lg text-muted mb-6 leading-relaxed max-w-2xl">
-            Phil's Magic Cleaning provides five-star-rated janitorial services and window cleaning, with flexible options for one-time and recurring cleaning. Service area: San Francisco Peninsula, from South San Francisco to Mountain View.
+            Phil's Magic Cleaning provides five-star-rated janitorial services and window cleaning, with flexible options for one-time and recurring cleaning. Service area: the Peninsula in San Mateo County and northern Santa Clara County, from South San Francisco to Mountain View.
           </p>
           <div class="brand-rule max-w-xs mb-6"></div>
           <a href={`tel:${BUSINESS.phoneE164}`} class="block text-2xl font-black mb-1 no-underline" style="font-family: var(--font-display)">{BUSINESS.phoneDisplay}</a>
@@ -263,7 +263,7 @@ const toc = [
       <p class="eyebrow">Why Phil's Magic</p>
       <h2 class="text-3xl md:text-4xl mt-2 mb-4" id="why-phils-magic">Why choose Phil's Magic Cleaning?</h2>
       <p class="text-lg text-muted mb-8 max-w-3xl leading-relaxed">
-        Customers choose Phil's Magic Cleaning for reliable scheduling, detailed cleaning, personalized service, and licensed and insured service for homes and businesses on the San Francisco Peninsula.
+        Customers choose Phil's Magic Cleaning for reliable scheduling, detailed cleaning, personalized service, and licensed and insured service for homes and businesses on the Peninsula.
       </p>
       <ul class="space-y-6 max-w-2xl list-none p-0">
         {whyItems.map((item) => (

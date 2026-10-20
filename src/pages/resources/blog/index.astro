@@ -15,7 +15,7 @@ import { breadcrumbs } from "@/data/schema";
 const path = "/resources/blog";
 const title = "Phil’s Magic Cleaning news & announcements";
 const description =
-  "Get Phil’s Magic Cleaning news and updates about services, scheduling, invoicing, and other changes for San Francisco Peninsula customers.";
+  "Get Phil’s Magic Cleaning news and updates about services, scheduling, invoicing, and other changes for Peninsula customers.";
 
 // Order and link text per Emily's doc.
 const entries = [
@@ -40,7 +40,7 @@ const toc = entries.map(({ post }) => ({ id: post.slug, label: post.title }));
 
     <h1 class="text-4xl md:text-5xl mb-4">Phil’s Magic cleaning news and announcements</h1>
     <p class="text-lg text-muted max-w-3xl">
-      Get the latest Phil’s Magic Cleaning news, including service announcements, scheduling and invoicing updates, and other changes affecting customers across the San Francisco Peninsula.
+      Get the latest Phil’s Magic Cleaning news, including service announcements, scheduling and invoicing updates, and other changes affecting customers across the Peninsula.
     </p>
     <div class="brand-rule max-w-xs my-6"></div>
     <Toc items={toc} />
