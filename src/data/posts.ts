@@ -54,7 +54,7 @@ export const posts: Post[] = [
     body: [
       { type: "h2", id: "what-system", text: "What scheduling and invoicing system is Phil’s Magic Cleaning using?" },
       // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "continues providing professional cleaning for businesses and homes across the San Francisco Peninsula."
-      { type: "p", text: "Phil’s Magic Cleaning is moving to Jobber for customer scheduling and invoicing. The new platform will support these administrative functions as Phil’s Magic Cleaning continues providing professional cleaning for businesses and window cleaning for homes across the San Francisco Peninsula." },
+      { type: "p", text: "Phil’s Magic Cleaning is moving to Jobber for customer scheduling and invoicing. The new platform will support these administrative functions as Phil’s Magic Cleaning continues providing professional cleaning for businesses and window cleaning for homes across the Peninsula." },
       { type: "h2", id: "when", text: "When will Phil’s Magic Cleaning start using Jobber?" },
       { type: "p", text: "Phil’s Magic Cleaning will begin using Jobber for scheduling and invoicing on Friday, August 28, 2026. This transition will update how scheduling and invoicing are managed without requiring significant action from existing customers." },
       { type: "h2", id: "what-customers-need-to-do", text: "Do customers need to do anything?" },
@@ -73,15 +73,15 @@ export const posts: Post[] = [
     metaTitle: "Expanded Commercial Cleaning | Phil’s Magic Cleaning",
     // EMILY: the post doc has no definition paragraph under the H1; the /resources/blog blurb is reused as the intro.
     excerpt:
-      "Phil’s Magic Cleaning has expanded its commercial and janitorial cleaning services for businesses across the San Francisco Peninsula. Learn about recurring and one-time cleaning options and how the expanded services support offices, storefronts, restaurants, and other local businesses.",
+      "Phil’s Magic Cleaning has expanded its commercial and janitorial cleaning services for businesses across the Peninsula. Learn about recurring and one-time cleaning options and how the expanded services support offices, storefronts, restaurants, and other local businesses.",
     metaDescription:
-      "Phil’s Magic Cleaning now provides recurring and one-time commercial and janitorial cleaning for businesses across the San Francisco Peninsula.",
+      "Phil’s Magic Cleaning now provides recurring and one-time commercial and janitorial cleaning for businesses across the Peninsula.",
     body: [
       { type: "h2", id: "what-we-provide", text: "What commercial and janitorial cleaning does Phil’s Magic Cleaning provide?" },
       { type: "p", text: "Phil’s Magic Cleaning provides recurring and one-time commercial and janitorial cleaning for businesses, including cleaning for floors, restrooms, break rooms, common areas, and interior glass." },
       { type: "p", text: "Commercial cleaning can be tailored to the needs of the property and business, with one-time service or recurring cleaning based on the required scope and schedule." },
       { type: "h2", id: "types-of-businesses", text: "What types of businesses can use Phil’s Magic Cleaning?" },
-      { type: "p", text: "Phil’s Magic Cleaning provides commercial and janitorial cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other businesses on the San Francisco Peninsula." },
+      { type: "p", text: "Phil’s Magic Cleaning provides commercial and janitorial cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other businesses on the Peninsula." },
       { type: "p", text: "Cleaning needs vary by property type. An office can have different priorities from a restaurant, storefront, medical or dental office, salon, or gym, so the cleaning scope and schedule can be based on how the space is used." },
       { type: "h2", id: "still-window-cleaning", text: "Does Phil’s Magic Cleaning still provide window cleaning?" },
       { type: "p", text: "Yes. Phil’s Magic Cleaning continues to provide professional window cleaning for homes and businesses. Commercial and janitorial cleaning expands the company’s services for businesses rather than replacing its window cleaning services." },
@@ -90,7 +90,7 @@ export const posts: Post[] = [
       { type: "p", text: "Both. Phil’s Magic Cleaning provides one-time and recurring commercial and janitorial cleaning so businesses can select service based on their property, cleaning needs, and schedule." },
       { type: "p", text: "Recurring cleaning provides ongoing care for businesses that need regular service, while one-time service addresses needs that don't require an ongoing schedule." },
       { type: "h2", id: "where", text: "Where does Phil’s Magic Cleaning provide commercial cleaning?" },
-      { type: "p", text: "Phil’s Magic Cleaning provides commercial and janitorial cleaning for businesses across the San Francisco Peninsula, with a primary service area from South San Francisco to Mountain View." },
+      { type: "p", text: "Phil’s Magic Cleaning provides commercial and janitorial cleaning for businesses across the Peninsula, with a primary service area from South San Francisco to Mountain View." },
       { type: "h2", id: "introductory-offer", text: "Is there an introductory offer for existing window cleaning customers?" },
       { type: "p", text: "Existing Phil’s Magic Cleaning window cleaning customers can receive $150 off their first month of recurring commercial or janitorial cleaning service." },
       { type: "h2", id: "more-information", text: "More information" },

@@ -64,3 +64,14 @@ Source: `Assets/aeo-copy-2026-10-07/md/Resources_Window cleaning resource center
 - Removed "Born in Eritrea, in East Africa, Phil moved with his family to the East Bay when he was ten." (paragraph 1 of "Who is Magic Phil?").
 - Removed "and participating in local cultural events celebrating his Eritrean heritage" from the community paragraph; it now reads "…volunteering at Burlingame Chamber of Commerce events and mentoring young entrepreneurs."
 - Reason: E.L. asked that Phil's birthplace not appear on the site. **Emily: the same lines may be in Phil's bio on the NOLA Resource Center.**
+
+## Location wording ("San Francisco Peninsula" removed), 2026-10-20
+Source: Emily's tracked-changes docs (10/19, "THESE ARE RIGHT") plus her answers of 10/20; rulings by E.L. 10/20.
+- 8 main pages · her 61 location edits applied to the LIVE wording (her docs were based on the 10/05 copy, so the house-cleaning substitutions stay as they are)
+- Home H1 → "Professional cleaning for homes and businesses on the Peninsula" (Emily)
+- Window Cleaning H1 → "Window cleaning for homes and businesses on the Peninsula" (Emily)
+- Cleaning Services H1 · Emily: "Commercial and home cleaning on the Peninsula" → "Commercial cleaning on the Peninsula" (E.L.: omit home cleaning)
+- About title · Emily: "Cleaning for San Mateo and northern Santa Clara County" → "Cleaning for San Mateo and northern Santa Clara Counties | Phil's Magic Cleaning" (E.L.: keep the business name; "Counties")
+- Service Areas title · Emily: "Servicing San Mateo and northern Santa Clara County" → "Serving San Mateo and northern Santa Clara Counties | Phil's Magic Cleaning" (E.L.: keep the business name; "Serving", "Counties")
+- Service Areas · NEW FAQ "Does Phil's Magic Cleaning serve San Francisco?" (Emily, verbatim), second in the FAQ list as in her doc
+- Every other page (resources, blog, author bio, Meet Magic Phil, privacy) · "San Francisco Peninsula" → "Peninsula" (Emily's rule, 66 lines)
