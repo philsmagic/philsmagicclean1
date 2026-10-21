@@ -1,0 +1,10 @@
+{
+  "_about": "Per-site allowlist for scripts/leak_scan.py: the business's own published email and phone, and words the scan would otherwise flag that belong to this site.",
+  "emails": [
+    "philsmagicwindowcleaning@gmail.com"
+  ],
+  "phones": [
+    "(650) 660-0430"
+  ],
+  "terms": []
+}

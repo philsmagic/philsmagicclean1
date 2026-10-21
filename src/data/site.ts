@@ -1,6 +1,6 @@
 /**
  * Single source of truth for business facts used in copy, schema and the
- * footer. Every value here must be on Emily's Verified Facts sheet or in the
+ * footer. Every value here must be on the copywriter's Verified Facts sheet or in the
  * client file. Nothing here is invented.
  */
 export const SITE_URL = "https://philsmagicclean.com";
@@ -11,20 +11,20 @@ export const BUSINESS = {
   phone: "650-660-0430",
   phoneE164: "+16506600430",
   phoneDisplay: "(650) 660-0430",
-  /** Published on /privacy and /terms for privacy requests (E.L. approval 2026-10-12). */
+  /** Published on /privacy and /terms for privacy requests (approval 2026-10-12). */
   email: "philsmagicwindowcleaning@gmail.com",
   owner: "Phil",
-  /** No street address in public: service-area business, street hidden to match the Google profile (E.L., 2026-10-08 / 2026-10-11). */
+  /** No street address in public: service-area business, street hidden to match the Google profile (2026-10-08 / 2026-10-11). */
   address: {
     city: "Burlingame",
     region: "CA",
     postal: "94010",
     country: "US",
   },
-  rating: { value: "5.0", count: 45, asOf: "2026-10-06" }, // Google Maps listing (cid 2561441622886334181), confirmed by Sable 2026-10-06. Phil's own achievement. Update here only — every page reads this.
+  rating: { value: "5.0", count: 45, asOf: "2026-10-06" }, // Google Maps listing (cid 2561441622886334181), confirmed by the agency 2026-10-06. Phil's own achievement. Update here only — every page reads this.
   yearsServing: "4+",
   logo: `${SITE_URL}/images/logo.jpg`,
-  /** Profile URLs for schema sameAs. EMPTY until E.L. supplies them (GBP, Facebook, Instagram, Yelp). */
+  /** Profile URLs for schema sameAs. EMPTY until the agency supplies them (GBP, Facebook, Instagram, Yelp). */
   sameAs: [
     "https://maps.google.com/?cid=2561441622886334181", // Google Business Profile
     "https://www.facebook.com/philsmagiccleaning",
@@ -41,8 +41,8 @@ export const BUSINESS = {
 };
 
 export const SERVICE_AREA = [
-  // Confirmed list — agency/projects/phils-magic/seo-plan.md (2026-08-09, from the GBP
-  // dashboard; safe for page copy AND GBP). Brisbane is NOT served (E.L., 2026-10-05).
+  // Confirmed list — the agency's project notes (2026-08-09, from the GBP
+  // dashboard; safe for page copy AND GBP). Brisbane is NOT served (2026-10-05).
   // Must match the Google Business Profile service area exactly (NAP consistency).
   "South San Francisco",
   "San Bruno",
@@ -71,7 +71,7 @@ export const REQUEST_FORM_URL =
 export const JANITORIAL_FORM_URL =
   "https://clienthub.getjobber.com/hubs/c080b44c-658d-4e03-aad4-23bd241272cb/public/requests/5126135/new";
 
-/** Top nav per Emily's copy (2026-10-05): Services moves to the footer; Blog becomes Resources. */
+/** Top nav per the copywriter's copy (2026-10-05): Services moves to the footer; Blog becomes Resources. */
 export const NAV_LINKS = [
   { label: "Cleaning Services", href: "/janitorial-cleaning" },
   { label: "Window Cleaning", href: "/window-cleaning" },
@@ -84,7 +84,7 @@ export const NAV_LINKS = [
 
 /** Footer "Pages" column — keeps Services, adds Meet Magic Phil. */
 export const FOOTER_LINKS = [
-  { label: "Commercial Cleaning Services", href: "/janitorial-cleaning" }, // EMILY: was "Commercial and Home Cleaning Services" — house cleaning is not a service (E.L. 10/5)
+  { label: "Commercial Cleaning Services", href: "/janitorial-cleaning" }, // COPY: was "Commercial and Home Cleaning Services" — house cleaning is not a service (the agency 10/5)
   { label: "Window Cleaning", href: "/window-cleaning" },
   { label: "Services", href: "/services" },
   { label: "Service Areas", href: "/service-areas" },
@@ -95,7 +95,7 @@ export const FOOTER_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-/** Privacy policy and terms: approved by E.L. 2026-10-12 (legal/PRIVACY-2026-10-12.md, TERMS-2026-10-12.md). */
+/** Privacy policy and terms: approved 2026-10-12 (legal/PRIVACY-2026-10-12.md, TERMS-2026-10-12.md). */
 export const LEGAL_UPDATED = "2026-10-12";
 
 /** Analytics fire ONLY on these hostnames. Localhost and previews send nothing (see Base.astro). */

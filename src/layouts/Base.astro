@@ -59,7 +59,7 @@ const graph = [organization, person, website, webPage(path, title, description),
 
   <JsonLd data={graph} />
 
-  <!-- ANALYTICS — PRODUCTION HOSTNAME ONLY (Sable stop-the-bleeding, 2026-10-05).
+  <!-- ANALYTICS — PRODUCTION HOSTNAME ONLY (2026-10-05).
        Localhost and every preview host send NOTHING to GA4 or Meta; key events
        fired from a preview are indistinguishable from real quote requests and
        poison the before/after baseline. The hostname check is the gate; the
@@ -103,9 +103,8 @@ const graph = [organization, person, website, webPage(path, title, description),
         }
       }
 
-      // GA4 key event `phone_tap` (Sable, 2026-10-05): every tel: click on every
-      // route — header, footer, buttons, inline numbers. E.L. stars the event in
-      // GA4 once it appears, so the name must match exactly; never rename it.
+      // GA4 key event `phone_tap`: every tel: click on every route (header, footer,
+      // buttons, inline numbers). The event name is a GA4 key event: never rename it.
       document.addEventListener('click', function (e) {
         var a = e.target && e.target.closest && e.target.closest('a[href^="tel:"]');
         if (!a) return;
