@@ -7,7 +7,8 @@
     python3 leak_scan.py TEMPLATE_DIR --template       # a template in the stash: builder comments allowed (counted)
     python3 leak_scan.py --strip-comments SITE_DIR     # remove every HTML comment from the .html files, in place
     options: --allow FILE (JSON {"emails": [...], "phones": [10-digit numbers the site publishes], "terms": [...],
-             "ignore_files": [globs of third-party bundles]})   --no-signature   --exclude PATH (repeatable:
+             "ignore_files": [globs of third-party bundles], "humans_signature": true to allow a final
+             "LEUX Design" line in /humans.txt, per site, 2026-10-30})   --no-signature   --exclude PATH (repeatable:
              a path or glob, relative to SITE_DIR and to --repo, that is not uploaded or is agency-only tooling)
 
 Exit 1 if anything leaks. Python 3.9+, standard library only. The same file is vendored into each site repo
@@ -17,8 +18,9 @@ themselves never appear in a client repo.
 A deployable folder (or a live site) FAILS on:
   - any HTML comment in an .html/.htm file (IE conditional comments excepted);
   - any denylisted name, initials or internal folder name anywhere (text, attributes, JSON-LD, meta, comments);
-  - the agency brand anywhere except the one credit line, which is exactly
-    `Website Designed and Built by <a href="https://leux.design" rel="noopener">LEUX Design</a>` (no email, no phone);
+  - the agency brand anywhere except the one hidden author tag in each page's <head>, exactly
+    `<meta name="author" content="LEUX Design">`: nothing visible credits the studio, no footer line, no humans.txt
+    signature (2026-10-24);
   - process notes inside any comment (HTML, CSS, JS): "to confirm", "Option B", "ruling", "TODO", "FILL IN" ...;
   - any email address not on the site's allowlist (only example/test domains are built in; the studio's own address is
     NOT allowed on a client site);
@@ -26,7 +28,7 @@ A deployable folder (or a live site) FAILS on:
   - any local path (a Mac or Linux home folder, a Windows user folder, a file URL) and any internal document
     reference (a Markdown file name, the copy source folder);
   - internal files in the deploy folder (*.md, *.py, *.sh, *.map, .DS_Store, .env*: names only, never opened);
-  - an HTML page without the signature line (unless --no-signature).
+  - an HTML page without the author tag in its <head> (unless --no-signature).
 --template relaxes two rules for a template that is not yet a site: builder comments in the HTML are counted, not
 failed, and README/scripts are scanned for names, emails and paths instead of being flagged as internal files.
 A repo (--repo) FAILS on denylisted names, local paths and unlisted emails in tracked files; commit identities and
@@ -35,11 +37,12 @@ messages that carry a denylisted name are reported as INFO (history is never rew
 import argparse, fnmatch, hashlib, html, json, pathlib, re, subprocess, sys, urllib.parse, urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
-SIG_TEXT = "Website Designed and Built by LEUX Design"
-SIG_SPAN = re.compile(r'Website Designed and Built by\s*<a\b[^>]*\bhref="https://leux\.design/?"[^>]*>\s*LEUX Design\s*</a>')
+SIG_META = re.compile(r'<meta\s+name="author"\s+content="LEUX Design"\s*/?>', re.I)   # the only brand mention allowed
 PHONE = re.compile(r"tel:\+?[\d().\s-]{10,16}|(?<![\w.-])(?:\+?1[\s.-])?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}(?![\w-])")
 BRAND = re.compile(r"leux", re.I)
-STUDIO_EMAIL = "hello@leux.design"   # commit identity only: allowed in repo/tooling files, never in shipped output
+HUMANS_SIG = re.compile(r"\n[ \t]*LEUX Design[ \t]*\n?\Z")   # the signature line, last in /humans.txt, if the site opts in
+STUDIO_EMAIL = "hello@leux.design"   # former commit identity: allowed in repo/tooling files, never in shipped output
+COMMIT_EMAIL = "306337932+leleuxdesign@users.noreply.github.com"   # commit identity: same rule
 
 TEXT_EXT = {".html", ".htm", ".css", ".js", ".mjs", ".json", ".jsonld", ".xml", ".txt", ".svg", ".webmanifest",
             ".htaccess", ".csv", ".md", ".mdx", ".py", ".sh", ".yml", ".yaml", ".toml", ".ini", ".cfg", ".gitignore",
@@ -77,6 +80,7 @@ class Scan:
         s.phones = {re.sub(r"\D", "", x)[-10:] for x in allow.get("phones", [])}
         s.terms = {t.lower() for t in allow.get("terms", [])}
         s.ignore = list(allow.get("ignore_files", []))   # third-party bundles a site cannot edit (globs)
+        s.humans_sig = bool(allow.get("humans_signature"))
         s.hits, s.info, s.files, s.pages, s.signed = [], [], 0, 0, 0
         s.require_sig, s.template, s.builder_comments, s.own_site = True, False, 0, False
     def hit(s, where, kind, detail): s.hits.append((where, kind, detail))
@@ -99,7 +103,7 @@ class Scan:
         # appear as the documented commit identity; in shipped files it never may
         for m in EMAIL.finditer(text):
             e = m.group(0).rstrip(".").lower()
-            if e in s.emails or EXAMPLE_DOMAINS.search(e) or IMG_TLD.search(e) or (not phones and e == STUDIO_EMAIL): continue
+            if e in s.emails or EXAMPLE_DOMAINS.search(e) or IMG_TLD.search(e) or (not phones and e in (STUDIO_EMAIL, COMMIT_EMAIL)): continue
             s.hit(f"{where}:{_line(text, m.start())}", "email", e)
         for m in (PHONE.finditer(text) if phones else []):
             d = re.sub(r"\D", "", m.group(0))[-10:]
@@ -132,12 +136,14 @@ class Scan:
         body = text
         if html_file and "<body" in text.lower():
             s.pages += 1
-            flat = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", text)))
-            flat = flat.replace(" )", ")").replace("( ", "(")
-            ok = SIG_TEXT in re.sub(r"\s+", " ", flat) and SIG_SPAN.search(text) is not None
-            if ok: s.signed += 1
-            elif s.require_sig: s.hit(where, "signature line", "missing or not exact (text + one link to https://leux.design)")
-            body = SIG_SPAN.sub(" ", text)
+            head = re.split(r"</head\s*>", text, maxsplit=1, flags=re.I)[0]
+            if SIG_META.search(head): s.signed += 1
+            elif s.require_sig: s.hit(where, "author tag", 'missing or not exact in <head>: <meta name="author" content="LEUX Design">')
+            body = SIG_META.sub(" ", text, count=1)
+        else:
+            body = SIG_META.sub(" ", text, count=1)   # the author tag in a source component (.astro, .jsx, ...)
+            if s.humans_sig and where.split("/")[-1].split(" ")[0] == "humans.txt":
+                body = HUMANS_SIG.sub("\n", body.rstrip() + "\n")
         for m in ([] if s.own_site else BRAND.finditer(body)):
             s.hit(f"{where}:{_line(body, m.start())}", "brand outside the signature", _ctx(body, m.start(), m.end()))
         s.names(where, body)
