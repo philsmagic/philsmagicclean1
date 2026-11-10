@@ -36,7 +36,7 @@ export const organization = {
 
 /**
  * Phil, owner. No sameAs: the business's own profiles belong to the Organization, not the Person,
- * and Phil's entry points to his page on this site only (E.L., 2026-10-11).
+ * and Phil's entry points to his page on this site only (2026-10-11).
  */
 export const person = {
   "@type": "Person",
@@ -108,7 +108,7 @@ export function faqPage(path: string, qa: { q: string; a: string }[]) {
   };
 }
 
-/** Resource article: NO dates (Emily's rule — none are visible, and schema must match the page). */
+/** Resource article: NO dates (the copywriter's rule — none are visible, and schema must match the page). */
 export function article(path: string, headline: string, description: string) {
   return {
     "@type": "Article",

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Brand tokens — docs/brand/brand-system.html (v0.1, 2026-10-05).
-   Teal is the ACTION colour only (E.L. ruling 10/5); identity is the logo blue. */
+   Teal is the ACTION colour only (ruling 10/5); identity is the logo blue. */
 @theme {
   --color-blue: #0000ff;
   --color-bright: #0064ff;

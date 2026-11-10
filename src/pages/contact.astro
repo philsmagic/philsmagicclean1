@@ -1,10 +1,10 @@
 ---
 /**
- * Contact — Emily Matthews' AEO copy (Assets/aeo-copy-2026-10-05/md/Contact.md), carried
- * verbatim except the home-cleaning substitutions required by E.L.'s ruling of 2026-10-05
+ * Contact — the copywriter's AEO copy (Assets/aeo-copy-2026-10-05/md/Contact.md), carried
+ * verbatim except the home-cleaning substitutions required by the ruling of 2026-10-05
  * (flagged inline; docs/EMILY-CHANGES.md). Phone and address come from BUSINESS, never
  * hard-coded. "Submitting the contact form" = the two Jobber request forms (janitorial is
- * the teal action; general is the outline). Sentence-case headings are Emily's.
+ * the teal action; general is the outline). Sentence-case headings are the copywriter's.
  */
 import Base from "@/layouts/Base.astro";
 import Toc from "@/components/Toc.astro";
@@ -14,13 +14,13 @@ import { breadcrumbs, faqPage } from "@/data/schema";
 
 const path = "/contact";
 const addr = BUSINESS.address;
-const addressLine = `${addr.city}, ${addr.region} ${addr.postal}`; // no street: service-area business (E.L., 2026-10-11)
-// EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original meta title: "Contact Phil's Magic Cleaning | Commercial & Home"
+const addressLine = `${addr.city}, ${addr.region} ${addr.postal}`; // no street: service-area business (2026-10-11)
+// COPY: home-cleaning wording changed per ruling 10/5 — original meta title: "Contact Phil's Magic Cleaning | Commercial & Home"
 const title = "Contact Phil's Magic Cleaning | Commercial & Window";
 const description =
   "Contact Phil's Magic Cleaning for janitorial and window cleaning for businesses and homes across the Peninsula, from South San Francisco to Mountain View. Request a free estimate.";
 
-// REVIEW E.L.: city list differs from site.ts — Emily lists 8 named cities + "Other communities";
+// REVIEW: city list differs from site.ts — the copywriter lists 8 named cities + "Other communities";
 // SERVICE_AREA has 14. Her visible copy is kept; schema areaServed still uses SERVICE_AREA.
 const cities = [
   "South San Francisco",
@@ -36,7 +36,7 @@ const cities = [
 
 const faq = [
   {
-    // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "…free estimates for janitorial, home, commercial, and window cleaning."
+    // COPY: home-cleaning wording changed per ruling 10/5 — original: "…free estimates for janitorial, home, commercial, and window cleaning."
     q: "Does Phil's Magic Cleaning provide free estimates?",
     a: "Yes. Phil's Magic Cleaning provides free estimates for janitorial, commercial, and window cleaning. Contact Phil's by phone or submit the online form with your property location, cleaning needs, and whether you are interested in one-time or recurring service.",
   },
@@ -67,7 +67,7 @@ const toc = [
     <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4"><ol class="flex gap-2 list-none p-0 m-0"><li><a href="/">Home</a></li><li aria-hidden="true">›</li><li aria-current="page">Contact</li></ol></nav>
 
     <h1 class="text-4xl md:text-5xl mt-2 mb-4">How can I contact Phil's Magic Cleaning?</h1>
-    <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Contact Phil's Magic Cleaning for janitorial, home, commercial, or window cleaning." -->
+    <!-- COPY: home-cleaning wording changed per ruling 10/5 — original: "Contact Phil's Magic Cleaning for janitorial, home, commercial, or window cleaning." -->
     <p class="text-lg text-muted max-w-3xl">
       Contact Phil's Magic Cleaning for janitorial, commercial, or window cleaning. One-time and recurring services are available for homes and businesses on the Peninsula in San Mateo County and northern Santa Clara County.
     </p>
@@ -102,14 +102,14 @@ const toc = [
 
     <section id="services" class="border-t border-line pt-12 mt-12">
       <h2 id="services-heading" class="text-2xl md:text-3xl mb-4">What cleaning services can I request?</h2>
-      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Services include commercial cleaning, home cleaning, and residential and commercial window cleaning, with one-time and recurring options available." -->
+      <!-- COPY: home-cleaning wording changed per ruling 10/5 — original: "Services include commercial cleaning, home cleaning, and residential and commercial window cleaning, with one-time and recurring options available." -->
       <p class="leading-relaxed max-w-3xl">
         Phil's Magic Cleaning provides two primary types of professional cleaning for homes and businesses: janitorial and general cleaning, and window cleaning. Services include commercial cleaning and residential and commercial window cleaning, with one-time and recurring options available.
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
         <div class="bg-wash rounded-lg p-5 flex flex-col">
           <h3 id="janitorial-and-general-cleaning" class="font-bold mb-2">Janitorial and general cleaning</h3>
-          <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Professional cleaning for homes and businesses, including commercial and janitorial cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other commercial properties." -->
+          <!-- COPY: home-cleaning wording changed per ruling 10/5 — original: "Professional cleaning for homes and businesses, including commercial and janitorial cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other commercial properties." -->
           <p class="text-sm text-muted leading-relaxed flex-1">Commercial and janitorial cleaning for offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other commercial properties.</p>
           <p class="mt-4"><a href="/janitorial-cleaning" class="btn btn-outline">Learn about cleaning services</a></p>
         </div>
@@ -126,7 +126,7 @@ const toc = [
       <div class="space-y-4 leading-relaxed max-w-3xl">
         <p>Phil's Magic Cleaning serves homes and businesses across the Peninsula in San Mateo County and northern Santa Clara County, with a primary service area extending from South San Francisco to Mountain View.</p>
         <p>Service areas include:</p>
-        <!-- REVIEW E.L.: city list differs from site.ts (Emily: 8 cities + "Other communities"; SERVICE_AREA: 14) -->
+        <!-- REVIEW: city list differs from site.ts (the copywriter: 8 cities + "Other communities"; SERVICE_AREA: 14) -->
         <ul class="list-disc pl-6 space-y-1">
           {cities.map((c) => <li>{c}</li>)}
         </ul>
@@ -137,7 +137,7 @@ const toc = [
 
     <section id="why-contact" class="border-t border-line pt-12 mt-12">
       <h2 id="why-contact-heading" class="text-2xl md:text-3xl mb-4">Why contact Phil's Magic Cleaning?</h2>
-      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "…licensed and insured professional commercial and home cleaning backed by five-star customer reviews…" -->
+      <!-- COPY: home-cleaning wording changed per ruling 10/5 — original: "…licensed and insured professional commercial and home cleaning backed by five-star customer reviews…" -->
       <p class="leading-relaxed max-w-3xl"><strong>Phil's Magic Cleaning provides licensed and insured professional commercial cleaning and window cleaning for businesses and homes backed by five-star customer reviews across the Peninsula. One-time and recurring cleaning can be customized based on the property, cleaning requirements, and preferred schedule.</strong></p>
     </section>
 

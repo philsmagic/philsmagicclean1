@@ -1,9 +1,9 @@
 ---
 /**
- * Service Areas — Emily Matthews' AEO copy (Assets/aeo-copy-2026-10-05/md/Service Areas.md),
- * carried verbatim except the home-cleaning substitutions required by E.L.'s ruling of
+ * Service Areas — the copywriter's AEO copy (Assets/aeo-copy-2026-10-05/md/Service Areas.md),
+ * carried verbatim except the home-cleaning substitutions required by the ruling of
  * 2026-10-05 (each one flagged inline and logged in docs/EMILY-CHANGES.md).
- * Sentence-case headings are deliberate (Emily). Per-city write-ups from the live site are
+ * Sentence-case headings are deliberate (the copywriter). Per-city write-ups from the live site are
  * replaced by her copy. SERVICE_AREA (site.ts) still drives schema areaServed.
  */
 import Base from "@/layouts/Base.astro";
@@ -14,11 +14,11 @@ import { breadcrumbs, faqPage } from "@/data/schema";
 
 const path = "/service-areas";
 const title = "Serving San Mateo and northern Santa Clara Counties | Phil's Magic Cleaning";
-// EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "…with commercial, home, janitorial, and window cleaning."
+// COPY: home-cleaning wording changed per ruling 10/5 — original: "…with commercial, home, janitorial, and window cleaning."
 const description =
   "Phil's Magic Cleaning serves homes and businesses from South San Francisco to Mountain View with commercial, janitorial, and window cleaning.";
 
-// REVIEW E.L.: city list differs from site.ts — Emily lists 8 named cities + "Other communities";
+// REVIEW: city list differs from site.ts — the copywriter lists 8 named cities + "Other communities";
 // SERVICE_AREA has the 14 confirmed cities from seo-plan.md.
 // Her visible copy is kept; the schema's areaServed still uses SERVICE_AREA.
 const cities = [
@@ -39,7 +39,7 @@ const faq = [
     a: "Yes. Customers near the edges of Phil's Magic Cleaning's primary South San Francisco-to-Mountain View service area can contact Phil's to confirm availability. Service depends on the property location, type of cleaning requested, and scheduling availability.",
   },
   {
-    // Emily 2026-10-19: new FAQ
+    // The copywriter 2026-10-19: new FAQ
     q: "Does Phil’s Magic Cleaning serve San Francisco?",
     a: "No. Phil’s Magic Cleaning does not provide service in the City of San Francisco. Phil’s serves the Peninsula in San Mateo County and northern Santa Clara County, from South San Francisco, a separate city south of San Francisco, to Mountain View.",
   },
@@ -48,7 +48,7 @@ const faq = [
     a: "Phil's Magic Cleaning primarily serves communities from South San Francisco to Mountain View. Customers in other communities along the Peninsula can contact Phil's to confirm whether service is available for their location and requested cleaning service.",
   },
   {
-    // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "…to confirm available commercial, home, janitorial, or window cleaning services."
+    // COPY: home-cleaning wording changed per ruling 10/5 — original: "…to confirm available commercial, home, janitorial, or window cleaning services."
     q: "Are all cleaning services available in every city?",
     a: "Service availability depends on the property location and type of cleaning requested. Contact Phil's Magic Cleaning with your city, property type, and cleaning needs to confirm available commercial, janitorial, or window cleaning services.",
   },
@@ -79,7 +79,7 @@ const toc = [
     </nav>
 
     <h1 class="text-4xl md:text-5xl mt-2 mb-4">Where does Phil's Magic Cleaning provide cleaning services?</h1>
-    <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Services include commercial, janitorial, home, and window cleaning." -->
+    <!-- COPY: home-cleaning wording changed per ruling 10/5 — original: "Services include commercial, janitorial, home, and window cleaning." -->
     <p class="text-lg text-muted max-w-3xl">
       Phil's Magic Cleaning provides professional cleaning for homes and businesses across the Peninsula in San Mateo County and northern Santa Clara County, with a primary service area from South San Francisco to Mountain View. Services include commercial, janitorial, and window cleaning.
     </p>
@@ -91,7 +91,7 @@ const toc = [
       <div class="max-w-3xl space-y-4 leading-relaxed">
         <p>Phil's Magic Cleaning serves communities across the Peninsula from South San Francisco to Mountain View, including Millbrae, Burlingame, San Mateo, Foster City, Redwood City, and Palo Alto.</p>
         <p>Service areas include:</p>
-        <!-- REVIEW E.L.: city list differs from site.ts (Emily: 8 cities + "Other communities"; SERVICE_AREA: 14) -->
+        <!-- REVIEW: city list differs from site.ts (the copywriter: 8 cities + "Other communities"; SERVICE_AREA: 14) -->
         <ul class="list-disc pl-6 space-y-1">
           {cities.map((c) => <li>{c}</li>)}
         </ul>
@@ -101,11 +101,11 @@ const toc = [
 
     <section id="services-across-area" class="border-t border-line pt-12 mt-12">
       <h2 id="services-across-area-heading" class="text-2xl md:text-3xl mb-4">What cleaning services does Phil's Magic Cleaning provide across its service area?</h2>
-      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Phil's Magic Cleaning provides commercial and janitorial cleaning for businesses, professional home cleaning for residential properties, and window cleaning for homes and businesses across the San Francisco Peninsula." -->
+      <!-- COPY: home-cleaning wording changed per ruling 10/5 — original: "Phil's Magic Cleaning provides commercial and janitorial cleaning for businesses, professional home cleaning for residential properties, and window cleaning for homes and businesses across the San Francisco Peninsula." -->
       <p class="max-w-3xl leading-relaxed">
         Phil's Magic Cleaning provides commercial and janitorial cleaning for businesses and window cleaning for homes and businesses across the Peninsula. One-time and recurring options are available based on the property and cleaning needs.
       </p>
-      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original button: "View commercial and home cleaning services" -->
+      <!-- COPY: home-cleaning wording changed per ruling 10/5 — original button: "View commercial and home cleaning services" -->
       <div class="flex flex-wrap gap-3 mt-6">
         <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
         <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>
@@ -127,7 +127,7 @@ const toc = [
       <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 list-none p-0 mt-8 max-w-3xl">
         <li class="bg-wash rounded-lg p-5">
           <h3 id="community-trusted" class="font-bold mb-1">Community-trusted</h3>
-          <!-- REVIEW E.L.: named clients — FASTSIGNS, Baking Arts, Burlingame Tobacconist, Belfor Restoration (Emily's copy). -->
+          <!-- REVIEW: named clients — FASTSIGNS, Baking Arts, Burlingame Tobacconist, Belfor Restoration (the copywriter's copy). -->
           <p class="text-sm text-muted leading-relaxed">Trusted for years by FASTSIGNS, Baking Arts, Burlingame Tobacconist, Belfor Restoration, and Good Things Coffee in Burlingame and Palo Alto.</p>
         </li>
         <li class="bg-wash rounded-lg p-5">

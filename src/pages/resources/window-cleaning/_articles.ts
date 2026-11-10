@@ -1,7 +1,7 @@
 /**
- * The six window-cleaning resource articles: URL, title (= H1), Emily's hub blurb and link text
+ * The six window-cleaning resource articles: URL, title (= H1), the copywriter's hub blurb and link text
  * (2026-10-07, verbatim). Used by the hub and by each article's "Related articles" block, whose
- * text in Emily's docs is identical to the hub blurb. Underscore prefix: Astro does not route this.
+ * text in the copywriter's docs is identical to the hub blurb. Underscore prefix: Astro does not route this.
  */
 export const HUB = "/resources/window-cleaning";
 export const HUB_NAME = "Window cleaning resource center";
