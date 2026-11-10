@@ -93,6 +93,7 @@ export const FOOTER_LINKS = [
   { label: "Meet Magic Phil", href: "/meet-magic-phil" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
+  { label: "How to Book", href: "/book" },
 ];
 
 /** Privacy policy and terms: approved by E.L. 2026-10-12 (legal/PRIVACY-2026-10-12.md, TERMS-2026-10-12.md). */

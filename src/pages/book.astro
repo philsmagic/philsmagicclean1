@@ -1,0 +1,137 @@
+---
+/**
+ * How to book. A stable page that states the booking facts in plain text and
+ * links the two Jobber request forms, so people and AI assistants find the
+ * same answer in one place. Every fact here is already published elsewhere on
+ * the site (contact, window cleaning, terms, privacy, the call-to-action band);
+ * nothing new is claimed. Facts come from BUSINESS / SERVICE_AREA, never
+ * hard-coded, so this page cannot drift from the footer and the schema.
+ */
+import Base from "@/layouts/Base.astro";
+import { BUSINESS, SERVICE_AREA, SITE_URL, REQUEST_FORM_URL, JANITORIAL_FORM_URL } from "@/data/site";
+import { ORG_ID, breadcrumbs } from "@/data/schema";
+
+const path = "/book";
+const title = "How to Book | Phil's Magic Cleaning";
+const description = `Book Phil's Magic Cleaning by requesting a free estimate online or calling ${BUSINESS.phoneDisplay}. Janitorial, commercial, and window cleaning across the Peninsula, Monday to Saturday.`;
+const addr = BUSINESS.address;
+
+const forms = [
+  { label: "Request a janitorial estimate", url: JANITORIAL_FORM_URL, for: "Commercial and janitorial cleaning" },
+  { label: "Request window cleaning or other services", url: REQUEST_FORM_URL, for: "Window cleaning and other services" },
+];
+
+/**
+ * The request is the bookable step: a free estimate. Each action points at the
+ * same Jobber form the visible button opens, with the button's own words.
+ */
+const estimate = {
+  "@type": "Service",
+  "@id": `${SITE_URL}${path}#estimate`,
+  name: "Free cleaning estimate",
+  serviceType: "Cleaning estimate",
+  description: "A free estimate for janitorial, commercial, and window cleaning. Work is confirmed once the quote and the schedule are agreed.",
+  provider: { "@id": ORG_ID },
+  areaServed: SERVICE_AREA.map((city) => ({ "@type": "City", name: city })),
+  url: `${SITE_URL}${path}`,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD", description: "Free estimate" },
+  potentialAction: forms.map((f) => ({
+    "@type": "ReserveAction",
+    name: f.label,
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: f.url,
+      actionPlatform: ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"],
+    },
+  })),
+};
+---
+<Base {title} {description} {path} schema={[breadcrumbs([{ name: "Home", path: "/" }, { name: "How to Book", path }]), estimate]}>
+  <article class="container mx-auto px-4 max-w-4xl py-12">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted mb-4"><ol class="flex gap-2 list-none p-0 m-0"><li><a href="/">Home</a></li><li aria-hidden="true">›</li><li aria-current="page">How to Book</li></ol></nav>
+
+    <h1 class="text-4xl md:text-5xl mt-2 mb-4">How do I book Phil's Magic Cleaning?</h1>
+    <p class="text-lg max-w-3xl">
+      Book Phil's Magic Cleaning by requesting a free estimate online or by calling <a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a>. Use the janitorial request form for commercial and janitorial cleaning, or the general request form for window cleaning and other services. Work is confirmed once you agree on the quote and the schedule.
+    </p>
+    <div class="flex flex-wrap gap-3 mt-6">
+      {forms.map((f, i) => (
+        <a href={f.url} target="_blank" rel="noopener noreferrer" class={i === 0 ? "btn btn-action" : "btn btn-outline"}>{f.label}</a>
+      ))}
+    </div>
+    <div class="brand-rule max-w-xs my-8"></div>
+
+    <dl class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-wash rounded-xl p-6 mb-6">
+      <div>
+        <dt class="font-bold">Phone</dt>
+        <dd><a href={`tel:${BUSINESS.phoneE164}`} class="text-xl font-semibold">{BUSINESS.phoneDisplay}</a></dd>
+      </div>
+      <div>
+        <dt class="font-bold">Hours</dt>
+        <dd>{BUSINESS.hours.display}</dd>
+      </div>
+      <div>
+        <dt class="font-bold">Based in</dt>
+        <dd><address class="not-italic">{addr.city}, {addr.region} {addr.postal}</address></dd>
+      </div>
+      <div>
+        <dt class="font-bold">Estimates</dt>
+        <dd>Free, for janitorial, commercial, and window cleaning</dd>
+      </div>
+    </dl>
+
+    <section id="how-to-request" class="mt-12">
+      <h2 class="text-2xl md:text-3xl mb-4">How do I request service?</h2>
+      <ol class="list-decimal pl-6 space-y-4 leading-relaxed max-w-3xl">
+        <li>
+          <strong>Choose the form that fits the job.</strong>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            {forms.map((f) => <li>{f.for}: <a href={f.url} target="_blank" rel="noopener noreferrer">{f.label}</a></li>)}
+          </ul>
+        </li>
+        <li>
+          <strong>Tell Phil's Magic Cleaning about the job.</strong> The form asks for your name, phone number, email, service address, and a description of the work. Include whether it is a home or business, the type of cleaning you need, the areas that need cleaning, whether you want one-time or recurring service, and any scheduling requirements.
+        </li>
+        <li>
+          <strong>Get your free estimate and agree on the schedule.</strong> A quote request isn't a booking. Work is confirmed only when you and Phil's Magic Cleaning agree on the quote and the schedule.
+        </li>
+      </ol>
+    </section>
+
+    <section id="what-happens-next" class="border-t border-line pt-12 mt-12">
+      <h2 class="text-2xl md:text-3xl mb-4">What happens after I send a request?</h2>
+      <p class="leading-relaxed max-w-3xl">
+        Your request goes to Jobber, the software Phil's Magic Cleaning uses to run the business. Phil's Magic Cleaning uses it to prepare your quote and schedule the work. Phil answers his own phone, and most jobs are scheduled within the week.
+      </p>
+    </section>
+
+    <section id="prices" class="border-t border-line pt-12 mt-12">
+      <h2 class="text-2xl md:text-3xl mb-4">How much does it cost?</h2>
+      <p class="leading-relaxed max-w-3xl">
+        Estimates are free. Window cleaning starts at $20 per pane, and each window type counts as a set number of panes. Janitorial and commercial cleaning is quoted for your property, cleaning needs, and schedule. Prices shown on the site are starting points; your actual price is in the quote.
+      </p>
+      <p class="mt-4"><a href="/window-cleaning#pricing" class="btn btn-outline">See window cleaning prices</a></p>
+    </section>
+
+    <section id="hours" class="border-t border-line pt-12 mt-12">
+      <h2 class="text-2xl md:text-3xl mb-4">When is Phil's Magic Cleaning open?</h2>
+      <p class="leading-relaxed max-w-3xl">{BUSINESS.hours.display}</p>
+    </section>
+
+    <section id="service-area" class="border-t border-line pt-12 mt-12">
+      <h2 class="text-2xl md:text-3xl mb-4">Where does Phil's Magic Cleaning work?</h2>
+      <p class="leading-relaxed max-w-3xl">Phil's Magic Cleaning serves homes and businesses on the Peninsula, from South San Francisco to Mountain View:</p>
+      <ul class="list-disc pl-6 mt-4 space-y-1 columns-1 sm:columns-2">
+        {SERVICE_AREA.map((c) => <li>{c}</li>)}
+      </ul>
+      <p class="mt-4 leading-relaxed max-w-3xl">Service availability depends on the property location and type of cleaning requested.</p>
+    </section>
+
+    <section id="call" class="border-t border-line pt-12 mt-12">
+      <h2 class="text-2xl md:text-3xl mb-4">Can I call instead of using the form?</h2>
+      <p class="leading-relaxed max-w-3xl">
+        Yes. Call Phil's Magic Cleaning at <a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a> for a free estimate. Hours: {BUSINESS.hours.display}
+      </p>
+    </section>
+  </article>
+</Base>
