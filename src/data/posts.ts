@@ -1,13 +1,13 @@
 /**
- * Blog posts — copy from Emily Matthews' AEO pass (2026-10-05), carried
+ * Blog posts — copy from the copywriter's AEO pass (2026-10-05), carried
  * verbatim from Assets/aeo-copy-2026-10-05/md/Resources_Blog_*.md.
  * Dates are ISO (schema needs them); the display format is derived.
  * Blog posts keep visible dates → BlogPosting schema with dates (CONVENTIONS).
  *
  * The three body-less teaser posts from the old site (how-often-clean-windows,
  * storefront-window-cleaning-roi, post-construction-window-cleaning) are NOT in
- * Emily's copy and were removed from this list on 2026-10-05. They return when
- * Emily writes them (see the "Window cleaning: a resource center" list in her
+ * The copywriter's copy and were removed from this list on 2026-10-05. They return when
+ * The copywriter writes them (see the "Window cleaning: a resource center" list in her
  * Notes About Edits.md).
  */
 export type Block =
@@ -24,9 +24,9 @@ export type Post = {
   slug: string;
   datePublished: string; // ISO
   dateModified?: string; // ISO — only when the answer itself changed
-  /** H1 (Emily's H1). */
+  /** H1 (the copywriter's H1). */
   title: string;
-  /** Emily's meta title, exactly. Falls back to `${title} | Phil's Magic Cleaning`. */
+  /** The copywriter's meta title, exactly. Falls back to `${title} | Phil's Magic Cleaning`. */
   metaTitle?: string;
   /** Blurb shown on /resources/blog (from Resources_Blog.md); also the post's intro when `intro` is absent. */
   excerpt: string;
@@ -53,7 +53,7 @@ export const posts: Post[] = [
     notice: true,
     body: [
       { type: "h2", id: "what-system", text: "What scheduling and invoicing system is Phil’s Magic Cleaning using?" },
-      // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "continues providing professional cleaning for businesses and homes across the San Francisco Peninsula."
+      // COPY: home-cleaning wording changed per ruling 10/5 — original: "continues providing professional cleaning for businesses and homes across the San Francisco Peninsula."
       { type: "p", text: "Phil’s Magic Cleaning is moving to Jobber for customer scheduling and invoicing. The new platform will support these administrative functions as Phil’s Magic Cleaning continues providing professional cleaning for businesses and window cleaning for homes across the Peninsula." },
       { type: "h2", id: "when", text: "When will Phil’s Magic Cleaning start using Jobber?" },
       { type: "p", text: "Phil’s Magic Cleaning will begin using Jobber for scheduling and invoicing on Friday, August 28, 2026. This transition will update how scheduling and invoicing are managed without requiring significant action from existing customers." },
@@ -71,7 +71,7 @@ export const posts: Post[] = [
     datePublished: "2026-08-25",
     title: "Phil’s Magic Cleaning expands commercial and janitorial cleaning services",
     metaTitle: "Expanded Commercial Cleaning | Phil’s Magic Cleaning",
-    // EMILY: the post doc has no definition paragraph under the H1; the /resources/blog blurb is reused as the intro.
+    // COPY: the post doc has no definition paragraph under the H1; the /resources/blog blurb is reused as the intro.
     excerpt:
       "Phil’s Magic Cleaning has expanded its commercial and janitorial cleaning services for businesses across the Peninsula. Learn about recurring and one-time cleaning options and how the expanded services support offices, storefronts, restaurants, and other local businesses.",
     metaDescription:
@@ -94,7 +94,7 @@ export const posts: Post[] = [
       { type: "h2", id: "introductory-offer", text: "Is there an introductory offer for existing window cleaning customers?" },
       { type: "p", text: "Existing Phil’s Magic Cleaning window cleaning customers can receive $150 off their first month of recurring commercial or janitorial cleaning service." },
       { type: "h2", id: "more-information", text: "More information" },
-      // Emily's contact link is inline in the sentence ("[LINK TO CONTACT PAGE]"). The Jobber request form lives in the CtaBand below the post.
+      // The copywriter's contact link is inline in the sentence ("[LINK TO CONTACT PAGE]"). The Jobber request form lives in the CtaBand below the post.
       { type: "p", text: "To confirm current eligibility and offer details, ", link: { text: "contact Phil’s Magic Cleaning", href: "/contact" }, after: "." },
     ],
   },

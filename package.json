@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/strip-comments.mjs && node scripts/validate-schema.mjs",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "leak-scan": "python3 scripts/leak_scan.py dist --allow scripts/leak-allow.json --repo .",
+    "launch-check": "pnpm build && pnpm leak-scan"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.0",

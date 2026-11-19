@@ -1,9 +1,9 @@
 ---
 /**
  * Resource article — "What is the difference between one-time, deep, and
- * recurring cleaning?" Emily Matthews' copy (2026-10-05), carried verbatim;
+ * recurring cleaning?" the copywriter's copy (2026-10-05), carried verbatim;
  * sentence-case headings and cross-page repetition are deliberate. No visible
- * date → Article schema without dates. Home-cleaning substitutions per E.L.
+ * date → Article schema without dates. Home-cleaning substitutions per the agency
  * ruling 10/5 are flagged inline and logged in docs/EMILY-CHANGES.md.
  */
 import Base from "@/layouts/Base.astro";
@@ -21,7 +21,7 @@ const title = "One-time vs. deep vs. recurring cleaning";
 const description =
   "Compare one-time, deep, and recurring cleaning, how each service differs, how recurring cleaning works, and which option fits your home or business.";
 
-// Emily's TOC lists these H2s only (deliberately not all of them).
+// The copywriter's TOC lists these H2s only (deliberately not all of them).
 const toc = [
   { id: "what-is-one-time-cleaning", label: "What is one-time cleaning?" },
   { id: "what-is-deep-cleaning", label: "What is deep cleaning?" },
@@ -33,7 +33,7 @@ const toc = [
 ];
 
 // Same array → <Faq> AND faqPage(), so the JSON-LD matches the page verbatim.
-// (Emily's bold inside two answers is dropped — FAQ answers are plain text so schema and page match.)
+// (the copywriter's bold inside two answers is dropped — FAQ answers are plain text so schema and page match.)
 const faq = [
   {
     q: "Is deep cleaning the same as one-time cleaning?",
@@ -47,7 +47,7 @@ const faq = [
     q: "Do businesses use one-time or recurring cleaning services?",
     a: "Businesses use both one-time and recurring professional cleaning depending on the property, cleaning requirements, and maintenance schedule. One-time commercial cleaning can address a specific situation or periodic requirement, while recurring janitorial cleaning supports ongoing maintenance. Offices, restaurants, storefronts, medical and dental offices, salons, gyms, and other businesses can choose a schedule based on property use and cleaning requirements.",
   },
-  // EMILY: FAQ "Can homes use recurring professional cleaning?" REMOVED per E.L. ruling 10/5 (house cleaning is not a service) — please supply a window-cleaning-for-homes question if one is wanted.
+  // COPY: FAQ "Can homes use recurring professional cleaning?" REMOVED per ruling 10/5 (house cleaning is not a service) — please supply a window-cleaning-for-homes question if one is wanted.
   {
     q: "How can you choose the right cleaning schedule and scope?",
     a: "Choose the right professional cleaning service by deciding both how extensive the work needs to be and how frequently it should occur. One-time and recurring cleaning define the schedule, while deep cleaning defines the scope.",
@@ -196,7 +196,7 @@ const schema = [
         <p class="text-lg leading-relaxed mb-5">Separating frequency from scope makes it easier to describe your needs, request an accurate estimate, and compare professional cleaning services.</p>
       </section>
 
-      <!-- EMILY: your "Related articles" here listed the resource center twice and omitted "How do you choose a professional cleaning company?". Rendered as the two sibling articles + the hub once; the first item's blurb is your hub-page copy for that article. -->
+      <!-- COPY: your "Related articles" here listed the resource center twice and omitted "How do you choose a professional cleaning company?". Rendered as the two sibling articles + the hub once; the first item's blurb is your hub-page copy for that article. -->
       <nav aria-label="Related articles" class="my-12">
         <h2 id="related-articles" class="text-2xl md:text-3xl mb-6">Related articles</h2>
         <ul class="space-y-8">
@@ -224,9 +224,9 @@ const schema = [
 
       <section>
         <h2 id="services-phils-magic-cleaning-provides" class="text-2xl md:text-3xl mt-10 mb-4">What cleaning services does Phil’s Magic Cleaning provide?</h2>
-        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Phil’s Magic Cleaning provides professional cleaning for homes and businesses across the San Francisco Peninsula. Services include janitorial and general cleaning for homes and businesses, including commercial cleaning for businesses, plus residential and commercial window cleaning." -->
+        <!-- COPY: home-cleaning wording changed per ruling 10/5 — original: "Phil’s Magic Cleaning provides professional cleaning for homes and businesses across the San Francisco Peninsula. Services include janitorial and general cleaning for homes and businesses, including commercial cleaning for businesses, plus residential and commercial window cleaning." -->
         <p class="text-lg leading-relaxed mb-5">Phil’s Magic Cleaning provides commercial cleaning and window cleaning for businesses and homes across the Peninsula. Services include janitorial and commercial cleaning for businesses, plus residential and commercial window cleaning.</p>
-        <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original button label: "View commercial and home cleaning services" -->
+        <!-- COPY: home-cleaning wording changed per ruling 10/5 — original button label: "View commercial and home cleaning services" -->
         <div class="flex flex-wrap gap-4 my-6">
           <a href="/janitorial-cleaning" class="btn btn-outline">View commercial cleaning services</a>
           <a href="/window-cleaning" class="btn btn-outline">View window cleaning services</a>

@@ -1,6 +1,6 @@
 ---
 /**
- * Blog (news) index — copy from Emily Matthews' AEO pass (2026-10-05),
+ * Blog (news) index — copy from the copywriter's AEO pass (2026-10-05),
  * Resources_Blog.md, carried verbatim. Each post is an H2 + date + blurb +
  * her link text, in her order. Breadcrumb: Home › Resources › Blog.
  * The three body-less teaser posts from the old site are not in her copy and
@@ -17,7 +17,7 @@ const title = "Phil’s Magic Cleaning news & announcements";
 const description =
   "Get Phil’s Magic Cleaning news and updates about services, scheduling, invoicing, and other changes for Peninsula customers.";
 
-// Order and link text per Emily's doc.
+// Order and link text per the copywriter's doc.
 const entries = [
   { post: getPost("janitorial-services")!, linkText: "Explore expanded cleaning services" },
   { post: getPost("new-system")!, linkText: "Review the system update" },
@@ -46,7 +46,7 @@ const toc = entries.map(({ post }) => ({ id: post.slug, label: post.title }));
     <Toc items={toc} />
 
     <div class="max-w-3xl space-y-10 mt-12">
-      <!-- EMILY: link target in doc looked like a paste error (both blocks pointed at the scheduling-and-invoicing post); linked the "expands commercial and janitorial" block to the janitorial post -->
+      <!-- COPY: link target in doc looked like a paste error (both blocks pointed at the scheduling-and-invoicing post); linked the "expands commercial and janitorial" block to the janitorial post -->
       {entries.map(({ post, linkText }) => (
         <article id={post.slug} class="border-b border-line pb-10 last:border-0">
           <h2 class="text-xl md:text-2xl mb-2">{post.title}</h2>

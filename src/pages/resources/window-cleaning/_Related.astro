@@ -1,6 +1,6 @@
 ---
 /**
- * "Related articles" nav for the window-cleaning resource articles (Emily Matthews' copy,
+ * "Related articles" nav for the window-cleaning resource articles (the copywriter's copy,
  * 2026-10-07). Each doc lists one sibling article + the bold "Professional window cleaning
  * overview" block. The overview block's link in every doc is the malformed placeholder
  * `LINK TO Resources_Window cleaning resource center]` (missing "[") → /resources/window-cleaning
@@ -21,7 +21,7 @@ const { title, blurb, href, linkText } = Astro.props;
     <li>
       <h3 class="text-xl mb-2">Professional window cleaning overview</h3>
       <p class="leading-relaxed mb-2">This hub provides an overview of professional window cleaning for homeowners and businesses, including what services can include, DIY versus professional cleaning, choosing a provider, cleaning frequency, post-construction cleanup, and cleaning hard-to-reach and multi-story windows.</p>
-      <!-- EMILY: link placeholder was "LINK TO Resources_Window cleaning resource center]" (missing "[") → linked to /resources/window-cleaning -->
+      <!-- COPY: link placeholder was "LINK TO Resources_Window cleaning resource center]" (missing "[") → linked to /resources/window-cleaning -->
       <a href="/resources/window-cleaning" class="font-bold">Go to the window cleaning resource center</a>
     </li>
   </ul>

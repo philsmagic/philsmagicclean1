@@ -1,9 +1,9 @@
 ---
 /**
- * Home — Emily Matthews' AEO copy (Assets/aeo-copy-2026-10-05/md/Home.md) applied over the
+ * Home — the copywriter's AEO copy (Assets/aeo-copy-2026-10-05/md/Home.md) applied over the
  * 1:1 translation of the live homepage. Home keeps her capitalisation as written (humans are
- * the #1 audience here). Home-cleaning wording substituted per E.L. ruling 10/5 — see
- * docs/EMILY-CHANGES.md and the EMILY: comments inline.
+ * the #1 audience here). Home-cleaning wording substituted per ruling 10/5 — see
+ * docs/EMILY-CHANGES.md and the COPY: comments inline.
  */
 import Base from "@/layouts/Base.astro";
 import Toc from "@/components/Toc.astro";
@@ -11,7 +11,7 @@ import CtaBand from "@/components/CtaBand.astro";
 import { BUSINESS, JANITORIAL_FORM_URL } from "@/data/site";
 
 const path = "/";
-// EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Commercial and Home Cleaning | Phil's Magic Cleaning"
+// COPY: home-cleaning wording changed per ruling 10/5 — original: "Commercial and Home Cleaning | Phil's Magic Cleaning"
 const title = "Commercial and Window Cleaning | Phil's Magic Cleaning";
 const description =
   "Phil's Magic Cleaning provides professional cleaning for businesses and homes on the Peninsula, from South San Francisco to Mountain View, including janitorial and window cleaning services.";
@@ -38,7 +38,7 @@ const reviews = [
   { initials: "TC", name: "Theary Chhuo", role: "Restaurant Owner", text: "My restaurant windows are perfect now! Crystal clear. He's also cleaned my other restaurant location. I would highly recommend this cleaning service!" },
   { initials: "BR", name: "Becca Russell", role: "Property Manager", text: "Hired Phil to clean windows for a client in Burlingame and he did a fantastic job. Thorough, punctual (early, in fact!), and personable. Reasonably priced for the quality." },
   { initials: "BR", name: "Betsy Rosen", role: "Homeowner", text: "Phil and his assistant did an amazing job. Easy to schedule, arrived on time, totally professional. I've used others — will only go with Phil in the future." },
-  // REVIEW E.L.: this public Google review names Belfor (a client of Phil's) — carried as on the live site.
+  // REVIEW: this public Google review names Belfor (a client of Phil's) — carried as on the live site.
   { initials: "DA", name: "Dan A", role: "Restoration Pro", text: "I work for Belfor in property restoration and I've seen my fair share of cleaning crews. But I've never seen anyone clean windows the way Phil Magic and his team did." },
 ];
 
@@ -46,16 +46,16 @@ const whyItems = [
   { title: "Always on time — often early", desc: "Clients regularly note Phil arrives before the scheduled window. Your time is respected." },
   { title: "Meticulous on every surface", desc: "Phil deep cleans and inspects the work himself before considering a job complete — glass, floors, or anything else." },
   { title: "Professional and personable", desc: "Consistently described as warm and a genuine pleasure to work with." },
-  // REVIEW E.L.: named clients (FASTSIGNS, Baking Arts, Burlingame Tobacconist, Belfor) — carried from the live site; guardrail says no client named without recorded consent.
+  // REVIEW: named clients (FASTSIGNS, Baking Arts, Burlingame Tobacconist, Belfor) — carried from the live site; guardrail says no client named without recorded consent.
   { title: "Community-trusted", desc: "Trusted for years by FASTSIGNS, Baking Arts, Burlingame Tobacconist, Belfor Restoration, and Good Things Coffee in Burlingame and Palo Alto." },
   { title: "Licensed and insured", desc: "Fully covered for residential and commercial work" },
 ];
 
-/** Emily's "Cleaning resources" cards — each links to its resource center (all three built by 2026-10-07). */
+/** The copywriter's "Cleaning resources" cards — each links to its resource center (all three built by 2026-10-07). */
 const resourceCards = [
   {
     title: "Cleaning resource center",
-    // EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Learn what commercial and home cleaning includes, how often service is needed, what it costs, and how to choose a cleaning provider."
+    // COPY: home-cleaning wording changed per ruling 10/5 — original: "Learn what commercial and home cleaning includes, how often service is needed, what it costs, and how to choose a cleaning provider."
     desc: "Learn what commercial cleaning and window cleaning for businesses and homes includes, how often service is needed, what it costs, and how to choose a cleaning provider.",
     cta: "Explore commercial cleaning resources",
     href: "/resources/commercial-cleaning",
@@ -78,7 +78,7 @@ const stats = [
   { value: "5.0★", label: "Google rating" },
   { value: String(BUSINESS.rating.count), label: "Five-star reviews" },
   { value: `${BUSINESS.yearsServing} yrs`, label: "Serving the Bay Area" },
-  // REVIEW E.L.: "100% satisfaction rate" is an unverified claim — carried from the live site.
+  // REVIEW: "100% satisfaction rate" is an unverified claim — carried from the live site.
   { value: "100%", label: "Satisfaction rate" },
 ];
 
@@ -174,7 +174,7 @@ const toc = [
     <div class="container mx-auto px-4 max-w-7xl">
       <p class="eyebrow">What We Do</p>
       <h2 class="text-3xl md:text-4xl mt-2 mb-3" id="services">What cleaning services does Phil's Magic Cleaning offer?</h2>
-      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Phil's Magic Cleaning offers two primary types of professional cleaning—commercial and residential cleaning as well as window cleaning for homes and businesses." -->
+      <!-- COPY: home-cleaning wording changed per ruling 10/5 — original: "Phil's Magic Cleaning offers two primary types of professional cleaning—commercial and residential cleaning as well as window cleaning for homes and businesses." -->
       <p class="text-lg text-muted mb-12 max-w-3xl leading-relaxed">
         Phil's Magic Cleaning offers two primary types of professional cleaning—commercial cleaning as well as window cleaning for homes and businesses. <a href="/services">See all services</a>.
       </p>
@@ -212,12 +212,12 @@ const toc = [
     </div>
   </section>
 
-  <!-- Cleaning resources (Emily, NEW — above the reviews section) -->
+  <!-- Cleaning resources (the copywriter, NEW — above the reviews section) -->
   <section class="bg-wash py-16 border-t border-line">
     <div class="container mx-auto px-4 max-w-7xl">
       <p class="eyebrow">Cleaning resources</p>
       <h2 class="text-3xl md:text-4xl mt-2 mb-3" id="cleaning-resources">What should you know about professional cleaning services?</h2>
-      <!-- EMILY: home-cleaning wording changed per E.L. ruling 10/5 — original: "Find practical information about commercial and home cleaning services, including what different services cover, …" -->
+      <!-- COPY: home-cleaning wording changed per ruling 10/5 — original: "Find practical information about commercial and home cleaning services, including what different services cover, …" -->
       <p class="text-lg text-muted mb-10 max-w-3xl leading-relaxed">
         Find practical information about commercial cleaning and window cleaning services for businesses and homes, including what different services cover, how to choose a cleaning provider, how frequently properties should be cleaned, window cleaning, and what businesses and homeowners should consider when comparing options.
       </p>
@@ -278,7 +278,7 @@ const toc = [
           </li>
         ))}
       </ul>
-      <!-- Emily: "Licensed & Insured · Burlingame, CA" badge removed — repeats the bullet above. -->
+      <!-- The copywriter: "Licensed & Insured · Burlingame, CA" badge removed — repeats the bullet above. -->
     </div>
   </section>
 

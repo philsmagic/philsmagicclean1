@@ -1,5 +1,5 @@
-// Remove HTML comments from the built output. Review flags (<!-- REVIEW E.L. -->,
-// <!-- EMILY: … -->) stay in the source for reviewers but must never ship in
+// Remove HTML comments from the built output. Review flags (<!-- REVIEW -->,
+// <!-- COPY: … -->) stay in the source for reviewers but must never ship in
 // HTML that crawlers read. Conditional comments are not used on this site.
 import { readdirSync, readFileSync, writeFileSync, statSync } from "node:fs";
 import { join } from "node:path";
