@@ -56,7 +56,8 @@ const tel = `tel:${BUSINESS.phoneE164}`;
         <li>the pages you view, how long you stay, and how you arrived (for example, from a Google search);</li>
         <li>your device and browser type and your approximate location (city level, from your IP address);</li>
         <li>whether you tap our phone number or click a “request a quote” button;</li>
-        <li>a random identifier stored in a cookie, so repeat visits can be counted.</li>
+        <li>a random identifier stored in a cookie, so repeat visits can be counted;</li>
+        <li>how you move through a page (scrolling, clicks and taps), recorded by Microsoft Clarity so we can see where the site is confusing. Clarity hides what you type into fields.</li>
       </ul>
       <p><strong>When you request a quote</strong>, you fill out a form hosted by Jobber, the software we use to run our business. It asks for the details we need to quote and schedule your job, such as your name, phone number, email, service address and a description of the work.</p>
       <p class="mt-3"><strong>When you call or text us</strong>, we receive your phone number and what you tell us.</p>
@@ -77,6 +78,7 @@ const tel = `tel:${BUSINESS.phoneE164}`;
       <ul class="list-disc pl-6 space-y-1">
         <li><strong>Google</strong> (Google Analytics) measures how the site is used.</li>
         <li><strong>Meta</strong> (Facebook and Instagram) measures our ads and helps us show them to people likely to need our services. Meta may connect a visit to a Facebook or Instagram account you're logged into.</li>
+        <li><strong>Microsoft</strong> (Microsoft Clarity) records how visitors scroll and click, as heatmaps and anonymized session replays, so we can improve the site.</li>
         <li><strong>Jobber</strong> stores quote requests and customer records for us.</li>
         <li><strong>Netlify</strong> hosts the site and keeps standard server logs.</li>
       </ul>
@@ -85,17 +87,18 @@ const tel = `tel:${BUSINESS.phoneE164}`;
 
     <section class="mt-10">
       <h2 id="cookies" class="text-2xl mb-3">Cookies and how to opt out</h2>
-      <p>The site uses cookies from Google Analytics and the Meta pixel. These tools run only on philsmagicclean.com; nothing else on the site uses cookies. You can:</p>
+      <p>The site uses cookies from Google Analytics, the Meta pixel and Microsoft Clarity. These tools run only on philsmagicclean.com; nothing else on the site uses cookies. You can:</p>
       <ul class="list-disc pl-6 my-3 space-y-1">
         <li>block or delete cookies in your browser settings;</li>
         <li>install Google's <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Analytics opt-out add-on</a>;</li>
-        <li>manage ad preferences in your Facebook or Instagram account settings.</li>
+        <li>manage ad preferences in your Facebook or Instagram account settings;</li>
+        <li>turn on Global Privacy Control in your browser (see below), which also stops Clarity.</li>
       </ul>
     </section>
 
     <section class="mt-10">
       <h2 id="privacy-signals" class="text-2xl mb-3">Do Not Track and Global Privacy Control</h2>
-      <p>If your browser sends a <strong>Global Privacy Control</strong> signal, the site doesn't load the Meta pixel. The site doesn't respond to the older “Do Not Track” setting, because there's no common standard for it.</p>
+      <p>If your browser sends a <strong>Global Privacy Control</strong> signal, the site doesn't load the Meta pixel or Microsoft Clarity. The site doesn't respond to the older “Do Not Track” setting, because there's no common standard for it.</p>
     </section>
 
     <section class="mt-10">
@@ -103,6 +106,7 @@ const tel = `tel:${BUSINESS.phoneE164}`;
       <ul class="list-disc pl-6 space-y-1">
         <li>Website analytics: 14 months in Google Analytics.</li>
         <li>Advertising data: under Meta's own retention rules.</li>
+        <li>Clarity session replays and heatmaps: under Microsoft's retention rules for Clarity.</li>
         <li>Quote requests and customer records: for as long as you're a customer, and then up to seven years for business and tax records.</li>
       </ul>
     </section>

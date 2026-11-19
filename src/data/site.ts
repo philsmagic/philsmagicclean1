@@ -97,9 +97,11 @@ export const FOOTER_LINKS = [
 ];
 
 /** Privacy policy and terms: approved 2026-10-12 (legal/PRIVACY-2026-10-12.md, TERMS-2026-10-12.md). */
-export const LEGAL_UPDATED = "2026-10-12";
+export const LEGAL_UPDATED = "2026-11-19";
 
 /** Analytics fire ONLY on these hostnames. Localhost and previews send nothing (see Base.astro). */
 export const PROD_HOSTS = ["philsmagicclean.com", "www.philsmagicclean.com"];
 export const GA_ID = "G-V3TMEPTD2V";
 export const META_PIXEL_ID = "1076653965253682";
+/** Microsoft Clarity project ID. Empty = Clarity does not load. PLACEHOLDER: fill before merge. */
+export const CLARITY_ID = "";
