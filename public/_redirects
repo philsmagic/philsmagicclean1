@@ -32,8 +32,8 @@ https://phils-magic-aeo.netlify.app/*   https://philsmagicclean.com/:splat   301
 /service-areas/daly-city              /service-areas               301
 /service-areas/south-san-francisco    /service-areas               301
 # Wix-era URLs (Bing Webmaster Tools IndexNow history, 2026-10-08)
-/booking-calendar/*  /contact                     301
-/book-online         /contact                     301
+/booking-calendar/*  /book                        301
+/book-online         /book                        301
 /404                 /404.html               301
 # Crawlers that guess /sitemap.xml get the index (rewrite, not redirect)
 /sitemap.xml         /sitemap-index.xml      200
